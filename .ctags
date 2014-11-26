@@ -1,0 +1,40 @@
+-R
+-f .tags
+--verbose=yes
+--tag-relative=yes
+--langmap=php:.function..xct_functions..regist_mailbox..php.inc.class.ini
+--php-kinds=cfd
+--regex-PHP=/abstract\s+class\s+([^ ]+)/\1/c/
+--regex-PHP=/interface\s+([^ ]+)/\1/c/
+--regex-PHP=/(public\s+|static\s+|protected\s+|private\s+)\$([^     =]+)/\2/p/
+--regex-PHP=/const\s+([^    =]+)/\1/d/
+--regex-PHP=/final\s+(public\s+|static\s+|abstract\s+|protected\s+|private\s+)function\s+\&?\s*([^ (]+)/\2/f/
+--langdef=js
+--langmap=js:.js
+--regex-js=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\{/\1/,object/
+--regex-js=/([A-Za-z0-9._$()]+)[ \t]*[:=][ \t]*function[ \t]*\(/\1/,function/
+--regex-js=/function[ \t]+([A-Za-z0-9._$]+)[ \t]*([^)])/\1/,function/
+--regex-js=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\[/\1/,array/
+--regex-js=/([^= ]+)[ \t]*=[ \t]*[^"]'[^']*/\1/,string/
+--regex-ruby=/^[\t ]*([A-Z][-_A-Za-z0-9]*::)*([A-Z][-_A-Za-z0-9]*)[\t ]*=/\2/C,constant/
+--exclude="app_id"
+--exclude="app_id_admin"
+--exclude="app_kh"
+--exclude="app_kh_admin"
+--exclude="app_kyujin"
+--exclude="app_kyujin_admin"
+--exclude="app_th"
+--exclude="app_th_admin"
+--exclude="app_vn"
+--exclude="app_vn_admin"
+--exclude="app_vnexpress"
+--exclude="bin"
+--exclude="common"
+--exclude="web_admin"
+--exclude="web_asia"
+--exclude="web_careerlink"
+--exclude="web_id"
+--exclude="web_kh"
+--exclude="web_kyujin"
+--exclude="web_th"
+--exclude="web_vnexpress"

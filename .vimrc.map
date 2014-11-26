@@ -1,0 +1,311 @@
+"-------------------------------------------------------------------------------"
+" Mapping
+"-------------------------------------------------------------------------------"
+" コマンド       ノーマルモード 挿入モード コマンドラインモード ビジュアルモード
+" map /noremap           @            -              -                  @
+" nmap / nnoremap        @            -              -                  -
+" imap / inoremap        -            @              -                  -
+" cmap / cnoremap        -            -              @                  -
+" vmap / vnoremap        -            -              -                  @
+" map! / noremap!        -            @              @                  -
+"-------------------------------------------------------------------------------"
+
+"----------------------------------------------------
+" Escを連打したときにハイライトが消えるように+ペーストモード解除するように
+"----------------------------------------------------
+nmap <silent> <Esc><Esc> :nohlsearch<CR>:set nopaste<CR><Esc>
+
+"----------------------------------------------------
+" ;p で貼り付けモードにする
+"----------------------------------------------------
+nmap <silent> ;p :set paste<CR>:startinsert<CR>
+
+"----------------------------------------------------
+" Ctrl + d でNERDTreeを開く/閉じる
+"----------------------------------------------------
+"nnoremap <silent> <C-d> :NERDTreeToggle<CR>
+function! MyNERDTreeFindToggle()
+    "" Check if NERDTree is open
+    if exists("t:NERDTreeBufName")
+        let s:ntree = bufwinnr(t:NERDTreeBufName)
+    else
+        let s:ntree = -1
+    endif
+    if (s:ntree != -1)
+        "" If NERDTree is open, close it.
+        :NERDTreeClose
+    else
+        "" Try to open a :Rtree for the rails project
+        if exists(":Rtree")
+            "" Open Rtree (using rails plugin, it opens in project dir)
+            :Rtree
+        else
+            "" Open NERDTree in the file path
+            :NERDTreeFind
+        endif
+    endif
+endfunction
+" Toggles NERDTree
+"map <silent> <F1> :call MyNERDTreeFindToggle()<CR>
+nnoremap <silent> <C-d> :call MyNERDTreeFindToggle()<CR>
+
+"----------------------------------------------------
+" Ctrl + x でVimFilerExplorerを開く/閉じる
+"----------------------------------------------------
+nnoremap <silent> <C-x> :VimFilerExplorer -find -toggle -explorer <CR>
+
+"----------------------------------------------------
+" yanktmp:Vimセッションをまたいでコピペできる
+"----------------------------------------------------
+map <silent> sy :call YanktmpYank()<CR> 
+map <silent> sp :call YanktmpPaste_p()<CR>
+map <silent> sP :call YanktmpPaste_P()<CR>
+
+"----------------------------------------------------
+" Tab : 次のタブへ
+"----------------------------------------------------
+nnoremap <silent> <tab> :tabnext<cr>
+"----------------------------------------------------
+" Shift + Tab : 前のタブへ
+"----------------------------------------------------
+nnoremap <silent> <S-tab> :tabprevious<cr>
+
+"----------------------------------------------------
+" <space>nで最後のタブのあとに新規タブ追加
+"----------------------------------------------------
+nmap <silent> <Space>n :call AddNewTabWindow()<CR>
+if !exists("*AddNewTabWindow()")
+    function! AddNewTabWindow()
+        execute "tablast"
+        execute "tabnew"
+    endfunction
+endif
+
+"----------------------------------------------------
+" ;nで最後のタブのあとに新規タブ追加+ファイラー起動
+"----------------------------------------------------
+nmap <silent> ;n :call AddNewTabWindowWithFiler()<CR>
+if !exists("*AddNewTabWindowWithFiler()")
+    function! AddNewTabWindowWithFiler()
+        execute "tablast"
+        execute "tabnew"
+        execute "NERDTree"
+        "execute "VimFilerExplorer"
+        "execute "VimFiler -split -simple -winwidth=35 -no-quit"
+    endfunction
+endif
+
+"----------------------------------------------------
+" F1-F12ファンクションキー
+"----------------------------------------------------
+" F1:開いているファイルのSVN情報を表示
+"nnoremap <silent> <F1> :!svn info %<CR>:!svn log --limit 3 %<CR>
+"" nnoremap <silent> <F1> :call PrintSvnInfo()<CR>
+"" if !exists("*PrintSvnInfo()")
+"" 	function! PrintSvnInfo()
+""         if expand('%:t') == 'svn-commit.tmp'
+""             :!svn log --verbose --limit 2
+""         else
+""             :!svn log --verbose --limit 2 %
+""         endif
+"" 	endfunction
+"" endif
+" F2:ペーストモード切り替え
+"set pastetoggle=<F2>
+" F3:
+" Gundoでundo履歴をGUIで見る
+"nnoremap <silent> <F3> :GundoToggle<CR>
+"nnoremap <F3> :GundoToggle<CR>
+" F4:
+" クリップボード履歴
+nnoremap <silent> <F4> :YRShow<CR>
+" F5:CTRL-W > カレントウィンドウの幅を N（デフォルトは1）桁分増やす。
+nnoremap <silent> <F5> <C-w>>
+" F6:CTRL-W < カレントウィンドウの幅を N（デフォルトは1）桁分減らす。
+nnoremap <silent> <F6> <C-w><
+" F7:CTRL-W + カレントウィンドウの高さをN（デフォルトは1）行分高くする。
+nnoremap <silent> <F7> <C-w>+
+" F8:CTRL-W - カレントウィンドウの高さをN（デフォルトは1）行分低くする。
+nnoremap <silent> <F8> <C-w>-
+" F8:
+"入力された絞り込みテキストのディレクトリまたは、現在ディレクトリ直下のファイルすべてを候補とする。
+"nnoremap <F8> :Unite file_rec<CR>
+"ブックマークを表示
+"nnoremap <F8> :Unite bookmark<CR>
+"スニペットファイルディレクトリを表示
+"nnoremap <F8> :e ~/.vim/my_snippets/<CR>
+" F9:最近使用したファイル
+"nnoremap <F9> :Unite file_mru<CR>
+" F9:カレントディレクトリで絞り込んだ最近使用したファイル
+"nnoremap <F9> :UniteWithCurrentDir file_mru<CR>
+" F9:スクロールを同期
+"nnoremap <F9> :set scb<CR>
+" F9:スクロールを同期解除
+nnoremap <F9> :set noscb<CR>
+" F10:
+nnoremap <F10> :set fileencoding=utf8<CR>
+" F11:相対行表示
+nnoremap <silent> <F11> :set relativenumber!<CR>
+" F12:行数表示切り替え
+nnoremap <silent> <F12> :set number!<CR>
+
+"------------------------------------------------
+" */#で検索したときにいきなりジャンプしないように
+"------------------------------------------------
+map * *N
+map # #N
+
+"------------------------------------------------
+" hとS-hを誤爆するし、行頭に飛ぶ^が遠いのでShift+Hにする
+"------------------------------------------------
+map <S-h> ^
+
+"---------------------------------------------------
+" unite
+"---------------------------------------------------
+nnoremap // :Unite file<CR>**/** !cache/ 
+" 現在開いているファイルのディレクトリの下の一覧
+"nnoremap // :UniteWithBufferDir file -buffer-name=files<CR>
+"入力された絞り込みテキストのディレクトリまたは、現在ディレクトリ直下のファイルすべてを候補とする。
+nnoremap /? :Unite file_rec<CR>
+" 最近開いたファイル
+nnoremap <SPACE>u1 :Unite file_mru<CR>
+nnoremap /? :Unite file_mru<CR>
+" unite grep
+nnoremap <silent> ,ug :Unite grep::-iRHn<CR>
+" unite ESC
+" http://blog.sanojimaru.com/post/18534401804/unite-vim
+" ESCキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+" unite-bear keymaps
+" https://github.com/zukimochi/unite-bear
+nnoremap <silent> <SPACE>bh :<C-u>UniteWithInput bear/htdocs<CR>
+nnoremap <silent> <SPACE>ba :<C-u>UniteWithInput bear/App<CR>
+nnoremap <silent> <SPACE>bf :<C-u>UniteWithInput bear/Form<CR>
+nnoremap <silent> <SPACE>bp :<C-u>UniteWithInput bear/Page<CR>
+nnoremap <silent> <SPACE>br :<C-u>UniteWithInput bear/Ro<CR>
+nnoremap <silent> <SPACE>bl :<C-u>UniteWithInput bear/libs<CR>
+nnoremap <silent> <SPACE>bv :<C-u>UniteWithInput bear/views<CR>
+
+" ---------------------------------------------------
+" gtags カーソル下の関数の宣言箇所へジャンプして、Quickfix表示
+" ---------------------------------------------------
+nnoremap <C-g> :GtagsCursor <CR>
+
+
+" ---------------------------------------------------
+" SuperTab like snippets behavior.
+" ---------------------------------------------------
+" 補完展開キー
+imap <C-f>     <Plug>(neosnippet_expand_or_jump)
+smap <C-f>     <Plug>(neosnippet_expand_or_jump)
+
+" " -----------------------------------------------
+" " 端末のVimでもAltキーを使う設定と、
+" " <C-Space>を押すと<NUL>が送られてくるようなので、
+" "  逆に<NUL>が来たら<C-Space>になるようにしておく設定
+" " alt + o, alt + O はマップしない。
+" " http://d.hatena.ne.jp/thinca/20101215/1292340358
+" " -----------------------------------------------
+" if has('unix')
+" 	" Use meta keys in console.
+" 	function! s:use_meta_keys()  " {{{
+" 		for i in map(
+" 					\   range(char2nr('a'), char2nr('z'))
+" 					\ + range(char2nr('A'), char2nr('Z'))
+" 					\ + range(char2nr('0'), char2nr('9'))
+" 					\ , 'nr2char(v:val)')
+" 			" <ESC>O do not map because used by arrow keys.
+" 			if i != 'O'
+" 				execute 'nmap <ESC>' . i '<M-' . i . '>'
+" 			endif
+" 		endfor
+" 	endfunction  " }}}
+" 	call s:use_meta_keys()
+" 	map <NUL> <C-Space>
+" 	map! <NUL> <C-Space>
+" endif
+
+"------------------------------------------------
+" 表示行単位で移動するように設定
+"------------------------------------------------
+nmap j gj
+nmap k gk
+vmap j gj
+vmap k gk
+
+"" -----------------------------------------------
+"" 検索移動したら画面中央に表示
+"" -----------------------------------------------
+"nmap n nzz
+"nmap N Nzz
+
+"------------------------------------------------
+" grep
+"------------------------------------------------
+map ,gg :Grep<CR>
+map ,gr :Rgrep<CR>
+"map ,gf :Fgrep<CR>
+"map ,ga :Agrep<CR>
+
+"------------------------------------------------
+" 移動
+"------------------------------------------------
+nmap <C-H> <C-W>h
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
+nmap <C-L> <C-W>l
+
+"------------------------------------------------
+" タグジャンプしたら画面中央に移動
+"------------------------------------------------
+"nmap <C-]> <C-]>zz
+"------------------------------------------------
+" tagsジャンプの時に複数ある時は一覧表示                                        
+"------------------------------------------------
+nnoremap <C-]> g<C-]> 
+
+"------------------------------------------------
+" neocomplete.vim
+"------------------------------------------------
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    return neocomplete#close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+
+"------------------------------------------------
+" xolox/vim-session
+"------------------------------------------------
+"command Os OpenSession
+"command Ss SaveSession
+
+"------------------------------------------------
+" To disable “Entering Ex mode” in Vim
+"------------------------------------------------
+map Q <Nop>
+
+"------------------------------------------------
+" t9md/vim-quickhl
+"------------------------------------------------
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
+nmap <Space>j <Plug>(quickhl-cword-toggle)
+"nmap <Space>] <Plug>(quickhl-tag-toggle)
+"map H <Plug>(operator-quickhl-manual-this-motion)

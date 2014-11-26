@@ -1,0 +1,4 @@
+snippet l
+  Logger.new("/tmp/log").debug([${1}])
+snippet log
+  Logger.new("/tmp/log").debug([Time.now, __method__, __LINE__, ${1}])

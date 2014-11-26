@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# https://gist.github.com/3022478
+# mkdir -p ~/bin; cd ~/bin
+# wget -O tmuxx https://gist.github.com/yuki777/3022478/download
+# chmod 744 tmuxx
+
+print_help(){
+    echo ' ex1 : tmuxx'
+    echo '   if exists "default" session, reconnect "default" session.'
+    echo '   if NOT exists "default" session, make "default" session.'
+    echo ' ex2 : tmuxx hoge '
+    echo '   if exists "hoge" session, reconnect "hoge" session.'
+    echo '   if NOT exists "hoge" session, make "hoge" session.'
+    exit
+}
+
+run_tmux(){
+    if [ `tmux ls 2>/dev/null |grep "$1: "|wc -l` -eq 1 ];then
+        tmux -u a -dt $1
+    else
+        tmux -u new -s $1
+    fi
+}
+
+if [ "$1" = "--help" ];then
+    print_help
+elif [ "$1" = "" ];then
+    run_tmux "default"
+else
+    run_tmux "$1"
+fi

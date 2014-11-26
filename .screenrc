@@ -1,0 +1,75 @@
+
+# key                     : desc                    : 説明
+# Ctrl + <space>          : metakey                 : メタキー。screenコマンドはすべてこれから始まります。espace "^@@"
+# Ctrl + <space> c        : create                  : 新ウィンドウ作成
+# Ctrl + <space> <Space>  : change window           : ウィンドウ移動
+# Ctrl + <space> <Number> : change window           : ウィンドウ移動
+# Ctrl + <Left>|<Right>   : change window           : 矢印キーでウィンドウ移動
+# Ctrl + <space> S        : Separate                : 水平分割
+# Ctrl + <space> |        : Separate                : 垂直分割
+# Ctrl + <space> Tab      : change separated window : 分割されたウィンドウへフォーカス移動
+# Ctrl + <space> x        : password lock           : パスワードをかけてロックします
+# Ctrl + <space> <ESC>    : start scroll mode       : スクロールモード開始
+#  hjkl,Ctrl+f|b,,,       :  scroll like vim        :  vimライクにスクロール
+#  <Space>                :  start copy mode        :  コピーモード開始
+#  <Space>                :  end copy mode          :  コピーモード終了
+# <ESC>                   : end scroll mode         : スクロールモード終了
+# Ctrl + <space> ]        : paste                   : コピーした文字列をペーストする
+# Ctrl + <space> k        : kill window             : 固まってしまったウィンドウをKillする
+# Ctrl + <space> z        : suspend                 : サスペンドする。これはfgコマンドでも復帰できる。
+# man screen              : manual screen           : その他はマニュアル参照
+
+# .screenrc
+defutf8 on
+defkanji utf-8
+encoding utf-8 utf-8
+defencoding utf-8
+shell -$SHELL
+##logfile "$HOME/.screenlog/%Y%m%d-%n.log"
+##log on
+##deflog on
+#escape ^Jj  # Ctrl + j
+escape "^@@" # Ctrl + <space>
+termcap kterm hs@
+terminfo kterm hs@
+vbell off
+bind w windowlist -b
+startup_message off
+autodetach on
+defscrollback 20000
+# green
+#caption always  "%{=r dd}%-w%{=b dg}%n %t%{-}%+w %=%{=gk}%{=b dg}[%l][%Y-%m-%d %c]"
+# yellow
+#caption always  "%{=r dd}%-w%{=b dy}%n %t%{-}%+w %=%{=gk}%{=b dy}[%l][%Y-%m-%d %c]"
+# blue
+#caption always  "%{=r dd}%-w%{=b db}%n %t%{-}%+w %=%{=gk}%{=b db}[%l][%Y-%m-%d %c]"
+# red
+caption always  "%{=r dd}%-w%{=b dr}%n %t%{-}%+w %=%{=gk}%{=b dr}[%l][%Y-%m-%d %c]"
+defbce "on"
+setenv TERM xterm-256color
+term xterm-256color
+attrcolor b ".I"
+bufferfile "$HOME/screen-clipboard.txt"
+# http://d.hatena.ne.jp/wocota/20090824/1251129515
+#cjkwidth on
+# shortcut
+bind 'U' eval "encoding utf8" "stuff 'export LANG=ja_JP.UTF-8\012'"
+bind 'u' eval "encoding utf8" "stuff 'select now();\\Cutf8\012'"
+bind 'E' eval "encoding euc"  "stuff 'export LANG=ja_JP.EUC-JP\012'"
+bind 'e' eval "encoding euc"  "stuff 'select now();\\Cujis\012'"
+# windows putty Ctrl + -> bindings
+bindkey "^[OC" next
+bindkey "^[OD" prev
+# mac iterm Shift + -> bindings
+bindkey "^[[1;2C" next
+bindkey "^[[1;2D" prev
+bindkey "^[[5C" next
+bindkey "^[[5D" prev
+termcapinfo xterm* "Co#256:pa#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:ks=\E[?1l\E:ku=\E[A:kd=\E[B:kl=\E[D:kr=\E[C:kh=\E[5~:kH=\E[F:hs@:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l"
+
+#everybody share screen
+#1.admin's screen_session_name = hoge : chmod u+s `which screen` (shell command need root?)
+#2.admin's screen_session_name = hoge : multiuser on             (screen command)
+#3.admin's screen_session_name = hoge : acladd mazda,suzuki      (screen command)
+#4.mazda's,  shell : screen -x -r admin/hoge                     (shell command)
+#5.suzuki's, shell : screen -x -r admin/hoge                     (shell command)

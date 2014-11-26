@@ -1,0 +1,98 @@
+################################################
+### # install tig
+### sudo apt-get install git-core autoconf asciidoc xmlto
+### cd
+### mkdir -p ~/local/src
+### cd ~/local/src
+### git clone git@github.com:jonas/tig.git
+### cd tig
+### ./autogen.sh
+### ./configure --prefix=$HOME/local
+### make
+### make install # installed in ~/local/bin/tig
+### cd path/to/some/git/repository
+### tig -v
+
+################################################
+# for 2.0 http://jonas.nitro.dk/tig/tigrc.5.html
+set vertical-split = no 
+set split-view-height = 80%
+# Enable both ID and line numbers in the blame view
+set blame-view = date:default author:full file-name:auto id:yes,color line-number:yes,interval=5 text
+# Change grep view to be similar to `git grep` format
+set grep-view = file-name:yes line-number:yes,interval=1 text
+# Show file sizes as units
+set tree-view = line-number:no,interval=5 mode author:full file-size:units date:default id:no file-name
+# Show line numbers for every 10th line in the pager view
+set pager-view = line-number:yes,interval=10 text
+# Override the default terminal colors to white on black.
+color default           white   black
+# Diff colors
+color diff-header       yellow  default
+color diff-index        blue    default
+color diff-chunk        magenta default
+color "Reported-by:"    green   default
+# View specific color
+color tree.date         black   cyan    bold
+
+# show merge diff
+# http://qiita.com/YasuOza/items/7be136f03867d20b8332
+set diff-options = -m --first-parent
+set main-view = line-number:yes,interval=1 id:yes date:default author:full commit-title:yes,graph,refs,overflow=no
+
+#source ~/.tigrc.map
+bind generic <Down>   next
+bind generic <Up>     previous
+bind generic <Left>   view-next
+bind generic <Right>  view-next
+bind generic g        move-first-line
+bind generic G        none
+bind generic h        none
+bind generic l        none
+bind generic <Ctrl-f> scroll-page-down
+bind generic <Ctrl-b> scroll-page-up
+bind generic <Ctrl-h> view-next
+bind generic <Ctrl-j> view-next
+bind generic <Ctrl-k> view-next
+bind generic r        screen-redraw
+bind generic R        screen-redraw
+#bind generic <Ctrl-l> view-next
+
+################################################
+# options for tig 1.0
+#set diff-context = 3
+#set show-rev-graph = yes
+#set show-refs = yes
+#bind generic G none
+#bind generic g move-first-line
+#bind generic G move-last-line
+#bind generic ^f none
+#bind generic ^f scroll-page-down
+#bind generic ^b none
+#bind generic ^b scroll-page-up
+#bind generic ^h none
+#bind generic ^h view-next
+#bind generic ^j none
+#bind generic ^j view-next
+#bind generic ^k none
+#bind generic ^k view-next
+#bind generic ^l none
+#bind generic ^l view-next
+#set show-author = yes
+#set show-rev-graph = yes
+#set show-refs = yes
+#set show-line-numbers = no
+#set line-number-interval = 5
+##set commit-encoding = "UTF-8"
+#set horizontal-scroll = 33%
+#set show-author = full
+#set show-refs = true
+#set show-rev-graph = true
+#set show-date = local
+#set show-line-numbers = yes
+#set line-number-interval = 1
+#set line-graphics = ascii
+##set show-file-size = units
+#set horizontal-scroll = 20%
+#set show-id = yes
+
