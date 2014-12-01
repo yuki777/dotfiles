@@ -57,7 +57,7 @@ nnoremap <silent> <C-x> :VimFilerExplorer -find -toggle -explorer <CR>
 "----------------------------------------------------
 " yanktmp:Vimセッションをまたいでコピペできる
 "----------------------------------------------------
-map <silent> sy :call YanktmpYank()<CR> 
+map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>
 
@@ -262,9 +262,9 @@ nmap <C-L> <C-W>l
 "------------------------------------------------
 "nmap <C-]> <C-]>zz
 "------------------------------------------------
-" tagsジャンプの時に複数ある時は一覧表示                                        
+" tagsジャンプの時に複数ある時は一覧表示
 "------------------------------------------------
-nnoremap <C-]> g<C-]> 
+nnoremap <C-]> g<C-]>
 
 ""------------------------------------------------
 "" neocomplete.vim
