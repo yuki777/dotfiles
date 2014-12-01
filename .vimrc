@@ -24,14 +24,25 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in .gvimrc!
 
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc', {
-            \ 'build' : {
-            \     'windows' : 'make -f make_mingw32.mak',
-            \     'cygwin'  : 'make -f make_cygwin.mak',
-            \     'mac'     : 'make -f make_mac.mak',
-            \     'unix'    : 'make -f make_unix.mak',
-            \    },
-            \ }
+if system('uname') == "FreeBSD\n"
+    NeoBundle 'Shougo/vimproc', {
+                \ 'build' : {
+                \     'windows' : 'make -f make_mingw32.mak',
+                \     'cygwin'  : 'make -f make_cygwin.mak',
+                \     'mac'     : 'make -f make_mac.mak',
+                \     'unix'    : 'gmake',
+                \    },
+                \ }
+else
+    NeoBundle 'Shougo/vimproc', {
+                \ 'build' : {
+                \     'windows' : 'make -f make_mingw32.mak',
+                \     'cygwin'  : 'make -f make_cygwin.mak',
+                \     'mac'     : 'make -f make_mac.mak',
+                \     'unix'    : 'make -f make_unix.mak',
+                \    },
+                \ }
+endif
 " my bundles
 if has('lua')
     NeoBundleLazy 'Shougo/neocomplete.vim', {
