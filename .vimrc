@@ -90,6 +90,7 @@ NeoBundle 'xolox/vim-session', {
             \ 'depends' : 'xolox/vim-misc',
             \ }
 NeoBundle 'tomasr/molokai'
+NeoBundle 'sickill/vim-monokai'
 NeoBundle 'desert256.vim'
 NeoBundle 'soh335/vim-symfony'
 NeoBundle 'rcmdnk/vim-markdown'
@@ -357,7 +358,12 @@ if $USER == 'adachi' || $USER == 'yuki' || $USER == 'yuki-adachi'
         colorscheme desert256
     endif
 else
-    colorscheme desert256
+    "if filereadable($HOME . "/.vim/bundle/vim-monokai/colors/monokai.vim")
+    "    colorscheme monokai
+    "else
+    "    colorscheme desert256
+    "endif
+    colorscheme molokai
 endif
 
 "----------------------------------------------------
