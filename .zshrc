@@ -256,8 +256,13 @@ function svnlogdiff(){
 [ -f ${HOME}/.zshrc.git   ] && source ${HOME}/.zshrc.git
 [ -f ${HOME}/.zshrc.cl    ] && source ${HOME}/.zshrc.cl
 
+<<<<<<< HEAD
 # The next line updates PATH for the Google Cloud SDK.
 [ -f ~/google-cloud-sdk/path.zsh.inc ] && source ~/google-cloud-sdk/path.zsh.inc
 
 # The next line enables bash completion for gcloud.
 [ -f /home/vagrant/google-cloud-sdk/completion.zsh.inc ] && source /home/vagrant/google-cloud-sdk/completion.zsh.inc
+=======
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+>>>>>>> Add heroku toolbelt
