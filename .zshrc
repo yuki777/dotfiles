@@ -255,3 +255,9 @@ function svnlogdiff(){
 [ -f ${HOME}/.zshrc.mysql ] && source ${HOME}/.zshrc.mysql
 [ -f ${HOME}/.zshrc.git   ] && source ${HOME}/.zshrc.git
 [ -f ${HOME}/.zshrc.cl    ] && source ${HOME}/.zshrc.cl
+
+# The next line updates PATH for the Google Cloud SDK.
+[ -f ~/google-cloud-sdk/path.zsh.inc ] && source ~/google-cloud-sdk/path.zsh.inc
+
+# The next line enables bash completion for gcloud.
+[ -f /home/vagrant/google-cloud-sdk/completion.zsh.inc ] && source /home/vagrant/google-cloud-sdk/completion.zsh.inc
