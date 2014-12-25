@@ -72,7 +72,9 @@ alias 2sjis='nkf -e --overwrite'
 alias vimp='vim -p '
 #alias vimb='vim -p "+NERDTree htdocs" "+tabnew" "+NERDTree libs/App/action" "+tabnew" "+NERDTree libs/App/view" "+tabnew" "+NERDTree templates" "+tabfirst"'
 #alias vimB='vim -p "+NERDTree htdocs" "+tabnew" "+NERDTree App/Ro" "+tabnew" "+NERDTree App/Form" "+tabnew" "+NERDTree App/views" "+tabfirst"'
-alias vimc='vim -p "+NERDTree application/controllers/" "+tabnew" "+NERDTree application/views/" "+tabnew" "+NERDTree application/language/" "+tabnew" "+NERDTree ." "+tabfirst"'
+#alias vimc='vim -p "+NERDTree application/controllers/" "+tabnew" "+NERDTree application/views/" "+tabnew" "+NERDTree application/language/" "+tabnew" "+NERDTree ." "+tabfirst"'
+# cakephp
+alias vimc='vim -p "+NERDTree app/Controller/" "+tabnew" "+NERDTree app/Model/" "+tabnew" "+NERDTree app/View/" "+tabnew" "+NERDTree app/Locale/" "+tabfirst"'
 alias vim.='vim "+NERDTree ."'
 #alias vim.='vim "+VimFilerExplorer -find ."'
 alias vimrc='vim ~/.vimrc'
@@ -256,13 +258,11 @@ function svnlogdiff(){
 [ -f ${HOME}/.zshrc.git   ] && source ${HOME}/.zshrc.git
 [ -f ${HOME}/.zshrc.cl    ] && source ${HOME}/.zshrc.cl
 
-<<<<<<< HEAD
 # The next line updates PATH for the Google Cloud SDK.
 [ -f ~/google-cloud-sdk/path.zsh.inc ] && source ~/google-cloud-sdk/path.zsh.inc
 
 # The next line enables bash completion for gcloud.
 [ -f /home/vagrant/google-cloud-sdk/completion.zsh.inc ] && source /home/vagrant/google-cloud-sdk/completion.zsh.inc
-=======
-### Added by the Heroku Toolbelt
+
+# Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
->>>>>>> Add heroku toolbelt
