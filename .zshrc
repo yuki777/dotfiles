@@ -103,6 +103,9 @@ case "${OSTYPE}" in
 darwin*)
 	alias ll='ls -Gla'
 	;;
+freebsd*)
+	alias ll='ls -Gla'
+	;;
 linux*)
 	alias ll='ls -Falq1AH --color=always --time-style=+"%Y-%m-%d %H:%M:%S"'
 	;;
