@@ -15,7 +15,7 @@
 
 ################################################
 # for 2.0 http://jonas.nitro.dk/tig/tigrc.5.html
-set vertical-split = no 
+set vertical-split = no
 set split-view-height = 80%
 # Enable both ID and line numbers in the blame view
 set blame-view = date:default author:full file-name:auto id:yes,color line-number:yes,interval=5 text
