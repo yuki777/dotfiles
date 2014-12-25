@@ -611,7 +611,7 @@ set helplang=ja,en
 " -----------------------------------------------
 " syntastic
 " -----------------------------------------------
-let g:syntastic_mode_map = { 'mode': 'active',  'active_filetypes': ['ruby', 'php', 'yaml', 'python'], 'passive_filetypes': ['puppet'] }
+let g:syntastic_mode_map = { 'mode': 'active',  'active_filetypes': ['ruby', 'php', 'yaml', 'python'], 'passive_filetypes': ['puppet', 'po', 'pot'] }
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_phpcs_disable = 1
