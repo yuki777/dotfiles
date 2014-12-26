@@ -98,6 +98,7 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'sudo.vim'
+NeoBundle 'toyamarinyon/vim-swift'
 call neobundle#end()
 
 " Required:
