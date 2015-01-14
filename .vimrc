@@ -99,6 +99,9 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'sudo.vim'
 NeoBundle 'toyamarinyon/vim-swift'
+NeoBundle 'vim-scripts/JavaScript-Indent'
+NeoBundle 'vim-scripts/IndentAnything'
+
 call neobundle#end()
 
 " Required:
@@ -288,6 +291,11 @@ autocmd FileType smarty setlocal includeexpr=substitute(v:fname,'^\\/','','') | 
 autocmd FileType python setl autoindent
 autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+"----------------------------------------------------
+" set ft
+"----------------------------------------------------
+au BufNewFile,BufRead *.phtml set filetype=html
 
 "----------------------------------------------------
 " PHP
