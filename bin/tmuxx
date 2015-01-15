@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # https://gist.github.com/3022478
 # mkdir -p ~/bin; cd ~/bin
