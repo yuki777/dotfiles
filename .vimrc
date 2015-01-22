@@ -27,10 +27,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 if system('uname') == "FreeBSD\n"
     NeoBundle 'Shougo/vimproc', {
                 \ 'build' : {
-                \     'windows' : 'make -f make_mingw32.mak',
-                \     'cygwin'  : 'make -f make_cygwin.mak',
-                \     'mac'     : 'make -f make_mac.mak',
-                \     'unix'    : 'gmake',
+                \     'freebsd' : 'gmake -f make_unix.mak',
                 \    },
                 \ }
 else
