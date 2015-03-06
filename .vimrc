@@ -292,7 +292,7 @@ autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 "----------------------------------------------------
 " set ft
 "----------------------------------------------------
-au BufNewFile,BufRead *.phtml set filetype=html
+"au BufNewFile,BufRead *.phtml set filetype=html
 
 "----------------------------------------------------
 " PHP
