@@ -1,0 +1,7 @@
+# plugin
+[ -f ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh ] && source ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh
+ZSH_VCS_PROMPT_ENABLE_CACHING='true'
+#ZSH_VCS_PROMPT_USING_PYTHON='false'
+RPROMPT='$(vcs_super_info)'
+#ZSH_VCS_PROMPT_MERGE_BRANCH=develop
+ZSH_VCS_PROMPT_MERGE_BRANCH=master # Default

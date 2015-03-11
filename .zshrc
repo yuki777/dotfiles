@@ -260,6 +260,7 @@ function svnlogdiff(){
 [ -f ${HOME}/.zshrc.mysql ] && source ${HOME}/.zshrc.mysql
 [ -f ${HOME}/.zshrc.git   ] && source ${HOME}/.zshrc.git
 [ -f ${HOME}/.zshrc.cl    ] && source ${HOME}/.zshrc.cl
+[ -f ${HOME}/.zshrc.prompt ] && source ${HOME}/.zshrc.prompt
 
 # The next line updates PATH for the Google Cloud SDK.
 [ -f ~/google-cloud-sdk/path.zsh.inc ] && source ~/google-cloud-sdk/path.zsh.inc
