@@ -22,6 +22,7 @@
     ln -fs dotfiles/.tigrc     .tigrc
     ln -fs dotfiles/.gitconfig .gitconfig
     ln -fs dotfiles/.gitignore .gitignore
+    mkdir -p ~/bin && ln -s ~/dotfiles/bin/git_merge_wrapper3 ~/bin/git_merge_wrapper3
     cp dotfiles/.vimrc.local  ~/.vimrc.local
     cp dotfiles/.tmux.local   ~/.tmux.local
     cp dotfiles/.zshrc.local  ~/.zshrc.local
