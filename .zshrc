@@ -119,6 +119,7 @@ alias adb="/Applications/sdk/platform-tools/adb"
 alias tailf='tail -F'
 #alias hi="perl -pe 's/warn|err/\033\[1;31m$&\033\[0m/gi'"
 alias zmv='noglob zmv -W'
+alias g='git'
 
 # export
 export LANG=en_US.UTF-8
