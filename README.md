@@ -14,6 +14,7 @@
     ln -fs dotfiles/.vimrc     .vimrc
     ln -fs dotfiles/.vimrc.map .vimrc.map
     ln -fs dotfiles/.zshrc     .zshrc
+    ln -fs dotfiles/.zshrc.prompt     .zshrc.prompt
     ln -fs dotfiles/.zsh       .zsh
     ln -fs dotfiles/.screenrc  .screenrc
     ln -fs dotfiles/.tmux.conf .tmux.conf
