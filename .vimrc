@@ -54,20 +54,20 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tyru/current-func-info.vim'
+"NeoBundle 'tyru/current-func-info.vim'
 NeoBundle 'vim-scripts/The-NERD-tree'
 NeoBundle 'vim-scripts/yanktmp.vim'
-NeoBundle 'vim-scripts/gtags.vim'
-NeoBundle 'vim-scripts/jQuery'
+"NeoBundle 'vim-scripts/gtags.vim'
+"NeoBundle 'vim-scripts/jQuery'
 NeoBundle 'vim-scripts/php.vim--Garvin'
-NeoBundle 'vim-scripts/DrawIt'
+"NeoBundle 'vim-scripts/DrawIt'
 NeoBundle 'vim-scripts/ruby-matchit'
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/peaksea'
 NeoBundle 'vim-scripts/phpmanual'
 NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Sixeight/unite-grep'
+"NeoBundle 'Sixeight/unite-grep'
 NeoBundle 'yuki777/YankRing120.vim'
 NeoBundle 'yuki777/encode.vim'
 NeoBundle 'yuki777/vim-ft-svn_diff'
@@ -91,7 +91,7 @@ NeoBundle 'sickill/vim-monokai'
 NeoBundle 'desert256.vim'
 NeoBundle 'soh335/vim-symfony'
 NeoBundle 'rcmdnk/vim-markdown'
-NeoBundle 'szw/vim-tags'
+"NeoBundle 'szw/vim-tags'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'sudo.vim'
@@ -607,7 +607,7 @@ let Grep_Default_Filelist = join(Grep_Default_Filelist_List, ' ')
 " grep対象にしたくないファイル名の正規表現
 "let MyGrep_ExcludeReg = '[~#]$\|\.dll$\|\.exe$\|\.lnk$\|\.o$\|\.obj$\|\.pdf$\|\.xls$\|\^tags$'
 " qfixgrepでGrep *実行時にtagsを無視できないので.tagsにリネームした
-set tags+=.tags
+set tags+=./.tags;
 
 " -----------------------------------------------
 " help
