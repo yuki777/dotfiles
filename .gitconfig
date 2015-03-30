@@ -9,8 +9,7 @@
     st = status
     br = branch
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
-    #today = log --since=midnight --author='Yuki Adachi' --oneline
-    #today = log --since=midnight --author='$(git config user.name)' --oneline
+    today = log --since=midnight --author='Yuki Adachi' --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
 [core]
     excludesfile = ~/.gitignore
 [push]
