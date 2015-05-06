@@ -28,6 +28,7 @@
     ln -s ~/dotfiles/bin/tmuxx ~/bin/tmuxx
     ln -s ~/dotfiles/bin/tmuxxx ~/bin/tmuxxx
     mkdir -p ~/.vim/data/yankring/
+    mkdir -p ~/.vim/data/yanktmp/
     cp dotfiles/.vimrc.local  ~/.vimrc.local
     cp dotfiles/.tmux.local   ~/.tmux.local
     cp dotfiles/.zshrc.local  ~/.zshrc.local
