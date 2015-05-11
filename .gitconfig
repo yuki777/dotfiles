@@ -20,6 +20,6 @@
 	ff = false
 	tool = vimdiff3
 [mergetool "vimdiff3"]
-	cmd = git_merge_wrapper3 \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	cmd = ~/bin/git_merge_wrapper3 \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [mergetool]
 	keepBackup = false
