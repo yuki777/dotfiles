@@ -98,6 +98,7 @@ NeoBundle 'sudo.vim'
 NeoBundle 'toyamarinyon/vim-swift'
 NeoBundle 'vim-scripts/JavaScript-Indent'
 NeoBundle 'vim-scripts/IndentAnything'
+NeoBundle 'wakatime/vim-wakatime'
 
 call neobundle#end()
 
