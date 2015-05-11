@@ -27,6 +27,7 @@
     ln -s ~/dotfiles/bin/git_merge_wrapper3 ~/bin/git_merge_wrapper3
     ln -s ~/dotfiles/bin/tmuxx ~/bin/tmuxx
     ln -s ~/dotfiles/bin/tmuxxx ~/bin/tmuxxx
+    ln -s ~/dotfiles/bin/clide ~/bin/clide
     mkdir -p ~/.vim/data/yankring/
     mkdir -p ~/.vim/data/yanktmp/
     cp dotfiles/.vimrc.local  ~/.vimrc.local
