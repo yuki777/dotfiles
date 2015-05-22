@@ -99,7 +99,7 @@ NeoBundle 'toyamarinyon/vim-swift'
 NeoBundle 'vim-scripts/JavaScript-Indent'
 NeoBundle 'vim-scripts/IndentAnything'
 "NeoBundle 'wakatime/vim-wakatime'
-NeoBundle 'dericofilho/vim-phpfmt'
+"NeoBundle 'dericofilho/vim-phpfmt'
 
 call neobundle#end()
 
@@ -616,24 +616,24 @@ set tags+=./.tags;
 " -----------------------------------------------
 set helplang=ja,en
 
-" -----------------------------------------------
-" syntastic
-" -----------------------------------------------
-let g:syntastic_mode_map = { 'mode': 'active',  'active_filetypes': ['ruby', 'php', 'yaml', 'python'], 'passive_filetypes': ['puppet', 'po', 'pot'] }
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_phpcs_disable = 1
-let g:syntastic_javascript_checker = "jshint"
-let g:loaded_syntastic_javascript_jshint_checker = 0
-let g:loaded_syntastic_javascript_jslint_checker = 0
-let g:syntastic_jshint_disable = 1
-let g:syntastic_jslint_disable = 1
-let g:syntastic_python_checker = "pylint"
-let g:syntastic_ruby_mri_args = "-T1 -c"
-let g:syntastic_quiet_messages = {'level': 'warnings'}
-" .inc .classファイルはphpとする
-autocmd BufNewFile,BufRead *.class set filetype=php
-autocmd BufNewFile,BufRead *.inc set filetype=php
+"" -----------------------------------------------
+"" syntastic
+"" -----------------------------------------------
+"let g:syntastic_mode_map = { 'mode': 'active',  'active_filetypes': ['ruby', 'php', 'yaml', 'python'], 'passive_filetypes': ['puppet', 'po', 'pot'] }
+"let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_phpcs_disable = 1
+"let g:syntastic_javascript_checker = "jshint"
+"let g:loaded_syntastic_javascript_jshint_checker = 0
+"let g:loaded_syntastic_javascript_jslint_checker = 0
+"let g:syntastic_jshint_disable = 1
+"let g:syntastic_jslint_disable = 1
+"let g:syntastic_python_checker = "pylint"
+"let g:syntastic_ruby_mri_args = "-T1 -c"
+"let g:syntastic_quiet_messages = {'level': 'warnings'}
+"" .inc .classファイルはphpとする
+"autocmd BufNewFile,BufRead *.class set filetype=php
+"autocmd BufNewFile,BufRead *.inc set filetype=php
 
 " -----------------------------------------------
 " 補完ポップアップメニュー色設定
@@ -786,14 +786,14 @@ augroup HighlightTrailingSpaces
     autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
-" -----------------------------------------------
-" https://github.com/dericofilho/vim-phpfmt
-" -----------------------------------------------
-let g:phpfmt_on_save = get(g:, 'phpfmt_on_save', 1) " format on save (autocmd)
-let g:phpfmt_php_path = "php"               " Path to PHP
-"let g:phpfmt_prepasses_list = "AutoPreincrement,JointToImplode"
-"let g:phpfmt_passes_list = "ReturnNull"
-let g:phpfmt_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
+"" -----------------------------------------------
+"" https://github.com/dericofilho/vim-phpfmt
+"" -----------------------------------------------
+"let g:phpfmt_on_save = get(g:, 'phpfmt_on_save', 1) " format on save (autocmd)
+"let g:phpfmt_php_path = "php"               " Path to PHP
+""let g:phpfmt_prepasses_list = "AutoPreincrement,JointToImplode"
+""let g:phpfmt_passes_list = "ReturnNull"
+"let g:phpfmt_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
 
 " -----------------------------------------------
 " TODO: 同期スクロールオプション
