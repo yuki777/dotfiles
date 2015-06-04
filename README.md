@@ -24,10 +24,10 @@
     ln -fs dotfiles/.gitconfig .gitconfig
     ln -fs dotfiles/.gitignore .gitignore
     mkdir -p ~/bin
-    ln -s ~/dotfiles/bin/git_merge_wrapper3 ~/bin/git_merge_wrapper3
-    ln -s ~/dotfiles/bin/tmuxx ~/bin/tmuxx
-    ln -s ~/dotfiles/bin/tmuxxx ~/bin/tmuxxx
-    ln -s ~/dotfiles/bin/clide ~/bin/clide
+    ln -fs ~/dotfiles/bin/git_merge_wrapper3 ~/bin/git_merge_wrapper3
+    ln -fs ~/dotfiles/bin/tmuxx ~/bin/tmuxx
+    ln -fs ~/dotfiles/bin/tmuxxx ~/bin/tmuxxx
+    ln -fs ~/dotfiles/bin/clide ~/bin/clide
     mkdir -p ~/.vim/data/yankring/
     mkdir -p ~/.vim/data/yanktmp/
     cp dotfiles/.vimrc.local  ~/.vimrc.local
@@ -43,6 +43,6 @@
     cd ~
     mkdir -p ~/.vim/bundle
     git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-    vim +NeoBundleInstall +qall
+    ~/.vim/bundle/neobundle.vim/bin/neoinstall
 
 
