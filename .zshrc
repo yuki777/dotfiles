@@ -24,8 +24,13 @@ local PURPLE=$'%{\e[35m%}'
 local CYAN=$'%{\e[36m%}'
 local WHITE=$'%{\e[1;37m%}'
 local DEFAULT=$'%{\e[1;m%}'
-local RANDOMCOLOR=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
-PROMPT="${WHITE}%D{%Y-%m-%d %H:%M:%S} %n${RANDOMCOLOR}@%M${WHITE}:%/${reset_color}
+#local RANDOMCOLOR=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
+#PROMPT="${WHITE}%D{%Y-%m-%d %H:%M:%S} %n${RANDOMCOLOR}@%M${WHITE}:%/${reset_color}"
+local name_hash=`echo $HOME|wc -c|grep -o '[0-6]'|sort|uniq|tail -n1` # 0-6
+local name_color=$'%{\e[$[color=$[31+$name_hash%6]]m%}'
+local host_hash=`uname -a|wc -c|grep -o '[0-6]'|sort|uniq|tail -n1` # 0-6
+local host_color=$'%{\e[$[color=$[31+$host_hash%6]]m%}'
+PROMPT="${WHITE}%D{%Y-%m-%d %H:%M:%S} ${name_color}%n${host_color}@%M${WHITE}:%/${reset_color}
 "
 if [[ `whoami` == "root" ]]; then
 PROMPT="${RED}%D{%Y-%m-%d %H:%M:%S} %n@%M:%/${reset_color}
