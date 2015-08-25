@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+host_number=`uname -a|wc -c|grep -o '[0-6]'|sort|uniq|tail -n1` # 0-6
+echo $host_number

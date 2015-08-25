@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+name_number=`~/dotfiles/bin/name_number`
+host_number=`~/dotfiles/bin/host_number`
+
+if [ "$host_number" == "0" ];then
+    color="red"
+elif [ "$host_number" == "1" ];then
+    color="green"
+elif [ "$host_number" == "2" ];then
+    color="yellow"
+elif [ "$host_number" == "3" ];then
+    color="blue"
+elif [ "$host_number" == "4" ];then
+    color="magenta"
+elif [ "$host_number" == "5" ];then
+    color="cyan"
+elif [ "$host_number" == "6" ];then
+    color="red"
+fi
+
+cat <<EOF> ~/.tmux.local
+set  -g status-bg                  $color
+set  -g status-fg                  black
+set  -g status-attr                none
+set  -g message-bg                 $color
+set  -g message-fg                 black
+set  -g message-attr               none
+set  -g pane-active-border-fg      $color
+set  -g pane-border-fg             $color
+setw -g mode-bg                    $color
+setw -g mode-fg                    black
+setw -g mode-attr                  none
+setw -g window-status-bg           $color
+setw -g window-status-fg           black
+setw -g window-status-attr         none
+setw -g window-status-current-bg   black
+setw -g window-status-current-fg   $color
+setw -g window-status-current-attr underscore
+set -g status-left  '#[fg=black][#20(whoami)@#h]#[default]'
+set -g status-right '#[fg=black][#(uptime|sed "s/.*average.*: //g")][%Y/%m/%d(%a)%H:%M]#[default]'
+EOF

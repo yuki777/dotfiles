@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+name_number=`echo $HOME|wc -c|grep -o '[0-6]'|sort|uniq|tail -n1` # 0-6
+echo $name_number
