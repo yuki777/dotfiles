@@ -36,6 +36,11 @@
     cp dotfiles/.zshrc.mysql  ~/.zshrc.mysql
     touch .gitconfig.local
 
+# Setup tmux config
+```
+~/dotfiles/bin/setup_tmux_local
+```
+
 # Install Latest Vim From Source At Ubuntu (Optional)
     https://gist.github.com/yuki777/9524301
 
