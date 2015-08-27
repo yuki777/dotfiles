@@ -83,6 +83,7 @@ alias vimc='vim -p "+NERDTree app/Controller/" "+tabnew" "+NERDTree app/Model/" 
 alias vim.='vim "+NERDTree ."'
 #alias vim.='vim "+VimFilerExplorer -find ."'
 alias vimrc='vim ~/.vimrc'
+alias gitv='touch ~/.vim/data/view/gitv; rm -fr ~/.vim/data/view/*gitv*;vim "$(git rev-parse --show-toplevel)"/.git/index -c "Gitv --all" -c "tabonly"'
 # vim open session
 function vimo(){
     vim "+OpenSession $1"
@@ -101,8 +102,6 @@ function vit {
     vim $(grep -in ${1} **/*.twig | grep -v "[0-9]:\s*//" | peco | awk -F ":" '{print "-c "$2" "$1}')
 }
 
-# TODO: find gitv tab, and fix view bug
-alias gitv='touch ~/.vim/data/view/gitv; rm -fr ~/.vim/data/view/*gitv*; vim ../.git/index -c "Gitv --all" -c "tabonly"'
 alias gitst="git st -s|awk '{print \$2}'|tr '\n' ' '|xargs echo"
 case "${OSTYPE}" in
 darwin*)
