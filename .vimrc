@@ -726,6 +726,19 @@ let g:session_directory = $HOME.'/.vim/data/sessions'
 " -----------------------------------------------
 let g:Gitv_OpenHorizontal = 1
 let g:Gitv_DoNotMapCtrlKey = 1
+" -----------------------------------------------
+" http://cohama.hateblo.jp/entry/20130517/1368806202
+" -----------------------------------------------
+autocmd FileType gitv call s:my_gitv_settings()
+function! s:my_gitv_settings()
+    nnoremap <silent><buffer> t :<C-u>windo call <SID>toggle_git_folding()<CR>1<C-w>w
+endfunction
+autocmd FileType git setlocal nofoldenable foldlevel=0
+function! s:toggle_git_folding()
+    if &filetype ==# 'git'
+        setlocal foldenable!
+    endif
+endfunction
 
 " -----------------------------------------------
 " vimdiff時のオプション
