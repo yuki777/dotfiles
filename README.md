@@ -41,13 +41,12 @@
 ~/dotfiles/bin/setup_tmux_local
 ```
 
-# Install Latest Vim From Source At Ubuntu (Optional)
-    https://gist.github.com/yuki777/9524301
-
 # Setup Vim By NeoBundle
-    cd ~
-    mkdir -p ~/.vim/bundle
-    git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-    ~/.vim/bundle/neobundle.vim/bin/neoinstall
-
-
+```
+cd ~
+mkdir -p ~/.vim/bundle
+git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+git clone git://github.com/Shougo/vimproc.vim ~/.vim/bundle/vimproc.vim.git
+git clone git://github.com/Shougo/unite.vim ~/.vim/bundle/unite.vim.git
+~/.vim/bundle/neobundle.vim/bin/neoinstall
+```
