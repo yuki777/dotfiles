@@ -46,7 +46,7 @@
 cd ~
 mkdir -p ~/.vim/bundle
 git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-git clone git://github.com/Shougo/vimproc.vim ~/.vim/bundle/vimproc.vim
+git clone git://github.com/Shougo/vimproc.vim ~/.vim/bundle/vimproc
 git clone git://github.com/Shougo/unite.vim ~/.vim/bundle/unite.vim
 ~/.vim/bundle/neobundle.vim/bin/neoinstall
 ```
