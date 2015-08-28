@@ -39,10 +39,7 @@ let php_sql_query=1
 let php_htmlInStrings=1
 let php_folding=1
 set hidden
-
 scriptencoding utf-8
-
-
 set fileformats=unix,dos,mac
 set encoding=utf-8
 set fileencoding=utf-8
@@ -112,7 +109,6 @@ function! MyTabLine()
         return s
 endfunction
 set tabline=%!MyTabLine()
-
 set showtabline=2
 hi TabLine     term=reverse cterm=reverse        ctermfg=white ctermbg=black
 hi TabLineSel  term=bold    cterm=bold,underline ctermfg=2
@@ -120,7 +116,6 @@ hi TabLineFill term=reverse cterm=reverse        ctermfg=white ctermbg=black
 
 nnoremap <silent> <tab> :tabnext<cr>
 nnoremap <silent> <S-tab> :tabprevious<cr>
-
 
 nmap <silent> <Space>n :call AddNewTabWindow()<CR>
 if !exists("*AddNewTabWindow()")
@@ -130,22 +125,14 @@ if !exists("*AddNewTabWindow()")
         endfunction
 endif
 
-
 nnoremap <F10> :set fileencoding=utf8<CR>
 nnoremap <silent> <F11> :set relativenumber!<CR>
 nnoremap <silent> <F12> :set number!<CR>
-
 map * *N
 map # #N
-
 map <S-h> ^
 
-
-
-
 set diffopt=filler,iwhite 
-
-
 command! Utf8  e ++enc=utf-8
 command! Euc   e ++enc=euc-jp
 command! Sjis  e ++enc=cp932
@@ -154,7 +141,6 @@ command! WUtf8 w ++enc=utf-8       | e
 command! WEuc  w ++enc=euc-jp      | e
 command! WSjis w ++enc=cp932       | e
 command! WJis  w ++enc=iso-2022-jp | e
-
 nmap j gj
 nmap k gk
 vmap j gj
@@ -162,10 +148,8 @@ vmap k gk
 autocmd FileType svn :set fileencoding=utf-8
 autocmd FileType gitcommit :set fileencoding=utf-8
 autocmd FileType python :set fileencoding=utf-8
-
 nmap n nzz
 nmap N Nzz
-
 autocmd FileType svn :set fileencoding=utf-8
 autocmd FileType gitcommit :set fileencoding=utf-8
 autocmd FileType python :set fileencoding=utf-8
