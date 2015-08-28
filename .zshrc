@@ -13,30 +13,6 @@ autoload colors
 autoload -Uz zmv
 compinit
 
-# prompt
-colors
-local BLACK=$'%{\e[30m%}'
-local RED=$'%{\e[31m%}'
-local GREEN=$'%{\e[32m%}'
-local YELLOW=$'%{\e[33m%}'
-local BLUE=$'%{\e[34m%}'
-local PURPLE=$'%{\e[35m%}'
-local CYAN=$'%{\e[36m%}'
-local WHITE=$'%{\e[1;37m%}'
-local DEFAULT=$'%{\e[1;m%}'
-#local RANDOMCOLOR=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
-#PROMPT="${WHITE}%D{%Y-%m-%d %H:%M:%S} %n${RANDOMCOLOR}@%M${WHITE}:%/${reset_color}"
-local name_number=`echo $HOME|wc -c|grep -o '[0-6]'|sort|uniq|tail -n1` # 0-6. It might be duplicated.
-local name_color=$'%{\e[$[color=$[31+$name_number%6]]m%}'
-local host_number=`uname -a|wc -c|grep -o '[0-6]'|sort|uniq|tail -n1` # 0-6. It might be duplicated.
-local host_color=$'%{\e[$[color=$[31+$host_number%6]]m%}'
-PROMPT="${WHITE}%D{%Y-%m-%d %H:%M:%S} ${name_color}%n${host_color}@%M${WHITE}:%/${reset_color}
-"
-if [[ `whoami` == "root" ]]; then
-PROMPT="${RED}%D{%Y-%m-%d %H:%M:%S} %n@%M:%/${reset_color}
-"
-fi
-
 ## bindkey
 bindkey -e
 #bindkey "^[[1~" beginning-of-line # Home gets to line head
@@ -115,13 +91,8 @@ linux*)
 	;;
 esac
 alias l='ll'
-EASYTETHER_EXT=/System/Library/Extensions/EasyTetherUSBEthernet.kext
-alias easytether-on="sudo kextload $EASYTETHER_EXT"
-alias easytether-off="sudo kextunload $EASYTETHER_EXT"
-alias easytether-status="kextstat |grep EasyTether"
 alias adb="/Applications/sdk/platform-tools/adb"
 alias tailf='tail -F'
-#alias hi="perl -pe 's/warn|err/\033\[1;31m$&\033\[0m/gi'"
 alias zmv='noglob zmv -W'
 alias g='git'
 
@@ -149,6 +120,7 @@ export TERM=xterm-256color
 export LD_LIBRARY_PATH=${HOME}/local/lib/:${LD_LIBRARY_PATH}
 export GOROOT=~/local/go
 [ -f $HOME/local/bin/global ] && export GTAGSGLOBAL=$HOME/local/bin/global
+
 # setopt
 setopt prompt_subst
 setopt list_packed
@@ -256,6 +228,18 @@ function svnlogdiff(){
         svn log --limit 1  --verbose --diff|nkf -w|view - -c "set ft=diff"
     fi
 }
+
+# HighLight
+if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(pattern)
+ZSH_HIGHLIGHT_PATTERNS+=('rm *' 'fg=white,bold,bg=red')
+ZSH_HIGHLIGHT_PATTERNS+=('sudo*' 'fg=white,bold,bg=red')
+ZSH_HIGHLIGHT_PATTERNS+=('\|' 'fg=magenta,bold')
+ZSH_HIGHLIGHT_PATTERNS+=('>' 'fg=magenta,bold')
+ZSH_HIGHLIGHT_PATTERNS+=('>>' 'fg=magenta,bold')
+ZSH_HIGHLIGHT_PATTERNS+=('git push*' 'fg=white,bold,bg=red')
 
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator

@@ -1,3 +1,28 @@
+# prompt
+colors
+local BLACK=$'%{\e[30m%}'
+local RED=$'%{\e[31m%}'
+local GREEN=$'%{\e[32m%}'
+local YELLOW=$'%{\e[33m%}'
+local BLUE=$'%{\e[34m%}'
+local PURPLE=$'%{\e[35m%}'
+local CYAN=$'%{\e[36m%}'
+local WHITE=$'%{\e[1;37m%}'
+local DEFAULT=$'%{\e[1;m%}'
+#local RANDOMCOLOR=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
+#PROMPT="${WHITE}%D{%Y-%m-%d %H:%M:%S} %n${RANDOMCOLOR}@%M${WHITE}:%/${reset_color}"
+local name_number=`echo $HOME|wc -c|grep -o '[0-6]'|sort|uniq|tail -n1` # 0-6. It might be duplicated.
+local name_color=$'%{\e[$[color=$[31+$name_number%6]]m%}'
+local host_number=`uname -a|wc -c|grep -o '[0-6]'|sort|uniq|tail -n1` # 0-6. It might be duplicated.
+local host_color=$'%{\e[$[color=$[31+$host_number%6]]m%}'
+PROMPT="${WHITE}%D{%Y-%m-%d %H:%M:%S} ${name_color}%n${host_color}@%M${WHITE}:%/${reset_color}
+"
+
+if [[ `whoami` == "root" ]]; then
+PROMPT="${RED}%D{%Y-%m-%d %H:%M:%S} %n@%M:%/${reset_color}
+"
+fi
+
 if [[ "`uname|tr -d '\n'`" != "FreeBSD" ]]; then
     # plugin
     # https://github.com/yonchu/zsh-vcs-prompt
