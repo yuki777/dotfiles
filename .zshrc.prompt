@@ -23,21 +23,21 @@ PROMPT="${RED}%D{%Y-%m-%d %H:%M:%S} %n@%M:%/${reset_color}
 "
 fi
 
-if [[ "`uname|tr -d '\n'`" != "FreeBSD" ]]; then
-    # plugin
-    # https://github.com/yonchu/zsh-vcs-prompt
-    [ -f ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh ] && source ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh
-    ZSH_VCS_PROMPT_ENABLE_CACHING='true'
-    #ZSH_VCS_PROMPT_USING_PYTHON='false'
-    RPROMPT='$(vcs_super_info)'
-    #ZSH_VCS_PROMPT_MERGE_BRANCH=develop
-    ZSH_VCS_PROMPT_MERGE_BRANCH=master # Default
-    ZSH_VCS_PROMPT_AHEAD_SIGIL='>'
-    ZSH_VCS_PROMPT_BEHIND_SIGIL='<'
-    ZSH_VCS_PROMPT_STAGED_SIGIL='.'
-    ZSH_VCS_PROMPT_CONFLICTS_SIGIL='x'
-    ZSH_VCS_PROMPT_UNSTAGED_SIGIL='+'
-    ZSH_VCS_PROMPT_UNTRACKED_SIGIL='?'
-    ZSH_VCS_PROMPT_STASHED_SIGIL='\/'
-    ZSH_VCS_PROMPT_CLEAN_SIGIL='#'
-fi
+#if [[ "`uname|tr -d '\n'`" != "FreeBSD" ]]; then
+# plugin
+# https://github.com/yonchu/zsh-vcs-prompt
+[ -f ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh ] && source ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh
+ZSH_VCS_PROMPT_ENABLE_CACHING='true'
+#ZSH_VCS_PROMPT_USING_PYTHON='false'
+RPROMPT='$(vcs_super_info)'
+#ZSH_VCS_PROMPT_MERGE_BRANCH=develop
+ZSH_VCS_PROMPT_MERGE_BRANCH=master # Default
+ZSH_VCS_PROMPT_AHEAD_SIGIL='>'
+ZSH_VCS_PROMPT_BEHIND_SIGIL='<'
+ZSH_VCS_PROMPT_STAGED_SIGIL='.'
+ZSH_VCS_PROMPT_CONFLICTS_SIGIL='x'
+ZSH_VCS_PROMPT_UNSTAGED_SIGIL='+'
+ZSH_VCS_PROMPT_UNTRACKED_SIGIL='?'
+ZSH_VCS_PROMPT_STASHED_SIGIL='\/'
+ZSH_VCS_PROMPT_CLEAN_SIGIL='#'
+#fi
