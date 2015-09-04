@@ -223,7 +223,7 @@ ZSH_HIGHLIGHT_PATTERNS+=('git push*' 'fg=white,bold,bg=red')
 [ -f ${HOME}/.zshrc.git   ] && source ${HOME}/.zshrc.git
 [ -f ${HOME}/.zshrc.cl    ] && source ${HOME}/.zshrc.cl
 [ -f ${HOME}/.zshrc.prompt ] && source ${HOME}/.zshrc.prompt
-[ -f ${HOME}/.zshrc.prompt ] && source ${HOME}/.zshrc.prompt
+[ -f ${HOME}/.zshrc.alias  ] && source ${HOME}/.zshrc.alias
 
 # The next line updates PATH for the Google Cloud SDK.
 [ -f ~/google-cloud-sdk/path.zsh.inc ] && source ~/google-cloud-sdk/path.zsh.inc
