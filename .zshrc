@@ -32,7 +32,7 @@ zle -N history-beginning-search-forward-end history-search-end
 HISTFILE=${HOME}/.zsh_history
 HISTSIZE=50000
 SAVEHIST=50000
-fpath=(${HOME}/.zsh/functions/Completion ${fpath})
+#fpath=(${HOME}/.zsh/functions/Completion ${fpath})
 
 # alias
 alias grep='grep --color'
