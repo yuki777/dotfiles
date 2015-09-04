@@ -15,6 +15,7 @@
     ln -fs dotfiles/.vimrc.map .vimrc.map
     ln -fs dotfiles/.zshrc     .zshrc
     ln -fs dotfiles/.zshrc.prompt     .zshrc.prompt
+    ln -fs dotfiles/.zshrc.alias      .zshrc.alias
     ln -fs dotfiles/.zsh       .zsh
     ln -fs dotfiles/.zshenv    .zshenv
     ln -fs dotfiles/.screenrc  .screenrc

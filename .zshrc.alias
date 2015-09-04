@@ -1,0 +1,41 @@
+alias grep='grep --color'
+alias svnstat='svn -u stat | egrep -v " tmp/|GPATH|GTAGS|GRTAGS|tags"'
+alias _svnadd='svn st | grep '\''^\?'\'' | sed -e '\''s/\?[ ]*/svn add /g'\'
+alias svnadd='_svnadd | grep -Ev "^svn add tmp\/|^svn add libs\/Bear$|^svn add .tags$|^svn add tags$|^svn add GRTAGS$|^svn add GPATH$|^svn add GTAGS$|^svn add tmp\/|^svn add logs\/|^svn add .screenlog\/|^svn add tee\/"'
+alias cvsadd="cvs status 2>/dev/null | egrep '^\? '|egrep -v 'cvs status: Examining |? tmp/|? GPATH|? GRTAGS|? GTAGS|? .tags|? logs/'"
+alias mkpassswd='mkpasswd -l 8 -d 2 -C 2 -s 0 -2'
+alias h='history -E 1'
+alias screeen='screen -U -D -RR'
+alias ctagsrphp="ctags -R --tag-relative=yes --PHP-kinds=+cdfv -h '.php' --exclude='logs'  --exclude='tmp'  --exclude='tmp_image' --exclude='\.svn' --totals=yes --regex-PHP='/abstract class ([^ ]*)/\1/c/' --regex-PHP='/interface ([^ ]*)/\1/c/' --regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/'"
+alias 2utf8='nkf -w --overwrite'
+alias 2utf='nkf -w --overwrite'
+alias 2eucjp='nkf -e --overwrite'
+alias 2euc='nkf -e --overwrite'
+alias 2sjis='nkf -e --overwrite'
+alias vimp='vim -p '
+#alias vimb='vim -p "+NERDTree htdocs" "+tabnew" "+NERDTree libs/App/action" "+tabnew" "+NERDTree libs/App/view" "+tabnew" "+NERDTree templates" "+tabfirst"'
+#alias vimB='vim -p "+NERDTree htdocs" "+tabnew" "+NERDTree App/Ro" "+tabnew" "+NERDTree App/Form" "+tabnew" "+NERDTree App/views" "+tabfirst"'
+#alias vimc='vim -p "+NERDTree application/controllers/" "+tabnew" "+NERDTree application/views/" "+tabnew" "+NERDTree application/language/" "+tabnew" "+NERDTree ." "+tabfirst"'
+# cakephp
+alias vimc='vim -p "+NERDTree app/Controller/" "+tabnew" "+NERDTree app/Model/" "+tabnew" "+NERDTree app/View/" "+tabnew" "+NERDTree app/Locale/" "+tabfirst"'
+alias vim.='vim "+NERDTree ."'
+#alias vim.='vim "+VimFilerExplorer -find ."'
+alias vimrc='vim ~/.vimrc'
+alias gitv='touch ~/.vim/data/view/gitv; rm -fr ~/.vim/data/view/*gitv*;vim "$(git rev-parse --show-toplevel)"/.git/index -c "Gitv --all" -c "tabonly"'
+alias gitst="git st -s|awk '{print \$2}'|tr '\n' ' '|xargs echo"
+case "${OSTYPE}" in
+darwin*)
+	alias ll='ls -Gla'
+	;;
+freebsd*)
+	alias ll='ls -Gla'
+	;;
+linux*)
+	alias ll='ls -Falq1AH --color=always --time-style=+"%Y-%m-%d %H:%M:%S"'
+	;;
+esac
+alias l='ll'
+alias adb="/Applications/sdk/platform-tools/adb"
+alias tailf='tail -F'
+alias zmv='noglob zmv -W'
+alias g='git'
