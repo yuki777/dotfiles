@@ -11,7 +11,7 @@ autoload -U compinit
 autoload zed
 autoload colors
 autoload -Uz zmv
-compinit
+compinit -C
 
 ## bindkey
 bindkey -e
@@ -33,7 +33,6 @@ HISTFILE=${HOME}/.zsh_history
 HISTSIZE=50000
 SAVEHIST=50000
 fpath=(${HOME}/.zsh/functions/Completion ${fpath})
-#compinit
 
 # alias
 alias grep='grep --color'
@@ -276,3 +275,8 @@ ZSH_HIGHLIGHT_PATTERNS+=('git push*' 'fg=white,bold,bg=red')
 
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# debug
+if (which zprof > /dev/null) ;then
+    zprof | less
+fi
