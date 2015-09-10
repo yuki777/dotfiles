@@ -234,7 +234,7 @@ ZSH_HIGHLIGHT_PATTERNS+=('git push*' 'fg=white,bold,bg=red')
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# debug
-if (which zprof > /dev/null) ;then
-    zprof | less
-fi
+## debug
+#if (which zprof > /dev/null) ;then
+#    zprof | less
+#fi
