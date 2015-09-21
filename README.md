@@ -36,6 +36,7 @@
     cp dotfiles/.tmux.local   ~/.tmux.local
     cp dotfiles/.zshrc.local  ~/.zshrc.local
     cp dotfiles/.zshrc.mysql  ~/.zshrc.mysql
+    cp dotfiles/.ctagsignore ~/
     touch .gitconfig.local
 
 # Setup tmux config
