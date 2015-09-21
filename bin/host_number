@@ -1,4 +1,15 @@
 #!/usr/bin/env bash
 
-host_number=`uname -a|wc -c|grep -o '[0-6]'|sort|uniq|tail -n1` # 0-6
+case "${OSTYPE}" in
+darwin*)
+    host_number=`echo $HOSTNAME|md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n2|tail -n1|awk '{print $2}'` # 0-6
+	;;
+freebsd*)
+    host_number=`echo $HOSTNAME|md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n4|tail -n1|awk '{print $2}'` # 0-6
+	;;
+linux*)
+    host_number=`echo $HOSTNAME|md5sum|grep -o '[0-6]'|sort|uniq -c|sort -n|head -n6|tail -n1|awk '{print $2}'` # 0-6
+	;;
+esac
+
 echo $host_number
