@@ -15,13 +15,13 @@ local name_number=`echo $HOME|wc -c|grep -o '[0-6]'|sort|uniq|tail -n1` # 0-6. I
 local name_color=$'%{\e[$[color=$[31+$name_number%6]]m%}'
 case "${OSTYPE}" in
 darwin*)
-    local host_number=`echo $HOSTNAME|md5   |grep -o '[0-6]'| sort | uniq -c | sort -n|head -n1|awk '{print $2}'`
+    local host_number=`echo $HOSTNAME|md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n2|tail -n1|awk '{print $2}'`
 	;;
 freebsd*)
-    local host_number=`echo $HOSTNAME|md5   |grep -o '[0-6]'| sort | uniq -c | sort -n|head -n1|awk '{print $2}'`
+    local host_number=`echo $HOSTNAME|md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n4|tail -n1|awk '{print $2}'`
 	;;
 linux*)
-    local host_number=`echo $HOSTNAME|md5sum|grep -o '[0-6]'| sort | uniq -c | sort -n|head -n1|awk '{print $2}'`
+    local host_number=`echo $HOSTNAME|md5sum|grep -o '[0-6]'|sort|uniq -c|sort -n|head -n6|tail -n1|awk '{print $2}'`
 	;;
 esac
 local host_color=$'%{\e[$[color=$[31+$host_number%6]]m%}'
