@@ -10,6 +10,8 @@
     br = branch
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
     today = log --since=midnight --author='Yuki Adachi' --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
+    f = fetch --all --prune && git rebase origin/`git rev-parse --abbrev-ref HEAD`
+    p = push origin `git rev-parse --abbrev-ref HEAD`
 [core]
     excludesfile = ~/.gitignore
 [push]
