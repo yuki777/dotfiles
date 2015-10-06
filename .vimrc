@@ -375,7 +375,7 @@ else
     "else
     "    colorscheme desert256
     "endif
-    colorscheme molokai
+    colorscheme desert
 endif
 
 "----------------------------------------------------
