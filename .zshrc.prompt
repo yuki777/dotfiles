@@ -9,21 +9,13 @@ local PURPLE=$'%{\e[35m%}'
 local CYAN=$'%{\e[36m%}'
 local WHITE=$'%{\e[1;37m%}'
 local DEFAULT=$'%{\e[1;m%}'
-local name_number=`echo $HOME|wc -c|grep -o '[0-6]'|sort|uniq|tail -n1` # 0-6. It might be duplicated.
-local name_color=$'%{\e[$[color=$[31+$name_number%6]]m%}'
-local hostname=`hostname`
-case "${OSTYPE}" in
-darwin*)
-    local host_number=`echo $hostname|md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n2|tail -n1|awk '{print $2}'`
-	;;
-freebsd*)
-    local host_number=`echo $hostname|md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n4|tail -n1|awk '{print $2}'`
-	;;
-linux*)
-    local host_number=`echo $hostname|md5sum|grep -o '[0-6]'|sort|uniq -c|sort -n|head -n6|tail -n1|awk '{print $2}'`
-	;;
-esac
-local host_color=$'%{\e[$[color=$[31+$host_number%6]]m%}'
+local DEFAULT=$'%{\e[1;m%}'
+local name_number=1
+local host_number=1
+[ -f ${HOME}/.name_number ] && source ${HOME}/.name_number
+[ -f ${HOME}/.host_number ] && source ${HOME}/.host_number
+local name_color=$'%{\e[$[color=$[31+$name_number%6]]m%}' # 0:red, 1:green, 2:yellow, 3:blue, 4:magenta, 5:cyan, 6:red
+local host_color=$'%{\e[$[color=$[31+$host_number%6]]m%}' # 0:red, 1:green, 2:yellow, 3:blue, 4:magenta, 5:cyan, 6:red
 
 if [[ `hostname` == "macbookpro.local" ]]; then
     local random_color=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
@@ -39,7 +31,6 @@ PROMPT="${RED}%D{%Y-%m-%d %H:%M:%S} %n@%M:%/${reset_color}
 "
 fi
 
-#if [[ "`uname|tr -d '\n'`" != "FreeBSD" ]]; then
 # plugin
 # https://github.com/yonchu/zsh-vcs-prompt
 [ -f ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh ] && source ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh
@@ -56,4 +47,3 @@ ZSH_VCS_PROMPT_UNSTAGED_SIGIL='+'
 ZSH_VCS_PROMPT_UNTRACKED_SIGIL='?'
 ZSH_VCS_PROMPT_STASHED_SIGIL='\/'
 ZSH_VCS_PROMPT_CLEAN_SIGIL='#'
-#fi
