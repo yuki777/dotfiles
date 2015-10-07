@@ -1,18 +1,16 @@
 #!/usr/bin/env bash
 
-# 0:red, 1:green, 2:yellow, 3:blue, 4:magenta, 5:cyan, 6:red
-
 hostname=`hostname`
 case "${OSTYPE}" in
-	darwin*)
-		host_number=`echo $hostname|md5   |md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n2|tail -n1|awk '{print $2}'`
-		;;
-	freebsd*)
-		host_number=`echo $hostname|md5   |md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n4|tail -n1|awk '{print $2}'`
-		;;
-	linux*)
-		host_number=`echo $hostname|md5sum|md5sum|grep -o '[0-6]'|sort|uniq -c|sort -n|head -n6|tail -n1|awk '{print $2}'`
-		;;
+darwin*)
+    host_number=`echo $hostname|md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n2|tail -n1|awk '{print $2}'` # 0-6
+	;;
+freebsd*)
+    host_number=`echo $hostname|md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n4|tail -n1|awk '{print $2}'` # 0-6
+	;;
+linux*)
+    host_number=`echo $hostname|md5sum|grep -o '[0-6]'|sort|uniq -c|sort -n|head -n6|tail -n1|awk '{print $2}'` # 0-6
+	;;
 esac
 
-echo $host_number;
+echo $host_number
