@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
-name_number=`~/dotfiles/bin/name_number`
-host_number=`~/dotfiles/bin/host_number`
+name_number=1
+if [ -f ~/.name_number ]; then
+    source ~/.name_number
+fi
+
+host_number=1
+if [ -f ~/.host_number ]; then
+    source ~/.host_number
+fi
 
 if [ "$host_number" == "0" ];then
     color="red"
