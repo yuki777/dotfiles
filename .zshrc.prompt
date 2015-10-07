@@ -1,14 +1,33 @@
-# 0:red, 1:green, 2:yellow, 3:blue, 4:magenta, 5:cyan, 6:red
-function get_host_number(){
+function get_host_id(){
+    local hostname=`hostname`
     case "${OSTYPE}" in
 	darwin*)
-		local host_number=`echo $hostname|md5   |md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n2|tail -n1|awk '{print $2}'`
+		local host_id=`echo $hostname $hostname|md5   |md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n2|tail -n1|awk '{print $2}'`
 		;;
 	freebsd*)
-		local host_number=`echo $hostname|md5   |md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n4|tail -n1|awk '{print $2}'`
+		local host_id=`echo $hostname $hostname|md5   |md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n4|tail -n1|awk '{print $2}'`
 		;;
 	linux*)
-		local host_number=`echo $hostname|md5sum|md5sum|grep -o '[0-6]'|sort|uniq -c|sort -n|head -n6|tail -n1|awk '{print $2}'`
+		local host_id=`echo $hostname $hostname|md5sum|md5sum|grep -o '[0-6]'|sort|uniq -c|sort -n|head -n6|tail -n1|awk '{print $2}'`
+		;;
+    esac
+
+    echo $host_id;
+}
+
+# 0:red, 1:green, 2:yellow, 3:blue, 4:magenta, 5:cyan, 6:red
+function get_host_number(){
+    local hostname=`hostname`
+    local id=`get_host_id`
+    case "${OSTYPE}" in
+	darwin*)
+		local host_number=`echo $hostname|md5   |md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n$id|tail -n1|awk '{print $2}'`
+		;;
+	freebsd*)
+		local host_number=`echo $hostname|md5   |md5   |grep -o '[0-6]'|sort|uniq -c|sort -n|head -n$id|tail -n1|awk '{print $2}'`
+		;;
+	linux*)
+		local host_number=`echo $hostname|md5sum|md5sum|grep -o '[0-6]'|sort|uniq -c|sort -n|head -n$id|tail -n1|awk '{print $2}'`
 		;;
     esac
 
