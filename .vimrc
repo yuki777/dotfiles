@@ -6,12 +6,12 @@ let g:neobundle_default_git_protocol='git'
 if !1 | finish | endif
 
 if has('vim_starting')
-    if &compatible
-        set nocompatible               " Be iMproved
-    endif
+	if &compatible
+		set nocompatible               " Be iMproved
+	endif
 
-    " Required:
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+	" Required:
+	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
@@ -27,30 +27,30 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 if system('uname') == "FreeBSD\n"
-    NeoBundle 'Shougo/vimproc', {
-                \ 'build' : {
-                \     'freebsd' : 'gmake -f make_unix.mak',
-                \    },
-                \ }
+	NeoBundle 'Shougo/vimproc', {
+				\ 'build' : {
+				\     'freebsd' : 'gmake -f make_unix.mak',
+				\    },
+				\ }
 else
-    NeoBundle 'Shougo/vimproc', {
-                \ 'build' : {
-                \     'windows' : 'make -f make_mingw32.mak',
-                \     'cygwin'  : 'make -f make_cygwin.mak',
-                \     'mac'     : 'make -f make_mac.mak',
-                \     'unix'    : 'make -f make_unix.mak',
-                \    },
-                \ }
+	NeoBundle 'Shougo/vimproc', {
+				\ 'build' : {
+				\     'windows' : 'make -f make_mingw32.mak',
+				\     'cygwin'  : 'make -f make_cygwin.mak',
+				\     'mac'     : 'make -f make_mac.mak',
+				\     'unix'    : 'make -f make_unix.mak',
+				\    },
+				\ }
 endif
 " my bundles
 if has('lua')
-    NeoBundleLazy 'Shougo/neocomplete.vim', {
-                \   'depends' : ['Shougo/neosnippet.vim', 'Shougo/context_filetype.vim'],
-                \   'vim_version' : '7.3.885',
-                \   'autoload' : {
-                \       'insert' : 1,
-                \   }
-                \}
+	NeoBundleLazy 'Shougo/neocomplete.vim', {
+				\   'depends' : ['Shougo/neosnippet.vim', 'Shougo/context_filetype.vim'],
+				\   'vim_version' : '7.3.885',
+				\   'autoload' : {
+				\       'insert' : 1,
+				\   }
+				\}
 endif
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
@@ -81,8 +81,8 @@ NeoBundle 'evidens/vim-twig'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'xolox/vim-session', {
-            \ 'depends' : 'xolox/vim-misc',
-            \ }
+			\ 'depends' : 'xolox/vim-misc',
+			\ }
 NeoBundle 'tomasr/molokai'
 NeoBundle 'sickill/vim-monokai'
 NeoBundle 'desert256.vim'
@@ -206,9 +206,9 @@ set laststatus=2
 set statusline=%F\ %m%r%h%w\ %=\ [%Y,%{&fileencoding},%{&ff},%l/%L(%p%%),%v]%{fugitive#statusline()}
 "入力モード時、ステータスラインのカラーを変更
 augroup InsertHook
-    autocmd! InsertHook
-    autocmd InsertEnter * highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=red
-    autocmd InsertLeave * highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=gray
+	autocmd! InsertHook
+	autocmd InsertEnter * highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=red
+	autocmd InsertLeave * highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=gray
 augroup END
 "現在のモードを表示する。
 "Insertモード、ReplaceモードまたはVisualモードで最終行にメッセージを表示する。
