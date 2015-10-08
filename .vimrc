@@ -56,20 +56,14 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
-"NeoBundle 'tyru/current-func-info.vim'
 NeoBundle 'vim-scripts/The-NERD-tree'
 NeoBundle 'vim-scripts/yanktmp.vim'
-"NeoBundle 'vim-scripts/gtags.vim'
-"NeoBundle 'vim-scripts/jQuery'
-NeoBundle 'vim-scripts/php.vim--Garvin'
-"NeoBundle 'vim-scripts/DrawIt'
 NeoBundle 'vim-scripts/ruby-matchit'
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/peaksea'
 NeoBundle 'vim-scripts/phpmanual'
 NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'scrooloose/syntastic'
-"NeoBundle 'Sixeight/unite-grep'
 NeoBundle 'yuki777/YankRing120.vim'
 NeoBundle 'yuki777/encode.vim'
 NeoBundle 'yuki777/vim-ft-svn_diff'
@@ -82,7 +76,6 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'cohama/agit.vim'
 NeoBundle 'gregsexton/gitv'
-"NeoBundle 'rhysd/committia.vim'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'evidens/vim-twig'
 NeoBundle 'kchmck/vim-coffee-script'
@@ -95,15 +88,11 @@ NeoBundle 'sickill/vim-monokai'
 NeoBundle 'desert256.vim'
 NeoBundle 'soh335/vim-symfony'
 NeoBundle 'rcmdnk/vim-markdown'
-"NeoBundle 'szw/vim-tags'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'sudo.vim'
 NeoBundle 'toyamarinyon/vim-swift'
 NeoBundle 'vim-scripts/JavaScript-Indent'
-NeoBundle 'vim-scripts/IndentAnything'
-"NeoBundle 'wakatime/vim-wakatime'
-"NeoBundle 'dericofilho/vim-phpfmt'
 
 call neobundle#end()
 
@@ -226,79 +215,56 @@ augroup END
 set showmode
 
 "----------------------------------------------------
-" インデント
-"----------------------------------------------------
-" オートインデントを無効にする
-"set noautoindent
-" オートインデントを有効にする
-set autoindent
-" タブが対応する空白の数
-" ファイル中の<Tab>文字(キャラクターコード9)を、
-" 画面上の見た目で何文字分に展開するかを指定する。
-" 既にあるファイルをどのように表示するのか指定したい時に便利。
-set tabstop=4
-" タブやバックスペースの使用等の編集操作をするときにタブが対応する空白の数
-" キーボードで<Tab>キーを押した時に挿入される空白の量。
-" 'softtabstop'が0以外の時には、例え'ts'を4に設定していても、
-" <Tab>を1度押しても'softtabstop'分だけ空白が挿入されます。
-" 逆に'softtabstop'が0の場合には挿入されるのは'ts'で指定した量になります。
-set softtabstop=4
-"シフト移動幅
-"vimが挿入するインデント('cindent')やシフトオペレータ(>>や<<)で
-"挿入/削除されるインデントの幅を、画面上の見た目で何文字分であるか指定します。
-"自動的に挿入される量、と覚えておくと良いです
-set shiftwidth=4
-" タブを挿入するとき、代わりに空白を使わない
-"set noexpandtab
-"タブの代わりに空白文字を挿入する
-set expandtab
-"新しい行を作ったときに高度な自動インデントを行う
-set smartindent
-"行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
-set smarttab
 "カーソルを行頭、行末で止まらないようにする?
+"----------------------------------------------------
 "set whichwrap=b,s,h,l,<,>,[,]
+
+"----------------------------------------------------
 " バックスペースキーで削除できるものを指定
+"----------------------------------------------------
 " indent  : 行頭の空白
 " eol     : 改行
 " start   : 挿入モード開始位置より手前の文字
 set backspace=indent,eol,start
 
-" tabstop
-" ファイル中の<Tab>文字(キャラクターコード9)を、画面上の見た目で何文字分に展開するか
-" shiftwidth
-" vimが挿入するインデント('cindent')やシフトオペレータ(>>や<<)で挿入/削除されるインデントの幅を画面上の見た目で何文字分でにするか。自動的に挿入される量。
-" softtabstop
-" キーボードで<Tab>キーを押した時に挿入される空白の量
-"----------------------------------------------------
-" FileType別設定
-"----------------------------------------------------
-" ruby
-au FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2
-" yaml
-au FileType yaml set tabstop=4 shiftwidth=4 softtabstop=0
-" php
-au FileType php  set tabstop=4 shiftwidth=4 softtabstop=0
-" html
-au FileType html set tabstop=4 shiftwidth=4 softtabstop=0
-" twig
-au FileType twig set tabstop=4 shiftwidth=4 softtabstop=0
-" html.twig
-au FileType html.twig set tabstop=4 shiftwidth=4 softtabstop=0
-" coffee
-au FileType coffee set tabstop=2 shiftwidth=2 softtabstop=2
-" http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
-autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
-autocmd FileType smarty setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
-" http://d.hatena.ne.jp/over80/20090305/1236264851
-autocmd FileType python setl autoindent
-autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+"-------------------------------------------------------------------------------
+" インデント Indent
+"-------------------------------------------------------------------------------
+set autoindent   " 自動でインデント
+"set paste        " ペースト時にautoindentを無効に(onにするとautocomplpop.vimが動かない)
+set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
+set cindent      " Cプログラムファイルの自動インデントを始める
 
-"----------------------------------------------------
-" set ft
-"----------------------------------------------------
-"au BufNewFile,BufRead *.phtml set filetype=html
+" softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
+set tabstop=2 shiftwidth=2 softtabstop=0
+
+"" 連続インデント
+"vnoremap < <gv
+"vnoremap > >gv
+
+if has("autocmd")
+	" ファイルタイプの検索を有効にする
+	filetype plugin on
+	" そのファイルタイプにあわせたインデントを利用する
+	filetype indent on
+	" これらのftではインデントを無効に
+	"autocmd FileType php filetype indent off
+	" ファイルタイプ別設定
+	autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+	autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
+	autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+	autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
+	autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+	autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
+	autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
+	autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+	autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+	autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+	autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
+	autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+	autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
+	autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
+endif
 
 "----------------------------------------------------
 " PHP
@@ -364,18 +330,18 @@ let NERDTreeMinimalUI=1
 "----------------------------------------------------
 set t_Co=256
 if $USER == 'adachi' || $USER == 'yuki' || $USER == 'yuki-adachi'
-    if filereadable($HOME . "/.vim/bundle/molokai/colors/molokai.vim")
-        colorscheme molokai
-    else
-        colorscheme desert256
-    endif
+	if filereadable($HOME . "/.vim/bundle/molokai/colors/molokai.vim")
+		colorscheme molokai
+	else
+		colorscheme desert256
+	endif
 else
-    "if filereadable($HOME . "/.vim/bundle/vim-monokai/colors/monokai.vim")
-    "    colorscheme monokai
-    "else
-    "    colorscheme desert256
-    "endif
-    colorscheme desert
+	"if filereadable($HOME . "/.vim/bundle/vim-monokai/colors/monokai.vim")
+	"    colorscheme monokai
+	"else
+	"    colorscheme desert256
+	"endif
+	colorscheme desert
 endif
 
 "----------------------------------------------------
@@ -385,11 +351,11 @@ endif
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 if has('mac') && has('gui')
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=gray ctermbg=gray
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkGray ctermbg=darkGray
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=gray ctermbg=gray
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkGray ctermbg=darkGray
 else
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=235 ctermbg=235
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=236 ctermbg=236
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=235 ctermbg=235
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=236 ctermbg=236
 endif
 
 "----------------------------------------------------
@@ -397,7 +363,7 @@ endif
 " win-puttyなら設定>ウィンドウ>変換>UTF-8(CJK)を選択。CJK用の文字幅を使用するをチェック。
 "----------------------------------------------------
 if exists('&ambiwidth')
-    set ambiwidth=double
+	set ambiwidth=double
 endif
 
 "----------------------------------------------------
@@ -416,43 +382,43 @@ set showtabline=2
 set guioptions-=e
 set tabline=%!MakeTabLine()
 function! MakeTabLine()
-    let titles = map(range(1, tabpagenr('$')), 's:tabpage_label(v:val)')
-    let sep = ' | '  " タブ間の区切り
-    let tabpages = join(titles, sep) . sep . '%#TabLineFill#%T'
-    let info = ''  " 好きな情報を入れる
-    return tabpages . '%=' . info  " タブリストを左に、情報を右に表示
+	let titles = map(range(1, tabpagenr('$')), 's:tabpage_label(v:val)')
+	let sep = ' | '  " タブ間の区切り
+	let tabpages = join(titles, sep) . sep . '%#TabLineFill#%T'
+	let info = ''  " 好きな情報を入れる
+	return tabpages . '%=' . info  " タブリストを左に、情報を右に表示
 endfunction
 " 各タブページのカレントバッファ名+αを表示
 function! s:tabpage_label(n)
-    " t:title と言う変数があったらそれを使う
-    let title = gettabvar(a:n, 'title')
-    if title !=# ''
-        return title
-    endif
+	" t:title と言う変数があったらそれを使う
+	let title = gettabvar(a:n, 'title')
+	if title !=# ''
+		return title
+	endif
 
-    " タブページ内のバッファのリスト
-    let bufnrs = tabpagebuflist(a:n)
+	" タブページ内のバッファのリスト
+	let bufnrs = tabpagebuflist(a:n)
 
-    " カレントタブページかどうかでハイライトを切り替える
-    let hi = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
+	" カレントタブページかどうかでハイライトを切り替える
+	let hi = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
 
-    "" バッファが複数あったらバッファ数を表示
-    "let no = len(bufnrs)
-    "if no is 1
-    "    let no = ''
-    "endif
-    let no = ''
+	"" バッファが複数あったらバッファ数を表示
+	"let no = len(bufnrs)
+	"if no is 1
+	"    let no = ''
+	"endif
+	let no = ''
 
-    " タブページ内に変更ありのバッファがあったら '+' を付ける
-    let mod = len(filter(copy(bufnrs), 'getbufvar(v:val, "&modified")')) ? '+' : ''
-    let sp = (no . mod) ==# '' ? '' : ' '  " 隙間空ける
+	" タブページ内に変更ありのバッファがあったら '+' を付ける
+	let mod = len(filter(copy(bufnrs), 'getbufvar(v:val, "&modified")')) ? '+' : ''
+	let sp = (no . mod) ==# '' ? '' : ' '  " 隙間空ける
 
-    " カレントバッファ
-    let curbufnr = bufnrs[tabpagewinnr(a:n) - 1]  " tabpagewinnr() は 1 origin
-    let fname = pathshorten(bufname(curbufnr))
-    let fname = fname is '' ? 'No Title' : fname "バッファが空ならNo Title
-    let label = no . mod . sp . fname
-    return '%' . a:n . 'T' . hi . label . '%T%#TabLineFill#'
+	" カレントバッファ
+	let curbufnr = bufnrs[tabpagewinnr(a:n) - 1]  " tabpagewinnr() は 1 origin
+	let fname = pathshorten(bufname(curbufnr))
+	let fname = fname is '' ? 'No Title' : fname "バッファが空ならNo Title
+	let label = no . mod . sp . fname
+	return '%' . a:n . 'T' . hi . label . '%T%#TabLineFill#'
 endfunction
 
 "----------------------------------------------------
@@ -506,9 +472,9 @@ let g:unite_data_directory = $HOME.'/.vim/data/unite'
 " TODO:続けてCtrl+g,Ctrl+gしたときはCtrl+o,Ctrl+oで元の場所に戻りたい
 "----------------------------------------------------
 if !exists("*ClearJumplist()")
-    function! ClearJumplist()
-        :let i = 0 | while i < 100 | mark ' | let i = i + 1 | endwhile
-    endfunction
+	function! ClearJumplist()
+		:let i = 0 | while i < 100 | mark ' | let i = i + 1 | endwhile
+	endfunction
 endif
 " 起動時にジャンプリストクリアしておく
 call ClearJumplist()
@@ -536,15 +502,15 @@ let g:neosnippet#snippets_directory	= $HOME.'/.vim/data/neosnippet'
 " http://vim-users.jp/2009/07/hack-39/
 " http://d.hatena.ne.jp/thinca/20091031/1257001194
 function! Scouter(file, ...)
-    let pat = '^\s*$\|^\s*"'
-    let lines = readfile(a:file)
-    if !a:0 || !a:1
-        let lines = split(substitute(join(lines, "\n"), '\n\s*\\', '', 'g'), "\n")
-    endif
-    return len(filter(lines,'v:val !~ pat'))
+	let pat = '^\s*$\|^\s*"'
+	let lines = readfile(a:file)
+	if !a:0 || !a:1
+		let lines = split(substitute(join(lines, "\n"), '\n\s*\\', '', 'g'), "\n")
+	endif
+	return len(filter(lines,'v:val !~ pat'))
 endfunction
 command! -bar -bang -nargs=? -complete=file Scouter
-            \        echo Scouter(empty(<q-args>) ? $MYVIMRC : expand(<q-args>), <bang>0)
+			\        echo Scouter(empty(<q-args>) ? $MYVIMRC : expand(<q-args>), <bang>0)
 
 " -----------------------------------------------
 " vim7.3新機能
@@ -592,9 +558,9 @@ autocmd FileType python :set    fileencoding=utf-8
 
 " カレント行強調 カレントウィンドウにのみ罫線を引く設定
 augroup cch
-    autocmd! cch
-    autocmd WinLeave * set nocursorcolumn nocursorline
-    autocmd WinEnter,BufRead * set cursorline
+	autocmd! cch
+	autocmd WinLeave * set nocursorcolumn nocursorline
+	autocmd WinEnter,BufRead * set cursorline
 augroup END
 
 " -----------------------------------------------
@@ -649,48 +615,48 @@ highlight PmenuSel ctermbg=235
 " -----------------------------------------------
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 if has('lua')
-    " Disable AutoComplPop.
-    let g:acp_enableAtStartup = 0
-    " Use neocomplete.
-    let g:neocomplete#enable_at_startup = 1
-    " Use smartcase.
-    let g:neocomplete#enable_smart_case = 1
-    " Set minimum syntax keyword length.
-    let g:neocomplete#sources#syntax#min_keyword_length = 3
-    let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+	" Disable AutoComplPop.
+	let g:acp_enableAtStartup = 0
+	" Use neocomplete.
+	let g:neocomplete#enable_at_startup = 1
+	" Use smartcase.
+	let g:neocomplete#enable_smart_case = 1
+	" Set minimum syntax keyword length.
+	let g:neocomplete#sources#syntax#min_keyword_length = 3
+	let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
-    " Define dictionary.
-    let g:neocomplete#sources#dictionary#dictionaries = {
-                \ 'default' : '',
-                \ 'vimshell' : $HOME.'/.vimshell_hist',
-                \ 'scheme' : $HOME.'/.gosh_completions'
-                \ }
+	" Define dictionary.
+	let g:neocomplete#sources#dictionary#dictionaries = {
+				\ 'default' : '',
+				\ 'vimshell' : $HOME.'/.vimshell_hist',
+				\ 'scheme' : $HOME.'/.gosh_completions'
+				\ }
 
-    " Define keyword.
-    if !exists('g:neocomplete#keyword_patterns')
-        let g:neocomplete#keyword_patterns = {}
-    endif
-    let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+	" Define keyword.
+	if !exists('g:neocomplete#keyword_patterns')
+		let g:neocomplete#keyword_patterns = {}
+	endif
+	let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-    " Enable omni completion.
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+	" Enable omni completion.
+	autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+	autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+	autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+	autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-    " Enable heavy omni completion.
-    if !exists('g:neocomplete#sources#omni#input_patterns')
-        let g:neocomplete#sources#omni#input_patterns = {}
-    endif
-    "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-    "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-    "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+	" Enable heavy omni completion.
+	if !exists('g:neocomplete#sources#omni#input_patterns')
+		let g:neocomplete#sources#omni#input_patterns = {}
+	endif
+	"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+	"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+	"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
-    " For perlomni.vim setting.
-    " https://github.com/c9s/perlomni.vim
-    let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-    let g:neocomplete#data_directory = $HOME.'/.vim/data/neocomplete'
+	" For perlomni.vim setting.
+	" https://github.com/c9s/perlomni.vim
+	let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+	let g:neocomplete#data_directory = $HOME.'/.vim/data/neocomplete'
 endif
 
 " -----------------------------------------------
@@ -785,19 +751,10 @@ let g:vim_markdown_initial_foldlevel=1
 " highlight whitespace at end of line
 " -----------------------------------------------
 augroup HighlightTrailingSpaces
-    autocmd!
-    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
-    autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+	autocmd!
+	autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+	autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
-
-"" -----------------------------------------------
-"" https://github.com/dericofilho/vim-phpfmt
-"" -----------------------------------------------
-"let g:phpfmt_on_save = get(g:, 'phpfmt_on_save', 1) " format on save (autocmd)
-"let g:phpfmt_php_path = "php"               " Path to PHP
-""let g:phpfmt_prepasses_list = "AutoPreincrement,JointToImplode"
-""let g:phpfmt_passes_list = "ReturnNull"
-"let g:phpfmt_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
 
 " -----------------------------------------------
 " TODO: 同期スクロールオプション
@@ -815,12 +772,12 @@ set noscb
 " キーマップ設定ファイルがあれば読み込む
 " -----------------------------------------------
 if filereadable(expand('~/.vimrc.map'))
-    source ~/.vimrc.map
+	source ~/.vimrc.map
 endif
 
 " ------------------------------------------------
 " 環境依存な追加設定ファイルがあれば読み込む
 " ------------------------------------------------
 if filereadable(expand('~/.vimrc.local'))
-    source ~/.vimrc.local
+	source ~/.vimrc.local
 endif
