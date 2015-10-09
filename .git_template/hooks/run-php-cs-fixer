@@ -3,11 +3,11 @@ root=($(git rev-parse --show-toplevel |sed -e "s|/usr/home|/home|"))
 files=($(git diff --name-only --cached | egrep "\.php$" | sed -e "s|^|$root/|"))
 for file in "${files[@]}"; do
     if [ -f "$file" ]; then
-        php-cs-fixer fix $file --diff --verbose --dry-run
+        php-cs-fixer fix $file --config-file .php_cs --diff --verbose --dry-run
         if [ $? -ne 0 ]; then
             echo --------------------------------------------------------------------------
             echo "# Run this command if you want to fix php-cs(PHP-Coding-Standards)."
-            echo "php-cs-fixer fix --config-file $root/.php_cs --diff --verbose --dry-run"
+	    echo "php-cs-fixer fix $file --config-file .php_cs --diff --verbose"
             echo "# Or add -n(--no-verify) option on commit, If you do NOT want to fix it."
             echo "git commit -v -n $file"
             echo --------------------------------------------------------------------------
