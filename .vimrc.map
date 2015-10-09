@@ -165,7 +165,8 @@ map <S-h> ^
 "---------------------------------------------------
 " unite
 "---------------------------------------------------
-nnoremap // :Unite file<CR>**/** !cache/ 
+"nnoremap // :Unite file<CR>**/** !cache/ 
+nnoremap // :Unite file<CR>**/** 
 " 現在開いているファイルのディレクトリの下の一覧
 "nnoremap // :UniteWithBufferDir file -buffer-name=files<CR>
 "入力された絞り込みテキストのディレクトリまたは、現在ディレクトリ直下のファイルすべてを候補とする。
