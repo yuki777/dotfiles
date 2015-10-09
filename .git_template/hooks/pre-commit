@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+dir=`dirname realpath $0`
+
+# Check php syntax
+$dir/check-php-syntax
+if [ $? -ne 0 ]; then
+    message="Aborting commit due to files with syntax errors."
+    echo -e "\033[0;31m$message\033[0;39m" >&2
+    exit 1
+fi
+
+# Run php-cs-fixer
+$dir/run-php-cs-fixer
+if [ $? -ne 0 ]; then
+    exit 1
+fi
