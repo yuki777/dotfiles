@@ -25,6 +25,7 @@
     ln -fs dotfiles/.tigrc     .tigrc
     ln -fs dotfiles/.gitconfig .gitconfig
     ln -fs dotfiles/.gitignore .gitignore
+    ln -fs dotfiles/.git_template .git_template
     mkdir -p ~/bin
     ln -fs ~/dotfiles/bin/git_merge_wrapper3 ~/bin/git_merge_wrapper3
     ln -fs ~/dotfiles/bin/tmuxx ~/bin/tmuxx
