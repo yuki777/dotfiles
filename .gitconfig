@@ -26,3 +26,5 @@
 	cmd = ~/bin/git_merge_wrapper3 \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [mergetool]
 	keepBackup = false
+[init]
+	templatedir = ~/.git_template
