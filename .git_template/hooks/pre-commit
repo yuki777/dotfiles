@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dir=`dirname realpath $0`
+dir=$(cd $(dirname $0);pwd)
 
 # Check php syntax
 $dir/check-php-syntax
