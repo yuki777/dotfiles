@@ -9,36 +9,35 @@
     git clone git@github.com:yuki777/dotfiles.git
 
 # Deploy Dotfiles
-    cd ~
-    ln -fs dotfiles/.vim       .vim
-    ln -fs dotfiles/.vimrc     .vimrc
-    ln -fs dotfiles/.vimrc.map .vimrc.map
-    ln -fs dotfiles/.zshrc     .zshrc
-    ln -fs dotfiles/.zshrc.prompt     .zshrc.prompt
-    ln -fs dotfiles/.zshrc.alias      .zshrc.alias
-    ln -fs dotfiles/.zsh       .zsh
-    ln -fs dotfiles/.zshenv    .zshenv
-    ln -fs dotfiles/.screenrc  .screenrc
-    ln -fs dotfiles/.tmux.conf .tmux.conf
-    ln -fs dotfiles/.ctags     .ctags
-    ln -fs dotfiles/.gtags     .gtags
-    ln -fs dotfiles/.tigrc     .tigrc
-    ln -fs dotfiles/.gitconfig .gitconfig
-    ln -fs dotfiles/.gitignore .gitignore
-    ln -fs dotfiles/.git_template .git_template
-    mkdir -p ~/bin
-    ln -fs ~/dotfiles/bin/git_merge_wrapper3 ~/bin/git_merge_wrapper3
-    ln -fs ~/dotfiles/bin/tmuxx ~/bin/tmuxx
-    ln -fs ~/dotfiles/bin/tmuxxx ~/bin/tmuxxx
-    ln -fs ~/dotfiles/bin/clide ~/bin/clide
-    mkdir -p ~/.vim/data/yankring/
-    mkdir -p ~/.vim/data/yanktmp/
-    cp dotfiles/.vimrc.local  ~/.vimrc.local
-    cp dotfiles/.tmux.local   ~/.tmux.local
-    cp dotfiles/.zshrc.local  ~/.zshrc.local
-    cp dotfiles/.zshrc.mysql  ~/.zshrc.mysql
-    cp dotfiles/.ctagsignore ~/
-    touch .gitconfig.local
+```
+cd ~
+mkdir -p ~/.vim/data
+mkdir -p ~/bin
+ln -fs dotfiles/.vimrc
+ln -fs dotfiles/.vimrc.map
+ln -fs dotfiles/.zshrc
+ln -fs dotfiles/.zshrc.prompt
+ln -fs dotfiles/.zshrc.alias
+ln -fs dotfiles/.zsh
+ln -fs dotfiles/.zshenv
+ln -fs dotfiles/.tmux.conf
+ln -fs dotfiles/.ctags
+ln -fs dotfiles/.gtags
+ln -fs dotfiles/.tigrc
+ln -fs dotfiles/.gitconfig
+ln -fs dotfiles/.gitignore
+ln -fs dotfiles/.git_template
+ln -fs ~/dotfiles/bin/git_merge_wrapper3 ~/bin/git_merge_wrapper3
+ln -fs ~/dotfiles/bin/tmuxx              ~/bin/tmuxx
+ln -fs ~/dotfiles/bin/tmuxxx             ~/bin/tmuxxx
+ln -fs ~/dotfiles/bin/clide              ~/bin/clide
+cp dotfiles/.vimrc.local  ~
+cp dotfiles/.tmux.local   ~
+cp dotfiles/.zshrc.local  ~
+cp dotfiles/.zshrc.mysql  ~
+cp dotfiles/.ctagsignore  ~
+touch .gitconfig.local
+```
 
 # Setup tmux config
 ```
@@ -47,10 +46,22 @@
 
 # Setup Vim By NeoBundle
 ```
-cd ~
-mkdir -p ~/.vim/bundle
-git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-git clone git://github.com/Shougo/vimproc.vim ~/.vim/bundle/vimproc
-git clone git://github.com/Shougo/unite.vim ~/.vim/bundle/unite.vim
-~/.vim/bundle/neobundle.vim/bin/neoinstall
+cd $HOME
+mkdir -p $HOME/.vim/bundle
+git clone git://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
+git clone git://github.com/Shougo/unite.vim     $HOME/.vim/bundle/unite.vim
+git clone git://github.com/Shougo/vimproc.vim   $HOME/.vim/bundle/vimproc
+cd $HOME/.vim/bundle/vimproc && make -f make_unix.mak
+$HOME/.vim/bundle/neobundle.vim/bin/neoinstall
+```
+
+# yankring,yanktmp
+```
+mkdir -p ~/.vim/data/yankring
+mkdir -p ~/.vim/data/yanktmp
+```
+
+# neosnippets
+```
+cp $HOME/dotfiles/.vim/data/neosnippet/* $HOME/.vim/data/neosnippet/
 ```
