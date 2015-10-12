@@ -204,9 +204,8 @@ set cmdheight=1
 set laststatus=2
 " ステータスラインに表示する情報の指定
 " (左寄せ)[ファイルのフルパス][修正したら+][読み込み専用ならRO][ヘルプならヘルプ][プレビューならプレビュー][関数名]
-" (右寄せ)[ファイルタイプ][エンコード,改行コード][何行目にカーソルがあるか/総行数(現在行が何%の位置か),何列目か]
-"set statusline=%F\ %m%r%h%w\ %{cfi#get_func_name()}\ %=\ [%Y,%{&fileencoding},%{&ff},%l/%L(%p%%),%v]
-set statusline=%F\ %m%r%h%w\ %=\ [%Y,%{&fileencoding},%{&ff},%l/%L(%p%%),%v]%{fugitive#statusline()}
+" (右寄せ)[ファイルタイプ][エンコード,改行コード][Gitステータス]
+set statusline=%F\ %m%r%h%w\ %=\ [%Y,%{&fileencoding},%{&ff}]%{fugitive#statusline()}
 "入力モード時、ステータスラインのカラーを変更
 augroup InsertHook
 	autocmd! InsertHook
