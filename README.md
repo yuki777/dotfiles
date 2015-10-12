@@ -66,3 +66,4 @@ mkdir -p ~/.vim/data/yanktmp
 cp $HOME/dotfiles/.vim/data/neosnippet/* $HOME/.vim/data/neosnippet/
 ```
 Mon Oct 12 11:14:27 ICT 2015
+Mon Oct 12 11:20:57 ICT 2015
