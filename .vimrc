@@ -230,43 +230,56 @@ set showmode
 " start   : 挿入モード開始位置より手前の文字
 set backspace=indent,eol,start
 
-" tabstop
-" ファイル中の<Tab>文字(キャラクターコード9)を、画面上の見た目で何文字分に展開するか
-" shiftwidth
-" vimが挿入するインデント('cindent')やシフトオペレータ(>>や<<)で挿入/削除されるインデントの幅を画面上の見た目で何文字分でにするか。自動的に挿入される量。
-" softtabstop
-" キーボードで<Tab>キーを押した時に挿入される空白の量
-"----------------------------------------------------
-" FileType別設定
-"----------------------------------------------------
-" ruby
-au FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2
-" yaml
-au FileType yaml set tabstop=4 shiftwidth=4 softtabstop=0
-" php
-au FileType php  set tabstop=4 shiftwidth=4 softtabstop=0
-" html
-au FileType html set tabstop=4 shiftwidth=4 softtabstop=0
-" twig
-au FileType twig set tabstop=4 shiftwidth=4 softtabstop=0
-" html.twig
-au FileType html.twig set tabstop=4 shiftwidth=4 softtabstop=0
-" coffee
-au FileType coffee set tabstop=2 shiftwidth=2 softtabstop=2
-" http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
-autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
-autocmd FileType smarty setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
-" http://d.hatena.ne.jp/over80/20090305/1236264851
-autocmd FileType python setl autoindent
-autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
-" http://vim.wikia.com/wiki/Always_start_on_first_line_of_git_commit_message
-au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+"-------------------------------------------------------------------------------
+" インデント Indent
+"-------------------------------------------------------------------------------
+set autoindent   " 自動でインデント
+"set paste        " ペースト時にautoindentを無効に(onにするとautocomplpop.vimが動かない)
+set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
+set cindent      " Cプログラムファイルの自動インデントを始める
 
-"----------------------------------------------------
-" set ft
-"----------------------------------------------------
-"au BufNewFile,BufRead *.phtml set filetype=html
+" softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
+set tabstop=2 shiftwidth=2 softtabstop=0
+
+"" 連続インデント
+"vnoremap < <gv
+"vnoremap > >gv
+
+if has("autocmd")
+  "ファイルタイプの検索を有効にする
+  filetype plugin on
+  "そのファイルタイプにあわせたインデントを利用する
+  filetype indent on
+  " これらのftではインデントを無効に
+  "autocmd FileType php filetype indent off
+
+  autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+endif
 
 "----------------------------------------------------
 " PHP
@@ -537,10 +550,10 @@ command! WJis  w ++enc=iso-2022-jp | e
 " -----------------------------------------------
 " utf-8で開く
 " -----------------------------------------------
-autocmd FileType svn :set       fileencoding=utf-8
-autocmd FileType cvs :set       fileencoding=utf-8
+autocmd FileType svn       :set fileencoding=utf-8
+autocmd FileType cvs       :set fileencoding=utf-8
 autocmd FileType gitcommit :set fileencoding=utf-8
-autocmd FileType python :set    fileencoding=utf-8
+autocmd FileType python    :set fileencoding=utf-8
 
 " -----------------------------------------------
 " toggle.vim
