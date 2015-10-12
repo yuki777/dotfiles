@@ -1,17 +1,17 @@
-#!/usr/bin/env ruby
-require "readline"
-
-current_branch = `git rev-parse --abbrev-ref HEAD`.strip
-message = File.read(ARGV[0])
-$regex = /\[#{current_branch}\]/
-if !$regex.match(message)
-  puts "Current branch name [#{current_branch}] has not found in this commit message."
-end
-
-print "Are you sure to commit? [y/N]"
-STDIN.reopen('/dev/tty')
-input = Readline.readline
-if input != "y"
-  puts "Commit aborted."
-  exit 1
-end
+##!/usr/bin/env ruby
+#require "readline"
+#
+#current_branch = `git rev-parse --abbrev-ref HEAD`.strip
+#message = File.read(ARGV[0])
+#$regex = /\[#{current_branch}\]/
+#if !$regex.match(message)
+#  puts "Current branch name [#{current_branch}] has not found in this commit message."
+#end
+#
+#print "Are you sure to commit? [y/N]"
+#STDIN.reopen('/dev/tty')
+#input = Readline.readline
+#if input != "y"
+#  puts "Commit aborted."
+#  exit 1
+#end

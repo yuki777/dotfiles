@@ -1,7 +1,7 @@
-#!/usr/bin/env ruby
-current_branch = `git rev-parse --abbrev-ref HEAD`.strip
-commit_msgs = File.readlines(ARGV[0])
-open(ARGV[0], 'w') {|file|
-  file.print "\n\n[#{current_branch}]"
-  file.puts commit_msgs
-}
+##!/usr/bin/env ruby
+#current_branch = `git rev-parse --abbrev-ref HEAD`.strip
+#commit_msgs = File.readlines(ARGV[0])
+#open(ARGV[0], 'w') {|file|
+#  file.print "\n\n[#{current_branch}]"
+#  file.puts commit_msgs
+#}

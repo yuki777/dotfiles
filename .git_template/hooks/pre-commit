@@ -10,8 +10,8 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Run php-cs-fixer
-$dir/run-php-cs-fixer
-if [ $? -ne 0 ]; then
-    exit 1
-fi
+## Run php-cs-fixer
+#$dir/run-php-cs-fixer
+#if [ $? -ne 0 ]; then
+#    exit 1
+#fi
