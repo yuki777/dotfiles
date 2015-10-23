@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
 
-# https://gist.github.com/3022478
-# mkdir -p ~/bin; cd ~/bin
-# wget "https://gist.githubusercontent.com/yuki777/40c19ae62081df634958/raw/c633f6b8f3943aad917dd8ce7ddbaf7745f665ae/tmuxxx"
-# chmod 744 tmuxx
-
 print_help(){
-    echo ' ex1 : tmuxxx'
+    echo ' e.g. : tmuxxx'
     echo '   if exists "default" session, attach "default" session.'
     echo '   if NOT exists "default" session, make "default" session.'
-    echo ' ex2 : tmuxx hoge'
+    echo ' e.g. : tmuxx hoge'
     echo '   if exists "hoge" session, attach "hoge" session.'
     echo '   if NOT exists "hoge" session, make "hoge" session.'
     exit
