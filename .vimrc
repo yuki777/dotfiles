@@ -237,33 +237,36 @@ filetype plugin on
 filetype indent on
 " これらのftではインデントを無効に
 "autocmd FileType php filetype indent off
-
-autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
-autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
-autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
-autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
-autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
-autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
-autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
-autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
-autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
-autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
-autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
-autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
-autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
-autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
-autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+" shiftwidth  : インデント時に使用されるスペースの数
+" softtabstop : 0でないなら、タブを入力時、その数値分だけ半角スペースを挿入する
+" tabstop     : タブを画面で表示する際の幅
+" expandtab   : 有効にすると、タブを挿入する時、そのタブを半角スペースとして挿入する
+autocmd FileType apache     setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType aspvbs     setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType c          setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType cpp        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType cs         setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType css        setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType diff       setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType eruby      setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType html       setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType java       setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType perl       setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType php        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType ruby       setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType haml       setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType sh         setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType sql        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType vb         setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType vim        setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType wsh        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType xhtml      setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType xml        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType yaml       setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType zsh        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType scala      setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 "----------------------------------------------------
 " PHP
