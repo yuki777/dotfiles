@@ -252,6 +252,7 @@ autocmd FileType eruby      setlocal shiftwidth=4 softtabstop=4 tabstop=4 expand
 autocmd FileType html       setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 autocmd FileType java       setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType json       setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 autocmd FileType perl       setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
 autocmd FileType php        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
 autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
