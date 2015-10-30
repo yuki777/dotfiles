@@ -52,32 +52,6 @@ function vit {
     vim $(grep -in ${1} **/*.twig | grep -v "[0-9]:\s*//" | peco | awk -F ":" '{print "-c "$2" "$1}')
 }
 
-# export
-export LANG=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
-export EC2_PRIVATE_KEY=$HOME/.aws_pk.pem
-export EC2_CERT=$HOME/.aws_cert.pem
-export EC2_URL="https://ec2.ap-northeast-1.amazonaws.com"
-export EC2_REGION="ap-northeast-1"
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH="/usr/sbin:${PATH}"
-export PATH="/sbin:${PATH}"
-export PATH="${HOME}/bin:${PATH}"
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export PATH=$HOME/local/bin:$PATH
-export PATH=/Applications/android-sdk-mac_x86/tools:$PATH
-export PATH=/Applications/android-sdk-mac_x86/platform-tools:$PATH
-export PATH=$HOME/local/go/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
-export MANPATH=/opt/local/man:$MANPATH
-export EDITOR=vim
-export SVN_EDITOR=vim
-export HGEDITOR=vim
-export TERM=xterm-256color
-export LD_LIBRARY_PATH=${HOME}/local/lib/:${LD_LIBRARY_PATH}
-export GOROOT=~/local/go
-[ -f $HOME/local/bin/global ] && export GTAGSGLOBAL=$HOME/local/bin/global
-
 # setopt
 setopt prompt_subst
 setopt list_packed
@@ -225,15 +199,13 @@ ZSH_HIGHLIGHT_PATTERNS+=('git push*' 'fg=white,bold,bg=red')
 [ -f ${HOME}/.zshrc.cl    ] && source ${HOME}/.zshrc.cl
 [ -f ${HOME}/.zshrc.prompt ] && source ${HOME}/.zshrc.prompt
 [ -f ${HOME}/.zshrc.alias  ] && source ${HOME}/.zshrc.alias
+[ -f ${HOME}/.zshrc.export ] && source ${HOME}/.zshrc.export
 
 # The next line updates PATH for the Google Cloud SDK.
 [ -f ~/google-cloud-sdk/path.zsh.inc ] && source ~/google-cloud-sdk/path.zsh.inc
 
 # The next line enables bash completion for gcloud.
 [ -f /home/vagrant/google-cloud-sdk/completion.zsh.inc ] && source /home/vagrant/google-cloud-sdk/completion.zsh.inc
-
-# Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 ## debug
 #if (which zprof > /dev/null) ;then
