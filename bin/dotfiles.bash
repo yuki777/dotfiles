@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -eu
 
-cd ~
-git clone https://github.com/yuki777/dotfiles.git
+# Install
+#  cd
+#  git clone https://github.com/yuki777/dotfiles.git
 
 cd ~
 mkdir -p ~/.vim/data
@@ -26,11 +27,23 @@ ln -fs ~/dotfiles/bin/git_merge_wrapper3 ~/bin/git_merge_wrapper3
 ln -fs ~/dotfiles/bin/tmuxx              ~/bin/tmuxx
 ln -fs ~/dotfiles/bin/tmuxxx             ~/bin/tmuxxx
 ln -fs ~/dotfiles/bin/clide              ~/bin/clide
-cp dotfiles/.vimrc.local  ~
-cp dotfiles/.tmux.local   ~
-cp dotfiles/.zshrc.local  ~
-cp dotfiles/.zshrc.mysql  ~
-cp dotfiles/.ctagsignore  ~
+
+if [ ! -e dotfiles/.vimrc.local ]; then
+    cp dotfiles/.vimrc.local ~
+fi
+if [ ! -e dotfiles/.tmux.local ]; then
+    cp dotfiles/.tmux.local ~
+fi
+if [ ! -e dotfiles/.zshrc.local ]; then
+    cp dotfiles/.zshrc.local ~
+fi
+if [ ! -e dotfiles/.zshrc.mysql ]; then
+    cp dotfiles/.zshrc.mysql ~
+fi
+if [ ! -e dotfiles/.ctagsignore ]; then
+    cp dotfiles/.ctagsignore ~
+fi
+
 touch .gitconfig.local
 
 ~/dotfiles/bin/setup_tmux_local
