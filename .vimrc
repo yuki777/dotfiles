@@ -61,18 +61,15 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'vim-scripts/The-NERD-tree'
 NeoBundle 'vim-scripts/yanktmp.vim'
 NeoBundle 'vim-scripts/Align'
-NeoBundle 'vim-scripts/phpmanual'
 NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'vim-scripts/peaksea'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'yuki777/YankRing120.vim'
 NeoBundle 'yuki777/encode.vim'
 NeoBundle 'yuki777/vim-ft-svn_diff'
-NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'Indent-Guides'
 NeoBundle 'grep.vim'
 NeoBundle 'ack.vim'
-NeoBundle 'HybridText'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'gregsexton/gitv'
@@ -81,7 +78,6 @@ NeoBundle 'xolox/vim-session', {
 			\ 'depends' : 'xolox/vim-misc',
 			\ }
 NeoBundle 'tomasr/molokai'
-NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'ap/vim-css-color'
 
 call neobundle#end()
