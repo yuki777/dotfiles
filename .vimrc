@@ -52,32 +52,29 @@ if has('lua')
 				\   }
 				\}
 endif
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite.vim' " search
+NeoBundle 'Shougo/neomru.vim' " Most Recently Used
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'vim-scripts/The-NERD-tree'
-NeoBundle 'vim-scripts/yanktmp.vim'
+NeoBundle 'vim-scripts/The-NERD-tree' " filer
+NeoBundle 'vim-scripts/yanktmp.vim' " yank
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AnsiEsc.vim'
-NeoBundle 'vim-scripts/peaksea'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'yuki777/YankRing120.vim'
+NeoBundle 'vim-scripts/peaksea' " colorscheme for diff
+NeoBundle 'scrooloose/syntastic' " check syntax
+NeoBundle 'yuki777/YankRing120.vim' " yank manager
 NeoBundle 'yuki777/encode.vim'
 NeoBundle 'yuki777/vim-ft-svn_diff'
 NeoBundle 'Indent-Guides'
-NeoBundle 'grep.vim'
-NeoBundle 'ack.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'gregsexton/gitv'
-NeoBundle 't9md/vim-quickhl'
 NeoBundle 'xolox/vim-session', {
 			\ 'depends' : 'xolox/vim-misc',
 			\ }
-NeoBundle 'tomasr/molokai'
+NeoBundle 'tomasr/molokai' " colorscheme
 NeoBundle 'ap/vim-css-color'
 
 call neobundle#end()
@@ -331,16 +328,7 @@ set t_Co=256
 if $USER == 'adachi' || $USER == 'yuki' || $USER == 'yuki-adachi'
 	if filereadable($HOME . "/.vim/bundle/molokai/colors/molokai.vim")
 		colorscheme molokai
-	else
-		colorscheme desert256
 	endif
-else
-	"if filereadable($HOME . "/.vim/bundle/vim-monokai/colors/monokai.vim")
-	"    colorscheme monokai
-	"else
-	"    colorscheme desert256
-	"endif
-	colorscheme desert
 endif
 
 "----------------------------------------------------
