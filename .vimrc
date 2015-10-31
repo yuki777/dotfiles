@@ -66,7 +66,6 @@ NeoBundle 'vim-scripts/peaksea' " colorscheme for diff
 NeoBundle 'scrooloose/syntastic' " check syntax
 NeoBundle 'yuki777/YankRing120.vim' " yank manager
 NeoBundle 'yuki777/encode.vim'
-NeoBundle 'yuki777/vim-ft-svn_diff'
 NeoBundle 'Indent-Guides'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-dispatch'
