@@ -12,8 +12,7 @@ sudo yum install -y zsh tmux vim git tig wget curl ftp expect mlocate mosh mercu
 
 # Clone Dotfiles
 ```
-cd ~
-git clone https://github.com/yuki777/dotfiles.git
+git clone https://github.com/yuki777/dotfiles.git ~/dotfiles
 ```
 
 # Setup
