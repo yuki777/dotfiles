@@ -6,13 +6,13 @@ My Dotfiles.
 # yum|apt|source install zsh git vim tmux subversion ctags gtags ack|ag ...
 #  sudo apt-get update -y
 #  sudo apt-get upgrade -y
-#  sudo apt-get install -y zsh vim tmux exuberant-ctags global git subversion mercurial make gcc g++ build-essential devscripts
+#  sudo apt-get install -y zsh vim tmux exuberant-ctags global git subversion mercurial make gcc g++ build-essential devscripts libpcre3-dev liblzma-dev
 ```
 
 # Clone Dotfiles
 ```
 cd ~
-git clone git@github.com:yuki777/dotfiles.git
+git clone https://github.com/yuki777/dotfiles.git
 ```
 
 # Setup
