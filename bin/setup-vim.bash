@@ -13,3 +13,7 @@ $HOME/.vim/bundle/neobundle.vim/bin/neoinstall
 # yankring,yanktmp
 mkdir -p ~/.vim/data/yankring
 mkdir -p ~/.vim/data/yanktmp
+
+# neosnippet
+mkdir -p ~/.vim/data/neosnippet
+cp ~/dotfiles/.vim/data/neosnippet/* ~/.vim/data/neosnippet/
