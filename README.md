@@ -3,10 +3,7 @@ My Dotfiles.
 
 # Install Dev Tools
 ```
-# yum|apt|source install zsh git vim tmux subversion ctags gtags ack|ag ...
-#  sudo apt update -y
-#  sudo apt upgrade -y
-#  sudo apt install -y zsh vim tmux exuberant-ctags global git subversion mercurial make gcc g++ build-essential devscripts libpcre3-dev liblzma-dev
+sudo apt install -y zsh vim tmux exuberant-ctags global git subversion mercurial make gcc g++ build-essential devscripts libpcre3-dev liblzma-dev
 ```
 
 # Clone Dotfiles
