@@ -7,3 +7,12 @@
 #alias tig=$HOME/local/bin/tig
 #alias cdfoo=$HOME/foo
 #alias cdbar=$HOME/bar
+
+## git my history
+#function git-myhist(){
+#    if [ $# != 0 ];then
+#        git log --date=iso --pretty=format:"[%ad] %h %an : %s" --author=yuki|grep $*                |awk '{$1="";$2="";$3="";$4="http://xxx/commits/"$4;$5="";$6="";$7="";print $0}'
+#    else
+#        git log --date=iso --pretty=format:"[%ad] %h %an : %s" --author=yuki|grep "`date +%Y-%m-%d`"|awk '{$1="";$2="";$3="";$4="http://xxx/commits/"$4;$5="";$6="";$7="";print $0}'
+#    fi
+#}
