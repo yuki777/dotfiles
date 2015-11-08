@@ -61,7 +61,6 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'vim-scripts/The-NERD-tree' " filer
 NeoBundle 'vim-scripts/yanktmp.vim' " yank
 NeoBundle 'vim-scripts/Align'
-NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'vim-scripts/peaksea' " colorscheme for diff
 NeoBundle 'scrooloose/syntastic' " check syntax
 NeoBundle 'yuki777/YankRing120.vim' " yank manager
