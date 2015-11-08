@@ -14,6 +14,7 @@ ln -fs dotfiles/.zshrc
 ln -fs dotfiles/.zshrc.prompt
 ln -fs dotfiles/.zshrc.alias
 ln -fs dotfiles/.zshrc.export
+ln -fs dotfiles/.zshrc.function
 ln -fs dotfiles/.zsh
 ln -fs dotfiles/.zshenv
 ln -fs dotfiles/.tmux.conf

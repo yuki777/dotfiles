@@ -34,24 +34,6 @@ HISTSIZE=50000
 SAVEHIST=50000
 #fpath=(${HOME}/.zsh/functions/Completion ${fpath})
 
-# vim open session
-function vimo(){
-    vim "+OpenSession $1"
-}
-function vimb(){
-    t=`tmux display-message -p '#S'`    # current tmux session name
-    b=`git rev-parse --abbrev-ref HEAD` # current git branch name
-    vim "+OpenSession $t.$b"
-}
-
-# http://qiita.com/jpshadowapps/items/3fbf817bdd14c48e2d54
-function vip {
-    vim $(grep -in ${1} **/*.php | grep -v "[0-9]:\s*//" | peco | awk -F ":" '{print "-c "$2" "$1}')
-}
-function vit {
-    vim $(grep -in ${1} **/*.twig | grep -v "[0-9]:\s*//" | peco | awk -F ":" '{print "-c "$2" "$1}')
-}
-
 # setopt
 setopt prompt_subst
 setopt list_packed
@@ -108,75 +90,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' keep-prefix
 zstyle ':completion:*' completer _oldlist _complete _match _ignored _approximate _list _history
 
-# w3mでALC検索 ex : alc hoge
-function alc() {
-    if [ $# != 0 ]; then
-        w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa"
-    else
-        w3m "http://www.alc.co.jp/"
-    fi
-}
-
-# w3mでexcite翻訳
-function world() {
-    if [ $# != 0 ]; then
-        w3m "http://www.excite.co.jp/world/english/?before=$*"
-    else
-        w3m "http://www.excite.co.jp/world/english/?before=$*"
-    fi
-}
-
-# ex : php-unserialize PhpSerialized.text
-function php-unserialize() { 
-    php -r "print_r(unserialize(file_get_contents('$*')));"
-}
-
-# complete host
-function print_known_hosts (){
-    if [ -f $HOME/.ssh/known_hosts ]; then
-        cat $HOME/.ssh/known_hosts|tr ',' ' '|cut -d' ' -f1|sort|uniq
-    fi  
-}
-_cache_hosts=($( print_known_hosts ))
-
-# highlighter
-# tail -f log | hi
-# tail -f log | hi hoge
-function hi(){
-    if [ $# != 0 ];then
-        clide -e /deprecate/i,fg=yellow -e /warn/i,fg=yellow -e /reject/i,fg=red -e /critical/i,fg=red -e /fail/i,fg=red -e /false/i,fg=red -e /err/i,fg=red,bold -e /fatal/i,fg=red,bold -e /\ 404\ /i,bold -e /\ 503\ /i,bold -e /yuki/i,bold -e /adachi/i,fg=blue,bg=yellow -e /$*/i,fg=green
-    else
-        clide -e /deprecate/i,fg=yellow -e /warn/i,fg=yellow -e /reject/i,fg=red -e /critical/i,fg=red -e /fail/i,fg=red -e /false/i,fg=red -e /err/i,fg=red,bold -e /fatal/i,fg=red,bold -e /\ 404\ /i,bold -e /\ 503\ /i,bold -e /yuki/i,bold -e /adachi/i,fg=blue,bg=yellow
-    fi
-}
-
-# svn log diff viewer
-function svnld(){ svnlogdiff $* }
-function svnlogdiff(){
-    if [ $# != 0 ];then
-        svn log --limit $* --verbose --diff|nkf -w|view - -c "set ft=diff"
-    else
-        svn log --limit 1  --verbose --diff|nkf -w|view - -c "set ft=diff"
-    fi
-}
-
-# http://qiita.com/kp_ohnishi/items/3009e2083831af3a7c5c
-function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(\history -n 1 | \
-        eval $tac | \
-        peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-zle -N peco-select-history
-bindkey '^r' peco-select-history
-
 # HighLight
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -200,6 +113,7 @@ ZSH_HIGHLIGHT_PATTERNS+=('git push*' 'fg=white,bold,bg=red')
 [ -f ${HOME}/.zshrc.prompt ] && source ${HOME}/.zshrc.prompt
 [ -f ${HOME}/.zshrc.alias  ] && source ${HOME}/.zshrc.alias
 [ -f ${HOME}/.zshrc.export ] && source ${HOME}/.zshrc.export
+[ -f ${HOME}/.zshrc.function ] && source ${HOME}/.zshrc.function
 
 # The next line updates PATH for the Google Cloud SDK.
 [ -f ~/google-cloud-sdk/path.zsh.inc ] && source ~/google-cloud-sdk/path.zsh.inc
