@@ -164,16 +164,16 @@ map <S-h> ^
 " unite
 "---------------------------------------------------
 "nnoremap // :Unite file<CR>**/** !cache/ 
-nnoremap // :Unite file<CR>**/** 
+nnoremap // :Unite file_rec<CR>
 " 現在開いているファイルのディレクトリの下の一覧
 "nnoremap // :UniteWithBufferDir file -buffer-name=files<CR>
 "入力された絞り込みテキストのディレクトリまたは、現在ディレクトリ直下のファイルすべてを候補とする。
-nnoremap /? :Unite file_rec<CR>
+"nnoremap /? :Unite file_rec<CR>
 " 最近開いたファイル
-nnoremap <SPACE>u1 :Unite file_mru<CR>
-nnoremap /? :Unite file_mru<CR>
+"nnoremap <SPACE>u1 :Unite file_mru<CR>
+"nnoremap /? :Unite file_mru<CR>
 " unite grep
-nnoremap <silent> ,ug :Unite grep::-iRHn<CR>
+"nnoremap <silent> ,ug :Unite grep::-iRHn<CR>
 " unite ESC
 " http://blog.sanojimaru.com/post/18534401804/unite-vim
 " ESCキーを2回押すと終了する
@@ -181,13 +181,14 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 " unite-bear keymaps
 " https://github.com/zukimochi/unite-bear
-nnoremap <silent> <SPACE>bh :<C-u>UniteWithInput bear/htdocs<CR>
-nnoremap <silent> <SPACE>ba :<C-u>UniteWithInput bear/App<CR>
-nnoremap <silent> <SPACE>bf :<C-u>UniteWithInput bear/Form<CR>
-nnoremap <silent> <SPACE>bp :<C-u>UniteWithInput bear/Page<CR>
-nnoremap <silent> <SPACE>br :<C-u>UniteWithInput bear/Ro<CR>
-nnoremap <silent> <SPACE>bl :<C-u>UniteWithInput bear/libs<CR>
-nnoremap <silent> <SPACE>bv :<C-u>UniteWithInput bear/views<CR>
+"nnoremap <silent> <SPACE>bh :<C-u>UniteWithInput bear/htdocs<CR>
+"nnoremap <silent> <SPACE>ba :<C-u>UniteWithInput bear/App<CR>
+"nnoremap <silent> <SPACE>bf :<C-u>UniteWithInput bear/Form<CR>
+"nnoremap <silent> <SPACE>bp :<C-u>UniteWithInput bear/Page<CR>
+"nnoremap <silent> <SPACE>br :<C-u>UniteWithInput bear/Ro<CR>
+"nnoremap <silent> <SPACE>bl :<C-u>UniteWithInput bear/libs<CR>
+"nnoremap <silent> <SPACE>bv :<C-u>UniteWithInput bear/views<CR>
+
 
 " ---------------------------------------------------
 " gtags カーソル下の関数の宣言箇所へジャンプして、Quickfix表示
