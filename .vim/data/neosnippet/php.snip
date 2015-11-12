@@ -279,7 +279,7 @@ snippet header
     header("Location: ${1}");
 
 snippet rv
-    # RV yuki.adachi to ${1}: ${2}
+    # RV yuki-adachi to ${1}: ${2}
 
 snippet dump
     \Doctrine\Common\Util\Debug::dump($${1:});
@@ -295,3 +295,15 @@ snippet eval
 
 snippet log
     \Log::debug([${1}]);
+
+snippet insert
+    DB::table('${1}')->insert([]);
+    ${1}::create([]);
+
+snippet select
+    $reads = DB::table('${1}')
+        ->select(DB::raw('${2:id, count(id) as read__count}'))
+        ->whereIn('${3:book_id}', ${4:$bookIds})
+        ->where('${5:deleted}', '${6:<>}', ${7:false})
+        ->groupBy('${8:book_id}')
+        ->get(['${9:book_id}', '${10:read__count}']);
