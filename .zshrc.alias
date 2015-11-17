@@ -20,7 +20,7 @@ alias vimp='vim -p '
 alias vimc='vim -p "+NERDTree app/Controller/" "+tabnew" "+NERDTree app/Model/" "+tabnew" "+NERDTree app/View/" "+tabnew" "+NERDTree app/Locale/" "+tabfirst"'
 alias vim.='vim "+NERDTree ."'
 #alias vim.='vim "+VimFilerExplorer -find ."'
-alias vimrc='vim ~/.vimrc'
+alias vimrc='vim -p ~/.vimrc ~/.vimrc.*'
 alias gitv='touch ~/.vim/data/view/gitv; rm -fr ~/.vim/data/view/*gitv*;vim "$(git rev-parse --show-toplevel)"/.git/index -c "Gitv --all" -c "tabonly"'
 alias gitst="git st -s|awk '{print \$2}'|tr '\n' ' '|xargs echo"
 case "${OSTYPE}" in
