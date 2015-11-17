@@ -50,11 +50,6 @@ endfunction
 nnoremap <silent> <C-d> :call MyNERDTreeFindToggle()<CR>
 
 "----------------------------------------------------
-" Ctrl + x でVimFilerExplorerを開く/閉じる
-"----------------------------------------------------
-nnoremap <silent> <C-x> :VimFilerExplorer -find -toggle -explorer <CR>
-
-"----------------------------------------------------
 " yanktmp:Vimセッションをまたいでコピペできる
 "----------------------------------------------------
 map <silent> sy :call YanktmpYank()<CR>
@@ -163,38 +158,15 @@ map <S-h> ^
 "---------------------------------------------------
 " unite
 "---------------------------------------------------
-"nnoremap // :Unite file<CR>**/** !cache/ 
 nnoremap // :Unite file_rec<CR>
-" 現在開いているファイルのディレクトリの下の一覧
-"nnoremap // :UniteWithBufferDir file -buffer-name=files<CR>
-"入力された絞り込みテキストのディレクトリまたは、現在ディレクトリ直下のファイルすべてを候補とする。
-"nnoremap /? :Unite file_rec<CR>
-" 最近開いたファイル
-"nnoremap <SPACE>u1 :Unite file_mru<CR>
-"nnoremap /? :Unite file_mru<CR>
-" unite grep
-"nnoremap <silent> ,ug :Unite grep::-iRHn<CR>
-" unite ESC
-" http://blog.sanojimaru.com/post/18534401804/unite-vim
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-" unite-bear keymaps
-" https://github.com/zukimochi/unite-bear
-"nnoremap <silent> <SPACE>bh :<C-u>UniteWithInput bear/htdocs<CR>
-"nnoremap <silent> <SPACE>ba :<C-u>UniteWithInput bear/App<CR>
-"nnoremap <silent> <SPACE>bf :<C-u>UniteWithInput bear/Form<CR>
-"nnoremap <silent> <SPACE>bp :<C-u>UniteWithInput bear/Page<CR>
-"nnoremap <silent> <SPACE>br :<C-u>UniteWithInput bear/Ro<CR>
-"nnoremap <silent> <SPACE>bl :<C-u>UniteWithInput bear/libs<CR>
-"nnoremap <silent> <SPACE>bv :<C-u>UniteWithInput bear/views<CR>
-
 
 " ---------------------------------------------------
 " gtags カーソル下の関数の宣言箇所へジャンプして、Quickfix表示
 " ---------------------------------------------------
 nnoremap <C-g> :GtagsCursor <CR>
-
 
 " ---------------------------------------------------
 " SuperTab like snippets behavior.
@@ -237,20 +209,6 @@ nmap k gk
 vmap j gj
 vmap k gk
 
-"" -----------------------------------------------
-"" 検索移動したら画面中央に表示
-"" -----------------------------------------------
-"nmap n nzz
-"nmap N Nzz
-
-"------------------------------------------------
-" grep
-"------------------------------------------------
-map ,gg :Grep<CR>
-map ,gr :Rgrep<CR>
-"map ,gf :Fgrep<CR>
-"map ,ga :Agrep<CR>
-
 "------------------------------------------------
 " 移動
 "------------------------------------------------
@@ -259,10 +217,6 @@ nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
 
-"------------------------------------------------
-" タグジャンプしたら画面中央に移動
-"------------------------------------------------
-"nmap <C-]> <C-]>zz
 "------------------------------------------------
 " tagsジャンプの時に複数ある時は一覧表示
 "------------------------------------------------
@@ -293,26 +247,9 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 endif
 
 "------------------------------------------------
-" xolox/vim-session
-"------------------------------------------------
-"command Os OpenSession
-"command Ss SaveSession
-
-"------------------------------------------------
 " To disable “Entering Ex mode” in Vim
 "------------------------------------------------
 map Q <Nop>
-
-"------------------------------------------------
-" t9md/vim-quickhl
-"------------------------------------------------
-nmap <Space>m <Plug>(quickhl-manual-this)
-xmap <Space>m <Plug>(quickhl-manual-this)
-nmap <Space>M <Plug>(quickhl-manual-reset)
-xmap <Space>M <Plug>(quickhl-manual-reset)
-nmap <Space>j <Plug>(quickhl-cword-toggle)
-"nmap <Space>] <Plug>(quickhl-tag-toggle)
-"map H <Plug>(operator-quickhl-manual-this-motion)
 
 " -----------------------------------------------
 " http://cohama.hateblo.jp/entry/20130517/1368806202
