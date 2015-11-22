@@ -17,6 +17,7 @@ ln -fs dotfiles/.zshrc.export
 ln -fs dotfiles/.zshrc.function
 ln -fs dotfiles/.zshrc.autoload
 ln -fs dotfiles/.zshrc.opt
+ln -fs dotfiles/.zshrc.highlight
 ln -fs dotfiles/.zsh
 ln -fs dotfiles/.zshenv
 ln -fs dotfiles/.tmux.conf
