@@ -15,6 +15,8 @@ ln -fs dotfiles/.zshrc.prompt
 ln -fs dotfiles/.zshrc.alias
 ln -fs dotfiles/.zshrc.export
 ln -fs dotfiles/.zshrc.function
+ln -fs dotfiles/.zshrc.autoload
+ln -fs dotfiles/.zshrc.opt
 ln -fs dotfiles/.zsh
 ln -fs dotfiles/.zshenv
 ln -fs dotfiles/.tmux.conf
@@ -37,9 +39,6 @@ if [ ! -e dotfiles/.tmux.local ]; then
 fi
 if [ ! -e dotfiles/.zshrc.local ]; then
     cp dotfiles/.zshrc.local ~
-fi
-if [ ! -e dotfiles/.zshrc.mysql ]; then
-    cp dotfiles/.zshrc.mysql ~
 fi
 if [ ! -e dotfiles/.ctagsignore ]; then
     cp dotfiles/.ctagsignore ~

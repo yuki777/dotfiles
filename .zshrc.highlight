@@ -1,0 +1,10 @@
+if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(pattern)
+ZSH_HIGHLIGHT_PATTERNS+=('rm *' 'fg=white,bold,bg=red')
+ZSH_HIGHLIGHT_PATTERNS+=('sudo*' 'fg=white,bold,bg=red')
+ZSH_HIGHLIGHT_PATTERNS+=('\|' 'fg=magenta,bold')
+ZSH_HIGHLIGHT_PATTERNS+=('>' 'fg=magenta,bold')
+ZSH_HIGHLIGHT_PATTERNS+=('>>' 'fg=magenta,bold')
+ZSH_HIGHLIGHT_PATTERNS+=('git push*' 'fg=white,bold,bg=red')

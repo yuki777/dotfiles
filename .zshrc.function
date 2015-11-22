@@ -22,7 +22,7 @@ function alc() {
 }
 
 # ex : php-unserialize PhpSerialized.text
-function php-unserialize() { 
+function php-unserialize() {
     php -r "print_r(unserialize(file_get_contents('$*')));"
 }
 
@@ -30,7 +30,7 @@ function php-unserialize() {
 function print_known_hosts (){
     if [ -f $HOME/.ssh/known_hosts ]; then
         cat $HOME/.ssh/known_hosts|tr ',' ' '|cut -d' ' -f1|sort|uniq
-    fi  
+    fi
 }
 _cache_hosts=($( print_known_hosts ))
 
