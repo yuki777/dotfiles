@@ -45,5 +45,5 @@ setw -g window-status-current-bg   black
 setw -g window-status-current-fg   $color
 setw -g window-status-current-attr underscore
 set -g status-left  '#[fg=black][#(whoami)@#H###S]'
-set -g status-right '#[fg=black][#(uptime|sed "s/.*average.*: //g")][%Y/%m/%d(%a)%H:%M]'
+set -g status-right '#[fg=black][#(uptime|sed "s/.*average.*: //g")][%Y-%m-%d(%a)%H:%M]'
 EOF
