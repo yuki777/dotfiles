@@ -22,8 +22,8 @@
 ### setw -g window-status-current-bg   white
 ### setw -g window-status-current-fg   black
 ### setw -g window-status-current-attr underscore
-### set -g status-left  '#[fg=white][#20(whoami)@#h]#[default]' # left:[whoami@hostname]
-### set -g status-right '#[fg=white][#(uptime|sed "s/.*average.*: //g")][%Y/%m/%d(%a)%H:%M]#[default]' # right:[LA1,5,15][2011/03/06(Sun)20:21]
+### set -g status-left  '#[fg=white][#20(whoami)@#h]' # left:[whoami@hostname]
+### set -g status-right '#[fg=white][#(uptime|sed "s/.*average.*: //g")][%Y/%m/%d(%a)%H:%M]' # right:[LA1,5,15][2011/03/06(Sun)20:21]
 
 # green-base and black
 set  -g status-bg                  green
@@ -43,5 +43,5 @@ setw -g window-status-attr         none
 setw -g window-status-current-bg   black
 setw -g window-status-current-fg   green
 setw -g window-status-current-attr underscore
-set -g status-left  '#[fg=black][#20(whoami)@#h]#[default]' # left:[whoami@hostname]
-set -g status-right '#[fg=black][#(uptime|sed "s/.*average.*: //g")][%Y-%m-%d(%a)%H:%M]#[default]' # right:[LA1,5,15][2011/03/06(Sun)20:21]
+set -g status-left  '#[fg=black][#(whoami)@#H###S]'
+set -g status-right '#[fg=black][#(uptime|sed "s/.*average.*: //g")][%Y-%m-%d(%a)%H:%M]' # right:[LA1,5,15][2011/03/06(Sun)20:21]
