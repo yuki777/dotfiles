@@ -58,7 +58,8 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'vim-scripts/The-NERD-tree' " filer
+NeoBundle 'scrooloose/nerdtree' " filer
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'vim-scripts/yanktmp.vim' " yank
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/peaksea' " colorscheme for diff
@@ -318,6 +319,21 @@ let NERDTreeShowHidden=1
 let NERDTreeBookmarksFile=$HOME.'/.vim/data/NERDTree/.NERDTreeBookmarks'
 " This options disables the 'Bookmarks' label 'Press ? for help' text.
 let NERDTreeMinimalUI=1
+
+"----------------------------------------------------
+" https://github.com/Xuyuanp/nerdtree-git-plugin
+"----------------------------------------------------
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "=",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
 
 "----------------------------------------------------
 " colorscheme
