@@ -1,23 +1,54 @@
--R
 -f .tags
---exclude=*.js
+
 --exclude=*.css
 --exclude=*.html
+--exclude=*.min.js
+--exclude=jquery.*.js
+--exclude=jquery-*.js
+--exclude=.git
+--exclude=log
+--exclude=logs
+--exclude=node_modules
+
+--append=yes
+--recurse=yes
 --verbose=yes
 --tag-relative=yes
---langmap=php:.function..xct_functions..regist_mailbox..php.inc.class.ini
+--languages=-html
+--extra=+q+f
+--fields=+i+a+S+n
+
 --php-kinds=cfd
 --regex-PHP=/abstract\s+class\s+([^ ]+)/\1/c/
 --regex-PHP=/interface\s+([^ ]+)/\1/c/
 --regex-PHP=/(public\s+|static\s+|protected\s+|private\s+)\$([^     =]+)/\2/p/
 --regex-PHP=/const\s+([^    =]+)/\1/d/
 --regex-PHP=/final\s+(public\s+|static\s+|abstract\s+|protected\s+|private\s+)function\s+\&?\s*([^ (]+)/\2/f/
-#--langdef=js
-#--langmap=js:.js
-#--regex-js=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\{/\1/,object/
-#--regex-js=/([A-Za-z0-9._$()]+)[ \t]*[:=][ \t]*function[ \t]*\(/\1/,function/
-#--regex-js=/function[ \t]+([A-Za-z0-9._$]+)[ \t]*([^)])/\1/,function/
-#--regex-js=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\[/\1/,array/
-#--regex-js=/([^= ]+)[ \t]*=[ \t]*[^"]'[^']*/\1/,string/
-#--regex-ruby=/^[\t ]*([A-Z][-_A-Za-z0-9]*::)*([A-Z][-_A-Za-z0-9]*)[\t ]*=/\2/C,constant/
-#--exclude=@~/.ctagsignore
+
+--regex-ruby=/(^|;)[ \t]*(class|module)[ \t]+([A-Z][[:alnum:]_]+(::[A-Z][[:alnum:]_]+)+)/\3/c,class,constant/
+--regex-ruby=/(^|[:;])[ \t]*([A-Z][[:alnum:]_]+) *=/\2/c,class,constant/
+--regex-ruby=/(^|;)[ \t]*(has_many|belongs_to|has_one|has_and_belongs_to_many)\(? *:([[:alnum:]_]+)/\3/f,function,association/
+--regex-ruby=/(^|;)[ \t]*(named_)?scope\(? *:([[:alnum:]_]+)/\3/f,function,named_scope/
+--regex-ruby=/(^|;)[ \t]*expose\(? *:([[:alnum:]_]+)/\2/f,function,exposure/
+--regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2/f,function,aasm_event/
+--regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2!/f,function,aasm_event/
+--regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2?/f,function,aasm_event/
+
+--langdef=js
+--langmap=js:.js
+--regex-js=/[ \t.]([A-Z][A-Z0-9._$]+)[ \t]*=[ \t]*[0-9"'\[\{]/\1/n,constant/
+--regex-js=/([A-Za-z0-9._$]+)[ \t]*=[ \t]*\{/\1/o,object/
+--regex-js=/['"]*([A-Za-z0-9_$]+)['"]*[ \t]*:[ \t]*\{/\1/o,object/
+--regex-js=/([A-Za-z0-9._$]+)\[["']([A-Za-z0-9_$]+)["']\][ \t]*=[ \t]*\{/\1\.\2/o,object/
+--regex-js=/([A-Za-z0-9._$]+)\.prototype[ \t.=]/\1/c,class/
+--regex-js=/([A-Za-z0-9._$]+)[ \t]*=[ \t]*\(function\(\)/\1/c,class/
+--regex-js=/['"]*([A-Za-z0-9_$]+)['"]*:[ \t]*\(function\(\)/\1/c,class/
+--regex-js=/var[ \t]*([A-Za-z$][A-Za-z0-9_$()]+)[ \t]*=[ \t]*function[ \t]*\(/\1/f,function/
+--regex-js=/[ \t]*function[ \t]+([A-Za-z$][A-Za-z0-9_$]+)[ \t]*\(([^)])\)/\1/f,function/
+--regex-js=/[ \t]*function[ \t]* \*([A-Za-z$][A-Za-z0-9_$()]+)[ \t]*\(/\1/f,function/
+--regex-js=/['"]*([A-Za-z$][A-Za-z0-9_$]+)['"]*:[ \t]*function[ \t]*\(/\1/m,method/
+--regex-js=/([A-Za-z$][A-Za-z0-9_$]+)[ \t]*=[ \t]*function[ \t]*\(/\1/m,method/
+--regex-js=/([A-Za-z0-9_$]+)\[["']([A-Za-z0-9_$]+)["']\][ \t]*=[ \t]*function[ \t]*\(/\2/m,method/
+--regex-js=/([A-Za-z0-9._$]+)[ \t]*=[ \t]*\[/\1/a,array/
+--regex-js=/['"]*([A-Za-z$][A-Za-z0-9_$]+)['"]*:[ \t]*\[/\1/a,array/
+--regex-js=/([A-Za-z0-9._$]+)\[["']([A-Za-z0-9_$]+)["']\][ \t]*=[ \t]*\[/\1\.\2/a,array/
