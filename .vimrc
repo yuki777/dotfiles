@@ -262,6 +262,11 @@ autocmd FileType zsh        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expand
 autocmd FileType scala      setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 "----------------------------------------------------
+" http://d.hatena.ne.jp/homaju/20130131/1359614451
+"----------------------------------------------------
+au BufEnter * lcd `=expand('%:p:h')`
+
+"----------------------------------------------------
 " PHP
 "----------------------------------------------------
 " 'fileformat' を "unix" にしている場合、文字 '\r' が改行の前にあると、
