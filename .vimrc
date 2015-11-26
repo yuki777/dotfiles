@@ -264,7 +264,7 @@ autocmd FileType scala      setlocal shiftwidth=2 softtabstop=2 tabstop=2 expand
 "----------------------------------------------------
 " http://d.hatena.ne.jp/homaju/20130131/1359614451
 "----------------------------------------------------
-au BufEnter * lcd `=expand('%:p:h')`
+"au BufEnter * lcd `=expand('%:p:h')`
 
 "----------------------------------------------------
 " PHP
