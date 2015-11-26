@@ -309,9 +309,9 @@ snippet select
         ->get(['${9:book_id}', '${10:read__count}']);
 
 snippet last
-    // \DB::enableQueryLog()
+    // \DB::enableQueryLog();
     $lastQuery = \App\Libs\DatabaseHelper::getLastQuery();
 
 snippet debug
-    $this->tester->debug([${1}]);
-    \Debugbar::info(${2});
+    //\Debugbar::info(${2});
+    $this->debug([${1}]);
