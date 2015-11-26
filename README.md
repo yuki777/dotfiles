@@ -29,3 +29,6 @@ git clone https://github.com/yuki777/dotfiles.git ~/dotfiles
 # TODO
 - neosnippets
 - tmuxinator
+
+# Test
+Thu Nov 26 12:59:51 ICT 2015
