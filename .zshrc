@@ -37,7 +37,6 @@ TIMEFMT="%J # %E" # REPORTTIMEのフォーマットを変更
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 # source
-[ -f ${HOME}/.zshrc.local ]     && source ${HOME}/.zshrc.local
 [ -f ${HOME}/.zshrc.mysql ]     && source ${HOME}/.zshrc.mysql
 [ -f ${HOME}/.zshrc.git   ]     && source ${HOME}/.zshrc.git
 [ -f ${HOME}/.zshrc.cl    ]     && source ${HOME}/.zshrc.cl
@@ -46,6 +45,7 @@ TIMEFMT="%J # %E" # REPORTTIMEのフォーマットを変更
 [ -f ${HOME}/.zshrc.export ]    && source ${HOME}/.zshrc.export
 [ -f ${HOME}/.zshrc.function ]  && source ${HOME}/.zshrc.function
 [ -f ${HOME}/.zshrc.highlight ] && source ${HOME}/.zshrc.highlight
+[ -f ${HOME}/.zshrc.local ]     && source ${HOME}/.zshrc.local
 
 # The next line updates PATH for the Google Cloud SDK.
 [ -f ~/google-cloud-sdk/path.zsh.inc ] && source ~/google-cloud-sdk/path.zsh.inc
