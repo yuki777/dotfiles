@@ -31,18 +31,15 @@ ln -fs ~/dotfiles/bin/tmuxx              ~/bin/tmuxx
 ln -fs ~/dotfiles/bin/tmuxxx             ~/bin/tmuxxx
 ln -fs ~/dotfiles/bin/clide              ~/bin/clide
 
-if [ ! -e dotfiles/.vimrc.local ]; then
-    cp dotfiles/.vimrc.local ~
-fi
-if [ ! -e dotfiles/.tmux.local ]; then
-    cp dotfiles/.tmux.local ~
-fi
-if [ ! -e dotfiles/.zshrc.local ]; then
-    cp dotfiles/.zshrc.local ~
-fi
-if [ ! -e dotfiles/.ctagsignore ]; then
-    cp dotfiles/.ctagsignore ~
-fi
+for file in .vimrc.local .tmux.local .zshrc.local .ctagsignore ; do
+	if [ -e "~/$file" ]; then
+		#echo "~/$file found."
+		:
+	else
+		#echo "~/$file NOT found."
+		cp dotfiles/$file ~
+	fi
+done
 
 touch .gitconfig.local
 
