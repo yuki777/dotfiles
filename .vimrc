@@ -20,56 +20,31 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
-if system('uname') == "FreeBSD\n"
-	NeoBundle 'Shougo/vimproc', {
-				\ 'build' : {
-				\     'freebsd' : 'gmake -f make_bsd.mak',
-				\    },
-				\ }
-else
-	NeoBundle 'Shougo/vimproc', {
-				\ 'build' : {
-				\     'windows' : 'make -f make_mingw32.mak',
-				\     'cygwin'  : 'make -f make_cygwin.mak',
-				\     'mac'     : 'make -f make_mac.mak',
-				\     'unix'    : 'make -f make_unix.mak',
-				\    },
-				\ }
-endif
 " my bundles
-if has('lua')
-	NeoBundleLazy 'Shougo/neocomplete.vim', {
-				\   'depends' : ['Shougo/neosnippet.vim', 'Shougo/context_filetype.vim'],
-				\   'vim_version' : '7.3.885',
-				\   'autoload' : {
-				\       'insert' : 1,
-				\   }
-				\}
-endif
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'Shougo/unite.vim' " search
 NeoBundle 'Shougo/neomru.vim' " Most Recently Used
-"NeoBundle 'Shougo/neosnippet-snippets'
-"NeoBundle 'Shougo/context_filetype.vim'
-"NeoBundle 'Shougo/neosnippet.vim'
-"NeoBundle 'Shougo/neocomplete.vim'
-"NeoBundle 'scrooloose/nerdtree' " filer
-"NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-"NeoBundle 'vim-scripts/yanktmp.vim' " yank
-"NeoBundle 'vim-scripts/Align'
-"NeoBundle 'vim-scripts/peaksea' " colorscheme for diff
-"NeoBundle 'scrooloose/syntastic' " check syntax
-"NeoBundle 'yuki777/YankRing120.vim' " yank manager
-"NeoBundle 'yuki777/encode.vim'
-"NeoBundle 'Indent-Guides'
-"NeoBundle 'tpope/vim-fugitive'
-"NeoBundle 'tpope/vim-dispatch'
-"NeoBundle 'gregsexton/gitv'
-"NeoBundle 'xolox/vim-session', {
-"			\ 'depends' : 'xolox/vim-misc',
-"			\ }
-"NeoBundle 'tomasr/molokai' " colorscheme
-"NeoBundle 'vim-scripts/desert256.vim' " colorscheme
-"NeoBundle 'ap/vim-css-color'
+NeoBundle 'vim-scripts/yanktmp.vim' " yank
+NeoBundle 'vim-scripts/Align'
+NeoBundle 'vim-scripts/peaksea' " colorscheme for diff
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'xolox/vim-session'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'yuki777/YankRing120.vim' " yank manager
+NeoBundle 'yuki777/encode.vim'
+NeoBundle 'scrooloose/nerdtree' " filer
+NeoBundle 'scrooloose/syntastic' " check syntax
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'gregsexton/gitv'
+NeoBundle 'Indent-Guides'
+NeoBundle 'tomasr/molokai' " colorscheme
+NeoBundle 'vim-scripts/desert256.vim' " colorscheme
+NeoBundle 'ap/vim-css-color'
 
 call neobundle#end()
 
