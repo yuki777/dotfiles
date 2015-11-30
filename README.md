@@ -22,6 +22,7 @@ git clone https://github.com/yuki777/dotfiles.git ~/dotfiles
 /bin/sh ~/dotfiles/bin/install-git.bash
 /bin/sh ~/dotfiles/bin/install-peco.bash
 /bin/sh ~/dotfiles/bin/install-tmux.bash
+/bin/sh ~/dotfiles/bin/install-zsh-vcs-prompt.bash
 /bin/sh ~/dotfiles/bin/install-vim.bash
 /bin/sh ~/dotfiles/bin/setup-vim.bash
 ```
