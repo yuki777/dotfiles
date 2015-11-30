@@ -7,7 +7,11 @@ mkdir -p $HOME/.vim/bundle
 git clone git://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
 git clone git://github.com/Shougo/unite.vim     $HOME/.vim/bundle/unite.vim
 git clone git://github.com/Shougo/vimproc.vim   $HOME/.vim/bundle/vimproc
-cd $HOME/.vim/bundle/vimproc && make -f make_unix.mak
+if [ "`uname`" = "Darwin" ];then
+    cd $HOME/.vim/bundle/vimproc && make -f make_mac.mak
+else
+    cd $HOME/.vim/bundle/vimproc && make -f make_unix.mak
+fi
 $HOME/.vim/bundle/neobundle.vim/bin/neoinstall
 
 # yankring,yanktmp
