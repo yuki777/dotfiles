@@ -1,7 +1,7 @@
 "----------------------------------------------------
 " NeoBundle
 "----------------------------------------------------
-let g:neobundle_default_git_protocol='git'
+"let g:neobundle_default_git_protocol='git'
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
