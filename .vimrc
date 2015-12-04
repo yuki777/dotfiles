@@ -46,8 +46,8 @@ NeoBundle 'tomasr/molokai' " colorscheme
 NeoBundle 'vim-scripts/desert256.vim' " colorscheme
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'airblade/vim-rooter'
 " TODO
-" https://github.com/airblade/vim-rooter
 " https://github.com/wesleyche/SrcExpl
 
 call neobundle#end()
