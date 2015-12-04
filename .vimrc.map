@@ -109,12 +109,11 @@ endif
 " F1: ショートカットヘルプ表示
 let myhelptext  = "<F1> : Help\n<F2> : Most recently used files\n<F3> : Paste mode\n<F4> : Histories of clip board\n<F5> : +1 >\n<F6> : -1 >\n<F7> : +1 ^\n<F8> : -1 ^\n<F9> : Toggle Syntastic\n<F10>: UTF8\n<F11>: Toggle relative number\n<F12>: Toggle line number\n<Esc><Esc> : Clear highlight, Paste mode OFF\n;p : Paste mode ON\nCtrl + d : Open/Close NERDTree\nsy : Yanktmp yank\nsp : Yanktmp paste\n<tab> : Next tab\n<S-tab> : Previous tab\n<Space>n : Add new tab\n;n : Add new tab with NERDTree\n<S-h> : Jump to head of line\n// : Search file by Unite\n/? : Grep by Unite\n<C-f> : Neosnippet expand\n<C-h> : Move to left window\n<C-l> : Move to right window\n<C-k> : Move to top window\n<C-j> : Move to bottom window"
 nnoremap <silent> <F1> :echo myhelptext<CR>
-" F2: 最近使用したファイル
+" F2:最近使用したファイル
 nnoremap <F2> :Unite file_mru<CR>
 " F3:ペーストモード
 nnoremap <F3> :set paste<CR>
-" F4:
-" クリップボード履歴
+" F4:クリップボード履歴
 nnoremap <silent> <F4> :YRShow<CR>
 " F5:CTRL-W > カレントウィンドウの幅を N（デフォルトは1）桁分増やす。
 nnoremap <silent> <F5> <C-w>>
@@ -124,21 +123,12 @@ nnoremap <silent> <F6> <C-w><
 nnoremap <silent> <F7> <C-w>+
 " F8:CTRL-W - カレントウィンドウの高さをN（デフォルトは1）行分低くする。
 nnoremap <silent> <F8> <C-w>-
-" F8:
-"入力された絞り込みテキストのディレクトリまたは、現在ディレクトリ直下のファイルすべてを候補とする。
-"nnoremap <F8> :Unite file_rec<CR>
-"ブックマークを表示
-"nnoremap <F8> :Unite bookmark<CR>
-"スニペットファイルディレクトリを表示
-"nnoremap <F8> :e ~/.vim/my_snippets/<CR>
-" F9:スクロールを同期
-"nnoremap <F9> :set scb<CR>
-" F9:スクロールを同期解除
-"nnoremap <F9> :set noscb<CR>
 " F9:SyntasticToggleMode
 nnoremap <F9> :SyntasticToggleMode<CR>
-" F10:
-nnoremap <F10> :set fileencoding=utf8<CR>
+" F10:UTF8
+"nnoremap <F10> :set fileencoding=utf8<CR>
+" F10:Function List
+nnoremap <F10> :TagbarToggle<CR>
 " F11:相対行表示
 nnoremap <silent> <F11> :set relativenumber!<CR>
 " F12:行数表示切り替え
