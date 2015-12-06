@@ -76,13 +76,14 @@ ZSH_VCS_PROMPT_HIDE_COUNT=${ZSH_VCS_PROMPT_HIDE_COUNT:-'false'}
 #   #h : The untracked status.
 #   #i : The stashed status.
 #   #j : The clean status.
+#   #k : The current hash.
 
 if [ -n "$BASH_VERSION" ]; then
     ### Bash
     ## Git.
     # No action.
     if [ -z "$ZSH_VCS_PROMPT_GIT_FORMATS" ]; then
-        ZSH_VCS_PROMPT_GIT_FORMATS=' (#s)[#b#c#d|#e#f#g#h#i#j]'
+        ZSH_VCS_PROMPT_GIT_FORMATS=' (#s)[#b#c#d|#k|#e#f#g#h#i#j]'
     fi
     # No action using python.
     # Default is empty.
@@ -91,7 +92,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
     # Action.
     if [ -z "$ZSH_VCS_PROMPT_GIT_ACTION_FORMATS" ]; then
-        ZSH_VCS_PROMPT_GIT_ACTION_FORMATS=' (#s)[#b:#a#c#d|#e#f#g#h#i#j]'
+        ZSH_VCS_PROMPT_GIT_ACTION_FORMATS=' (#s)[#b:#a#c#d|#k|#e#f#g#h#i#j]'
     fi
 
     ## Other vcs.
@@ -118,6 +119,8 @@ else
         ZSH_VCS_PROMPT_GIT_FORMATS+='[%{%B%F{red}%}#b%{%f%b%}'
         # Ahead and Behind
         ZSH_VCS_PROMPT_GIT_FORMATS+='#c#d|'
+        # Current hash
+        ZSH_VCS_PROMPT_GIT_FORMATS+='#k|'
         # Staged
         ZSH_VCS_PROMPT_GIT_FORMATS+='%{%F{blue}%}#e%{%f%b%}'
         # Conflicts
@@ -146,6 +149,8 @@ else
         ZSH_VCS_PROMPT_GIT_ACTION_FORMATS+=':%{%B%F{red}%}#a%{%f%b%}'
         # Ahead and Behind
         ZSH_VCS_PROMPT_GIT_ACTION_FORMATS+='#c#d|'
+        # Current hash
+        ZSH_VCS_PROMPT_GIT_ACTION_FORMATS+='#k|'
         # Staged
         ZSH_VCS_PROMPT_GIT_ACTION_FORMATS+='%{%F{blue}%}#e%{%f%}'
         # Conflicts
@@ -317,6 +322,7 @@ function _zsh_vcs_prompt_update_vcs_status() {
     local stashed=${vcs_status[11]}
     local clean=${vcs_status[12]}
     local unmerged=${vcs_status[13]}
+    local current_hash=${vcs_status[14]}
 
     # Select formats.
     local used_formats
@@ -374,7 +380,8 @@ function _zsh_vcs_prompt_update_vcs_status() {
         -e "s/#g/$unstaged/" \
         -e "s/#h/$untracked/" \
         -e "s/#i/$stashed/" \
-        -e "s/#j/$clean/")
+        -e "s/#j/$clean/" \
+        -e "s/#k/$current_hash/")
 
     ZSH_VCS_PROMPT_VCS_STATUS=$prompt_info
 
@@ -431,6 +438,7 @@ function _zsh_vcs_prompt_set_sigil() {
 #   stashed   : Stashed count.(No stashed : 0)
 #   clean     : Clean flag. (Clean is 1, Not clean is 0, Unknown is ?)
 #   unmerged  : Unmerged commits count. (No unmerged commits : 0)
+#   current_hash : Current hash string.
 #
 function vcs_super_info_raw_data() {
     local using_python=0

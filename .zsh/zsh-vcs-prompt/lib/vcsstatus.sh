@@ -14,6 +14,7 @@
 #      stashed   : Stashed count.(No stashed : 0)
 #      clean     : Clean flag. (Clean is 1, Not clean is 0, Unknown is ?)
 #      unmerged  : Unmerged commits count. (No unmerged commits : 0)
+#      current_hash : Current hash string.
 #
 
 ## VCS_INFO configurations.
@@ -122,6 +123,7 @@ function _zsh_vcs_prompt_get_git_status() {
     local stashed=0
     local clean=0
     local unmerged=0
+    local current_hash=0
 
     # Get changed files and stash list.
     local staged_files
@@ -205,8 +207,11 @@ function _zsh_vcs_prompt_get_git_status() {
         unmerged=$(command git rev-list "$ZSH_VCS_PROMPT_MERGE_BRANCH".."${branch_name%'...'}" | wc -l | tr -d ' ')
     fi
 
+    # Current hash
+    current_hash=$(command git rev-parse HEAD|cut -c-7)
+
     # Output result.
-    echo "$ahead\n$behind\n$staged\n$conflicts\n$unstaged\n$untracked\n$stashed\n$clean\n$unmerged"
+    echo "$ahead\n$behind\n$staged\n$conflicts\n$unstaged\n$untracked\n$stashed\n$clean\n$unmerged\n$current_hash"
 }
 
 # vim: ft=zsh

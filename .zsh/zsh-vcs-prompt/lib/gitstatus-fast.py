@@ -197,6 +197,9 @@ def main():
         else:
             unmerged = len(unmerged_list)
 
+    # Current hash
+    currentHash = Cmd('git rev-parse HEAD|cut -c-7').get_result()
+
     # Result
     out = '\n'.join([
         branch,
@@ -208,7 +211,8 @@ def main():
         str(untracked),
         str(stashed),
         clean,
-        str(unmerged)])
+        str(unmerged),
+        str(currentHash)])
     print(out)
 
 
