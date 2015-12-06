@@ -23,6 +23,8 @@ if [[ `whoami` == "root" ]]; then
     local name_color=$red
 elif [[ `whoami` =~ fvn* ]]; then
     local name_color=$yellow
+elif [[ `whoami` =~ yuki* ]]; then
+    local name_color=$blue
 else
     local name_color=$green
 fi
