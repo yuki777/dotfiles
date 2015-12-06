@@ -1,26 +1,44 @@
 # prompt
 colors
-local BLACK=$'%{\e[30m%}'
-local RED=$'%{\e[31m%}'
-local GREEN=$'%{\e[32m%}'
-local YELLOW=$'%{\e[33m%}'
-local BLUE=$'%{\e[34m%}'
-local PURPLE=$'%{\e[35m%}'
-local CYAN=$'%{\e[36m%}'
-local WHITE=$'%{\e[1;37m%}'
-local DEFAULT=$'%{\e[1;m%}'
-local DEFAULT=$'%{\e[1;m%}'
-local name_number=1
-local host_number=1
-[ -f ${HOME}/.name_number ] && source ${HOME}/.name_number
-[ -f ${HOME}/.host_number ] && source ${HOME}/.host_number
-local name_color=$'%{\e[$[color=$[31+$name_number%6]]m%}' # 0:red, 1:green, 2:yellow, 3:blue, 4:magenta, 5:cyan, 6:red
-local host_color=$'%{\e[$[color=$[31+$host_number%6]]m%}' # 0:red, 1:green, 2:yellow, 3:blue, 4:magenta, 5:cyan, 6:red
+local black=$'%{\e[30m%}'
+local red=$'%{\e[31m%}'
+local green=$'%{\e[32m%}'
+local yellow=$'%{\e[33m%}'
+local blue=$'%{\e[34m%}'
+local purple=$'%{\e[35m%}'
+local cyan=$'%{\e[36m%}'
+local white=$'%{\e[1;37m%}'
+local default=$'%{\e[1;m%}'
 
-if [[ `hostname` == "macbookpro.local" ]]; then
-    random_color=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
-    host_color=$random_color
-    name_color=$WHITE
+## set random name_number, host_number
+#local name_number=1
+#local host_number=1
+#[ -f ${HOME}/.name_number ] && source ${HOME}/.name_number
+#[ -f ${HOME}/.host_number ] && source ${HOME}/.host_number
+#local name_color=$'%{\e[$[color=$[31+$name_number%6]]m%}' # 0:red, 1:green, 2:yellow, 3:blue, 4:magenta, 5:cyan, 6:red
+#local host_color=$'%{\e[$[color=$[31+$host_number%6]]m%}' # 0:red, 1:green, 2:yellow, 3:blue, 4:magenta, 5:cyan, 6:red
+
+# name_color
+if [[ `whoami` == "root" ]]; then
+    local name_color=$red
+elif [[ `whoami` =~ fvn* ]]; then
+    local name_color=$yellow
+else
+    local name_color=$green
+fi
+
+# host_color
+if [[ `hostname` =~ ubuntu ]]; then
+    local host_color=$green
+elif [[ `hostname` =~ local$ ]]; then
+    local host_color=$green
+elif [[ `hostname` =~ test* ]]; then
+    local host_color=$yellow
+elif [[ `hostname` =~ macbook* ]]; then
+    local random_color=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
+    local host_color=$random_color
+else
+    local host_color=$red
 fi
 
 # plugin
