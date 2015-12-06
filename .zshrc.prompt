@@ -32,13 +32,13 @@ fi
 # host_color
 if [[ `hostname` =~ ubuntu ]]; then
     local host_color=$green
+elif [[ `hostname` =~ macbook* ]]; then
+    local host_color=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
+    local name_color=$white
 elif [[ `hostname` =~ local$ ]]; then
     local host_color=$green
 elif [[ `hostname` =~ test* ]]; then
     local host_color=$yellow
-elif [[ `hostname` =~ macbook* ]]; then
-    local random_color=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
-    local host_color=$random_color
 else
     local host_color=$red
 fi
@@ -46,7 +46,7 @@ fi
 # plugin
 # https://github.com/yonchu/zsh-vcs-prompt
 [ -f ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh ] && source ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh
-PROMPT="${WHITE}%D{%Y-%m-%d %H:%M:%S} ${name_color}%n${host_color}@%M${WHITE}:%/${reset_color} "'$(vcs_super_info)
+PROMPT="${white}%D{%Y-%m-%d %H:%M:%S} ${name_color}%n${host_color}@%M${white}:%/${reset_color} "'$(vcs_super_info)
 '
 RPROMPT=''
 ZSH_VCS_PROMPT_ENABLE_CACHING='true'
