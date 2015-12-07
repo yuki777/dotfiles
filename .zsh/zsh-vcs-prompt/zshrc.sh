@@ -83,7 +83,7 @@ if [ -n "$BASH_VERSION" ]; then
     ## Git.
     # No action.
     if [ -z "$ZSH_VCS_PROMPT_GIT_FORMATS" ]; then
-        ZSH_VCS_PROMPT_GIT_FORMATS=' (#s)[#b#c#d|#k|#e#f#g#h#i#j]'
+        ZSH_VCS_PROMPT_GIT_FORMATS=' [#b#c#d|#k|#e#f#g#h#i#j]'
     fi
     # No action using python.
     # Default is empty.
@@ -92,7 +92,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
     # Action.
     if [ -z "$ZSH_VCS_PROMPT_GIT_ACTION_FORMATS" ]; then
-        ZSH_VCS_PROMPT_GIT_ACTION_FORMATS=' (#s)[#b:#a#c#d|#k|#e#f#g#h#i#j]'
+        ZSH_VCS_PROMPT_GIT_ACTION_FORMATS=' [#b:#a#c#d|#k|#e#f#g#h#i#j]'
     fi
 
     ## Other vcs.
@@ -114,7 +114,7 @@ else
     # No action.
     if [ -z "$ZSH_VCS_PROMPT_GIT_FORMATS" ]; then
         # VCS name
-        ZSH_VCS_PROMPT_GIT_FORMATS='(#s)'
+        ZSH_VCS_PROMPT_GIT_FORMATS=''
         # Branch name
         ZSH_VCS_PROMPT_GIT_FORMATS+='[%{%B%F{red}%}#b%{%f%b%}'
         # Ahead and Behind
@@ -142,7 +142,7 @@ else
     # Action.
     if [ -z "$ZSH_VCS_PROMPT_GIT_ACTION_FORMATS" ]; then
         # VCS name
-        ZSH_VCS_PROMPT_GIT_ACTION_FORMATS='(#s)'
+        ZSH_VCS_PROMPT_GIT_ACTION_FORMATS=''
         # Branch name
         ZSH_VCS_PROMPT_GIT_ACTION_FORMATS+='[%{%B%F{red}%}#b%{%f%b%}'
         # Action
