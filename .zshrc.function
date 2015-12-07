@@ -62,3 +62,45 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+# cdr
+# http://fromatom.hatenablog.com/entry/2014/11/12/195155
+# http://blog.shibayu36.org/entry/2014/06/27/223538
+function peco-cdr () {
+    local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-cdr
+bindkey '^@' peco-cdr
+
+# git add
+function peco-select-git-add() {
+    local SELECTED_FILE_TO_ADD="$(git status --porcelain | \
+                                  peco --query "$LBUFFER" | \
+                                  awk -F ' ' '{print $NF}')"
+    if [ -n "$SELECTED_FILE_TO_ADD" ]; then
+      BUFFER="git add $(echo "$SELECTED_FILE_TO_ADD" | tr '\n' ' ')"
+      CURSOR=$#BUFFER
+    fi
+    zle accept-line
+    # zle clear-screen
+}
+zle -N peco-select-git-add
+bindkey "^g" peco-select-git-add
+
+# git branch
+function peco-git-recent-branches () {
+    local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \
+        perl -pne 's{^refs/heads/}{}' | \
+        peco)
+    if [ -n "$selected_branch" ]; then
+        BUFFER="git checkout ${selected_branch}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-git-recent-branches
+bindkey "^b" peco-git-recent-branches
