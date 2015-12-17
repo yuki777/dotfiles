@@ -41,6 +41,7 @@ NeoBundle 'scrooloose/nerdtree' " filer
 NeoBundle 'scrooloose/syntastic' " check syntax
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'gregsexton/gitv'
+NeoBundle 'cohama/agit.vim'
 NeoBundle 'Indent-Guides'
 NeoBundle 'tomasr/molokai' " colorscheme
 NeoBundle 'vim-scripts/desert256.vim' " colorscheme
