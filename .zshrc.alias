@@ -5,6 +5,7 @@ alias vim.='vim "+NERDTree ."'
 alias vimrc='vim -p ~/.vimrc*'
 alias zshrc='vim -p ~/.zshrc*'
 alias gitv='touch ~/.vim/data/view/gitv; rm -fr ~/.vim/data/view/*gitv*;vim "$(git rev-parse --show-toplevel)"/.git/index -c "Gitv --all" -c "tabonly"'
+alias agit='vim -c "Agit" -c "tabonly"'
 alias gitst="git st -s|awk '{print \$2}'|tr '\n' ' '|xargs echo"
 alias tailf='tail -F'
 alias l='ll'
