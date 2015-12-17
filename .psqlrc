@@ -1,1 +1,1 @@
-\set PROMPT1 '%[%033[1;33;40m%]-- psql %`date +%Y-%m-%d` %`date +%H:%M:%S` %n@%M:%>/%/ %x %#%[%033[0m%]\n'
+\set PROMPT1 '%[%033[1;33;40m%]-- psql(%`psql --version|cut -d " " -f3` on %`hostname`) %`date +%Y-%m-%d` %`date +%H:%M:%S` %n@%M:%>/%/ %x %#%[%033[0m%]\n'
