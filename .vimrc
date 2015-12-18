@@ -40,16 +40,12 @@ NeoBundle 'yuki777/encode.vim'
 NeoBundle 'scrooloose/nerdtree' " filer
 NeoBundle 'scrooloose/syntastic' " check syntax
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'gregsexton/gitv'
 NeoBundle 'cohama/agit.vim'
 NeoBundle 'Indent-Guides'
 NeoBundle 'tomasr/molokai' " colorscheme
 NeoBundle 'vim-scripts/desert256.vim' " colorscheme
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'majutsushi/tagbar'
-"NeoBundle 'airblade/vim-rooter'
-" TODO
-" https://github.com/wesleyche/SrcExpl
 
 call neobundle#end()
 
