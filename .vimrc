@@ -46,6 +46,7 @@ NeoBundle 'tomasr/molokai' " colorscheme
 NeoBundle 'vim-scripts/desert256.vim' " colorscheme
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'airblade/vim-rooter'
 
 call neobundle#end()
 
@@ -769,6 +770,12 @@ set scrollopt=jump
 " TODO: 同期スクロール解除
 " -----------------------------------------------
 set noscb
+
+" -----------------------------------------------
+" https://github.com/airblade/vim-rooter
+" -----------------------------------------------
+let g:rooter_disable_map = 1
+let g:rooter_use_lcd = 1
 
 " -----------------------------------------------
 " キーマップ設定ファイルがあれば読み込む
