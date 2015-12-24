@@ -20,16 +20,12 @@ git clone https://github.com/yuki777/dotfiles.git ~/dotfiles
 /bin/sh ~/dotfiles/bin/dotfiles.bash
 /bin/sh ~/dotfiles/bin/install-tmux.bash
 /bin/sh ~/dotfiles/bin/install-zsh-vcs-prompt.bash
-/bin/sh ~/dotfiles/bin/install-vim.bash
-/bin/sh ~/dotfiles/bin/setup-vim.bash
-# optional
 /bin/sh ~/dotfiles/bin/install-ag.bash
 /bin/sh ~/dotfiles/bin/install-peco.bash
+/bin/sh ~/dotfiles/bin/install-vim.bash
+/bin/sh ~/dotfiles/bin/setup-vim.bash
 ```
 
 # TODO
 - neosnippets
 - tmuxinator
-
-# Test
-Thu Nov 26 12:59:51 ICT 2015
