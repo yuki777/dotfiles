@@ -44,4 +44,4 @@ setw -g window-status-current-bg   black
 setw -g window-status-current-fg   green
 setw -g window-status-current-attr underscore
 set -g status-left  '#[fg=black][#(whoami)@#H###S]'
-set -g status-right '#[fg=black][#(uptime|sed "s/.*average.*: //g")][%Y-%m-%d(%a)%H:%M]' # right:[LA1,5,15][2011/03/06(Sun)20:21]
+set -g status-right "#[fg=black][#(uptime|sed 's/.*average.*: //g'|awk -F ',' '{print $1}')][%Y-%m-%d(%a)%H:%M]"
