@@ -39,7 +39,6 @@ NeoBundle 'yuki777/YankRing120.vim' " yank manager
 NeoBundle 'yuki777/encode.vim'
 NeoBundle 'scrooloose/nerdtree' " filer
 NeoBundle 'scrooloose/syntastic' " check syntax
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'cohama/agit.vim'
 NeoBundle 'Indent-Guides'
 NeoBundle 'tomasr/molokai' " colorscheme
@@ -47,6 +46,11 @@ NeoBundle 'vim-scripts/desert256.vim' " colorscheme
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'airblade/vim-rooter'
+
+let os = substitute(system('uname'), "\n", "", "")
+if os != "FreeBSD"
+  NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+endif
 
 call neobundle#end()
 
