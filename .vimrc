@@ -782,6 +782,12 @@ let g:rooter_disable_map = 1
 let g:rooter_use_lcd = 1
 
 " -----------------------------------------------
+" https://github.com/cohama/agit.vim
+" -----------------------------------------------
+let g:agit_no_default_mappings = 1
+let g:agit_enable_auto_refresh = 1
+
+" -----------------------------------------------
 " キーマップ設定ファイルがあれば読み込む
 " -----------------------------------------------
 if filereadable(expand('~/.vimrc.map'))
