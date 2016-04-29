@@ -27,6 +27,7 @@ ln -fs dotfiles/.gitconfig
 ln -fs dotfiles/.gitignore
 ln -fs dotfiles/.git_template
 ln -fs dotfiles/.psqlrc
+ln -fs dotfiles/.my.cnf
 ln -fs ~/dotfiles/bin/git_merge_wrapper3 ~/bin/git_merge_wrapper3
 ln -fs ~/dotfiles/bin/tmuxx              ~/bin/tmuxx
 ln -fs ~/dotfiles/bin/tmuxxx             ~/bin/tmuxxx
