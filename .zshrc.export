@@ -8,6 +8,8 @@ export PATH=/usr/sbin:$PATH
 export PATH=/sbin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/heroku/bin:$PATH
+export PATH="$HOME/.podenv/bin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
@@ -18,5 +20,8 @@ export HGEDITOR=vim
 export TERM=xterm-256color
 export LD_LIBRARY_PATH=${HOME}/local/lib/:${LD_LIBRARY_PATH}
 export GOROOT=~/local/go
+
+export NVM_DIR="/Users/yuki/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 [ -f $HOME/local/bin/global ] && export GTAGSGLOBAL=$HOME/local/bin/global
