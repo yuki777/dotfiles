@@ -104,3 +104,9 @@ function peco-git-recent-branches () {
 }
 zle -N peco-git-recent-branches
 bindkey "^b" peco-git-recent-branches
+
+function agopen(){
+    keyword=$1
+    ag -l $keyword|tr '\n' ' '|xargs vim -p
+    reset
+}
