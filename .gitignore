@@ -22,3 +22,4 @@ deleteCacheAndLog
 docs/
 makeTags
 maketags
+.gitconfig.local
