@@ -361,8 +361,8 @@ if has('mac') && has('gui')
 	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=gray ctermbg=gray
 	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkGray ctermbg=darkGray
 else
-	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=gray ctermbg=gray
-	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkGray ctermbg=darkGray
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
 endif
 
 "----------------------------------------------------
