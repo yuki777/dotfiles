@@ -348,7 +348,7 @@ if $USER == 'adachi' || $USER == 'yuki' || $USER == 'yuki-adachi'
 		colorscheme molokai
 	endif
 else
-  colorscheme desert256
+  colorscheme desert
 endif
 
 "----------------------------------------------------
