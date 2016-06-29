@@ -4,6 +4,7 @@ set -eu
 # install
 cd $HOME
 mkdir -p $HOME/local/src
+mkdir -p ~/local/bin
 cd $HOME/local/src
 rm -fr vim
 hg clone https://bitbucket.org/vim-mirror/vim

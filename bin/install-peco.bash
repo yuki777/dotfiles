@@ -2,6 +2,7 @@
 set -eu
 
 mkdir -p ~/local/src
+mkdir -p ~/local/bin
 cd ~/local/src
 rm -fr peco_linux_amd64
 wget 'https://github.com/peco/peco/releases/download/v0.3.3/peco_linux_amd64.tar.gz'
