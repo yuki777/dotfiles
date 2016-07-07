@@ -1,7 +1,7 @@
 # autoload
-autoload history-search-end
-autoload zed
-autoload colors
+autoload -U history-search-end
+autoload -U zed
+autoload -U colors
 autoload -Uz zmv
 autoload -Uz add-zsh-hock
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
