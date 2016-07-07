@@ -1,12 +1,10 @@
 # autoload
 autoload history-search-end
-autoload -U compinit
 autoload zed
 autoload colors
 autoload -Uz zmv
 autoload -Uz add-zsh-hock
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-compinit -C
 
 # bindkey
 bindkey -e
