@@ -59,13 +59,13 @@ esac
 # https://github.com/yonchu/zsh-vcs-prompt
 case "${OSTYPE}" in
 freebsd*)
-    PROMPT="${white}%D{%Y-%m-%d %H:%M:%S} ${weekday} ${name_color}%n${host_color}@%M${white}:%/${reset_color}
+    PROMPT="${white}# %D{%Y-%m-%d %H:%M:%S} ${weekday} ${name_color}%n${host_color}@%M${white}:%/${reset_color}
 "
     RPROMPT=''
 	;;
 *)
     [ -f ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh ] && source ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh
-    PROMPT="${white}%D{%Y-%m-%d %H:%M:%S} ${weekday} ${name_color}%n${host_color}@%M${white}:%/${reset_color} "'$(vcs_super_info)
+    PROMPT="${white}# %D{%Y-%m-%d %H:%M:%S} ${weekday} ${name_color}%n${host_color}@%M${white}:%/${reset_color} "'$(vcs_super_info)
 '
     RPROMPT=''
     ZSH_VCS_PROMPT_ENABLE_CACHING='true'
