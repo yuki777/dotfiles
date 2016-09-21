@@ -7,12 +7,18 @@
     co = checkout
     ci = commit
     st = status
-    br = branch
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
     today = log --since=midnight --author='Yuki Adachi' --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
     branch-name = "!git rev-parse --abbrev-ref HEAD"
     f = "!git fetch --all --prune && git rebase origin/$(git branch-name)"
     p = "!git push origin $(git branch-name)"
+    short-hash = "!git rev-parse --short HEAD"
+    project = "!git remote -v|grep origin|grep fetch|awk -F '@jira.a.kurumaerabi.com:7999/|@github.com:|@bitbucket.org:' '{print $2}'|awk -F '/' '{print $1}'"
+    repository = "!git remote -v|grep origin|grep fetch|awk -F '.git ' '{print $1}'|awk -F '/' '{print $NF}'"
+    url = "!echo http://jira.a.kurumaerabi.com/stash/projects/$(git project)/repos/$(git repository)/commits/$(git short-hash)"
+    #http://jira.a.kurumaerabi.com/stash/projects/MCR/repos/macromill-tests/commits/37add02"
+    #https://bitbucket.org/yuki777/layer-parse-ios-swift-example/commits/6d5593768e51316ce3350369bcf753630bd907ad
+    #https://github.com/yuki777/dotfiles/commit/3330f7c0bf251d7de03b4e1c89b2744cd91e156c
 [core]
     excludesfile = ~/.gitignore
 [push]
