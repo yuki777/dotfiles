@@ -41,6 +41,11 @@ call dein#add('majutsushi/tagbar')
 call dein#add('airblade/vim-rooter')
 call dein#add('Xuyuanp/nerdtree-git-plugin')
 call dein#end()
+
+if dein#check_install()
+  call dein#install()
+endif
+
 filetype plugin indent on
 syntax enable
 
