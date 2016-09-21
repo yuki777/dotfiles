@@ -1,65 +1,111 @@
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+" https://github.com/Shougo/dein.vim
+if &compatible
+  set nocompatible
 endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-" my bundles
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/context_filetype.vim'
-NeoBundle 'Shougo/unite.vim' " search
-NeoBundle 'Shougo/neomru.vim' " Most Recently Used
-NeoBundle 'vim-scripts/yanktmp.vim' " yank
-NeoBundle 'vim-scripts/Align'
-NeoBundle 'vim-scripts/peaksea' " colorscheme for diff
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'xolox/vim-session'
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'yuki777/YankRing120.vim' " yank manager
-NeoBundle 'yuki777/encode.vim'
-NeoBundle 'scrooloose/nerdtree' " filer
-NeoBundle 'scrooloose/syntastic' " check syntax
-NeoBundle 'cohama/agit.vim'
-NeoBundle 'Indent-Guides'
-NeoBundle 'tomasr/molokai' " colorscheme
-NeoBundle 'vim-scripts/desert256.vim' " colorscheme
-NeoBundle 'ap/vim-css-color'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'airblade/vim-rooter'
-
-let os = substitute(system('uname'), "\n", "", "")
-if os != "FreeBSD"
-  NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+" Auto install dein.vim
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.vim') : $XDG_CACHE_HOME
+let s:dein_dir = s:cache_home . '/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
+let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
-call neobundle#end()
-
-" Required:
+call dein#begin(s:dein_dir)
+call dein#add('Shougo/neocomplete.vim')
+call dein#add('Shougo/vimproc')
+call dein#add('Shougo/neocomplete.vim')
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/context_filetype.vim')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/neomru.vim')
+call dein#add('vim-scripts/yanktmp.vim')
+call dein#add('vim-scripts/Align')
+call dein#add('vim-scripts/peaksea')
+call dein#add('tpope/vim-fugitive')
+call dein#add('tpope/vim-dispatch')
+call dein#add('xolox/vim-session')
+call dein#add('xolox/vim-misc')
+call dein#add('yuki777/YankRing120.vim')
+call dein#add('yuki777/encode.vim')
+call dein#add('scrooloose/nerdtree')
+call dein#add('scrooloose/syntastic')
+call dein#add('cohama/agit.vim')
+call dein#add('Indent-Guides')
+call dein#add('tomasr/molokai')
+call dein#add('vim-scripts/desert256.vim')
+call dein#add('ap/vim-css-color')
+call dein#add('majutsushi/tagbar')
+call dein#add('airblade/vim-rooter')
+call dein#add('Xuyuanp/nerdtree-git-plugin')
+call dein#end()
 filetype plugin indent on
+syntax enable
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+"" Note: Skip initialization for vim-tiny or vim-small.
+"if 0 | endif
+"
+"if has('vim_starting')
+"  if &compatible
+"    set nocompatible               " Be iMproved
+"  endif
+"
+"  " Required:
+"  set runtimepath+=~/.vim/bundle/neobundle.vim/
+"endif
+"
+"" Required:
+"call neobundle#begin(expand('~/.vim/bundle/'))
+"
+"" Let NeoBundle manage NeoBundle
+"" Required:
+"NeoBundleFetch 'Shougo/neobundle.vim'
+"
+"" My Bundles here:
+"" Refer to |:NeoBundle-examples|.
+"" Note: You don't set neobundle setting in .gvimrc!
+"" my bundles
+"NeoBundle 'Shougo/vimproc'
+"NeoBundle 'Shougo/neocomplete.vim'
+"NeoBundle 'Shougo/neosnippet.vim'
+"NeoBundle 'Shougo/neosnippet-snippets'
+"NeoBundle 'Shougo/context_filetype.vim'
+"NeoBundle 'Shougo/unite.vim' " search
+"NeoBundle 'Shougo/neomru.vim' " Most Recently Used
+"NeoBundle 'vim-scripts/yanktmp.vim' " yank
+"NeoBundle 'vim-scripts/Align'
+"NeoBundle 'vim-scripts/peaksea' " colorscheme for diff
+"NeoBundle 'tpope/vim-fugitive'
+"NeoBundle 'tpope/vim-dispatch'
+"NeoBundle 'xolox/vim-session'
+"NeoBundle 'xolox/vim-misc'
+"NeoBundle 'yuki777/YankRing120.vim' " yank manager
+"NeoBundle 'yuki777/encode.vim'
+"NeoBundle 'scrooloose/nerdtree' " filer
+"NeoBundle 'scrooloose/syntastic' " check syntax
+"NeoBundle 'cohama/agit.vim'
+"NeoBundle 'Indent-Guides'
+"NeoBundle 'tomasr/molokai' " colorscheme
+"NeoBundle 'vim-scripts/desert256.vim' " colorscheme
+"NeoBundle 'ap/vim-css-color'
+"NeoBundle 'majutsushi/tagbar'
+"NeoBundle 'airblade/vim-rooter'
+"
+"let os = substitute(system('uname'), "\n", "", "")
+"if os != "FreeBSD"
+"  NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+"endif
+"
+"call neobundle#end()
+"
+"" Required:
+"filetype plugin indent on
+"
+"" If there are uninstalled bundles found on startup,
+"" this will conveniently prompt you to install them.
+"NeoBundleCheck
 "----------------------------------------------------
 " バックアップ関係
 "----------------------------------------------------
@@ -344,7 +390,7 @@ let g:NERDTreeIndicatorMapCustom = {
 "----------------------------------------------------
 set t_Co=256
 if $USER == 'adachi' || $USER == 'yuki' || $USER == 'yuki-adachi'
-	if filereadable($HOME . "/.vim/bundle/molokai/colors/molokai.vim")
+	if filereadable($HOME . "/.vim/dein/repos/github.com/tomasr/molokai/colors/molokai.vim")
 		colorscheme molokai
 	endif
 else
