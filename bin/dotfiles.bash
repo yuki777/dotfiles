@@ -8,6 +8,8 @@ set -eu
 cd ~
 mkdir -p ~/.vim/data
 mkdir -p ~/bin
+ln -fs dotfiles/.dein.toml
+ln -fs dotfiles/.dein_lazy.toml
 ln -fs dotfiles/.vimrc
 ln -fs dotfiles/.vimrc.map
 ln -sf dotfiles/.zshenv
