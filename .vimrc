@@ -12,9 +12,9 @@ if !isdirectory(s:dein_repo_dir)
 endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
+" Packages
 call dein#begin(s:dein_dir)
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/vimproc')
+call dein#add('Shougo/vimproc', {'build': 'make'})
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
@@ -42,6 +42,12 @@ call dein#add('airblade/vim-rooter')
 call dein#add('Xuyuanp/nerdtree-git-plugin')
 call dein#end()
 
+" Install vimproc first
+if dein#check_install(['vimproc'])
+  call dein#install(['vimproc'])
+endif
+
+" Install
 if dein#check_install()
   call dein#install()
 endif
@@ -49,68 +55,6 @@ endif
 filetype plugin indent on
 syntax enable
 
-"" Note: Skip initialization for vim-tiny or vim-small.
-"if 0 | endif
-"
-"if has('vim_starting')
-"  if &compatible
-"    set nocompatible               " Be iMproved
-"  endif
-"
-"  " Required:
-"  set runtimepath+=~/.vim/bundle/neobundle.vim/
-"endif
-"
-"" Required:
-"call neobundle#begin(expand('~/.vim/bundle/'))
-"
-"" Let NeoBundle manage NeoBundle
-"" Required:
-"NeoBundleFetch 'Shougo/neobundle.vim'
-"
-"" My Bundles here:
-"" Refer to |:NeoBundle-examples|.
-"" Note: You don't set neobundle setting in .gvimrc!
-"" my bundles
-"NeoBundle 'Shougo/vimproc'
-"NeoBundle 'Shougo/neocomplete.vim'
-"NeoBundle 'Shougo/neosnippet.vim'
-"NeoBundle 'Shougo/neosnippet-snippets'
-"NeoBundle 'Shougo/context_filetype.vim'
-"NeoBundle 'Shougo/unite.vim' " search
-"NeoBundle 'Shougo/neomru.vim' " Most Recently Used
-"NeoBundle 'vim-scripts/yanktmp.vim' " yank
-"NeoBundle 'vim-scripts/Align'
-"NeoBundle 'vim-scripts/peaksea' " colorscheme for diff
-"NeoBundle 'tpope/vim-fugitive'
-"NeoBundle 'tpope/vim-dispatch'
-"NeoBundle 'xolox/vim-session'
-"NeoBundle 'xolox/vim-misc'
-"NeoBundle 'yuki777/YankRing120.vim' " yank manager
-"NeoBundle 'yuki777/encode.vim'
-"NeoBundle 'scrooloose/nerdtree' " filer
-"NeoBundle 'scrooloose/syntastic' " check syntax
-"NeoBundle 'cohama/agit.vim'
-"NeoBundle 'Indent-Guides'
-"NeoBundle 'tomasr/molokai' " colorscheme
-"NeoBundle 'vim-scripts/desert256.vim' " colorscheme
-"NeoBundle 'ap/vim-css-color'
-"NeoBundle 'majutsushi/tagbar'
-"NeoBundle 'airblade/vim-rooter'
-"
-"let os = substitute(system('uname'), "\n", "", "")
-"if os != "FreeBSD"
-"  NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-"endif
-"
-"call neobundle#end()
-"
-"" Required:
-"filetype plugin indent on
-"
-"" If there are uninstalled bundles found on startup,
-"" this will conveniently prompt you to install them.
-"NeoBundleCheck
 "----------------------------------------------------
 " バックアップ関係
 "----------------------------------------------------
