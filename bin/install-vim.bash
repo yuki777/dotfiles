@@ -7,8 +7,8 @@ mkdir -p $HOME/local/src
 mkdir -p ~/local/bin
 cd $HOME/local/src
 rm -fr vim
-hg clone https://bitbucket.org/vim-mirror/vim
+git clone https://github.com/vim/vim.git
 cd vim/src
-./configure --prefix=$HOME/local --with-lua-prefix=/usr --enable-luainterp=yes --enable-pythoninterp=yes --enable-rubyinterp=yes --enable-multibyte --enable-gui=no --with-features=huge --without-x
+./configure --without-x --disable-gui --enable-largefile --enable-multibyte --disable-selinux --prefix=$HOME/local
 make
 make install
