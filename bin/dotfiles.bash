@@ -45,4 +45,5 @@ done
 
 touch .gitconfig.local
 
+~/dotfiles/bin/setup-vim.bash
 ~/dotfiles/bin/setup_tmux_local
