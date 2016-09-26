@@ -1,10 +1,7 @@
 # lifted cool stuff from:
 # https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_prompt.fish
 # https://github.com/fish-shell/fish-shell/blob/master/share/tools/web_config/sample_prompts/robbyrussell.fish
-
-
 function fish_prompt
-
     # define git functions if not already defined
     if not set -q -g __fish_git_functions_defined
         set -g __fish_git_functions_defined
@@ -18,7 +15,6 @@ function fish_prompt
 
     # define hostname if not already defined
     if not set -q __fish_prompt_hostname
-        #set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
         set -g __fish_prompt_hostname (hostname)
     end
 
@@ -36,6 +32,10 @@ function fish_prompt
     set -l host "$__fish_prompt_hostname"
     set -l pwd  (pwd)
 
+    # set color
+    set -l color_user $red
+    set -l color_host $yellow
+
     # if git branch
     if [ (_git_branch_name) ]
         set git_info $blue(_git_branch_name)
@@ -52,9 +52,7 @@ function fish_prompt
 
     set -l gitporcelain (git_porcelain)
 
-    #printf '%s@%s:%s%s%s> '(whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
-    #echo "#" (date "+%Y-%m-%d %H:%M:%S") $cyan$user$yellow@$host$magenta:$pwd [$git_info]$normal
-		echo "#" (date "+%Y-%m-%d %H:%M:%S") $cyan$user$yellow@$host$magenta:$pwd$normal [$git_info$gitporcelain]$normal
+		echo "#" (date "+%Y-%m-%d %H:%M:%S") $color_user$user$color_host@$host$magenta:$pwd$normal [$git_info$gitporcelain]$normal
 		echo
 end
 
