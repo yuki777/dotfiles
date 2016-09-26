@@ -15,5 +15,10 @@ make install
 # http://fisherman.sh
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 
+# Clone yuki777/git_porcelain
+rm -fr ~/src/github.com/yuki777/git_porcelain
+mkdir -p ~/src/github.com/yuki777
+git clone https://github.com/yuki777/git_porcelain.git ~/src/github.com/yuki777/git_porcelain
+
 # Install "git_porcelain" pulgin with fisherman
-fish -c "fisher git_porcelain"
+fish -c "fisher ~/src/github.com/yuki777/git_porcelain"
