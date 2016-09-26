@@ -33,6 +33,7 @@ ln -fs ~/dotfiles/bin/tmuxx              ~/bin/tmuxx
 ln -fs ~/dotfiles/bin/tmuxxx             ~/bin/tmuxxx
 ln -fs ~/dotfiles/bin/clide              ~/bin/clide
 ln -fs ~/dotfiles/.config/fish           ~/.config/fish
+ln -fs ~/dotfiles/.config/omf            ~/.config/omf
 
 for file in .vimrc.local .tmux.local .zshrc.local .ctagsignore ; do
 	if [ -e "~/$file" ]; then

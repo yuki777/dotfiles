@@ -27,4 +27,4 @@ fish -c "fisher ~/src/github.com/yuki777/git_porcelain"
 curl -L http://get.oh-my.fish | fish; exit
 
 # Install peco
-fish -c "omf install peco"
+#fish -c "omf install peco"
