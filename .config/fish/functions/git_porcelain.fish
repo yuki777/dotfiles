@@ -1,0 +1,1 @@
+/home/yuki-adachi/.config/fisherman/git_porcelain/functions/git_porcelain.fish

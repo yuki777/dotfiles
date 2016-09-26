@@ -22,3 +22,9 @@ git clone https://github.com/yuki777/git_porcelain.git ~/src/github.com/yuki777/
 
 # Install "git_porcelain" pulgin with fisherman
 fish -c "fisher ~/src/github.com/yuki777/git_porcelain"
+
+# oh-my-fish
+curl -L http://get.oh-my.fish | fish
+
+# Install peco
+fish -c "omf install peco"
