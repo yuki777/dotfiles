@@ -19,13 +19,13 @@ function fish_prompt
     end
 
     # shortcuts for colors
+    set -l normal  ( set_color normal)
+    set -l green   ( set_color -o green)
+    set -l blue    ( set_color -o blue)
     set -l cyan    ( set_color -o cyan)
     set -l yellow  ( set_color -o yellow)
     set -l magenta ( set_color -o magenta)
     set -l red     ( set_color -o red)
-    set -l green   ( set_color -o green)
-    set -l blue    ( set_color -o blue)
-    set -l normal  ( set_color normal)
 
     # set ...
     set -l user "$USER"
@@ -33,8 +33,8 @@ function fish_prompt
     set -l pwd  (pwd)
 
     # set color
-    set -l color_user $red
-    set -l color_host $yellow
+    set -l color_user $green
+    set -l color_host $blue
 
     # if git branch
     if [ (_git_branch_name) ]
@@ -52,7 +52,7 @@ function fish_prompt
 
     set -l gitporcelain (git_porcelain)
 
-		echo "#" (date "+%Y-%m-%d %H:%M:%S") $color_user$user$color_host@$host$magenta:$pwd$normal [$git_info$gitporcelain]$normal
+		echo "#" (date "+%Y-%m-%d %H:%M:%S") $color_user$user$color_host@$host$normal:$pwd$normal [$git_info$gitporcelain]$normal
 		echo
 end
 
