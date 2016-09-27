@@ -32,9 +32,31 @@ function fish_prompt
     set -l host "$__fish_prompt_hostname"
     set -l pwd  (pwd)
 
-    # set color
-    set -l color_user $green
-    set -l color_host $blue
+    # set user color
+    set -l color_user $red
+    set -l check_user ( echo $USER | grep -qE '^yuki$' ; echo $status )
+    if test $check_user -eq 0
+      set color_user $green
+    end
+    set -l check_user ( echo $USER | grep -qE '^fvn-*' ; echo $status )
+    if test $check_user -eq 0
+      set color_user $yellow
+    end
+
+    # set host color
+    set -l color_host $red
+    set -l check_host ( hostname | grep -qE '.local' ; echo $status )
+    if test $check_host -eq 0
+      set color_host $blue
+    end
+    set -l check_host ( hostname | grep -qE '^systes*' ; echo $status )
+    if test $check_host -eq 0
+      set color_host $cyan
+    end
+    set -l check_host ( hostname | grep -qE 'macbookpro.local' ; echo $status )
+    if test $check_host -eq 0
+      set color_host $green
+    end
 
     # if git branch
     if [ (_git_branch_name) ]
