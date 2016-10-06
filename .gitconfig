@@ -20,6 +20,7 @@
     url-github    = "!echo https://github.com/$(git project)/$(git repository)/commit/$(git short-hash)"
 [core]
     excludesfile = ~/.gitignore
+    editor = vim
 [push]
 	default = nothing
 [include]
