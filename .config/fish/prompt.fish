@@ -34,9 +34,13 @@ function fish_prompt
 
     # set user color
     set -l color_user $red
-    set -l check_user ( echo $USER | grep -qE '^(yuki|yuki-adachi)$' ; echo $status )
+    set -l check_user ( echo $USER | grep -qE '^yuki$' ; echo $status )
     if test $check_user -eq 0
       set color_user $green
+    end
+    set -l check_user ( echo $USER | grep -qE '^yuki-adachi$' ; echo $status )
+    if test $check_user -eq 0
+      set color_user $blue
     end
     set -l check_user ( echo $USER | grep -qE '^fvn-*' ; echo $status )
     if test $check_user -eq 0
