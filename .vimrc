@@ -785,6 +785,11 @@ let g:rooter_manual_only = 1
 let g:agit_no_default_mappings = 1
 let g:agit_enable_auto_refresh = 1
 
+" https://github.com/Xuyuanp/nerdtree-git-plugin
+" FIX : NERDTreeGitStatusRefreshListener
+" FIX : NERDTreeGitStatusRefresh
+set shell=sh
+
 " -----------------------------------------------
 " キーマップ設定ファイルがあれば読み込む
 " -----------------------------------------------
