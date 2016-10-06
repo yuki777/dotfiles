@@ -9,14 +9,11 @@ alias gitst="git st -s|awk '{print \$2}'|tr '\n' ' '|xargs echo"
 alias tailf='tail -F'
 alias l='ll'
 
-#case "${OSTYPE}" in
-#darwin*)
-#	alias ll='ls -Gla'
-#	;;
-#freebsd*)
-#	alias ll='ls -Gla'
-#	;;
-#linux*)
-#	alias ll='ls -Falq1AH --color=always --time-style=+"%Y-%m-%d %H:%M:%S"'
-#	;;
-#esac
+switch (uname)
+    case Linux
+        alias ll='ls -Falq1AH --color=always --time-style=+"%Y-%m-%d %H:%M:%S"'
+    case Darwin
+        alias ll='ls -Gla'
+    case FreeBSD NetBSD DragonFly
+        alias ll='ls -Gla'
+end
