@@ -4,6 +4,7 @@ alias vimp='vim -p '
 alias vim.='vim "+NERDTree ."'
 alias vimrc='vim -p ~/.vimrc*'
 alias zshrc='vim -p ~/.zshrc* ~/.zshenv'
+alias fishrc='vim -p ~/.config/fish*'
 alias agit='vim -c "Agit" -c "tabonly"'
 alias gitst="git st -s|awk '{print \$2}'|tr '\n' ' '|xargs echo"
 alias tailf='tail -F'
