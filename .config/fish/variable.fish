@@ -17,3 +17,4 @@ set TERM xterm-256color
 set LD_LIBRARY_PATH $HOME/local/lib/ $LD_LIBRARY_PATH
 set GOROOT ~/local/go
 set NVM_DIR /Users/yuki/.nvm
+set ZSH_HISTORY_FILE ~/.zsh_history
