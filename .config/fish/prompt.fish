@@ -57,7 +57,7 @@ function fish_prompt
     if test $check_host -eq 0
       set color_host $cyan
     end
-    set -l check_host ( hostname | grep -qE 'macbookpro.local' ; echo $status )
+    set -l check_host ( hostname | grep -qE 'macbookpro*' ; echo $status )
     if test $check_host -eq 0
       set color_host $green
     end
