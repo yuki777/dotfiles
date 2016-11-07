@@ -1,6 +1,8 @@
 # lifted cool stuff from:
 # https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_prompt.fish
 # https://github.com/fish-shell/fish-shell/blob/master/share/tools/web_config/sample_prompts/robbyrussell.fish
+
+# set left prompt
 function fish_prompt
     # define git functions if not already defined
     if not set -q -g __fish_git_functions_defined
@@ -27,10 +29,8 @@ function fish_prompt
     set -l magenta ( set_color -o magenta)
     set -l red     ( set_color -o red)
 
-    # set ...
-    set -l user "$USER"
-    set -l host "$__fish_prompt_hostname"
-    set -l pwd  (pwd)
+		# set date
+		set -l date (date "+%Y-%m-%d %H:%M:%S")
 
     # set user color
     set -l color_user $red
@@ -62,25 +62,24 @@ function fish_prompt
       set color_host $green
     end
 
-    # if git branch
+		#	set host
+    set -l host "$__fish_prompt_hostname"
+
+		# set pwd
+    set -l pwd (prompt_pwd)
+
+	  # set git_info
     if [ (_git_branch_name) ]
         set git_info $blue(_git_branch_name)
-
-        # if dirty
-        if [ (_is_git_dirty) ]
-            set -l dirty "$red x"
-            set git_info "$git_info$dirty "
-        else
-            set -l clean "$green #"
-            set git_info "$git_info$clean"
-        end
     end
 
+	  # set git_porcelain
     set -l gitporcelain (git_porcelain)
 
-		echo "#" (date "+%Y-%m-%d %H:%M:%S") $color_user$user$color_host@$host$normal:$pwd$normal [$git_info$gitporcelain]$normal
+		echo "#" $date $color_user$USER$color_host@$host$normal:$pwd$normal $git_info $gitporcelain$normal
 		echo
 end
 
+# set right prompt
 function fish_right_prompt
 end
