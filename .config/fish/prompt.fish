@@ -66,17 +66,25 @@ function fish_prompt
     set -l host "$__fish_prompt_hostname"
 
 		# set pwd
-    set -l pwd (prompt_pwd)
+    set -l realhome ~
+    set -l pwd (echo $PWD | sed -e "s|^$realhome|~|")
 
 	  # set git_info
     if [ (_git_branch_name) ]
         set git_info $blue(_git_branch_name)
+        if [ (_is_git_dirty) ]
+            set -l dirty_or_clean ""
+            set git_info "$git_info$dirty_or_clean "
+        else
+            set -l dirty_or_clean "$green #"
+            set git_info "$git_info$dirty_or_clean"
+        end
     end
 
 	  # set git_porcelain
     set -l gitporcelain (git_porcelain)
 
-		echo "#" $date $color_user$USER$color_host@$host$normal:$pwd$normal $git_info $gitporcelain$normal
+		echo "#" $date $color_user$USER$color_host@$host$normal:$pwd$normal $git_info$gitporcelain$normal
 		echo
 end
 
