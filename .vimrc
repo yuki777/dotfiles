@@ -39,7 +39,11 @@ call dein#add('vim-scripts/desert256.vim')
 call dein#add('ap/vim-css-color')
 call dein#add('majutsushi/tagbar')
 call dein#add('airblade/vim-rooter')
-call dein#add('Xuyuanp/nerdtree-git-plugin')
+
+if system('uname') != "FreeBSD\n"
+	call dein#add('Xuyuanp/nerdtree-git-plugin')
+endif
+
 call dein#end()
 
 " Install vimproc first
