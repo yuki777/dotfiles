@@ -30,6 +30,7 @@ call dein#add('xolox/vim-session')
 call dein#add('xolox/vim-misc')
 call dein#add('yuki777/YankRing120.vim')
 call dein#add('yuki777/encode.vim')
+call dein#add('yuki777/vim-phplint')
 call dein#add('scrooloose/nerdtree')
 call dein#add('scrooloose/syntastic')
 call dein#add('cohama/agit.vim')
@@ -598,7 +599,7 @@ set helplang=ja,en
 " syntastic
 " -----------------------------------------------
 let g:syntastic_debug = 0
-let g:syntastic_mode_map = {'mode':'active', 'active_filetypes':['ruby', 'php', 'yaml', 'python'], 'passive_filetypes':['puppet', 'po', 'pot']}
+let g:syntastic_mode_map = {'mode':'active', 'active_filetypes':['ruby', 'yaml', 'python'], 'passive_filetypes':['puppet', 'po', 'pot', 'php']}
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_quiet_messages = {'level': 'warnings'}
@@ -612,6 +613,12 @@ let g:syntastic_jslint_disable = 1
 let g:syntastic_python_checker = "pylint"
 " ruby
 let g:syntastic_ruby_mri_args = "-T1 -c"
+
+" -----------------------------------------------
+" yuki777/vim-phplint
+" -----------------------------------------------
+"let g:phplint_exe = 'ssh 192.168.12.16'
+"autocmd BufWrite *.php :Phplint
 
 " -----------------------------------------------
 " 補完ポップアップメニュー色設定
