@@ -67,7 +67,7 @@ function fish_prompt
 
 		# set pwd
     set -l realhome ~
-    set -l pwd (echo $PWD | sed -e "s|^$realhome|~|")
+    set -l pwd (string replace -r '^'"$realhome"'($|/)' '~$1' $PWD)
 
 	  # set git_info
     if [ (_git_branch_name) ]
@@ -84,8 +84,15 @@ function fish_prompt
 	  # set git_porcelain
     set -l gitporcelain (git_porcelain)
 
-		echo "#" $date $color_user$USER$color_host@$host$normal:$pwd$normal $git_info$gitporcelain$normal
-		echo
+    # set pwd_length
+    set -l pwd_length (string length $PWD)
+
+    if test $pwd_length -gt 50
+      set pwd (prompt_pwd)
+    end
+
+    echo "#" $date $color_user$USER$color_host@$host$normal:$pwd$normal $git_info$gitporcelain$normal
+    echo
 end
 
 # set right prompt
