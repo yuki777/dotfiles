@@ -67,7 +67,14 @@ function fish_prompt
 
 		# set pwd
     set -l realhome ~
-    set -l pwd (echo $PWD | sed -e "s|^$realhome|~|")
+    set -l pwd (string replace -r '^'"$realhome"'($|/)' '~$1' $PWD)
+
+    # set pwd_length
+    set -l pwd_length (string length $pwd)
+
+    if test $pwd_length -gt 50
+      set pwd (prompt_pwd)
+    end
 
 		echo "#" $date $color_user$USER$color_host@$host$normal:$pwd$normal
 		echo
