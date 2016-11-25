@@ -85,7 +85,7 @@ function fish_prompt
     set -l gitporcelain (git_porcelain)
 
     # set pwd_length
-    set -l pwd_length (string length $PWD)
+    set -l pwd_length (string length $pwd)
 
     if test $pwd_length -gt 50
       set pwd (prompt_pwd)
