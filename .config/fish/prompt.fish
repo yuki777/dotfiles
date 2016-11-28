@@ -87,8 +87,12 @@ function fish_prompt
         end
     end
 
-	  # set git_porcelain
-    set -l gitporcelain (git_porcelain)
+		# set git_porcelain
+    if [ ( hostname | grep -qE '^systes*' ; echo $status ) ]
+			set -l gitporcelain ""
+		else
+			set -l gitporcelain (git_porcelain)
+		end
 
     # set prompt_without_color
     set -l prompt_without_color "# $date $USER@$host:$pwd $git_info$gitporcelain"
