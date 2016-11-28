@@ -79,27 +79,23 @@ function fish_prompt
 
 	  # set git_info
     if [ (_git_branch_name) ]
-        set git_info $blue(_git_branch_name)
-        if [ (_is_git_dirty) ]
-            set -l dirty_or_clean ""
-            set git_info "$git_info$dirty_or_clean "
-        else
-            set -l dirty_or_clean "$green #"
-            set git_info "$git_info$dirty_or_clean"
-        end
+        set git_info (_git_branch_name)
     end
 
 	  # set git_porcelain
     set -l gitporcelain (git_porcelain)
 
-    # set pwd_length
-    set -l pwd_length (string length $pwd)
+    # set prompt_without_color
+    set -l prompt_without_color "# $date $USER@$host:$pwd $git_info $gitporcelain"
 
-    if test $pwd_length -gt 50
+    # set prompt_length
+    set -l prompt_length (string length $prompt_without_color)
+
+    if test $prompt_length -gt $COLUMNS
       set pwd (prompt_pwd)
     end
 
-    echo "#" $color_date$date $color_user$USER$color_host@$host$normal:$pwd$normal $git_info$gitporcelain$normal
+    echo "# $color_date$date $color_user$USER$color_host@$host$normal:$pwd$normal $git_info $gitporcelain$normal"
     echo
 end
 
