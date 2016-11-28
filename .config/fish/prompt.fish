@@ -80,13 +80,18 @@ function fish_prompt
 	  # set git_info
     if [ (_git_branch_name) ]
         set git_info (_git_branch_name)
+        if [ (_is_git_dirty) ]
+            set git_info "$git_info "
+        else
+            set git_info "$git_info #"
+        end
     end
 
 	  # set git_porcelain
     set -l gitporcelain (git_porcelain)
 
     # set prompt_without_color
-    set -l prompt_without_color "# $date $USER@$host:$pwd $git_info $gitporcelain"
+    set -l prompt_without_color "# $date $USER@$host:$pwd $git_info$gitporcelain"
 
     # set prompt_length
     set -l prompt_length (string length $prompt_without_color)
@@ -95,7 +100,7 @@ function fish_prompt
       set pwd (prompt_pwd)
     end
 
-    echo "# $color_date$date $color_user$USER$color_host@$host$normal:$pwd$normal $git_info $gitporcelain$normal"
+    echo "# $color_date$date $color_user$USER$color_host@$host$normal:$pwd$normal $git_info$gitporcelain$normal"
     echo
 end
 
