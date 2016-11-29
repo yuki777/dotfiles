@@ -19,9 +19,9 @@ function fish_prompt
     set -l cyan    ( set_color -o cyan)
 
 		set -l colors $red $green $yellow $blue $magenta $cyan
-		set -l date_number 1
+		set -l date_number 6
 		set -l user_number 4
-		set -l host_number 3
+		set -l host_number 6
 
 	  # set date color
     set -l color_date $colors[$date_number]
