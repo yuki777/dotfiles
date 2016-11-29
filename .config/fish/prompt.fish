@@ -30,12 +30,8 @@ function fish_prompt
     set -l cyan    ( set_color -o cyan)
 
 		set -l colors $red $green $yellow $blue $magenta $cyan
-		set -l date_number (bash ~/dotfiles/bin/machine-id.bash|grep -o [1-6]|head -1|tail -1)
-		set -l user_number (bash ~/dotfiles/bin/machine-id.bash|grep -o [1-6]|head -2|tail -1)
-		set -l host_number (bash ~/dotfiles/bin/machine-id.bash|grep -o [1-6]|head -3|tail -1)
-
-	  # set date color
-    set -l color_date $colors[$date_number]
+		set -l user_number (bash ~/dotfiles/bin/machine-id.bash|grep -o [1-6]|head -1|tail -1)
+		set -l host_number (bash ~/dotfiles/bin/machine-id.bash|grep -o [1-6]|head -2|tail -1)
 
 		# set date
 		set -l date (date "+%Y-%m-%d %H:%M:%S")
@@ -104,7 +100,7 @@ function fish_prompt
       set pwd (prompt_pwd)
     end
 
-    echo "# $color_date$date $color_user$USER$color_host@$host$normal:$pwd$normal $git_info$gitporcelain$normal"
+    echo "# $date $color_user$USER$color_host@$host$normal:$pwd$normal $git_info$gitporcelain$normal"
     echo
 end
 
