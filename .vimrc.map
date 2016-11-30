@@ -118,7 +118,7 @@ endif
 "" endif
 
 " F1: ショートカットヘルプ表示
-let myhelptext  = "<F1> : Help\n<F2> : Most recently used files\n<F3> : Tagbar\n<F4> : Histories of clip board\n<F5> : +1 >\n<F6> : -1 >\n<F7> : +1 ^\n<F8> : -1 ^\n<F9> : Toggle Syntastic\n<F10>: UTF8\n<F11>: Toggle relative number\n<F12>: Toggle line number\n<Esc><Esc> : Clear highlight, Paste mode OFF\n;p : Paste mode ON\nCtrl + d : Open/Close NERDTree\nsy : Yanktmp yank\nsp : Yanktmp paste\n<tab> : Next tab\n<S-tab> : Previous tab\n<Space>n : Add new tab\n;n : Add new tab with NERDTree\n<S-h> : Jump to head of line\n// : Search file by Unite\n/? : Grep by Unite\n<C-f> : Neosnippet expand\n<C-h> : Move to left window\n<C-l> : Move to right window\n<C-k> : Move to top window\n<C-j> : Move to bottom window"
+let myhelptext  = "<F1> : Help\n<F2> : Most recently used files\n<F3> : Tagbar\n<F4> : Histories of clip board\n<F5> : WinResizerStartResize\n<F6> : -\n<F7> : - \n<F8> : - \n<F9> : Toggle Syntastic\n<F10>: UTF8\n<F11>: Toggle relative number\n<F12>: Toggle line number\n<Esc><Esc> : Clear highlight, Paste mode OFF\n;p : Paste mode ON\nCtrl + d : Open/Close NERDTree\nsy : Yanktmp yank\nsp : Yanktmp paste\n<tab> : Next tab\n<S-tab> : Previous tab\n<Space>n : Add new tab\n;n : Add new tab with NERDTree\n<S-h> : Jump to head of line\n// : Search file by Unite\n/? : Grep by Unite\n<C-f> : Neosnippet expand\n<C-h> : Move to left window\n<C-l> : Move to right window\n<C-k> : Move to top window\n<C-j> : Move to bottom window"
 nnoremap <silent> <F1> :echo myhelptext<CR>
 " F2:最近使用したファイル
 nnoremap <F2> :Unite file_mru<CR>
@@ -127,7 +127,9 @@ nnoremap <F3> :TagbarToggle<CR>
 " F4:クリップボード履歴
 nnoremap <silent> <F4> :YRShow<CR>
 " F5:CTRL-W > カレントウィンドウの幅を N（デフォルトは1）桁分増やす。
-nnoremap <silent> <F5> <C-w>>
+"nnoremap <silent> <F5> <C-w>>
+" F5:WinResizerStartResize
+nnoremap <silent> <F5> :WinResizerStartResize<CR>
 " F6:CTRL-W < カレントウィンドウの幅を N（デフォルトは1）桁分減らす。
 nnoremap <silent> <F6> <C-w><
 " F7:CTRL-W + カレントウィンドウの高さをN（デフォルトは1）行分高くする。
