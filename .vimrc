@@ -1,66 +1,49 @@
-" https://github.com/Shougo/dein.vim
-if &compatible
-  set nocompatible
+if has('vim_starting')
+	set rtp+=~/.vim/plugged/vim-plug
+	if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+		echo 'install vim-plug...'
+		call system('mkdir -p ~/.vim/plugged/vim-plug')
+		call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+	end
 endif
 
-" Auto install dein.vim
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.vim') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-endif
-let &runtimepath = s:dein_repo_dir .",". &runtimepath
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
+Plug 'Shougo/vimproc', {'do': 'make'}
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/context_filetype.vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'vim-scripts/yanktmp.vim'
+Plug 'vim-scripts/Align'
+Plug 'vim-scripts/peaksea'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-surround'
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
+Plug 'yuki777/YankRing120.vim'
+Plug 'yuki777/encode.vim'
+Plug 'yuki777/vim-phplint'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'cohama/agit.vim'
+Plug 'Indent-Guides'
+Plug 'tomasr/molokai'
+Plug 'vim-scripts/desert256.vim'
+Plug 'ap/vim-css-color'
+Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-rooter'
+call plug#end()
 
-" Packages
-call dein#begin(s:dein_dir)
-call dein#add('Shougo/vimproc', {'build': 'make'})
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/context_filetype.vim')
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('vim-scripts/yanktmp.vim')
-call dein#add('vim-scripts/Align')
-call dein#add('vim-scripts/peaksea')
-call dein#add('tpope/vim-fugitive')
-call dein#add('tpope/vim-dispatch')
-call dein#add('tpope/vim-surround')
-call dein#add('xolox/vim-session')
-call dein#add('xolox/vim-misc')
-call dein#add('yuki777/YankRing120.vim')
-call dein#add('yuki777/encode.vim')
-call dein#add('yuki777/vim-phplint')
-call dein#add('scrooloose/nerdtree')
-call dein#add('scrooloose/syntastic')
-call dein#add('cohama/agit.vim')
-call dein#add('Indent-Guides')
-call dein#add('tomasr/molokai')
-call dein#add('vim-scripts/desert256.vim')
-call dein#add('ap/vim-css-color')
-call dein#add('majutsushi/tagbar')
-call dein#add('airblade/vim-rooter')
-call dein#add('simeji/winresizer')
+"if system('uname') != "FreeBSD\n"
+"	...
+"endif
 
-if system('uname') != "FreeBSD\n"
-	call dein#add('Xuyuanp/nerdtree-git-plugin')
-endif
-
-call dein#end()
-
-" Install vimproc first
-if dein#check_install(['vimproc'])
-  call dein#install(['vimproc'])
-endif
-
-" Install
-if dein#check_install()
-  call dein#install()
-endif
-
-filetype plugin indent on
-syntax enable
+"filetype plugin indent on
+"syntax enable
 
 "----------------------------------------------------
 " バックアップ関係
@@ -84,7 +67,7 @@ set viewdir=~/.vim/data/view
 
 " see... http://nanasi.jp/articles/howto/file/seemingly-unneeded-file.html
 " see... http://blog.asial.co.jp/1130
-"set backupskip=/home/mazda/excite/*
+"set backupskip=/path/to/dir/*
 
 "----------------------------------------------------
 " 検索関係
