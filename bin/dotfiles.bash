@@ -42,18 +42,17 @@ ln -fs ~/dotfiles/bin/tmuxxx             ~/bin/tmuxxx
 ln -fs ~/dotfiles/bin/clide              ~/bin/clide
 
 # .config
-ln -fs ~/dotfiles/.config/fish ~/.config/fish
-ln -fs ~/dotfiles/.config/omf  ~/.config/omf
-ln -fs ~/dotfiles/.config/nvim ~/.config/nvim
+for file in fish omf nvim ; do
+	if [ ! -h "$HOME/$file" ]; then
+        ln -fs $HOME/dotfiles/.config/$file $HOME/.config/$file
+    fi
+    unlink $HOME/.config/$file/$file
+done
 
 # local files
 for file in .vimrc.local .tmux.local .zshrc.local .ctagsignore ; do
-	if [ -e "~/$file" ]; then
-		#echo "~/$file found."
-		:
-	else
-		#echo "~/$file NOT found."
-		cp dotfiles/$file ~
+	if [ ! -e "$HOME/$file" ]; then
+		cp dotfiles/$file $HOME
 	fi
 done
 touch .gitconfig.local
