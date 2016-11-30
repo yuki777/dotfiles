@@ -25,3 +25,4 @@ maketags
 .gitconfig.local
 .config/fish/fishd.*
 .config/fish/functions/git_porcelain.fish
+.config/fish/fish_history
