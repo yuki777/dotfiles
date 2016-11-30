@@ -1,155 +1,168 @@
-set nocp
-filetype plugin on
-set noswapfile
-set history=10000
-set ignorecase
-set smartcase
-set noincsearch
-set nowrapscan
-set hlsearch
-nmap <silent> <Esc><Esc> :nohlsearch<CR>:set nopaste<CR><Esc>
-nmap <silent> ;p :set paste<CR>:startinsert<CR>
-set number
-set showmatch
-set matchtime=2
-if has("syntax")
-    syntax on
+if has('vim_starting')
+	set rtp+=~/.vim/plugged/vim-plug
+	if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+		echo 'install vim-plug...'
+		call system('mkdir -p ~/.vim/plugged/vim-plug')
+		call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+	end
 endif
-set textwidth=0
-set shortmess+=I
-set tabpagemax=15
-set vb t_vb=
-set nofoldenable
-set showcmd
-set wildmode=longest,list,full
-set cmdheight=1
-set laststatus=2
-set statusline=%F%m%r%h%w\ %=\ %y[%{&fileencoding},%{&ff}][%l/%L(%p%%),%v]
-set showmode
-set autoindent
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
-set smarttab
-set backspace=indent,eol,start
-let PHP_removeCRwhenUnix=1
-let php_sql_query=1
-let php_htmlInStrings=1
-let php_folding=1
-set hidden
-scriptencoding utf-8
-set fileformats=unix,dos,mac
-set encoding=utf-8
-set fileencoding=utf-8
-if &encoding !=# 'utf-8'
-        set encoding=japan
-        set fileencoding=japan
-endif
-if has('iconv')
-        let s:enc_euc = 'euc-jp'
-        let s:enc_jis = 'iso-2022-jp'
-        if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
-                let s:enc_euc = 'eucjp-ms'
-                let s:enc_jis = 'iso-2022-jp-3'
-        elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
-                let s:enc_euc = 'euc-jisx0213'
-                let s:enc_jis = 'iso-2022-jp-3'
-        endif
-        if &encoding ==# 'utf-8'
-                let s:fileencodings_default = &fileencodings
-                let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
-                let &fileencodings = &fileencodings .','. s:fileencodings_default
-                unlet s:fileencodings_default
-        else
-                let &fileencodings = &fileencodings .','. s:enc_jis
-                set fileencodings+=utf-8,ucs-2le,ucs-2
-                if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
-                        set fileencodings+=cp932
-                        set fileencodings-=euc-jp
-                        set fileencodings-=euc-jisx0213
-                        set fileencodings-=eucjp-ms
-                        let &encoding = s:enc_euc
-                        let &fileencoding = s:enc_euc
-                else
-                        let &fileencodings = &fileencodings .','. s:enc_euc
-                endif
-        endif
-        unlet s:enc_euc
-        unlet s:enc_jis
-endif
-if exists('&ambiwidth')
-        set ambiwidth=double
-endif
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
+Plug 'tpope/vim-sensible'
+call plug#end()
 
-function! MyTabLabel(n)
-        let buflist = tabpagebuflist(a:n)
-        let winnr = tabpagewinnr(a:n)
-        let bufname = fnamemodify(bufname(buflist[winnr - 1]), ':.')
-        let label = a:n . ":"
-        let label .= bufname == '' ? 'No name' : bufname
-        return label
-endfunction
-function! MyTabLine()
-        let s = ''
-        for i in range(tabpagenr('$'))
-                if i + 1 == tabpagenr()
-                        let s .= '%#TabLineSel#'
-                else
-                        let s .= '%#TabLine#'
-                endif
-                let s .= '%' . (i + 1) . 'T'
-                let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
-        endfor
-        let s .= '%#TabLineFill#%T'
-        if tabpagenr('$') > 1
-                let s .= '%=%#TabLine#%999Xx'
-        endif
-        return s
-endfunction
-set tabline=%!MyTabLine()
-set showtabline=2
-hi TabLine     term=reverse cterm=reverse        ctermfg=white ctermbg=black
-hi TabLineSel  term=bold    cterm=bold,underline ctermfg=2
-hi TabLineFill term=reverse cterm=reverse        ctermfg=white ctermbg=black
-
-nnoremap <silent> <tab> :tabnext<cr>
-nnoremap <silent> <S-tab> :tabprevious<cr>
-
-nmap <silent> <Space>n :call AddNewTabWindow()<CR>
-if !exists("*AddNewTabWindow()")
-        function! AddNewTabWindow()
-                execute "tablast"
-                execute "tabnew"
-        endfunction
-endif
-
-nnoremap <F10> :set fileencoding=utf8<CR>
-nnoremap <silent> <F11> :set relativenumber!<CR>
-nnoremap <silent> <F12> :set number!<CR>
-map * *N
-map # #N
-map <S-h> ^
-
-set diffopt=filler,iwhite 
-command! Utf8  e ++enc=utf-8
-command! Euc   e ++enc=euc-jp
-command! Sjis  e ++enc=cp932
-command! Jis   e ++enc=iso-2022-jp
-command! WUtf8 w ++enc=utf-8       | e
-command! WEuc  w ++enc=euc-jp      | e
-command! WSjis w ++enc=cp932       | e
-command! WJis  w ++enc=iso-2022-jp | e
-nmap j gj
-nmap k gk
-vmap j gj
-vmap k gk
-autocmd FileType svn :set fileencoding=utf-8
-autocmd FileType gitcommit :set fileencoding=utf-8
-autocmd FileType python :set fileencoding=utf-8
-nmap n nzz
-nmap N Nzz
-autocmd FileType svn :set fileencoding=utf-8
-autocmd FileType gitcommit :set fileencoding=utf-8
-autocmd FileType python :set fileencoding=utf-8
+"set nocp
+"filetype plugin on
+"set noswapfile
+"set history=10000
+"set ignorecase
+"set smartcase
+"set noincsearch
+"set nowrapscan
+"set hlsearch
+"nmap <silent> <Esc><Esc> :nohlsearch<CR>:set nopaste<CR><Esc>
+"nmap <silent> ;p :set paste<CR>:startinsert<CR>
+"set number
+"set showmatch
+"set matchtime=2
+"if has("syntax")
+"    syntax on
+"endif
+"set textwidth=0
+"set shortmess+=I
+"set tabpagemax=15
+"set vb t_vb=
+"set nofoldenable
+"set showcmd
+"set wildmode=longest,list,full
+"set cmdheight=1
+"set laststatus=2
+"set statusline=%F%m%r%h%w\ %=\ %y[%{&fileencoding},%{&ff}][%l/%L(%p%%),%v]
+"set showmode
+"set autoindent
+"set tabstop=4
+"set softtabstop=4
+"set shiftwidth=4
+"set expandtab
+"set smartindent
+"set smarttab
+"set backspace=indent,eol,start
+"let PHP_removeCRwhenUnix=1
+"let php_sql_query=1
+"let php_htmlInStrings=1
+"let php_folding=1
+"set hidden
+"scriptencoding utf-8
+"set fileformats=unix,dos,mac
+"set encoding=utf-8
+"set fileencoding=utf-8
+"if &encoding !=# 'utf-8'
+"        set encoding=japan
+"        set fileencoding=japan
+"endif
+"if has('iconv')
+"        let s:enc_euc = 'euc-jp'
+"        let s:enc_jis = 'iso-2022-jp'
+"        if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
+"                let s:enc_euc = 'eucjp-ms'
+"                let s:enc_jis = 'iso-2022-jp-3'
+"        elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
+"                let s:enc_euc = 'euc-jisx0213'
+"                let s:enc_jis = 'iso-2022-jp-3'
+"        endif
+"        if &encoding ==# 'utf-8'
+"                let s:fileencodings_default = &fileencodings
+"                let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
+"                let &fileencodings = &fileencodings .','. s:fileencodings_default
+"                unlet s:fileencodings_default
+"        else
+"                let &fileencodings = &fileencodings .','. s:enc_jis
+"                set fileencodings+=utf-8,ucs-2le,ucs-2
+"                if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
+"                        set fileencodings+=cp932
+"                        set fileencodings-=euc-jp
+"                        set fileencodings-=euc-jisx0213
+"                        set fileencodings-=eucjp-ms
+"                        let &encoding = s:enc_euc
+"                        let &fileencoding = s:enc_euc
+"                else
+"                        let &fileencodings = &fileencodings .','. s:enc_euc
+"                endif
+"        endif
+"        unlet s:enc_euc
+"        unlet s:enc_jis
+"endif
+"if exists('&ambiwidth')
+"        set ambiwidth=double
+"endif
+"
+"function! MyTabLabel(n)
+"        let buflist = tabpagebuflist(a:n)
+"        let winnr = tabpagewinnr(a:n)
+"        let bufname = fnamemodify(bufname(buflist[winnr - 1]), ':.')
+"        let label = a:n . ":"
+"        let label .= bufname == '' ? 'No name' : bufname
+"        return label
+"endfunction
+"function! MyTabLine()
+"        let s = ''
+"        for i in range(tabpagenr('$'))
+"                if i + 1 == tabpagenr()
+"                        let s .= '%#TabLineSel#'
+"                else
+"                        let s .= '%#TabLine#'
+"                endif
+"                let s .= '%' . (i + 1) . 'T'
+"                let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+"        endfor
+"        let s .= '%#TabLineFill#%T'
+"        if tabpagenr('$') > 1
+"                let s .= '%=%#TabLine#%999Xx'
+"        endif
+"        return s
+"endfunction
+"set tabline=%!MyTabLine()
+"set showtabline=2
+"hi TabLine     term=reverse cterm=reverse        ctermfg=white ctermbg=black
+"hi TabLineSel  term=bold    cterm=bold,underline ctermfg=2
+"hi TabLineFill term=reverse cterm=reverse        ctermfg=white ctermbg=black
+"
+"nnoremap <silent> <tab> :tabnext<cr>
+"nnoremap <silent> <S-tab> :tabprevious<cr>
+"
+"nmap <silent> <Space>n :call AddNewTabWindow()<CR>
+"if !exists("*AddNewTabWindow()")
+"        function! AddNewTabWindow()
+"                execute "tablast"
+"                execute "tabnew"
+"        endfunction
+"endif
+"
+"nnoremap <F10> :set fileencoding=utf8<CR>
+"nnoremap <silent> <F11> :set relativenumber!<CR>
+"nnoremap <silent> <F12> :set number!<CR>
+"map * *N
+"map # #N
+"map <S-h> ^
+"
+"set diffopt=filler,iwhite 
+"command! Utf8  e ++enc=utf-8
+"command! Euc   e ++enc=euc-jp
+"command! Sjis  e ++enc=cp932
+"command! Jis   e ++enc=iso-2022-jp
+"command! WUtf8 w ++enc=utf-8       | e
+"command! WEuc  w ++enc=euc-jp      | e
+"command! WSjis w ++enc=cp932       | e
+"command! WJis  w ++enc=iso-2022-jp | e
+"nmap j gj
+"nmap k gk
+"vmap j gj
+"vmap k gk
+"autocmd FileType svn :set fileencoding=utf-8
+"autocmd FileType gitcommit :set fileencoding=utf-8
+"autocmd FileType python :set fileencoding=utf-8
+"nmap n nzz
+"nmap N Nzz
+"autocmd FileType svn :set fileencoding=utf-8
+"autocmd FileType gitcommit :set fileencoding=utf-8
+"autocmd FileType python :set fileencoding=utf-8
