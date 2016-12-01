@@ -30,7 +30,7 @@ Plug 'yuki777/vim-phplint'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'cohama/agit.vim'
-Plug 'Indent-Guides'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tomasr/molokai'
 Plug 'vim-scripts/desert256.vim'
 Plug 'ap/vim-css-color'
@@ -342,15 +342,21 @@ endif
 " インデント量の違いをハイライト表示する
 " 'Indent-Guides'
 "----------------------------------------------------
-let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_auto_colors = 0
+"if has('mac') && has('gui')
+"	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=gray ctermbg=gray
+"	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkGray ctermbg=darkGray
+"else
+"	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
+"	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
+"endif
+"----------------------------------------------------
+" https://github.com/nathanaelkane/vim-indent-guides
+"----------------------------------------------------
 let g:indent_guides_auto_colors = 0
-if has('mac') && has('gui')
-	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=gray ctermbg=gray
-	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkGray ctermbg=darkGray
-else
-	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
-	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
-endif
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 "----------------------------------------------------
 " UTF-8の□や○や※や★でカーソル位置がずれないようにする
