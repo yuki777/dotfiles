@@ -143,19 +143,19 @@ set cmdheight=1
 "----------------------------------------------------
 " ステータスラインを常に表示
 set laststatus=2
-" ステータスラインに表示する情報の指定
-" (左寄せ)[ファイルのフルパス][修正したら+][読み込み専用ならRO][ヘルプならヘルプ][プレビューならプレビュー][関数名]
-" (右寄せ)[ファイルタイプ][エンコード,改行コード][Gitステータス]
-set statusline=%F\ %m%r%h%w\ %=\ [%Y,%{&fileencoding},%{&ff}]%{fugitive#statusline()}
-"入力モード時、ステータスラインのカラーを変更
-augroup InsertHook
-  autocmd! InsertHook
-  autocmd InsertEnter * highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=red
-  autocmd InsertLeave * highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=gray
-augroup END
-"現在のモードを表示する。
-"Insertモード、ReplaceモードまたはVisualモードで最終行にメッセージを表示する。
-set showmode
+"" ステータスラインに表示する情報の指定
+"" (左寄せ)[ファイルのフルパス][修正したら+][読み込み専用ならRO][ヘルプならヘルプ][プレビューならプレビュー][関数名]
+"" (右寄せ)[ファイルタイプ][エンコード,改行コード][Gitステータス]
+"set statusline=%F\ %m%r%h%w\ %=\ [%Y,%{&fileencoding},%{&ff}]%{fugitive#statusline()}
+""入力モード時、ステータスラインのカラーを変更
+"augroup InsertHook
+"  autocmd! InsertHook
+"  autocmd InsertEnter * highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=red
+"  autocmd InsertLeave * highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=gray
+"augroup END
+""現在のモードを表示する。
+""Insertモード、ReplaceモードまたはVisualモードで最終行にメッセージを表示する。
+"set showmode
 
 "----------------------------------------------------
 "カーソルを行頭、行末で止まらないようにする?
@@ -435,6 +435,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_section_c='%F'
+let g:airline_theme='raven'
 
 "----------------------------------------------------
 " マウス設定
