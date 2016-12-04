@@ -38,6 +38,7 @@ Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-rooter'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 "if system('uname') != "FreeBSD\n"
@@ -825,6 +826,11 @@ set shell=sh
 " https://github.com/vim-jp/issues/issues/152
 " -----------------------------------------------
 set nofixeol
+
+" -----------------------------------------------
+" http://vimawesome.com/plugin/vim-gitgutter
+" -----------------------------------------------
+let g:gitgutter_map_keys = 0
 
 " -----------------------------------------------
 " キーマップ設定ファイルがあれば読み込む
