@@ -333,7 +333,7 @@ let g:NERDTreeIndicatorMapCustom = {
 "----------------------------------------------------
 set t_Co=256
 if $USER == 'adachi' || $USER == 'yuki' || $USER == 'yuki-adachi'
-  if filereadable($HOME . "/.vim/plugged/molokai/colors")
+  if filereadable($HOME . "/.vim/plugged/molokai/colors/molokai.vim")
     colorscheme molokai
   endif
 else
