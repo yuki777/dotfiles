@@ -36,6 +36,8 @@ Plug 'vim-scripts/desert256.vim'
 Plug 'ap/vim-css-color'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-rooter'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 "if system('uname') != "FreeBSD\n"
@@ -366,60 +368,73 @@ if exists('&ambiwidth')
 	set ambiwidth=double
 endif
 
+""----------------------------------------------------
+"" tabline タブライン設定
+"" http://d.hatena.ne.jp/thinca/20111204/1322932585
+"" http://d.hatena.ne.jp/leafcage/20120214/1329183521
+"" " http://d.hatena.ne.jp/moja8/20090716/1247675076
+""----------------------------------------------------
+"" 色設定
+"hi TabLine     term=reverse cterm=reverse        ctermfg=white ctermbg=black
+"hi TabLineSel  term=bold    cterm=bold,underline ctermfg=2
+"hi TabLineFill term=reverse cterm=reverse        ctermfg=white ctermbg=black
+"" タブページを常に表示
+"set showtabline=2
+"" gVimでもテキストベースのタブページを使う
+"set guioptions-=e
+"set tabline=%!MakeTabLine()
+"function! MakeTabLine()
+"	let titles = map(range(1, tabpagenr('$')), 's:tabpage_label(v:val)')
+"	let sep = ' | '  " タブ間の区切り
+"	let tabpages = join(titles, sep) . sep . '%#TabLineFill#%T'
+"	let info = ''  " 好きな情報を入れる
+"	return tabpages . '%=' . info  " タブリストを左に、情報を右に表示
+"endfunction
+"" 各タブページのカレントバッファ名+αを表示
+"function! s:tabpage_label(n)
+"	" t:title と言う変数があったらそれを使う
+"	let title = gettabvar(a:n, 'title')
+"	if title !=# ''
+"		return title
+"	endif
+"
+"	" タブページ内のバッファのリスト
+"	let bufnrs = tabpagebuflist(a:n)
+"
+"	" カレントタブページかどうかでハイライトを切り替える
+"	let hi = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
+"
+"	"" バッファが複数あったらバッファ数を表示
+"	"let no = len(bufnrs)
+"	"if no is 1
+"	"    let no = ''
+"	"endif
+"	let no = ''
+"
+"	" タブページ内に変更ありのバッファがあったら '+' を付ける
+"	let mod = len(filter(copy(bufnrs), 'getbufvar(v:val, "&modified")')) ? '+' : ''
+"	let sp = (no . mod) ==# '' ? '' : ' '  " 隙間空ける
+"
+"	" カレントバッファ
+"	let curbufnr = bufnrs[tabpagewinnr(a:n) - 1]  " tabpagewinnr() は 1 origin
+"	let fname = pathshorten(bufname(curbufnr))
+"	let fname = fname is '' ? 'No Title' : fname "バッファが空ならNo Title
+"	let label = no . mod . sp . fname
+"	return '%' . a:n . 'T' . hi . label . '%T%#TabLineFill#'
+"endfunction
+
 "----------------------------------------------------
-" tabline タブライン設定
-" http://d.hatena.ne.jp/thinca/20111204/1322932585
-" http://d.hatena.ne.jp/leafcage/20120214/1329183521
-" " http://d.hatena.ne.jp/moja8/20090716/1247675076
+" airline
 "----------------------------------------------------
-" 色設定
-hi TabLine     term=reverse cterm=reverse        ctermfg=white ctermbg=black
-hi TabLineSel  term=bold    cterm=bold,underline ctermfg=2
-hi TabLineFill term=reverse cterm=reverse        ctermfg=white ctermbg=black
-" タブページを常に表示
-set showtabline=2
-" gVimでもテキストベースのタブページを使う
-set guioptions-=e
-set tabline=%!MakeTabLine()
-function! MakeTabLine()
-	let titles = map(range(1, tabpagenr('$')), 's:tabpage_label(v:val)')
-	let sep = ' | '  " タブ間の区切り
-	let tabpages = join(titles, sep) . sep . '%#TabLineFill#%T'
-	let info = ''  " 好きな情報を入れる
-	return tabpages . '%=' . info  " タブリストを左に、情報を右に表示
-endfunction
-" 各タブページのカレントバッファ名+αを表示
-function! s:tabpage_label(n)
-	" t:title と言う変数があったらそれを使う
-	let title = gettabvar(a:n, 'title')
-	if title !=# ''
-		return title
-	endif
-
-	" タブページ内のバッファのリスト
-	let bufnrs = tabpagebuflist(a:n)
-
-	" カレントタブページかどうかでハイライトを切り替える
-	let hi = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
-
-	"" バッファが複数あったらバッファ数を表示
-	"let no = len(bufnrs)
-	"if no is 1
-	"    let no = ''
-	"endif
-	let no = ''
-
-	" タブページ内に変更ありのバッファがあったら '+' を付ける
-	let mod = len(filter(copy(bufnrs), 'getbufvar(v:val, "&modified")')) ? '+' : ''
-	let sp = (no . mod) ==# '' ? '' : ' '  " 隙間空ける
-
-	" カレントバッファ
-	let curbufnr = bufnrs[tabpagewinnr(a:n) - 1]  " tabpagewinnr() は 1 origin
-	let fname = pathshorten(bufname(curbufnr))
-	let fname = fname is '' ? 'No Title' : fname "バッファが空ならNo Title
-	let label = no . mod . sp . fname
-	return '%' . a:n . 'T' . hi . label . '%T%#TabLineFill#'
-endfunction
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_section_c='%F'
 
 "----------------------------------------------------
 " マウス設定
