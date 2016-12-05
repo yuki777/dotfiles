@@ -440,6 +440,7 @@ let g:airline_theme='raven'
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#branch#format = 0
 let g:airline#extensions#default#layout = [ [ 'c' ], [ 'b', 'y', 'z', 'error', 'warning' ] ]
+let g:airline_section_z = airline#section#create(['linenr', 'maxlinenr'])
 
 "----------------------------------------------------
 " マウス設定
