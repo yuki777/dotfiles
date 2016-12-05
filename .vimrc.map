@@ -173,11 +173,19 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 nnoremap <C-g> :GtagsCursor <CR>
 
 " ---------------------------------------------------
-" SuperTab like snippets behavior.
+" https://github.com/Shougo/neosnippet.vim
 " ---------------------------------------------------
-" 補完展開キー
+" Plugin key-mappings.
 imap <C-f>     <Plug>(neosnippet_expand_or_jump)
 smap <C-f>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-f>     <Plug>(neosnippet_expand_target)
+" SuperTab like snippets behavior.
+"imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
 " " -----------------------------------------------
 " " 端末のVimでもAltキーを使う設定と、
