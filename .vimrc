@@ -13,6 +13,7 @@ if system('uname') == "FreeBSD\n"
     Plug 'Shougo/vimproc', {'do': 'gmake'}
 else
     Plug 'Shougo/vimproc', {'do': 'make'}
+    Plug 'Xuyuanp/nerdtree-git-plugin'
 endif
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet.vim'
