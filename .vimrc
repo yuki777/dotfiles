@@ -9,7 +9,11 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
-Plug 'Shougo/vimproc', {'do': 'make'}
+if system('uname') == "FreeBSD\n"
+    Plug 'Shougo/vimproc', {'do': 'gmake'}
+else
+    Plug 'Shougo/vimproc', {'do': 'make'}
+endif
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -40,13 +44,6 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
-
-"if system('uname') != "FreeBSD\n"
-"	...
-"endif
-
-"filetype plugin indent on
-"syntax enable
 
 "----------------------------------------------------
 " バックアップ関係
