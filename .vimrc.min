@@ -145,7 +145,7 @@ call plug#end()
 "map # #N
 "map <S-h> ^
 "
-"set diffopt=filler,iwhite 
+"set diffopt=filler,iwhite
 "command! Utf8  e ++enc=utf-8
 "command! Euc   e ++enc=euc-jp
 "command! Sjis  e ++enc=cp932
