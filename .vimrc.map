@@ -45,30 +45,23 @@ nmap <silent> ;p :set paste<CR>:startinsert<CR>
 "----------------------------------------------------
 " Ctrl + d でNERDTreeを開く/閉じる
 "----------------------------------------------------
-"nnoremap <silent> <C-d> :NERDTreeToggle<CR>
 function! MyNERDTreeFindToggle()
-    "" Check if NERDTree is open
-    if exists("t:NERDTreeBufName")
-        let s:ntree = bufwinnr(t:NERDTreeBufName)
-    else
-        let s:ntree = -1
-    endif
-    if (s:ntree != -1)
-        "" If NERDTree is open, close it.
-        :NERDTreeClose
-    else
-        "" Try to open a :Rtree for the rails project
-        if exists(":Rtree")
-            "" Open Rtree (using rails plugin, it opens in project dir)
-            :Rtree
-        else
-            "" Open NERDTree in the file path
-            :NERDTreeFind
-        endif
-    endif
+  " Check if NERDTree is open
+  if exists("t:NERDTreeBufName")
+    let s:ntree = bufwinnr(t:NERDTreeBufName)
+  else
+    let s:ntree = -1
+  endif
+  if (s:ntree != -1)
+    " If NERDTree is open, close it.
+    :NERDTreeClose
+  else
+    " Open NERDTree in the file path
+    :NERDTreeFind
+  endif
 endfunction
 " Toggles NERDTree
-"map <silent> <F1> :call MyNERDTreeFindToggle()<CR>
+"nnoremap <silent> <C-d> :NERDTreeToggle<CR>
 nnoremap <silent> <C-d> :call MyNERDTreeFindToggle()<CR>
 
 "----------------------------------------------------
