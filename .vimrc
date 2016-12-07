@@ -842,6 +842,24 @@ let g:gitgutter_map_keys = 0
 let g:tagbar_iconchars = ['▸', '▾']
 
 " -----------------------------------------------
+" http://qiita.com/ysakmrkm@github/items/4a51c2f02ba5e6a5a3b4
+" -----------------------------------------------
+" 全角文字　をハイライト表示する
+function! Zenkaku()
+	highlight Zenkaku cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+endfunction
+if has('syntax')
+	augroup Zenkaku
+		autocmd!
+		autocmd ColorScheme       * call Zenkaku()
+		autocmd VimEnter,WinEnter * let w:m1 = matchadd("Zenkaku", '[　０１２３４５６７８９]')
+		autocmd VimEnter,WinEnter * let w:m2 = matchadd("Zenkaku", '[ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ]')
+		autocmd VimEnter,WinEnter * let w:m3 = matchadd("Zenkaku", '[ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ]')
+	augroup END
+	call Zenkaku()
+endif
+
+" -----------------------------------------------
 " キーマップ設定ファイルがあれば読み込む
 " -----------------------------------------------
 if filereadable(expand('~/.vimrc.map'))
