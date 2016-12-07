@@ -1,19 +1,19 @@
 if has('vim_starting')
-  set rtp+=~/.vim/plugged/vim-plug
-  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
-    echo 'install vim-plug...'
-    call system('mkdir -p ~/.vim/plugged/vim-plug')
-    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
-  end
+	set rtp+=~/.vim/plugged/vim-plug
+	if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+		echo 'install vim-plug...'
+		call system('mkdir -p ~/.vim/plugged/vim-plug')
+		call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+	end
 endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 if system('uname') == "FreeBSD\n"
-    Plug 'Shougo/vimproc', {'do': 'gmake'}
+	Plug 'Shougo/vimproc', {'do': 'gmake'}
 else
-    Plug 'Shougo/vimproc', {'do': 'make'}
-    Plug 'Xuyuanp/nerdtree-git-plugin'
+	Plug 'Shougo/vimproc', {'do': 'make'}
+	Plug 'Xuyuanp/nerdtree-git-plugin'
 endif
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet.vim'
@@ -296,8 +296,8 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 "----------------------------------------------------
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+	exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+	exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 call NERDTreeHighlightFile('jade'   , 'green'   , 'none' , 'green'   , '#151515')
 call NERDTreeHighlightFile('ini'    , 'yellow'  , 'none' , 'yellow'  , '#151515')
@@ -317,27 +317,27 @@ call NERDTreeHighlightFile('php'    , 'Magenta' , 'none' , '#ff00ff' , '#151515'
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 "----------------------------------------------------
 let g:NERDTreeIndicatorMapCustom = {
-      \ "Modified"  : "✹",
-      \ "Staged"    : "✚",
-      \ "Untracked" : "✭",
-      \ "Renamed"   : "➜",
-      \ "Unmerged"  : "=",
-      \ "Deleted"   : "✖",
-      \ "Dirty"     : "✗",
-      \ "Clean"     : "✔︎",
-      \ "Unknown"   : "?"
-      \ }
+			\ "Modified"  : "✹",
+			\ "Staged"    : "✚",
+			\ "Untracked" : "✭",
+			\ "Renamed"   : "➜",
+			\ "Unmerged"  : "=",
+			\ "Deleted"   : "✖",
+			\ "Dirty"     : "✗",
+			\ "Clean"     : "✔︎",
+			\ "Unknown"   : "?"
+			\ }
 
 "----------------------------------------------------
 " colorscheme
 "----------------------------------------------------
 set t_Co=256
 if $USER == 'adachi' || $USER == 'yuki' || $USER == 'yuki-adachi'
-  if filereadable($HOME . "/.vim/plugged/molokai/colors/molokai.vim")
-    colorscheme molokai
-  endif
+	if filereadable($HOME . "/.vim/plugged/molokai/colors/molokai.vim")
+		colorscheme molokai
+	endif
 else
-  colorscheme desert
+	colorscheme desert
 endif
 
 "----------------------------------------------------
@@ -365,7 +365,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 " win-puttyなら設定>ウィンドウ>変換>UTF-8(CJK)を選択。CJK用の文字幅を使用するをチェック。
 "----------------------------------------------------
 if exists('&ambiwidth')
-  set ambiwidth=double
+	set ambiwidth=double
 endif
 
 ""----------------------------------------------------
@@ -493,9 +493,9 @@ let g:unite_data_directory = $HOME.'/.vim/data/unite'
 " TODO:続けてCtrl+g,Ctrl+gしたときはCtrl+o,Ctrl+oで元の場所に戻りたい
 "----------------------------------------------------
 if !exists("*ClearJumplist()")
-  function! ClearJumplist()
-    :let i = 0 | while i < 100 | mark ' | let i = i + 1 | endwhile
-  endfunction
+	function! ClearJumplist()
+		:let i = 0 | while i < 100 | mark ' | let i = i + 1 | endwhile
+	endfunction
 endif
 " 起動時にジャンプリストクリアしておく
 call ClearJumplist()
@@ -523,15 +523,15 @@ let g:neosnippet#snippets_directory	= $HOME.'/.vim/data/neosnippet'
 " http://vim-users.jp/2009/07/hack-39/
 " http://d.hatena.ne.jp/thinca/20091031/1257001194
 function! Scouter(file, ...)
-  let pat = '^\s*$\|^\s*"'
-  let lines = readfile(a:file)
-  if !a:0 || !a:1
-    let lines = split(substitute(join(lines, "\n"), '\n\s*\\', '', 'g'), "\n")
-  endif
-  return len(filter(lines,'v:val !~ pat'))
+	let pat = '^\s*$\|^\s*"'
+	let lines = readfile(a:file)
+	if !a:0 || !a:1
+		let lines = split(substitute(join(lines, "\n"), '\n\s*\\', '', 'g'), "\n")
+	endif
+	return len(filter(lines,'v:val !~ pat'))
 endfunction
 command! -bar -bang -nargs=? -complete=file Scouter
-      \        echo Scouter(empty(<q-args>) ? $MYVIMRC : expand(<q-args>), <bang>0)
+			\        echo Scouter(empty(<q-args>) ? $MYVIMRC : expand(<q-args>), <bang>0)
 
 " -----------------------------------------------
 " vim7.3新機能
@@ -579,9 +579,9 @@ autocmd FileType python    :set fileencoding=utf-8
 
 " カレント行強調 カレントウィンドウにのみ罫線を引く設定
 augroup cch
-  autocmd! cch
-  autocmd WinLeave * set nocursorcolumn nocursorline
-  autocmd WinEnter,BufRead * set cursorline
+	autocmd! cch
+	autocmd WinLeave * set nocursorcolumn nocursorline
+	autocmd WinEnter,BufRead * set cursorline
 augroup END
 
 " -----------------------------------------------
@@ -642,48 +642,48 @@ highlight PmenuSel ctermbg=235
 " -----------------------------------------------
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 if has('lua')
-  " Disable AutoComplPop.
-  let g:acp_enableAtStartup = 0
-  " Use neocomplete.
-  let g:neocomplete#enable_at_startup = 1
-  " Use smartcase.
-  let g:neocomplete#enable_smart_case = 1
-  " Set minimum syntax keyword length.
-  let g:neocomplete#sources#syntax#min_keyword_length = 3
-  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+	" Disable AutoComplPop.
+	let g:acp_enableAtStartup = 0
+	" Use neocomplete.
+	let g:neocomplete#enable_at_startup = 1
+	" Use smartcase.
+	let g:neocomplete#enable_smart_case = 1
+	" Set minimum syntax keyword length.
+	let g:neocomplete#sources#syntax#min_keyword_length = 3
+	let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
-  " Define dictionary.
-  let g:neocomplete#sources#dictionary#dictionaries = {
-        \ 'default' : '',
-        \ 'vimshell' : $HOME.'/.vimshell_hist',
-        \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+	" Define dictionary.
+	let g:neocomplete#sources#dictionary#dictionaries = {
+				\ 'default' : '',
+				\ 'vimshell' : $HOME.'/.vimshell_hist',
+				\ 'scheme' : $HOME.'/.gosh_completions'
+				\ }
 
-  " Define keyword.
-  if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-  endif
-  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+	" Define keyword.
+	if !exists('g:neocomplete#keyword_patterns')
+		let g:neocomplete#keyword_patterns = {}
+	endif
+	let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-  " Enable omni completion.
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+	" Enable omni completion.
+	autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+	autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+	autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+	autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-  " Enable heavy omni completion.
-  if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-  endif
-  "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-  "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-  "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+	" Enable heavy omni completion.
+	if !exists('g:neocomplete#sources#omni#input_patterns')
+		let g:neocomplete#sources#omni#input_patterns = {}
+	endif
+	"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+	"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+	"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
-  " For perlomni.vim setting.
-  " https://github.com/c9s/perlomni.vim
-  let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-  let g:neocomplete#data_directory = $HOME.'/.vim/data/neocomplete'
+	" For perlomni.vim setting.
+	" https://github.com/c9s/perlomni.vim
+	let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+	let g:neocomplete#data_directory = $HOME.'/.vim/data/neocomplete'
 endif
 
 " -----------------------------------------------
@@ -778,9 +778,9 @@ let g:vim_markdown_initial_foldlevel=1
 " highlight whitespace at end of line
 " -----------------------------------------------
 augroup HighlightTrailingSpaces
-  autocmd!
-  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
-  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+	autocmd!
+	autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+	autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
 " -----------------------------------------------
@@ -863,12 +863,12 @@ endif
 " キーマップ設定ファイルがあれば読み込む
 " -----------------------------------------------
 if filereadable(expand('~/.vimrc.map'))
-  source ~/.vimrc.map
+	source ~/.vimrc.map
 endif
 
 " ------------------------------------------------
 " 環境依存な追加設定ファイルがあれば読み込む
 " ------------------------------------------------
 if filereadable(expand('~/.vimrc.local'))
-  source ~/.vimrc.local
+	source ~/.vimrc.local
 endif

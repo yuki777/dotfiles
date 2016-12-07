@@ -85,10 +85,10 @@ nnoremap <silent> <S-tab> :tabprevious<cr>
 "----------------------------------------------------
 nmap <silent> <Space>n :call AddNewTabWindow()<CR>
 if !exists("*AddNewTabWindow()")
-    function! AddNewTabWindow()
-        execute "tablast"
-        execute "tabnew"
-    endfunction
+  function! AddNewTabWindow()
+    execute "tablast"
+    execute "tabnew"
+  endfunction
 endif
 
 "----------------------------------------------------
@@ -96,13 +96,13 @@ endif
 "----------------------------------------------------
 nmap <silent> ;n :call AddNewTabWindowWithFiler()<CR>
 if !exists("*AddNewTabWindowWithFiler()")
-    function! AddNewTabWindowWithFiler()
-        execute "tablast"
-        execute "tabnew"
-        execute "NERDTree"
-        "execute "VimFilerExplorer"
-        "execute "VimFiler -split -simple -winwidth=35 -no-quit"
-    endfunction
+  function! AddNewTabWindowWithFiler()
+    execute "tablast"
+    execute "tabnew"
+    execute "NERDTree"
+    "execute "VimFilerExplorer"
+    "execute "VimFiler -split -simple -winwidth=35 -no-quit"
+  endfunction
 endif
 
 "----------------------------------------------------
@@ -237,24 +237,24 @@ nmap <C-L> <C-W>l
 " neocomplete.vim
 "------------------------------------------------
 if has('lua')
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
+  " Plugin key-mappings.
+  inoremap <expr><C-g>     neocomplete#undo_completion()
+  inoremap <expr><C-l>     neocomplete#complete_common_string()
+  " Recommended key-mappings.
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
     return neocomplete#close_popup() . "\<CR>"
     " For no inserting <CR> key.
     "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
+  endfunction
+  " <TAB>: completion.
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><C-y>  neocomplete#close_popup()
+  inoremap <expr><C-e>  neocomplete#cancel_popup()
 endif
 
 "------------------------------------------------
@@ -267,13 +267,13 @@ map Q <Nop>
 " -----------------------------------------------
 autocmd FileType gitv call s:my_gitv_settings()
 function! s:my_gitv_settings()
-    nnoremap <silent><buffer> t :<C-u>windo call <SID>toggle_git_folding()<CR>1<C-w>w
+  nnoremap <silent><buffer> t :<C-u>windo call <SID>toggle_git_folding()<CR>1<C-w>w
 endfunction
 autocmd FileType git setlocal nofoldenable foldlevel=0
 function! s:toggle_git_folding()
-    if &filetype ==# 'git'
-        setlocal foldenable!
-    endif
+  if &filetype ==# 'git'
+    setlocal foldenable!
+  endif
 endfunction
 
 "------------------------------------------------
