@@ -42,6 +42,7 @@ ln -fs ~/dotfiles/bin/tmuxxx             ~/bin/tmuxxx
 ln -fs ~/dotfiles/bin/clide              ~/bin/clide
 
 # .config
+mkdir -p ~/.config
 for file in fish omf nvim ; do
 	if [ ! -h "$HOME/$file" ]; then
         ln -fs $HOME/dotfiles/.config/$file $HOME/.config/$file
