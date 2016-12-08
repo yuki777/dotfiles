@@ -47,7 +47,9 @@ for file in fish omf nvim ; do
 	if [ ! -h "$HOME/$file" ]; then
         ln -fs $HOME/dotfiles/.config/$file $HOME/.config/$file
     fi
-    unlink $HOME/.config/$file/$file
+	if [ -f "$HOME/.config/$file/$file" ]; then
+        unlink $HOME/.config/$file/$file
+    fi
 done
 
 # local files
