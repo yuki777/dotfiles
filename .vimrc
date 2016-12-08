@@ -440,7 +440,7 @@ let g:airline_theme='raven'
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#branch#format = 0
 let g:airline#extensions#default#layout = [ [ 'c' ], [ 'b', 'y', 'z', 'error', 'warning' ] ]
-let g:airline_section_z = airline#section#create(['linenr', 'maxlinenr'])
+"let g:airline_section_z = airline#section#create(['linenr', 'maxlinenr'])
 
 "----------------------------------------------------
 " マウス設定
@@ -829,7 +829,9 @@ set shell=sh
 " -----------------------------------------------
 " https://github.com/vim-jp/issues/issues/152
 " -----------------------------------------------
-set nofixeol
+if (v:version == 704 && has('785')) || v:version == 800
+	set nofixeol
+endif
 
 " -----------------------------------------------
 " http://vimawesome.com/plugin/vim-gitgutter
