@@ -9,4 +9,4 @@ mkdir -p ~/.vim/data/yanktmp
 mkdir -p ~/.vim/data/neosnippet
 cp ~/dotfiles/.vim/data/neosnippet/* ~/.vim/data/neosnippet/
 
-vim -c 'set cmdheight=2' -c 'qa!'
+#vim -c 'set cmdheight=2' -c 'qa!'
