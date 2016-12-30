@@ -34,7 +34,8 @@ Plug 'yuki777/encode.vim'
 Plug 'yuki777/vim-phplint'
 Plug 'yuki777/nerdtree-plugin-override-tab-mapping'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
 Plug 'cohama/agit.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tomasr/molokai'
@@ -607,30 +608,31 @@ set tags+=./.tags;
 " -----------------------------------------------
 set helplang=ja,en
 
-" -----------------------------------------------
-" syntastic
-" -----------------------------------------------
-let g:syntastic_debug = 0
-let g:syntastic_mode_map = {'mode':'active', 'active_filetypes':['ruby', 'yaml', 'python'], 'passive_filetypes':['puppet', 'po', 'pot', 'php']}
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_quiet_messages = {'level': 'warnings'}
-" js
-let g:syntastic_javascript_checker = ["eslint"]
-let g:loaded_syntastic_javascript_jshint_checker = 0
-let g:loaded_syntastic_javascript_jslint_checker = 0
-let g:syntastic_jshint_disable = 1
-let g:syntastic_jslint_disable = 1
-" python
-let g:syntastic_python_checker = "pylint"
-" ruby
-let g:syntastic_ruby_mri_args = "-T1 -c"
+"" -----------------------------------------------
+"" syntastic
+"" -----------------------------------------------
+"let g:syntastic_debug = 0
+"let g:syntastic_mode_map = {'mode':'active', 'active_filetypes':['ruby', 'yaml', 'python'], 'passive_filetypes':['puppet', 'po', 'pot', 'php']}
+"let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_quiet_messages = {'level': 'warnings'}
+"" js
+"let g:syntastic_javascript_checkers = ["jshint"]
+"" python
+"let g:syntastic_python_checker = "pylint"
+"" ruby
+"let g:syntastic_ruby_mri_args = "-T1 -c"
 
 " -----------------------------------------------
 " yuki777/vim-phplint
 " -----------------------------------------------
 "let g:phplint_exe = 'ssh 192.168.12.16'
 "autocmd BufWrite *.php :Phplint
+
+" -----------------------------------------------
+" https://github.com/neomake/neomake
+" -----------------------------------------------
+autocmd! BufWritePost *.php,*.js Neomake
 
 " -----------------------------------------------
 " 補完ポップアップメニュー色設定
