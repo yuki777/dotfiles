@@ -616,7 +616,7 @@ let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 " js
-let g:syntastic_javascript_checker = ["jshint"]
+let g:syntastic_javascript_checker = ["eslint"]
 let g:loaded_syntastic_javascript_jshint_checker = 0
 let g:loaded_syntastic_javascript_jslint_checker = 0
 let g:syntastic_jshint_disable = 1
