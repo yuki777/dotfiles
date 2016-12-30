@@ -34,7 +34,6 @@ Plug 'yuki777/encode.vim'
 Plug 'yuki777/vim-phplint'
 Plug 'yuki777/nerdtree-plugin-override-tab-mapping'
 Plug 'scrooloose/nerdtree'
-"Plug 'scrooloose/syntastic'
 Plug 'neomake/neomake'
 Plug 'cohama/agit.vim'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -632,7 +631,8 @@ set helplang=ja,en
 " -----------------------------------------------
 " https://github.com/neomake/neomake
 " -----------------------------------------------
-autocmd! BufWritePost *.php,*.js Neomake
+"autocmd! BufWritePost *.php,*.js Neomake
+autocmd! BufWritePost * Neomake
 
 " -----------------------------------------------
 " 補完ポップアップメニュー色設定
