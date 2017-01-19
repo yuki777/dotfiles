@@ -46,6 +46,7 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'jimsei/winresizer'
+Plug 'sjl/gundo.vim'
 call plug#end()
 
 "----------------------------------------------------

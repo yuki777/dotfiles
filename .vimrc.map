@@ -135,11 +135,14 @@ nnoremap <silent> <F4> :YRShow<CR>
 " F5:WinResizerStartResize
 nnoremap <silent> <F5> :WinResizerStartResize<CR>
 " F6:CTRL-W < カレントウィンドウの幅を N（デフォルトは1）桁分減らす。
-nnoremap <silent> <F6> <C-w><
-" F7:CTRL-W + カレントウィンドウの高さをN（デフォルトは1）行分高くする。
-nnoremap <silent> <F7> <C-w>+
+"nnoremap <silent> <F6> <C-w><
+" F7
+" CTRL-W + カレントウィンドウの高さをN（デフォルトは1）行分高くする。
+"nnoremap <silent> <F7> <C-w>+
+" http://sjl.bitbucket.org/gundo.vim/
+nnoremap <F7> :GundoToggle<CR>
 " F8:CTRL-W - カレントウィンドウの高さをN（デフォルトは1）行分低くする。
-nnoremap <silent> <F8> <C-w>-
+"nnoremap <silent> <F8> <C-w>-
 " F9:SyntasticToggleMode
 nnoremap <F9> :SyntasticToggleMode<CR>
 " F10:UTF8
