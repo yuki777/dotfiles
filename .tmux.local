@@ -1,47 +1,41 @@
-## http://stackoverflow.com/questions/8483798/tmux-borders-displayed-as-x-q-instead-of-lines
-#set-option -ga terminal-overrides ',*:enacs@:smacs@:rmacs@:acsc@'
-
-# color : black, red, green, yellow, blue, magenta, cyan, white,
-# attr  : bright, bold, dim, underscore, blink, reverse, hidden, italics
-
-### # black-base and white
-### set  -g status-bg                  black
-### set  -g status-fg                  white
-### set  -g status-attr                none
-### set  -g message-bg                 black
-### set  -g message-fg                 white
-### set  -g message-attr               none
-### set  -g pane-active-border-fg      white
-### set  -g pane-border-fg             white
-### setw -g mode-bg                    black
-### setw -g mode-fg                    white
-### setw -g mode-attr                  none
-### setw -g window-status-bg           black
-### setw -g window-status-fg           white
-### setw -g window-status-attr         none
-### setw -g window-status-current-bg   white
-### setw -g window-status-current-fg   black
-### setw -g window-status-current-attr underscore
-### set -g status-left  '#[fg=white][#20(whoami)@#h]' # left:[whoami@hostname]
-### set -g status-right '#[fg=white][#(uptime|sed "s/.*average.*: //g")][%Y/%m/%d(%a)%H:%M]' # right:[LA1,5,15][2011/03/06(Sun)20:21]
-
-# green-base and black
-set  -g status-bg                  green
+# white and black
+set  -g status-bg                  white
 set  -g status-fg                  black
 set  -g status-attr                none
-set  -g message-bg                 green
+set  -g message-bg                 white
 set  -g message-fg                 black
 set  -g message-attr               none
-set  -g pane-active-border-fg      green
-set  -g pane-border-fg             green
-setw -g mode-bg                    green
+set  -g pane-active-border-fg      white
+set  -g pane-border-fg             white
+setw -g mode-bg                    white
 setw -g mode-fg                    black
 setw -g mode-attr                  none
-setw -g window-status-bg           green
+setw -g window-status-bg           white
 setw -g window-status-fg           black
 setw -g window-status-attr         none
 setw -g window-status-current-bg   black
-setw -g window-status-current-fg   green
+setw -g window-status-current-fg   white
 setw -g window-status-current-attr underscore
 set -g status-left  '#[fg=black][#(whoami)@#H###S]'
-set -g status-right "#[fg=black][#(uptime|sed 's/.*average.*: //g'|awk -F ',| ' '{print $1}')][%Y-%m-%d(%a)%H:%M]"
+set -g status-right '#[fg=black][#(uptime|sed "s/.*average.*: //g")][%Y-%m-%d(%a)%H:%M]'
+
+## black and white
+#set  -g status-bg                  black
+#set  -g status-fg                  white
+#set  -g status-attr                none
+#set  -g message-bg                 black
+#set  -g message-fg                 white
+#set  -g message-attr               none
+#set  -g pane-active-border-fg      white
+#set  -g pane-border-fg             white
+#setw -g mode-bg                    black
+#setw -g mode-fg                    white
+#setw -g mode-attr                  none
+#setw -g window-status-bg           black
+#setw -g window-status-fg           white
+#setw -g window-status-attr         none
+#setw -g window-status-current-bg   white
+#setw -g window-status-current-fg   black
+#setw -g window-status-current-attr underscore
+#set -g status-left  '#[fg=white][#(whoami)@#H###S]'
+#set -g status-right '#[fg=white][#(uptime|sed "s/.*average.*: //g")][%Y/%m/%d(%a)%H:%M]'
