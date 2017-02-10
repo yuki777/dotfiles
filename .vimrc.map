@@ -133,6 +133,7 @@ nnoremap <silent> <F4> :YRShow<CR>
 " F5:CTRL-W > カレントウィンドウの幅を N（デフォルトは1）桁分増やす。
 "nnoremap <silent> <F5> <C-w>>
 " F5:WinResizerStartResize
+let g:winresizer_start_key = '<F5>'
 nnoremap <silent> <F5> :WinResizerStartResize<CR>
 " F6:CTRL-W < カレントウィンドウの幅を N（デフォルトは1）桁分減らす。
 "nnoremap <silent> <F6> <C-w><
@@ -295,3 +296,4 @@ nnoremap g<C-]> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 " -----------------------------------------------
 noremap <S-h>   ^
 noremap <S-l>   $
+
