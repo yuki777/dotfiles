@@ -226,8 +226,7 @@ autocmd FileType xml        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expand
 autocmd FileType yaml       setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 autocmd FileType zsh        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
 autocmd FileType scala      setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-" pug
-au BufRead,BufNewFile,BufReadPre *.jade set filetype=pug
+autocmd FileType pug        setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 "----------------------------------------------------
 " http://d.hatena.ne.jp/homaju/20130131/1359614451
