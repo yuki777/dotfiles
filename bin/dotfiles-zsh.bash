@@ -67,5 +67,7 @@ touch .gitconfig.local
 ~/dotfiles/bin/install-zsh-vcs-prompt.bash
 ~/dotfiles/bin/install-zsh-syntax-highlighting.bash
 
+~/dotfiles/bin/install-peco.bash
+
 # vim
 ~/dotfiles/bin/setup-vim.bash
