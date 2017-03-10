@@ -60,14 +60,8 @@ for file in .vimrc.local .tmux.local .zshrc.local .ctagsignore ; do
 done
 touch .gitconfig.local
 
-# tmux
 ~/dotfiles/bin/setup_tmux_local
-
-# zsh
 ~/dotfiles/bin/install-zsh-vcs-prompt.bash
 ~/dotfiles/bin/install-zsh-syntax-highlighting.bash
-
 ~/dotfiles/bin/install-peco.bash
-
-# vim
 ~/dotfiles/bin/setup-vim.bash
