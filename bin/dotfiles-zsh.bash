@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu
+set -eux
 
 if [ ! -d ~/dotfiles ]; then
     git clone http://github.com/yuki777/dotfiles.git ~/dotfiles

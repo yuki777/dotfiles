@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu
+set -eux
 
 # yankring,yanktmp
 mkdir -p ~/.vim/data/yankring

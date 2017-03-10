@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu
+set -eux
 
 mkdir -p ~/local/src ~/local/bin
 cd ~/local/src

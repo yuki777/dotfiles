@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -eux
 
 name_number=1
 if [ -f ~/.name_number ]; then

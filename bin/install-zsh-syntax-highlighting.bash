@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu
+set -eux
 
 if [ -L ~/.zsh ]; then
     unlink ~/.zsh
