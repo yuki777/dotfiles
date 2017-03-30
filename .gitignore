@@ -26,3 +26,4 @@ maketags
 .config/fish/fishd.*
 .config/fish/functions/git_porcelain.fish
 .config/fish/fish_history
+tmux-client-*.log
