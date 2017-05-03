@@ -49,6 +49,7 @@ Plug 'jimsei/winresizer'
 Plug 'sjl/gundo.vim'
 Plug 'jwalton512/vim-blade'
 Plug 'digitaltoad/vim-pug'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 "----------------------------------------------------
