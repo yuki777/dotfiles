@@ -59,7 +59,10 @@ esac
 # https://github.com/yonchu/zsh-vcs-prompt
 case "${OSTYPE}" in
 freebsd*)
-    PROMPT="${white}# %D{%Y-%m-%d %H:%M:%S} ${weekday} ${name_color}%n${host_color}@%M${white}:%/${reset_color}
+    autoload -Uz vcs_info
+    precmd () { vcs_info }
+    setopt prompt_subst
+    PROMPT="${white}# %D{%Y-%m-%d %H:%M:%S} ${weekday} ${name_color}%n${host_color}@%M${white}:%/\$vcs_info_msg_0_$PS5 ${reset_color}
 "
     RPROMPT=''
 	;;
