@@ -25,6 +25,8 @@ elif [[ `whoami` =~ fvn* ]]; then
     local name_color=$yellow
 elif [[ `whoami` =~ yuki* ]]; then
     local name_color=$blue
+elif [[ `whoami` == vagrant ]]; then
+    local name_color=$blue
 else
     local name_color=$green
 fi
