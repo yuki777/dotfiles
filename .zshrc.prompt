@@ -38,7 +38,7 @@ elif [[ `hostname` =~ macbook* ]]; then
     local host_color=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
     local name_color=$white
 elif [[ `hostname` =~ local$ ]]; then
-    local host_color=$green
+    local host_color=$blue
 elif [[ `hostname` =~ test* ]]; then
     local host_color=$yellow
 else
