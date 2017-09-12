@@ -53,8 +53,8 @@ case `date +%u` in
 	3 ) weekday=Wed;;
 	4 ) weekday=Thu;;
 	5 ) weekday=Fri;;
-	6 ) weekday=Sat;;
-	7 ) weekday=Sun;;
+	6 ) weekday=${blue}Sat;;
+	7 ) weekday=${red}Sun;;
     * ) ;;
 esac
 
