@@ -432,11 +432,13 @@ endif
 "----------------------------------------------------
 " airline
 "----------------------------------------------------
-let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_left_sep=''
@@ -445,7 +447,8 @@ let g:airline_section_c='%F'
 let g:airline_theme='raven'
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#branch#format = 0
-let g:airline#extensions#default#layout = [ [ 'c' ], [ 'b', 'y', 'error', 'warning' ] ]
+let g:airline#extensions#default#layout = [ [ 'c' ], [ 'y' ] ]
+let g:airline_symbols_ascii = 1
 
 "----------------------------------------------------
 " マウス設定
