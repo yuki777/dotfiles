@@ -12,6 +12,7 @@ mkdir -p ~/bin
 # vim
 ln -fs dotfiles/.vimrc
 ln -fs dotfiles/.vimrc.map
+ln -fs dotfiles/.gvimrc_first.vim
 
 # zsh
 ln -sf dotfiles/.zshenv
