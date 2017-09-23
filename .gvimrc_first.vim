@@ -1,3 +1,5 @@
+" Copy from /Applications/MacVim.app/Contents/Resources/vim/gvimrc
+
 "---------------------------------------------------------------------------
 " カラー設定:
 "colorscheme morning
@@ -16,25 +18,25 @@ if has('win32')
     set ambiwidth=auto
   endif
 elseif has('gui_macvim')
-  set guifont=Osaka-Mono:h14
+  set guifont=Osaka-Mono:h20
 elseif has('mac')
-  set guifont=Osaka－等幅:h14
+  set guifont=Osaka－等幅:h20
 elseif has('xfontset')
   " UNIX用 (xfontsetを使用)
-  set guifontset=a14,r14,k14
+  set guifontset=a20,r20,k20
 endif
 
 "---------------------------------------------------------------------------
 " ウインドウに関する設定:
 "
 " ウインドウの幅
-set columns=80
+set columns=100
 " ウインドウの高さ
-set lines=25
+set lines=40
 " コマンドラインの高さ(GUI使用時)
 set cmdheight=2
 " 画面を黒地に白にする (次行の先頭の " を削除すれば有効になる)
-"colorscheme evening " (GUI使用時)
+colorscheme evening " (GUI使用時)
 
 "---------------------------------------------------------------------------
 " 日本語入力に関する設定:
@@ -69,7 +71,7 @@ set nomousefocus
 " 入力時にマウスポインタを隠す (nomousehide:隠さない)
 set mousehide
 " ビジュアル選択(D&D他)を自動的にクリップボードへ (:help guioptions_a)
-"set guioptions+=a
+set guioptions+=a
 
 "---------------------------------------------------------------------------
 " メニューに関する設定:
