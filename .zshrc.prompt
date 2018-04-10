@@ -64,14 +64,14 @@ freebsd*)
     autoload -Uz vcs_info
     precmd () { vcs_info }
     setopt prompt_subst
-    PROMPT="${white}# %D{%Y-%m-%d %H:%M:%S} ${weekday} ${name_color}%n${host_color}@%M${white}:%/\$vcs_info_msg_0_$PS5 ${reset_color}
+    PROMPT="${white}# %D{%Y-%m-%d %H:%M:%S} +07 ${name_color}%n${host_color}@%M${white}:%/\$vcs_info_msg_0_$PS5 ${reset_color}
 "
     RPROMPT=''
 	;;
 *)
     local status_mark="%(?,%F{green},%F{red})%(!,#,$)%f"
     [ -f ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh ] && source ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh
-    PROMPT="${white}$status_mark %D{%Y-%m-%d %H:%M:%S} ${weekday} ${name_color}%n${host_color}@%M${white}:%/${reset_color} "'$(vcs_super_info)
+    PROMPT="${white}$status_mark %D{%Y-%m-%d %H:%M:%S} +07 ${name_color}%n${host_color}@%M${white}:%/${reset_color} "'$(vcs_super_info)
 '
     RPROMPT=''
     ZSH_VCS_PROMPT_ENABLE_CACHING='true'
