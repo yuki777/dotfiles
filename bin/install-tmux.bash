@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -eu
 
-version=2.3
+#version=2.3
+version=2.7
 
 mkdir -p ~/local/src
 mkdir -p ~/local/bin
