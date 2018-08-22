@@ -50,6 +50,7 @@ Plug 'sjl/gundo.vim'
 Plug 'jwalton512/vim-blade'
 Plug 'digitaltoad/vim-pug'
 Plug 'pangloss/vim-javascript'
+Plug 'posva/vim-vue'
 call plug#end()
 
 "----------------------------------------------------
