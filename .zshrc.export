@@ -1,15 +1,16 @@
 # export
-
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=$HOME/bin:$PATH
+export PATH="/usr/local/opt/php@7.2/bin:$PATH"
+export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
 export PATH=$HOME/local/bin:$PATH
 export PATH=$HOME/local/go/bin:$PATH
-export PATH=/usr/sbin:$PATH
-export PATH=/sbin:$PATH
+export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=$HOME/.podenv/bin:$PATH
+export PATH=$HOME/.rvm/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/heroku/bin:$PATH
-export PATH="$HOME/.podenv/bin:$PATH"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=/usr/sbin:$PATH
+export PATH=/sbin:$PATH
 
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
