@@ -10,9 +10,11 @@ mkdir -p ~/.vim/data
 mkdir -p ~/bin
 
 # vim
+ln -fs dotfiles/.gvimrc
 ln -fs dotfiles/.vimrc
 ln -fs dotfiles/.vimrc.map
 ln -fs dotfiles/.gvimrc_first.vim
+mkdir -p ~/.vim/data/yankring
 
 # zsh
 ln -sf dotfiles/.zshenv
