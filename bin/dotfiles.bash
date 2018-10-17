@@ -37,6 +37,7 @@ ln -fs dotfiles/.gitignore
 ln -fs dotfiles/.git_template
 ln -fs dotfiles/.psqlrc
 ln -fs dotfiles/.my.cnf
+ln -fs dotfiles/.bashrc
 
 # bin
 ln -fs ~/dotfiles/bin/git_merge_wrapper3 ~/bin/git_merge_wrapper3
