@@ -1,0 +1,14 @@
+### # ~/.tmuxinator/owlcoin.yml
+name: owlcoin
+root: ~/apps/virtual-trade
+windows:
+  - docker:
+      panes:
+        - docker-compose up
+        - docker exec -it virtual-trade-php yarn run watch
+  - command:
+      panes:
+        - vimo
+  - logs:
+      panes:
+        - tail -f storage/logs/laravel.log|hi
