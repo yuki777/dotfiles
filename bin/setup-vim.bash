@@ -9,4 +9,8 @@ mkdir -p ~/.vim/data/yanktmp
 mkdir -p ~/.vim/data/neosnippet
 cp ~/dotfiles/.vim/data/neosnippet/* ~/.vim/data/neosnippet/
 
+# NERDTree
+mkdir -p ~/.vim/data/NERDTree
+touch    ~/.vim/data/NERDTree/.NERDTreeBookmarks
+
 #vim -c 'set cmdheight=2' -c 'qa!'
