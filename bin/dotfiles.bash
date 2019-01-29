@@ -14,6 +14,7 @@ ln -fs dotfiles/.gvimrc
 ln -fs dotfiles/.vimrc
 ln -fs dotfiles/.vimrc.map
 ln -fs dotfiles/.gvimrc_first.vim
+ln -fs dotfiles/.ideavimrc
 mkdir -p ~/.vim/data/yankring
 
 # zsh
