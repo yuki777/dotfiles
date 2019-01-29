@@ -1,0 +1,36 @@
+" https://github.com/JetBrains/ideavim
+" https://github.com/JetBrains/ideavim/blob/master/doc/set-commands.md
+" https://ikenox.info/2017-12-25-ideavim-introduction/
+
+" surround を有効化
+set surround
+" 入力モードを表示する
+set showmode
+" 検索の時に大文字小文字を区別しない
+set ignorecase
+" 検索の時に大文字が含まれている場合は区別して検索する
+set smartcase
+" インクリメンタルサーチを使わない
+set noincsearch
+" 最後まで検索しても先頭に戻らない
+set nowrapscan
+" 検索結果文字列のハイライトを有効にする
+set hlsearch
+" Escの2回押しでハイライト消去
+nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
+" 入力されているテキストの最大幅
+set textwidth=0
+" folding(折りたたみ)しない
+set nofoldenable
+" 対応する括弧やブレースを表示
+set showmatch matchtime=1
+" メッセージ表示欄を2行確保
+set cmdheight=2
+" ステータス行を常に表示
+set laststatus=2
+" ウィンドウの右下にまだ実行していない入力中のコマンドを表示
+set showcmd
+" 省略されずに表示
+set display=lastline
+" ヤンクでクリップボードにコピー
+set clipboard+=unnamed
