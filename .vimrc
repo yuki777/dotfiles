@@ -162,6 +162,14 @@ set laststatus=2
 ""現在のモードを表示する。
 ""Insertモード、ReplaceモードまたはVisualモードで最終行にメッセージを表示する。
 "set showmode
+" Enable CursorLine
+"set cursorline
+"" Default Colors for CursorLine
+"highlight  CursorLine ctermbg=Grey ctermfg=None
+"" Change Color when entering Insert Mode
+"autocmd InsertEnter * highlight  CursorLine ctermbg=Green ctermfg=Red
+"" Revert Color to default when leaving Insert Mode
+"autocmd InsertLeave * highlight  CursorLine ctermbg=Grey ctermfg=None
 
 "----------------------------------------------------
 "カーソルを行頭、行末で止まらないようにする?
