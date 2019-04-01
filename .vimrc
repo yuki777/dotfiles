@@ -49,7 +49,8 @@ Plug 'jimsei/winresizer'
 Plug 'sjl/gundo.vim'
 Plug 'jwalton512/vim-blade'
 Plug 'digitaltoad/vim-pug'
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'posva/vim-vue'
 call plug#end()
 
