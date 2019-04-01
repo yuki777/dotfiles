@@ -1,11 +1,14 @@
 ### # ~/.tmuxinator/owlcoin.yml
+# :list-windows
 name: owlcoin
 root: ~/apps/virtual-trade
 windows:
   - docker:
+      layout: 987d,255x67,0,0[255x21,0,0,0,255x21,0,22,3,255x23,0,44,4]
       panes:
-        - docker-compose up
-        - docker exec -it virtual-trade-php yarn run watch
+        - docker-compose up --build
+        - sleep 30; docker exec -u docker -it virtual-trade-php yarn run watch
+        - sleep 30; docker exec -u docker -it virtual-trade-php bash
   - command:
       panes:
         - vimo
