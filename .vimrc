@@ -31,7 +31,6 @@ Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 Plug 'yuki777/YankRing120.vim'
 Plug 'yuki777/encode.vim'
-Plug 'yuki777/vim-phplint'
 Plug 'yuki777/nerdtree-plugin-override-tab-mapping'
 Plug 'scrooloose/nerdtree'
 Plug 'neomake/neomake'
@@ -52,6 +51,7 @@ Plug 'digitaltoad/vim-pug'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'posva/vim-vue'
+Plug 'w0rp/ale'
 call plug#end()
 
 "----------------------------------------------------
