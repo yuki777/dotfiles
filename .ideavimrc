@@ -33,4 +33,4 @@ set showcmd
 " 省略されずに表示
 set display=lastline
 " ヤンクでクリップボードにコピー
-set clipboard+=unnamed
+"set clipboard+=unnamed
