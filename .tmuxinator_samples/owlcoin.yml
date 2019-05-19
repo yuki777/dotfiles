@@ -7,8 +7,8 @@ windows:
       layout: 987d,255x67,0,0[255x21,0,0,0,255x21,0,22,3,255x23,0,44,4]
       panes:
         - docker-compose up --build
-        - sleep 30; docker exec -u docker -it virtual-trade-php yarn run watch
-        - sleep 30; docker exec -u docker -it virtual-trade-php bash
+        - sleep 10; docker exec -u docker -it virtual-trade-php yarn run watch-poll
+        - sleep 10; docker exec -u docker -it virtual-trade-php bash
   - command:
       panes:
         - vimo
