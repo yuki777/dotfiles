@@ -63,7 +63,12 @@ for file in .vimrc.local .tmux.local .zshrc.local .ctagsignore ; do
 		cp dotfiles/$file ~
 	fi
 done
+
+# .gitconfig.local
 touch .gitconfig.local
+echo '[user]' >> .gitconfig.local
+echo '  name = Yuki Adachi' >> .gitconfig.local
+echo '  email = yuki777@gmail.com' >> .gitconfig.local
 
 ~/dotfiles/bin/setup_tmux_local
 ~/dotfiles/bin/install-zsh-vcs-prompt.bash
