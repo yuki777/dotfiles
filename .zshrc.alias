@@ -1,3 +1,4 @@
+alias timeout=gtimeout
 alias grep='grep --color'
 alias h='history -E 1'
 alias vimp='vim -p '
