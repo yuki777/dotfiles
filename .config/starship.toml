@@ -1,0 +1,97 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+prompt_order = [
+    "time",
+    "username",
+    "hostname",
+#    "kubernetes",
+    "directory",
+    "git_branch",
+    "git_state",
+    "git_status",
+    "package",
+#    "dotnet",
+#    "golang",
+#    "java",
+#    "nodejs",
+#    "python",
+#    "ruby",
+#    "rust",
+    "nix_shell",
+#    "conda",
+    "memory_usage",
+#    "aws",
+    "env_var",
+    "cmd_duration",
+    "line_break",
+    "jobs",
+    "battery",
+    "character",
+]
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "💀"
+[[battery.display]]  # バッテリー残量が0％〜10％の間は「太字の赤色」スタイルを利用する
+threshold = 10
+style = "bold red"
+[[battery.display]]  # バッテリー残量が10％〜30％の間は「太字の黄色」スタイルを利用する
+threshold = 30
+style = "bold yellow"
+# 容量が30％を超えると、バッテリーインジケーターは表示されません
+
+[character]
+# Replace the "❯" symbol in the prompt with "➜"
+symbol = "❯"
+error_symbol = "✗"
+use_symbol_for_status = true
+
+[directory]
+prefix = ""
+suffix = ""
+truncation_length = 0
+truncate_to_repo = false
+
+[git_branch]
+symbol = "🌱 "
+truncation_length = 100
+truncation_symbol = "..."
+[git_state]
+progress_divider = " of "
+cherry_pick = "🍒 PICKING"
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged = "➕"
+renamed = "👅"
+deleted = "🗑"
+
+[hostname]
+ssh_only = false
+prefix = ""
+suffix = ""
+trim_at = ""
+
+[jobs]
+symbol = "+ "
+threshold = 4
+
+[memory_usage]
+disabled = false
+
+[time]
+disabled = false
+format = "%F %T"
+utc_time_offset = 9
+
+[username]
+show_always = true
+style_user = "bold blue"
+style_root = "bold red"
