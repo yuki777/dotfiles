@@ -56,6 +56,7 @@ for file in fish omf nvim ; do
         unlink ~/.config/$file/$file
     fi
 done
+ln -fs ~/dotfiles/.config/starship.toml ~/.config/starship.toml
 
 # local files
 for file in .vimrc.local .tmux.local .zshrc.local .ctagsignore ; do

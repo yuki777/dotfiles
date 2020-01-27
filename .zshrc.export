@@ -24,6 +24,7 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/heroku/bin:$PATH
 export PATH=/usr/sbin:$PATH
 export PATH=/sbin:$PATH
+export PATH=$HOME/development/flutter/bin:$PATH
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -f $HOME/local/bin/global ] && export GTAGSGLOBAL=$HOME/local/bin/global
