@@ -25,13 +25,6 @@
 	default = nothing
 [include]
     path = ~/.gitconfig.local
-[merge]
-	ff = false
-#	tool = vimdiff3
-#[mergetool "vimdiff3"]
-#	cmd = ~/bin/git_merge_wrapper3 \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
-#[mergetool]
-#	keepBackup = false
 [init]
 	templatedir = ~/.git_template
 [filter "lfs"]
@@ -42,3 +35,11 @@
 [user]
 	name = Yuki Adachi
 	email = yuki777@gmail.com
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = "code --wait "
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = "code --wait --diff  "
