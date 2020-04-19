@@ -34,3 +34,11 @@
 #	keepBackup = false
 [init]
 	templatedir = ~/.git_template
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[user]
+	name = Yuki Adachi
+	email = yuki777@gmail.com
