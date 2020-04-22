@@ -36,6 +36,7 @@
 	name = Yuki Adachi
 	email = yuki777@gmail.com
 [merge]
+  ff = false
 	tool = vscode
 [mergetool "vscode"]
 	cmd = "code --wait "
