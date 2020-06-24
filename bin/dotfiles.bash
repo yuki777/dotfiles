@@ -59,7 +59,7 @@ done
 ln -fs ~/dotfiles/.config/starship.toml ~/.config/starship.toml
 
 # local files
-for file in .vimrc.local .tmux.local .zshrc.local .ctagsignore ; do
+for file in .vimrc.local .tmux.conf.local .zshrc.local .ctagsignore ; do
 	if [ ! -e ~/$file ]; then
 		cp dotfiles/$file ~
 	fi
@@ -71,7 +71,6 @@ echo '[user]' >> .gitconfig.local
 echo '  name = Yuki Adachi' >> .gitconfig.local
 echo '  email = yuki777@gmail.com' >> .gitconfig.local
 
-~/dotfiles/bin/setup_tmux_local
 ~/dotfiles/bin/install-zsh-vcs-prompt.bash
 ~/dotfiles/bin/install-zsh-syntax-highlighting.bash
 ~/dotfiles/bin/install-peco.bash

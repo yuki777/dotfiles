@@ -27,7 +27,7 @@ elif [ "$host_number" == "6" ];then
     color="red"
 fi
 
-cat <<EOF> ~/.tmux.local
+cat <<EOF> ~/.tmux.conf.local
 set  -g status-bg                  $color
 set  -g status-fg                  black
 set  -g status-attr                none
