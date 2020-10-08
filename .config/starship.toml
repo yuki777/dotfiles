@@ -20,7 +20,7 @@ prompt_order = [
 #    "rust",
     "nix_shell",
 #    "conda",
-    "memory_usage",
+#    "memory_usage",
 #    "aws",
     "env_var",
     "cmd_duration",
