@@ -9,15 +9,13 @@
     st = status
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
     today = log --since=midnight --author='Yuki Adachi' --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
-    branch-name = "!git rev-parse --abbrev-ref HEAD"
-    f = "!git fetch --all --prune && git rebase origin/$(git branch-name)"
-    p = "!git push origin $(git branch-name)"
-    short-hash = "!git rev-parse --short HEAD"
-    project = "!git remote -v|grep origin|grep fetch|awk -F '@jira.a.kurumaerabi.com:7999/|@github.com:|@bitbucket.org:' '{print $2}'|awk -F '/' '{print $1}'"
-    repository = "!git remote -v|grep origin|grep fetch|awk -F '.git ' '{print $1}'|awk -F '/' '{print $NF}'"
-    url-stash     = "!echo http://jira.a.kurumaerabi.com/stash/projects/$(git project)/repos/$(git repository)/commits/$(git short-hash)"
-    url-bitbucket = "!echo https://bitbucket.org/$(git project)/$(git repository)/commits/$(git short-hash)"
-    url-github    = "!echo https://github.com/$(git project)/$(git repository)/commit/$(git short-hash)"
+    f                 = "!git fetch --all --prune && git rebase origin/$(git branch-name)"
+    p                 = "!git push origin $(git branch-name)"
+    repository        = "!git remote -v|grep origin|grep fetch|awk -F '.git ' '{print $1}'|awk -F '/' '{print $NF}'"
+    project           = "!git remote -v|grep origin|grep fetch|awk -F '@github.com:|@bitbucket.org:' '{print $2}'|awk -F '/' '{print $1}'"
+    branch-name       = "!git rev-parse --abbrev-ref HEAD"
+    short-hash        = "!git rev-parse --short HEAD"
+    url-github        = "!echo https://github.com/$(git project)/$(git repository)/tree/$(git branch-name)"
 [core]
     excludesfile = ~/.gitignore
     editor = vim
@@ -32,15 +30,11 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-[user]
-	name = Yuki Adachi
-	email = yuki777@gmail.com
 [merge]
-  ff = false
-	tool = vscode
-[mergetool "vscode"]
-	cmd = "code --wait "
-[diff]
-	tool = vscode
-[difftool "vscode"]
-	cmd = "code --wait --diff  "
+	tool = vimdiff3
+[mergetool "vimdiff3"]
+	cmd = ~/bin/git_merge_wrapper3 \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[mergetool]
+	keepBackup = false
+[pull]
+	rebase = false
