@@ -58,10 +58,11 @@ TIMEFMT="%J # %E" # REPORTTIMEのフォーマットを変更
 #    zprof | less
 #fi
 
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Applications/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/yuki/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yuki/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Applications/google-cloud-sdk/completion.zsh.inc'; fi
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+if [ -f '/Users/yuki/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yuki/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"

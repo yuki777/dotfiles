@@ -114,3 +114,7 @@ function agopen(){
 function json_escape(){
     printf '%s' "$1" | php -r 'echo json_encode(file_get_contents("php://stdin"));'
 }
+
+function github(){
+    open "$(git url-github)/$(git rev-parse --show-prefix)"
+}
