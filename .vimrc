@@ -194,7 +194,7 @@ set smartindent  " 新しい行を開始したときに、新しい行のイン�
 set cindent      " Cプログラムファイルの自動インデントを始める
 
 " softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
-set tabstop=2 shiftwidth=2 softtabstop=0
+set tabstop=2 shiftwidth=2 softtabstop=0 expandtab
 
 "" 連続インデント
 "vnoremap < <gv
@@ -210,34 +210,35 @@ filetype indent on
 " softtabstop : 0でないなら、タブを入力時、その数値分だけ半角スペースを挿入する
 " tabstop     : タブを画面で表示する際の幅
 " expandtab   : 有効にすると、タブを挿入する時、そのタブを半角スペースとして挿入する
-autocmd FileType apache     setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType aspvbs     setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType c          setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType cpp        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType cs         setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType css        setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType diff       setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType eruby      setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType html       setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType java       setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType json       setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType perl       setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType php        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType ruby       setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType haml       setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType sh         setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType sql        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType vb         setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType vim        setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType wsh        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType xhtml      setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType xml        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType yaml       setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType zsh        setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
-autocmd FileType scala      setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType pug        setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType apache     setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType aspvbs     setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType c          setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType cpp        setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType cs         setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType css        setlocal tabstop=2 shiftwidth=0 expandtab
+autocmd FileType diff       setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType eruby      setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType html       setlocal tabstop=2 shiftwidth=0 expandtab
+autocmd FileType java       setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=0 expandtab
+autocmd FileType json       setlocal tabstop=2 shiftwidth=0 expandtab
+autocmd FileType perl       setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType php        setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType python     setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType ruby       setlocal tabstop=2 shiftwidth=0 expandtab
+autocmd FileType haml       setlocal tabstop=2 shiftwidth=0 expandtab
+autocmd FileType sh         setlocal tabstop=2 shiftwidth=0 expandtab
+autocmd FileType bash       setlocal tabstop=2 shiftwidth=0 expandtab
+autocmd FileType sql        setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType vb         setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType vim        setlocal tabstop=2 shiftwidth=0 expandtab
+autocmd FileType wsh        setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType xhtml      setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType xml        setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType yaml       setlocal tabstop=2 shiftwidth=0 expandtab
+autocmd FileType zsh        setlocal tabstop=4 shiftwidth=0 expandtab
+autocmd FileType scala      setlocal tabstop=2 shiftwidth=0 expandtab
+autocmd FileType pug        setlocal tabstop=2 shiftwidth=0 expandtab
 
 "----------------------------------------------------
 " http://d.hatena.ne.jp/homaju/20130131/1359614451
@@ -332,7 +333,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 "----------------------------------------------------
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 "----------------------------------------------------
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
 			\ "Modified"  : "✹",
 			\ "Staged"    : "✚",
 			\ "Untracked" : "✭",
