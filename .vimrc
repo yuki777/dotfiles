@@ -1,6 +1,7 @@
 if has('vim_starting')
 	set rtp+=~/.vim/plugged/vim-plug
 	if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+		echo 'Installing vim-plug...'
 		call system('mkdir -p ~/.vim/plugged/vim-plug')
 		call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
 		autocmd VimEnter * PlugInstall | source $MYVIMRC
@@ -9,23 +10,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
-if system('uname') == "FreeBSD\n"
-	Plug 'Shougo/vimproc', {'do': 'gmake'}
-else
-	Plug 'Shougo/vimproc', {'do': 'make'}
-	Plug 'Xuyuanp/nerdtree-git-plugin'
-endif
-
-" Deoplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-
+Plug 'scrooloose/nerdtree'
+Plug 'tomasr/molokai'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
@@ -40,7 +26,6 @@ Plug 'xolox/vim-misc'
 Plug 'yuki777/YankRing120.vim'
 Plug 'yuki777/encode.vim'
 Plug 'yuki777/nerdtree-plugin-override-tab-mapping'
-Plug 'scrooloose/nerdtree'
 Plug 'neomake/neomake'
 Plug 'cohama/agit.vim'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -60,6 +45,13 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'posva/vim-vue'
 Plug 'w0rp/ale'
+
+" https://github.com/mattn/vim-lsp-settings
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 call plug#end()
 
 "----------------------------------------------------
