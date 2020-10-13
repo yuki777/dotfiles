@@ -11,18 +11,13 @@ endif
 call plug#begin('~/.nvim/plugged')
 Plug 'junegunn/vim-plug', {'dir': '~/.nvim/plugged/vim-plug/autoload'}
 Plug 'scrooloose/nerdtree'
-Plug 'Shougo/deoplete.nvim'
 Plug 'tomasr/molokai'
 
-" Deoplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
+" https://github.com/mattn/vim-lsp-settings
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/unite.vim'
@@ -275,11 +270,14 @@ let php_htmlInStrings=1
 "autocmd BufWinLeave ?* silent mkview
 " ファイルを開いた時に、以前のカーソル位置を復元する
 "autocmd BufWinEnter ?* silent loadview
+" nvim
 " https://qiita.com/imokurity/items/342607bb26894cea9767
 autocmd BufReadPost *
       \ if line("'\"") > 0 && line ("'\"") <= line("$") |
       \   exe "normal! g'\"" |
       \ endif
+" https://stackoverflow.com/questions/39645253/clipboard-failure-in-tmux-vim-after-upgrading-to-macos-sierra
+set clipboard=unnamed,unnamedplus
 
 "
 "変更中のファイルでも、保存しないで他のファイルを表示
