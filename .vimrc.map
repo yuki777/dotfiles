@@ -263,3 +263,6 @@ noremap <S-l>   $
 " -----------------------------------------------
 " reopen last closed window
 nmap <c-s-t> :vs<bar>:b#<CR>
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"

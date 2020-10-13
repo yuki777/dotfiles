@@ -16,6 +16,7 @@ else
 	Plug 'Xuyuanp/nerdtree-git-plugin'
 endif
 
+" Deoplete
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
