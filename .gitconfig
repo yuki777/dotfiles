@@ -1,40 +1,42 @@
 [color]
-    ui = true
-    branch = auto
-    diff = auto
-    status = auto
+  ui = true
+  branch = auto
+  diff = auto
+  status = auto
 [alias]
-    co = checkout
-    ci = commit
-    st = status
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
-    today = log --since=midnight --author='Yuki Adachi' --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
-    f                 = "!git fetch --all --prune && git rebase origin/$(git branch-name)"
-    p                 = "!git push origin $(git branch-name)"
-    repository        = "!git remote -v|grep origin|grep fetch|awk -F '.git ' '{print $1}'|awk -F '/' '{print $NF}'"
-    project           = "!git remote -v|grep origin|grep fetch|awk -F '@github.com:|@bitbucket.org:' '{print $2}'|awk -F '/' '{print $1}'"
-    branch-name       = "!git rev-parse --abbrev-ref HEAD"
-    short-hash        = "!git rev-parse --short HEAD"
-    url-github        = "!echo https://github.com/$(git project)/$(git repository)/tree/$(git branch-name)"
+  co = checkout
+  ci = commit
+  st = status
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
+  today = log --since=midnight --author='Yuki Adachi' --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
+  f                 = "!git fetch --all --prune && git rebase origin/$(git branch-name)"
+  p                 = "!git push origin $(git branch-name)"
+  repository        = "!git remote -v|grep origin|grep fetch|awk -F '.git ' '{print $1}'|awk -F '/' '{print $NF}'"
+  project           = "!git remote -v|grep origin|grep fetch|awk -F '@github.com:|@bitbucket.org:' '{print $2}'|awk -F '/' '{print $1}'"
+  branch-name       = "!git rev-parse --abbrev-ref HEAD"
+  short-hash        = "!git rev-parse --short HEAD"
+  url-github        = "!echo https://github.com/$(git project)/$(git repository)/tree/$(git branch-name)"
 [core]
-    excludesfile = ~/.gitignore
-    editor = vim
+  excludesfile = ~/.gitignore
+  editor = vim
 [push]
-	default = nothing
+  default = nothing
 [include]
-    path = ~/.gitconfig.local
+  path = ~/.gitconfig.local
 [init]
-	templatedir = ~/.git_template
+  templatedir = ~/.git_template
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 [merge]
-	tool = vimdiff3
+  ff = false
+  tool = vimdiff3
 [mergetool "vimdiff3"]
-	cmd = ~/bin/git_merge_wrapper3 \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+  cmd = ~/bin/git_merge_wrapper3 \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [mergetool]
-	keepBackup = false
+  keepBackup = false
 [pull]
-	rebase = false
+  ff = only
+  rebase = false
