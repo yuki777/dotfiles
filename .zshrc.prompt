@@ -27,6 +27,8 @@ elif [[ `whoami` =~ yuki* ]]; then
     local name_color=$blue
 elif [[ `whoami` == vagrant ]]; then
     local name_color=$blue
+elif [[ `whoami` == adachi ]]; then
+    local name_color=$blue
 else
     local name_color=$green
 fi
@@ -41,6 +43,8 @@ elif [[ `hostname` =~ local$ ]]; then
     local host_color=$blue
 elif [[ `hostname` =~ test* ]]; then
     local host_color=$yellow
+elif [[ `hostname` == 3a.company ]]; then
+    local host_color=$blue
 else
     local host_color=$red
 fi
