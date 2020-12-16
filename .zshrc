@@ -40,7 +40,7 @@ TIMEFMT="%J # %E" # REPORTTIMEのフォーマットを変更
 [ -f ${HOME}/.zshrc.mysql ]     && source ${HOME}/.zshrc.mysql
 [ -f ${HOME}/.zshrc.git   ]     && source ${HOME}/.zshrc.git
 [ -f ${HOME}/.zshrc.cl    ]     && source ${HOME}/.zshrc.cl
-[ -f ${HOME}/.zshrc.prompt ]    && source ${HOME}/.zshrc.prompt
+#[ -f ${HOME}/.zshrc.prompt ]    && source ${HOME}/.zshrc.prompt
 [ -f ${HOME}/.zshrc.alias  ]    && source ${HOME}/.zshrc.alias
 [ -f ${HOME}/.zshrc.export ]    && source ${HOME}/.zshrc.export
 [ -f ${HOME}/.zshrc.function ]  && source ${HOME}/.zshrc.function
@@ -52,15 +52,15 @@ TIMEFMT="%J # %E" # REPORTTIMEのフォーマットを変更
 #    zprof | less
 #fi
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
+eval "$(phpenv init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Applications/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Applications/google-cloud-sdk/completion.zsh.inc'; fi
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
