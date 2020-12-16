@@ -42,6 +42,10 @@ format =  "[$hostname](bold red):"
 disabled = false
 trim_at = ""
 
+[directory]
+truncation_length = 10
+truncate_to_repo = false
+
 [git_branch]
 symbol = "🌱 "
 format = "[$symbol$branch]($style) "
