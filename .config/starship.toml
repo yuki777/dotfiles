@@ -1,66 +1,55 @@
-# Don't print a new line at the start of the prompt
 add_newline = false
 
-prompt_order = [
-    "time",
-    "username",
-    "hostname",
-#    "kubernetes",
-    "directory",
-    "git_branch",
-    "git_state",
-    "git_status",
-    "package",
-#    "dotnet",
-#    "golang",
-#    "java",
-#    "nodejs",
-#    "python",
-#    "ruby",
-#    "rust",
-    "nix_shell",
-#    "conda",
-#    "memory_usage",
-#    "aws",
-    "env_var",
-    "cmd_duration",
-    "line_break",
-    "jobs",
-    "battery",
-    "character",
-]
+format = """
+$time\
+$username\
+$hostname\
+$shlvl\
+$directory\
+${custom.giturl}\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$nodejs\
+$php\
+$nix_shell\
+$memory_usage\
+$cmd_duration\
+$jobs\
+$battery\
+$status\
+$line_break\
+$character"""
 
-[battery]
-full_symbol = "🔋"
-charging_symbol = "⚡️"
-discharging_symbol = "💀"
-[[battery.display]]  # バッテリー残量が0％〜10％の間は「太字の赤色」スタイルを利用する
-threshold = 10
-style = "bold red"
-[[battery.display]]  # バッテリー残量が10％〜30％の間は「太字の黄色」スタイルを利用する
-threshold = 30
-style = "bold yellow"
-# 容量が30％を超えると、バッテリーインジケーターは表示されません
+[time]
+disabled = false
+time_format = "%Y-%m-%d %H:%M:%S"
+format = "#[$time]($style) "
 
-[character]
-# Replace the "❯" symbol in the prompt with "➜"
-symbol = "❯"
-error_symbol = "✗"
-use_symbol_for_status = true
+[username]
+style_user = "white bold"
+style_root = "red bold"
+format = "[$user]($style)@"
+disabled = false
+show_always = true
 
-[directory]
-prefix = ""
-suffix = ""
-truncation_length = 0
-truncate_to_repo = false
+[hostname]
+ssh_only = false
+format =  "[$hostname](bold red):"
+disabled = false
+trim_at = ""
 
 [git_branch]
 symbol = "🌱 "
-truncation_length = 100
-truncation_symbol = "..."
+format = "[$symbol$branch]($style) "
+
 [git_state]
-progress_divider = " of "
-cherry_pick = "🍒 PICKING"
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒](bold red)"
+
 [git_status]
 conflicted = "🏳"
 ahead = "🏎💨"
@@ -69,29 +58,36 @@ diverged = "😵"
 untracked = "🤷"
 stashed = "📦"
 modified = "📝"
-staged = "➕"
+staged = '[++\($count\)](green)'
 renamed = "👅"
 deleted = "🗑"
 
-[hostname]
-ssh_only = false
-prefix = ""
-suffix = ""
-trim_at = ""
+[nodejs]
+symbol = "⬢"
+format = "[$symbol$version]($style) "
 
-[jobs]
-symbol = "+ "
-threshold = 4
+[php]
+symbol = "🐘"
+format = "[$symbol$version]($style) "
 
-[memory_usage]
-disabled = false
-
-[time]
-disabled = false
-format = "%F %T"
-utc_time_offset = 9
-
-[username]
-show_always = true
-style_user = "bold blue"
-style_root = "bold red"
+[custom.giturl]
+disabled = true
+description = "Display symbol for remote Git server"
+command = """
+GIT_REMOTE=$(command git ls-remote --get-url 2> /dev/null)
+if [[ "$GIT_REMOTE" =~ "github" ]]; then
+    GIT_REMOTE_SYMBOL=""
+elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
+    GIT_REMOTE_SYMBOL=""
+elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
+    GIT_REMOTE_SYMBOL=""
+elif [[ "$GIT_REMOTE" =~ "git" ]]; then
+    GIT_REMOTE_SYMBOL=""
+else
+    GIT_REMOTE_SYMBOL=""
+fi
+echo "$GIT_REMOTE_SYMBOL "
+"""
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+shell = ["bash", "--noprofile", "--norc"]
+format = "$output "
