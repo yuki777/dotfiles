@@ -14,6 +14,7 @@ alias agit='vim -c "Agit" -c "tabonly"'
 alias gitst="git st -s|awk '{print \$2}'|tr '\n' ' '|xargs echo"
 alias tailf='tail -F'
 alias l='ll'
+alias composer='~/bin/composer'
 
 case "${OSTYPE}" in
 darwin*)
