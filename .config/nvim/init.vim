@@ -45,6 +45,7 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'posva/vim-vue'
 Plug 'w0rp/ale'
+Plug 'ConradIrwin/vim-bracketed-paste'
 
 " https://github.com/mattn/vim-lsp-settings
 Plug 'prabirshrestha/vim-lsp'
