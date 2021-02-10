@@ -9,13 +9,15 @@ export HGEDITOR=vim
 export TERM=xterm-256color
 export LD_LIBRARY_PATH=${HOME}/local/lib/:${LD_LIBRARY_PATH}
 export NVM_DIR="/Users/yuki/.nvm"
-export GOPATH=$HOME/go
-export GOROOT=/usr/local/opt/go/libexec
+
+# go
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
 
 # export PATH
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-#export PATH="/usr/local/opt/php@7.2/bin:$PATH"
-#export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
 export PATH=$HOME/local/bin:$PATH
 export PATH=$HOME/local/go/bin:$PATH
 export PATH=$HOME/bin:$PATH
@@ -35,6 +37,7 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 export PATH=/usr/local/opt/bison/bin:$PATH
+export PATH=/usr/local/opt/libpq/bin:$PATH
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -f $HOME/local/bin/global ] && export GTAGSGLOBAL=$HOME/local/bin/global
