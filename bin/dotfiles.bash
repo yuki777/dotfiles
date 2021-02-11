@@ -30,6 +30,7 @@ ln -sf dotfiles/.zshrc.prompt
 
 # others
 ln -fs dotfiles/.tmux.conf
+ln -fs dotfiles/.tmux.conf.local
 ln -fs dotfiles/.ctags
 ln -fs dotfiles/.gtags
 ln -fs dotfiles/.tigrc
@@ -59,7 +60,7 @@ done
 ln -fs ~/dotfiles/.config/starship.toml ~/.config/starship.toml
 
 # local files
-for file in .vimrc.local .tmux.conf.local .zshrc.local .ctagsignore ; do
+for file in .vimrc.local .zshrc.local .ctagsignore ; do
 	if [ ! -e ~/$file ]; then
 		cp dotfiles/$file ~
 	fi
