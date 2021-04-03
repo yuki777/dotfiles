@@ -8,13 +8,11 @@ $shlvl\
 $directory\
 ${custom.giturl}\
 $git_branch\
-$git_commit\
+${custom.githash}\
 $git_state\
 $git_status\
 $hg_branch\
 $docker_context\
-$nodejs\
-$php\
 $nix_shell\
 $memory_usage\
 $cmd_duration\
@@ -24,13 +22,18 @@ $status\
 $line_break\
 $character"""
 
+[character]
+success_symbol = ""
+error_symbol = "[!](bold red)"
+
 [time]
 disabled = false
 time_format = "%Y-%m-%d %H:%M:%S"
 format = "#[$time]($style) "
+style = ""
 
 [username]
-style_user = "white bold"
+style_user = ""
 style_root = "red bold"
 format = "[$user]($style)@"
 disabled = false
@@ -45,9 +48,10 @@ trim_at = ""
 [directory]
 truncation_length = 10
 truncate_to_repo = false
+style = ""
 
 [git_branch]
-symbol = "🌱 "
+symbol = ""
 format = "[$symbol$branch]($style) "
 
 [git_state]
@@ -75,7 +79,7 @@ symbol = "🐘"
 format = "[$symbol$version]($style) "
 
 [custom.giturl]
-disabled = false
+disabled = true
 description = "Display symbol for remote Git server"
 command = """
 GIT_REMOTE=$(command git ls-remote --get-url 2> /dev/null)
@@ -91,6 +95,17 @@ else
     GIT_REMOTE_SYMBOL=""
 fi
 echo "$GIT_REMOTE_SYMBOL "
+"""
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+shell = ["bash", "--noprofile", "--norc"]
+format = "$output "
+
+[custom.githash]
+disabled = false
+description = "Display git hash"
+command = """
+GIT_HASH=$(git rev-parse --short HEAD)
+echo "$GIT_HASH "
 """
 when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
 shell = ["bash", "--noprofile", "--norc"]
