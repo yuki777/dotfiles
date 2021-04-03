@@ -38,6 +38,8 @@ export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 export PATH=/usr/local/opt/bison/bin:$PATH
 export PATH=/usr/local/opt/libpq/bin:$PATH
+export DENO_INSTALL="/Users/yuki/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -f $HOME/local/bin/global ] && export GTAGSGLOBAL=$HOME/local/bin/global
