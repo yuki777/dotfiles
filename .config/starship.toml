@@ -41,7 +41,7 @@ show_always = true
 
 [hostname]
 ssh_only = false
-format =  "[$hostname](bold red):"
+format =  "[$hostname](white):"
 disabled = false
 trim_at = ""
 
