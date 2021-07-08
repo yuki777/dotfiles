@@ -2,7 +2,7 @@
 set -eu
 
 #version=2.3
-version=2.8
+version=3.2
 
 mkdir -p ~/local/src
 mkdir -p ~/local/bin
