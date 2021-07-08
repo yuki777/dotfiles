@@ -20,7 +20,8 @@
   main              = "!git master"
 [core]
   excludesfile = ~/.gitignore
-  editor = nvim
+  editor = vim
+  pager = git-split-diffs --color | less -RFX
 [push]
   default = nothing
 [include]
