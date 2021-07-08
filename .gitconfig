@@ -16,6 +16,8 @@
   branch-name       = "!git rev-parse --abbrev-ref HEAD"
   short-hash        = "!git rev-parse --short HEAD"
   url-github        = "!echo https://github.com/$(git project)/$(git repository)/tree/$(git branch-name)"
+  master            = "!git checkout master 2>/dev/null || git checkout main"
+  main              = "!git master"
 [core]
   excludesfile = ~/.gitignore
   editor = nvim
