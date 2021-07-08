@@ -118,3 +118,18 @@ function json_escape(){
 function github(){
     open "$(git url-github)/$(git rev-parse --show-prefix)"
 }
+
+function e(){
+    echo "$1" | base64
+}
+
+function d(){
+    echo "$1" | base64 --decode
+}
+
+function urlencode(){
+    php -r "echo urlencode('$1');"
+}
+function urldecode(){
+    php -r "echo urldecode('$1');"
+}
