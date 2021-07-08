@@ -31,7 +31,6 @@ export PATH=/sbin:$PATH
 export PATH=$HOME/development/flutter/bin:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/apps/spark-installer:$PATH
-export PATH=$HOME/.phpenv/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PYENV_ROOT=$HOME/.pyenv
@@ -40,6 +39,13 @@ export PATH=/usr/local/opt/bison/bin:$PATH
 export PATH=/usr/local/opt/libpq/bin:$PATH
 export DENO_INSTALL="/Users/yuki/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH="$PATH:$HOME/development/flutter/bin"
+
+## php
+#export PATH="/usr/local/opt/php@7.4/bin:$PATH"
+#export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
+#export LDFLAGS="-L/usr/local/opt/php@7.4/lib"
+#export CPPFLAGS="-I/usr/local/opt/php@7.4/include"
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -f $HOME/local/bin/global ] && export GTAGSGLOBAL=$HOME/local/bin/global

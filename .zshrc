@@ -52,8 +52,12 @@ TIMEFMT="%J # %E" # REPORTTIMEのフォーマットを変更
 #    zprof | less
 #fi
 
-eval "$(pyenv init -)"
-eval "$(phpenv init -)"
+# *env
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
+fi
 
 # tabtab source for packages
 # uninstall by removing these lines
@@ -64,4 +68,3 @@ if [ -f '/Users/yuki/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/yuki/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yuki/Applications/google-cloud-sdk/completion.zsh.inc'; fi
-
