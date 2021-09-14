@@ -1,4 +1,5 @@
 add_newline = false
+command_timeout = 1000
 
 format = """
 $time\
@@ -12,6 +13,8 @@ ${custom.githash}\
 $git_state\
 $git_status\
 $hg_branch\
+$php\
+$nodejs\
 $docker_context\
 $nix_shell\
 $memory_usage\
@@ -22,9 +25,9 @@ $status\
 $line_break\
 $character"""
 
-[character]
-success_symbol = ""
-error_symbol = "[!](bold red)"
+#[character]
+#success_symbol = ""
+#error_symbol = "[!](bold red)"
 
 [time]
 disabled = false
@@ -71,11 +74,13 @@ renamed = "👅"
 deleted = "🗑"
 
 [nodejs]
-symbol = "⬢"
+symbol = "node"
+version_format = "${major}.${minor}"
 format = "[$symbol$version]($style) "
 
 [php]
-symbol = "🐘"
+symbol = "php"
+version_format = "${major}.${minor}"
 format = "[$symbol$version]($style) "
 
 [custom.giturl]
