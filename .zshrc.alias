@@ -4,7 +4,7 @@ alias h='history -E 1'
 alias vimp='vim -p '
 alias vim.='vim "+NERDTree ."'
 alias vimrc='vim -p ~/.vimrc*'
-alias zshrc='vim -p ~/.zshrc* ~/.zshenv'
+alias zshrc='vim -p ~/.zprofile ~/.zshrc* ~/.zshenv'
 alias nvimp='nvim -p '
 alias nvim.='nvim "+NERDTree ."'
 alias nvimrc='nvim -p ~/.vimrc*'
@@ -27,3 +27,8 @@ linux*)
 	alias ll='ls -Falq1AH --color=always --time-style=+"%Y-%m-%d %H:%M:%S"'
 	;;
 esac
+
+if [ -d "$HOME/.bookmarks" ]; then
+    export CDPATH=".:$HOME/.bookmarks"
+    alias goto="cd -P"
+fi
