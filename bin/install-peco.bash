@@ -16,9 +16,10 @@ case "${OSTYPE}" in
         ;;
     darwin*)
         rm -fr peco_*
-        wget 'https://github.com/peco/peco/releases/download/v0.5.3/peco_darwin_amd64.zip'
-        unzip peco_darwin_amd64.zip
-        cp peco_darwin_amd64/peco ~/local/bin/peco
+        #wget 'https://github.com/peco/peco/releases/download/v0.5.3/peco_darwin_amd64.zip'
+        wget 'https://github.com/peco/peco/releases/download/v0.5.10/peco_darwin_arm64.zip'
+        unzip peco_darwin_arm64.zip
+        cp peco_darwin_arm64/peco ~/local/bin/peco
         chmod 744 ~/local/bin/peco
         ;;
     linux*)
