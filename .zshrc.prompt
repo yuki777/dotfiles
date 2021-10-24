@@ -1,93 +1,93 @@
-# prompt
-colors
-local black=$'%{\e[30m%}'
-local red=$'%{\e[31m%}'
-local green=$'%{\e[32m%}'
-local yellow=$'%{\e[33m%}'
-local blue=$'%{\e[34m%}'
-local purple=$'%{\e[35m%}'
-local cyan=$'%{\e[36m%}'
-local white=$'%{\e[1;37m%}'
-local default=$'%{\e[1;m%}'
-
-## set random name_number, host_number
-#local name_number=1
-#local host_number=1
-#[ -f ${HOME}/.name_number ] && source ${HOME}/.name_number
-#[ -f ${HOME}/.host_number ] && source ${HOME}/.host_number
-#local name_color=$'%{\e[$[color=$[31+$name_number%6]]m%}' # 0:red, 1:green, 2:yellow, 3:blue, 4:magenta, 5:cyan, 6:red
-#local host_color=$'%{\e[$[color=$[31+$host_number%6]]m%}' # 0:red, 1:green, 2:yellow, 3:blue, 4:magenta, 5:cyan, 6:red
-
-# name_color
-if [[ `whoami` == "root" ]]; then
-    local name_color=$red
-elif [[ `whoami` =~ fvn* ]]; then
-    local name_color=$yellow
-elif [[ `whoami` =~ yuki* ]]; then
-    local name_color=$blue
-elif [[ `whoami` == vagrant ]]; then
-    local name_color=$blue
-elif [[ `whoami` == adachi ]]; then
-    local name_color=$blue
-else
-    local name_color=$green
-fi
-
-# host_color
-if [[ `hostname` =~ ubuntu ]]; then
-    local host_color=$green
-elif [[ `hostname` =~ macbook* ]]; then
-    local host_color=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
-    local name_color=$white
-elif [[ `hostname` =~ local$ ]]; then
-    local host_color=$blue
-elif [[ `hostname` =~ test* ]]; then
-    local host_color=$yellow
-elif [[ `hostname` == 3a.company ]]; then
-    local host_color=$blue
-else
-    local host_color=$red
-fi
-
-# weekday
-local weekday
-case `date +%u` in
-	1 ) weekday=Mon;;
-	2 ) weekday=Tue;;
-	3 ) weekday=Wed;;
-	4 ) weekday=Thu;;
-	5 ) weekday=Fri;;
-	6 ) weekday=${blue}Sat;;
-	7 ) weekday=${red}Sun;;
-    * ) ;;
-esac
-
-# https://github.com/yonchu/zsh-vcs-prompt
-case "${OSTYPE}" in
-freebsd*)
-    autoload -Uz vcs_info
-    precmd () { vcs_info }
-    setopt prompt_subst
-    PROMPT="${white}# %D{%Y-%m-%d %H:%M:%S} +07 ${name_color}%n${host_color}@%M${white}:%/\$vcs_info_msg_0_$PS5 ${reset_color}
-"
-    RPROMPT=''
-	;;
-*)
-    local status_mark="%(?,%F{green},%F{red})%(!,#,$)%f"
-    [ -f ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh ] && source ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh
-    PROMPT="${white}$status_mark %D{%Y-%m-%d %H:%M:%S} +07 ${name_color}%n${host_color}@%M${white}:%/${reset_color} "'$(vcs_super_info)
-'
-    RPROMPT=''
-    ZSH_VCS_PROMPT_ENABLE_CACHING='true'
-    ZSH_VCS_PROMPT_USING_PYTHON='true'
-    ZSH_VCS_PROMPT_MERGE_BRANCH=master
-    ZSH_VCS_PROMPT_AHEAD_SIGIL='>'
-    ZSH_VCS_PROMPT_BEHIND_SIGIL='<'
-    ZSH_VCS_PROMPT_STAGED_SIGIL='.'
-    ZSH_VCS_PROMPT_CONFLICTS_SIGIL='x'
-    ZSH_VCS_PROMPT_UNSTAGED_SIGIL='+'
-    ZSH_VCS_PROMPT_UNTRACKED_SIGIL='?'
-    ZSH_VCS_PROMPT_STASHED_SIGIL='\/'
-    ZSH_VCS_PROMPT_CLEAN_SIGIL='#'
-	;;
-esac
+### # prompt
+### colors
+### local black=$'%{\e[30m%}'
+### local red=$'%{\e[31m%}'
+### local green=$'%{\e[32m%}'
+### local yellow=$'%{\e[33m%}'
+### local blue=$'%{\e[34m%}'
+### local purple=$'%{\e[35m%}'
+### local cyan=$'%{\e[36m%}'
+### local white=$'%{\e[1;37m%}'
+### local default=$'%{\e[1;m%}'
+### 
+### ## set random name_number, host_number
+### #local name_number=1
+### #local host_number=1
+### #[ -f ${HOME}/.name_number ] && source ${HOME}/.name_number
+### #[ -f ${HOME}/.host_number ] && source ${HOME}/.host_number
+### #local name_color=$'%{\e[$[color=$[31+$name_number%6]]m%}' # 0:red, 1:green, 2:yellow, 3:blue, 4:magenta, 5:cyan, 6:red
+### #local host_color=$'%{\e[$[color=$[31+$host_number%6]]m%}' # 0:red, 1:green, 2:yellow, 3:blue, 4:magenta, 5:cyan, 6:red
+### 
+### # name_color
+### if [[ `whoami` == "root" ]]; then
+###     local name_color=$red
+### elif [[ `whoami` =~ fvn* ]]; then
+###     local name_color=$yellow
+### elif [[ `whoami` =~ yuki* ]]; then
+###     local name_color=$blue
+### elif [[ `whoami` == vagrant ]]; then
+###     local name_color=$blue
+### elif [[ `whoami` == adachi ]]; then
+###     local name_color=$blue
+### else
+###     local name_color=$green
+### fi
+### 
+### # host_color
+### if [[ `hostname` =~ ubuntu ]]; then
+###     local host_color=$green
+### elif [[ `hostname` =~ macbook* ]]; then
+###     local host_color=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
+###     local name_color=$white
+### elif [[ `hostname` =~ local$ ]]; then
+###     local host_color=$blue
+### elif [[ `hostname` =~ test* ]]; then
+###     local host_color=$yellow
+### elif [[ `hostname` == 3a.company ]]; then
+###     local host_color=$blue
+### else
+###     local host_color=$red
+### fi
+### 
+### # weekday
+### local weekday
+### case `date +%u` in
+### 	1 ) weekday=Mon;;
+### 	2 ) weekday=Tue;;
+### 	3 ) weekday=Wed;;
+### 	4 ) weekday=Thu;;
+### 	5 ) weekday=Fri;;
+### 	6 ) weekday=${blue}Sat;;
+### 	7 ) weekday=${red}Sun;;
+###     * ) ;;
+### esac
+### 
+### # https://github.com/yonchu/zsh-vcs-prompt
+### case "${OSTYPE}" in
+### freebsd*)
+###     autoload -Uz vcs_info
+###     precmd () { vcs_info }
+###     setopt prompt_subst
+###     PROMPT="${white}# %D{%Y-%m-%d %H:%M:%S} +07 ${name_color}%n${host_color}@%M${white}:%/\$vcs_info_msg_0_$PS5 ${reset_color}
+### "
+###     RPROMPT=''
+### 	;;
+### *)
+###     local status_mark="%(?,%F{green},%F{red})%(!,#,$)%f"
+###     [ -f ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh ] && source ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh
+###     PROMPT="${white}$status_mark %D{%Y-%m-%d %H:%M:%S} +07 ${name_color}%n${host_color}@%M${white}:%/${reset_color} "'$(vcs_super_info)
+### '
+###     RPROMPT=''
+###     ZSH_VCS_PROMPT_ENABLE_CACHING='true'
+###     ZSH_VCS_PROMPT_USING_PYTHON='true'
+###     ZSH_VCS_PROMPT_MERGE_BRANCH=master
+###     ZSH_VCS_PROMPT_AHEAD_SIGIL='>'
+###     ZSH_VCS_PROMPT_BEHIND_SIGIL='<'
+###     ZSH_VCS_PROMPT_STAGED_SIGIL='.'
+###     ZSH_VCS_PROMPT_CONFLICTS_SIGIL='x'
+###     ZSH_VCS_PROMPT_UNSTAGED_SIGIL='+'
+###     ZSH_VCS_PROMPT_UNTRACKED_SIGIL='?'
+###     ZSH_VCS_PROMPT_STASHED_SIGIL='\/'
+###     ZSH_VCS_PROMPT_CLEAN_SIGIL='#'
+### 	;;
+### esac

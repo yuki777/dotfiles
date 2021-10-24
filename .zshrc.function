@@ -133,3 +133,12 @@ function urlencode(){
 function urldecode(){
     php -r "echo urldecode('$1');"
 }
+
+function git-myhist(){
+    if [ $# != 0 ];then
+        git log --date=iso --pretty=format:"[%ad] %h %an : %s" --author="yuki777"|grep $*                |awk '{$1="";$2="";$3="";$4="http://xxx/commits/"$4;$5="";$6="";$7="";print $0}'
+    else
+        git log --date=iso --pretty=format:"[%ad] %h %an : %s" --author="yuki777"|grep "`date +%Y-%m-%d`"|awk '{$1="";$2="";$3="";$4="http://xxx/commits/"$4;$5="";$6="";$7="";print $0}'
+    fi
+}
+

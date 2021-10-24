@@ -1,5 +1,3 @@
-PKG_CONFIG_PATH=/usr/local/opt/krb5/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/icu4c/lib/pkgconfig:/usr/local/opt/libedit/lib/pkgconfig:/usr/local/opt/libxml2/lib/pkgconfig
-
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export MANPATH=/opt/local/man:$MANPATH
@@ -7,50 +5,35 @@ export EDITOR=vim
 export SVN_EDITOR=vim
 export HGEDITOR=vim
 export TERM=xterm-256color
-export LD_LIBRARY_PATH=${HOME}/local/lib/:${LD_LIBRARY_PATH}
-export NVM_DIR="/Users/yuki/.nvm"
-
-# go
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
-
-# volta(node)
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 
 # export PATH
-export PATH=/opt/homebrew/bin:$PATH
-export PATH=$HOME/local/bin:$PATH
-export PATH=$HOME/local/go/bin:$PATH
-export PATH=$HOME/bin:$PATH
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=$HOME/.podenv/bin:$PATH
-export PATH=$HOME/.rvm/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/heroku/bin:$PATH
-export PATH=/usr/sbin:$PATH
-export PATH=/sbin:$PATH
-export PATH=$HOME/development/flutter/bin:$PATH
-export PATH=$HOME/.composer/vendor/bin:$PATH
-export PATH=$HOME/apps/spark-installer:$PATH
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-export PATH=/usr/local/opt/bison/bin:$PATH
-export PATH=/usr/local/opt/libpq/bin:$PATH
-export DENO_INSTALL="/Users/yuki/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-export PATH="$PATH:$HOME/development/flutter/bin"
-
-## php
-#export PATH="/usr/local/opt/php@7.4/bin:$PATH"
-#export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
-#export LDFLAGS="-L/usr/local/opt/php@7.4/lib"
-#export CPPFLAGS="-I/usr/local/opt/php@7.4/include"
-
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -f $HOME/local/bin/global ] && export GTAGSGLOBAL=$HOME/local/bin/global
+export    PATH=/sbin:$PATH
+export -U PATH=/usr/sbin:$PATH
+export -U PATH=/opt/homebrew/bin:$PATH
+export -U PATH=$HOME/local/bin:$PATH
+export -U PATH=$HOME/bin:$PATH
+export -U PATH=$HOME/.composer/vendor/bin:$PATH
+export -U PATH=$HOME/git/dbdb/mysql/versions/5.7.31/basedir/bin:$PATH
+##export PATH=/opt/homebrew/bin:$PATH
+##export PATH=$HOME/local/bin:$PATH
+##export PATH=$HOME/local/go/bin:$PATH
+##export PATH=$HOME/bin:$PATH
+##export PATH=$HOME/.nodebrew/current/bin:$PATH
+##export PATH=$HOME/.podenv/bin:$PATH
+##export PATH=$HOME/.rvm/bin:$PATH
+##export PATH=/usr/local/sbin:$PATH
+##export PATH=/usr/local/heroku/bin:$PATH
+##export PATH=/usr/sbin:$PATH
+##export PATH=/sbin:$PATH
+##export PATH=$HOME/development/flutter/bin:$PATH
+##export PATH=$HOME/.composer/vendor/bin:$PATH
+##export PATH=$HOME/apps/spark-installer:$PATH
+##export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+##export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+##export PYENV_ROOT=$HOME/.pyenv
+##export PATH=$PYENV_ROOT/bin:$PATH
+##export PATH=/usr/local/opt/bison/bin:$PATH
+##export PATH=/usr/local/opt/libpq/bin:$PATH
+##export DENO_INSTALL="/Users/yuki/.deno"
+##export PATH="$DENO_INSTALL/bin:$PATH"
+##export PATH="$PATH:$HOME/development/flutter/bin"
