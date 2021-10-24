@@ -16,15 +16,4 @@ GPATH
 GRTAGS
 GSYMS
 GTAGS
-elastica.sh
-que.sh
-deleteCacheAndLog
-docs/
-makeTags
-maketags
-.gitconfig.local
-.config/fish/fishd.*
-.config/fish/functions/git_porcelain.fish
-.config/fish/fish_history
 tmux-client-*.log
-.vscode
