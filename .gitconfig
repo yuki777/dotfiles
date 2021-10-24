@@ -10,7 +10,7 @@
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
   today = log --since=midnight --author='Yuki Adachi' --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
   f                 = "!git fetch --all --prune && git rebase origin/$(git branch-name)"
-  p                 = "!git push origin $(git branch-name)"
+  p                 = "!git push origin $(git branch-name) && gh pr create --web"
   repository        = "!git remote -v|grep origin|grep fetch|awk -F '.git ' '{print $1}'|awk -F '/' '{print $NF}'"
   project           = "!git remote -v|grep origin|grep fetch|awk -F '@github.com:|@bitbucket.org:' '{print $2}'|awk -F '/' '{print $1}'"
   branch-name       = "!git rev-parse --abbrev-ref HEAD"
@@ -42,3 +42,7 @@
 [pull]
   ff = only
   rebase = false
+[commit]
+	gpgsign = true
+[remind]
+	paths = /Users/adachi/git/*
