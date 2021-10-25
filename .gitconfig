@@ -44,5 +44,3 @@
   rebase = false
 [commit]
 	gpgsign = true
-[remind]
-	paths = /Users/adachi/git/*
