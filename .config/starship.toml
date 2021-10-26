@@ -9,6 +9,7 @@ $shlvl\
 $directory\
 ${custom.giturl}\
 $git_branch\
+${custom.github_pr_number}\
 ${custom.githash}\
 $git_state\
 $git_status\
@@ -74,12 +75,12 @@ renamed = "👅"
 deleted = "🗑"
 
 [nodejs]
-symbol = "node"
+symbol = ""
 version_format = "${major}.${minor}"
 format = "[$symbol$version]($style) "
 
 [php]
-symbol = "php"
+symbol = ""
 version_format = "${major}.${minor}"
 format = "[$symbol$version]($style) "
 
@@ -110,7 +111,18 @@ disabled = false
 description = "Display git hash"
 command = """
 GIT_HASH=$(git rev-parse --short HEAD)
-echo "$GIT_HASH "
+echo "${GIT_HASH:0:7} "
+"""
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+shell = ["bash", "--noprofile", "--norc"]
+format = "$output "
+
+[custom.github_pr_number]
+disabled = false
+description = "Display github pr number"
+command = """
+GITHUB_PR_NUMBER=$(gh api --cache 1h \"/repos/$(git project)/$(git repository)/pulls?head=$(git project):$(git branch-name)\"|jq '.[].number')
+echo "${GITHUB_PR_NUMBER} "
 """
 when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
 shell = ["bash", "--noprofile", "--norc"]
