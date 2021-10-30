@@ -35,16 +35,11 @@ TIMEFMT="%J # %E" # REPORTTIMEのフォーマットを変更
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 # source
-#[ -f ${HOME}/.zshrc.mysql ]     && source ${HOME}/.zshrc.mysql
-#[ -f ${HOME}/.zshrc.git   ]     && source ${HOME}/.zshrc.git
-#[ -f ${HOME}/.zshrc.cl    ]     && source ${HOME}/.zshrc.cl
-#[ -f ${HOME}/.zshrc.prompt ]    && source ${HOME}/.zshrc.prompt
 [ -f ${HOME}/.zshrc.alias  ]    && source ${HOME}/.zshrc.alias
 [ -f ${HOME}/.zshrc.export ]    && source ${HOME}/.zshrc.export
 [ -f ${HOME}/.zshrc.function ]  && source ${HOME}/.zshrc.function
 [ -f ${HOME}/.zshrc.highlight ] && source ${HOME}/.zshrc.highlight
 [ -f ${HOME}/.zshrc.local ]     && source ${HOME}/.zshrc.local
-[ -f ${HOME}/.zshrc.env ]       && source ${HOME}/.zshrc.env
 [ -f ${HOME}/.zshrc.opt ]       && source ${HOME}/.zshrc.opt
 
 ## debug
