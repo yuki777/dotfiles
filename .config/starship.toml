@@ -121,7 +121,7 @@ format = "$output "
 disabled = false
 description = "Display github pr number"
 command = """
-GITHUB_PR_NUMBER=$(gh api --cache 1h \"/repos/$(git project)/$(git repository)/pulls?head=$(git project):$(git branch-name)\"|jq '.[].number')
+GITHUB_PR_NUMBER=$(gh api --cache 1m \"/repos/$(git project)/$(git repository)/pulls?head=$(git project):$(git branch-name)\"|jq '.[].number')
 echo "${GITHUB_PR_NUMBER} "
 """
 when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
