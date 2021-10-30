@@ -12,7 +12,7 @@
   f                 = "!git fetch --all --prune && git rebase origin/$(git branch-name)"
   p                 = "!git push origin $(git branch-name) && gh pr create --web"
   repository        = "!git remote -v|grep origin|grep fetch|awk -F '.git ' '{print $1}'|awk -F '/' '{print $NF}'"
-  project           = "!git remote -v|grep origin|grep fetch|awk -F '@github.com:|@bitbucket.org:' '{print $2}'|awk -F '/' '{print $1}'"
+  project           = "!git remote -v|grep origin|grep fetch|awk -F 'https://github.com/|@github.com:|@bitbucket.org:' '{print $2}'|awk -F '/' '{print $1}'"
   branch-name       = "!git rev-parse --abbrev-ref HEAD"
   short-hash        = "!git rev-parse --short HEAD"
   url-github        = "!echo https://github.com/$(git project)/$(git repository)/tree/$(git branch-name)"
@@ -25,8 +25,8 @@
   default = nothing
 [include]
   path = ~/.gitconfig.local
-[init]
-  templatedir = ~/.git_template
+#[init]
+#  templatedir = ~/.git_template
 [filter "lfs"]
   required = true
   clean = git-lfs clean -- %f
