@@ -14,8 +14,6 @@ ${custom.githash}\
 $git_state\
 $git_status\
 $hg_branch\
-$php\
-$nodejs\
 $docker_context\
 $nix_shell\
 $memory_usage\
@@ -45,7 +43,7 @@ show_always = true
 
 [hostname]
 ssh_only = false
-format =  "[$hostname](white):"
+format =  "[$hostname](green):"
 disabled = false
 trim_at = ""
 
