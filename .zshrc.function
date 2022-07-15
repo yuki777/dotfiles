@@ -120,11 +120,11 @@ function json_escape(){
 #}
 
 function e(){
-    echo "$1" | base64
+    echo -n "$1" | base64
 }
 
 function d(){
-    echo "$1" | base64 --decode
+    echo -n "$1" | base64 --decode
 }
 
 function urlencode(){

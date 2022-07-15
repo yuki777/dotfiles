@@ -15,6 +15,7 @@ alias gitst="git st -s|awk '{print \$2}'|tr '\n' ' '|xargs echo"
 alias tailf='tail -F'
 alias l='ll'
 alias composer='~/bin/composer'
+alias g='/usr/local/bin/github'
 
 case "${OSTYPE}" in
 darwin*)

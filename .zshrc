@@ -56,3 +56,17 @@ if [ -f '/Users/yuki/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/yuki/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yuki/Applications/google-cloud-sdk/completion.zsh.inc'; fi
+
+# phpenv
+export PHPENV_ROOT="$HOME/.phpenv"
+if [ -d "${PHPENV_ROOT}" ]; then
+  export PATH="${PHPENV_ROOT}/bin:${PATH}"
+  eval "$(phpenv init -)"
+fi
+
+# bun completions
+[ -s "/Users/adachi/.bun/_bun" ] && source "/Users/adachi/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/Users/adachi/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

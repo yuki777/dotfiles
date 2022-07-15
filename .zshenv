@@ -5,11 +5,6 @@ compinit
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-## python
-#export PYENV_ROOT="$HOME/.pyenv"
-#export PATH="$PYENV_ROOT/bin:$PATH"
-#eval "$(pyenv init --path)"
-
 # go
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
