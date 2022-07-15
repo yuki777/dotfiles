@@ -1,46 +1,58 @@
 [color]
-  ui = true
-  branch = auto
-  diff = auto
-  status = auto
+	ui = true
+	branch = auto
+	diff = auto
+	status = auto
 [alias]
-  co = checkout
-  ci = commit
-  st = status
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
-  today = log --since=midnight --author='Yuki Adachi' --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
-  f                 = "!git fetch --all --prune && git rebase origin/$(git branch-name)"
-  p                 = "!git push origin $(git branch-name) && gh pr create --web"
-  repository        = "!git remote -v|grep origin|grep fetch|awk -F '.git ' '{print $1}'|awk -F '/' '{print $NF}'"
-  project           = "!git remote -v|grep origin|grep fetch|awk -F 'https://github.com/|@github.com:|@bitbucket.org:' '{print $2}'|awk -F '/' '{print $1}'"
-  branch-name       = "!git rev-parse --abbrev-ref HEAD"
-  short-hash        = "!git rev-parse --short HEAD"
-  url-github        = "!echo https://github.com/$(git project)/$(git repository)/tree/$(git branch-name)"
-  master            = "!git checkout master 2>/dev/null || git checkout main"
-  main              = "!git master"
-[core]
-  excludesfile = ~/.gitignore
-  editor = vim
+	co = checkout
+	ci = commit
+	st = status
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
+	today = log --since=midnight --author='Yuki Adachi' --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
+	f                 = "!git fetch --all --prune && git rebase origin/$(git branch-name)"
+	#p                = "!git push origin $(git branch-name) && gh pr create --web"
+	p                 = "!git push origin HEAD && gh pr create --web"
+	repository        = "!git remote -v|grep origin|grep fetch|awk -F '.git ' '{print $1}'|awk -F '/' '{print $NF}'"
+	project           = "!git remote -v|grep origin|grep fetch|awk -F 'https://github.com/|@github.com:|@bitbucket.org:' '{print $2}'|awk -F '/' '{print $1}'"
+	branch-name       = "!git rev-parse --abbrev-ref HEAD"
+	short-hash        = "!git rev-parse --short HEAD"
+	url-github        = "!echo https://github.com/$(git project)/$(git repository)/tree/$(git branch-name)"
+	master            = "!git checkout master 2>/dev/null || git checkout main"
+	main              = "!git master"
 [push]
-  default = nothing
+	default = nothing
 [include]
-  path = ~/.gitconfig.local
+	path = ~/.gitconfig.local
 #[init]
 #  templatedir = ~/.git_template
 [filter "lfs"]
-  required = true
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-[merge]
-  ff = false
-  tool = vimdiff3
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 [mergetool "vimdiff3"]
-  cmd = ~/bin/git_merge_wrapper3 \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	cmd = ~/bin/git_merge_wrapper3 \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [mergetool]
-  keepBackup = false
+	keepBackup = false
 [pull]
-  ff = only
-  rebase = false
-[commit]
-	gpgsign = true
+	ff = only
+	rebase = false
+[diff]
+	algorithm = histogram
+	colorMoved = dimmed-zebra
+[core]
+#	  editor = code --wait
+	editor = vim
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+[user]
+	name = Yuki Adachi
+	email = yuki777@gmail.com
+[init]
+	defaultBranch = main
