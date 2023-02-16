@@ -50,7 +50,5 @@
 	tool = vscode
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
-[user]
-	name = Yuki Adachi
 [init]
 	defaultBranch = main
