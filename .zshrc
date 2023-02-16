@@ -68,6 +68,6 @@ fi
 # bun completions
 [ -s "/Users/adachi/.bun/_bun" ] && source "/Users/adachi/.bun/_bun"
 
-# Bun
-export BUN_INSTALL="/Users/adachi/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+## Bun
+#export BUN_INSTALL="/Users/adachi/.bun"
+#export PATH="$BUN_INSTALL/bin:$PATH"

@@ -16,6 +16,7 @@ alias tailf='tail -F'
 alias l='ll'
 alias composer='~/bin/composer'
 alias g='/usr/local/bin/github'
+alias pstorm='phpstorm'
 
 case "${OSTYPE}" in
 darwin*)

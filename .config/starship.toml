@@ -14,7 +14,6 @@ ${custom.githash}\
 $git_state\
 $git_status\
 $hg_branch\
-$docker_context\
 $nix_shell\
 $memory_usage\
 $cmd_duration\

@@ -52,6 +52,5 @@
 	cmd = code --wait $MERGED
 [user]
 	name = Yuki Adachi
-	email = yuki777@gmail.com
 [init]
 	defaultBranch = main

@@ -7,11 +7,11 @@
 
 print_help(){
     echo ' e.g. : tmuxx'
-    echo '   if exists "default" session, reconnect "default" session.'
-    echo '   if NOT exists "default" session, make "default" session.'
+    echo '   if "default" session exists, reconnect "default" session.'
+    echo '   if NOT exists, make "default" session.'
     echo ' e.g. : tmuxx hoge '
-    echo '   if exists "hoge" session, reconnect "hoge" session.'
-    echo '   if NOT exists "hoge" session, make "hoge" session.'
+    echo '   if "hoge" session exists, reconnect "hoge" session.'
+    echo '   if NOT exists, make "hoge" session.'
     exit
 }
 
