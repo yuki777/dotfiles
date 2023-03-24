@@ -18,3 +18,4 @@ GSYMS
 GTAGS
 tmux-client-*.log
 .envrc
+.config/nvim/nvim
