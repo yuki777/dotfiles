@@ -34,6 +34,11 @@ TIMEFMT="%J # %E" # REPORTTIMEのフォーマットを変更
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
+# .env
+if [ -f $HOME/.env ]; then
+    export $(grep -v '^#' $HOME/.env | xargs)
+fi
+
 # source
 [ -f ${HOME}/.zshrc.prompt ]    && source ${HOME}/.zshrc.prompt
 [ -f ${HOME}/.zshrc.alias  ]    && source ${HOME}/.zshrc.alias
@@ -71,3 +76,5 @@ fi
 ## Bun
 #export BUN_INSTALL="/Users/adachi/.bun"
 #export PATH="$BUN_INSTALL/bin:$PATH"
+eval "$(~/.rbenv/bin/rbenv init - zsh)"
+
