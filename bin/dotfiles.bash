@@ -49,7 +49,7 @@ ln -fs ~/dotfiles/bin/clide              ~/bin/clide
 
 # .config
 mkdir -p ~/.config
-ln -fs ~/dotfiles/.config/starship ~/.config/starship
+ln -fs ~/dotfiles/.config/starship ~/.config/
 
 # local files
 for file in .vimrc.local .zshrc.local .ctagsignore ; do
