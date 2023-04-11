@@ -76,5 +76,10 @@ fi
 ## Bun
 #export BUN_INSTALL="/Users/adachi/.bun"
 #export PATH="$BUN_INSTALL/bin:$PATH"
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
+
+[ -f "~/.rbenv/bin/rbenv" ] && eval "$(~/.rbenv/bin/rbenv init - zsh)"
+
+if type starship > /dev/null; then
+    eval "$(starship init zsh)"
+fi
 
