@@ -49,15 +49,7 @@ ln -fs ~/dotfiles/bin/clide              ~/bin/clide
 
 # .config
 mkdir -p ~/.config
-for file in fish omf nvim ; do
-	if [ ! -h ~/$file ]; then
-        ln -fs ~/dotfiles/.config/$file ~/.config/$file
-    fi
-	if [ -L ~/.config/$file/$file ]; then
-        unlink ~/.config/$file/$file
-    fi
-done
-ln -fs ~/dotfiles/.config/starship.toml ~/.config/starship.toml
+ln -fs ~/dotfiles/.config/starship ~/.config/starship
 
 # local files
 for file in .vimrc.local .zshrc.local .ctagsignore ; do
