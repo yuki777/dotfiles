@@ -4,7 +4,7 @@ export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=vim
 export SVN_EDITOR=vim
 export HGEDITOR=vim
-export TERM=xterm-256color
+export TERM=screen-256color
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 
 # export PATH
@@ -12,10 +12,12 @@ export    PATH=/sbin:$PATH
 export -U PATH=/usr/sbin:$PATH
 export -U PATH=/opt/homebrew/bin:$PATH
 export -U PATH=$HOME/local/bin:$PATH
+export -U PATH=$HOME/.local/bin:$PATH
 export -U PATH=$HOME/bin:$PATH
-export -U PATH=$HOME/.composer/vendor/bin:$PATH
-export -U PATH=$HOME/git/dbdb/mysql/versions/5.7.31/basedir/bin:$PATH
-export -U PATH=$HOME/.phpenv/bin:$PATH
 export -U PATH=$HOME/development/flutter/bin:$PATH
 export -U PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
-#export -U PATH=$HOME/Library/Application\ Support/JetBrains/Toolbox/scripts:$PATH
+export -U PATH=$HOME/.phpenv/bin:$PATH
+export -U PATH=$HOME/.phpenv/versions/$(phpenv global)/composer/vendor/bin:$PATH
+export -U PATH=$HOME/.composer/vendor/bin:$PATH
+export -U PATH=$HOME/git/dbdb/mysql/versions/5.7.31/basedir/bin:$PATH
+
