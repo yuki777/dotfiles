@@ -19,3 +19,4 @@ GTAGS
 tmux-client-*.log
 .envrc
 .config/nvim/nvim
+.config/starship/custom.toml

@@ -80,6 +80,11 @@ fi
 [ -f "~/.rbenv/bin/rbenv" ] && eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
 if type starship > /dev/null; then
+	config_files=(
+	  ~/.config/starship/base.toml
+	  ~/.config/starship/custom.toml
+	)
+	cat "${config_files[@]}" > ~/.config/starship.toml
     eval "$(starship init zsh)"
 fi
 
