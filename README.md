@@ -1,6 +1,3 @@
-# ?
-My Dotfiles.
-
 # Install Dev Tools
 ```
 # Mac
@@ -20,6 +17,5 @@ git clone https://github.com/yuki777/dotfiles.git ~/dotfiles
 
 # Setup
 ```
-cd ~/dotfiles/bin
-./dotfiles.bash
+cd ~/dotfiles/bin && ./dotfiles.bash
 ```
