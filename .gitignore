@@ -21,3 +21,4 @@ tmux-client-*.log
 .config/nvim/nvim
 .config/starship.toml
 .config/starship/custom.toml
+.prettierignore

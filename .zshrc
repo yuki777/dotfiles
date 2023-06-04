@@ -23,6 +23,7 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' keep-prefix
 zstyle ':completion:*' completer _oldlist _complete _match _ignored _approximate _list _history
+zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
 # others
 HISTFILE=${HOME}/.zsh_history

@@ -17,7 +17,8 @@ export -U PATH=$HOME/bin:$PATH
 export -U PATH=$HOME/development/flutter/bin:$PATH
 export -U PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 export -U PATH=$HOME/.composer/vendor/bin:$PATH
-export -U PATH=$HOME/git/dbdb/mysql/versions/5.7.31/basedir/bin:$PATH
+export -U PATH=$HOME/.local/share/dbdb/mysql/versions/5.7.31/basedir/bin:$PATH
+
 
 if [ -d "${HOME}/.phpenv" ]; then
   export -U PATH=$HOME/.phpenv/bin:$PATH
