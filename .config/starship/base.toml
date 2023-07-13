@@ -78,6 +78,8 @@ format = "$output "
 disabled = false
 description = "Display github pr number"
 command = """
+ORG=$(git project)
+REPOSITORY=$(git repository)
 GITHUB_PR_NUMBER=$(gh api --cache 1m \"/repos/$(git project)/$(git repository)/pulls?head=$(git project):$(git branch-name)\"|jq '.[].number')
 echo "ghgo.jp/${ORG}/${REPOSITORY}/${GITHUB_PR_NUMBER} "
 """
