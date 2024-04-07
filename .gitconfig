@@ -53,6 +53,7 @@
 [core]
 #	  editor = code --wait
 	editor = vim
+	excludesFile = ~/.gitignore
 [diff]
 	tool = vscode
 [difftool "vscode"]

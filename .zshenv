@@ -16,6 +16,3 @@ export PATH="$PATH:$GOPATH/bin"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-[ -d "$HOME/.rbenv" ] && eval "$(rbenv init -)"

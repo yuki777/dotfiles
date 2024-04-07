@@ -22,3 +22,4 @@ tmux-client-*.log
 .config/starship.toml
 .config/starship/custom.toml
 .prettierignore
+.php-version

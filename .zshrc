@@ -78,7 +78,8 @@ fi
 #export BUN_INSTALL="/Users/adachi/.bun"
 #export PATH="$BUN_INSTALL/bin:$PATH"
 
-[ -f "~/.rbenv/bin/rbenv" ] && eval "$(~/.rbenv/bin/rbenv init - zsh)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+[ -e "$HOME/.rbenv/bin/rbenv" ] && eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
 if type starship > /dev/null; then
 	config_files=(
@@ -89,3 +90,8 @@ if type starship > /dev/null; then
     eval "$(starship init zsh)"
 fi
 
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

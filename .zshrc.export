@@ -19,8 +19,10 @@ export -U PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 export -U PATH=$HOME/.composer/vendor/bin:$PATH
 export -U PATH=$HOME/.local/share/dbdb/mysql/versions/5.7.31/basedir/bin:$PATH
 
-
 if [ -d "${HOME}/.phpenv" ]; then
   export -U PATH=$HOME/.phpenv/bin:$PATH
-  export -U PATH=$HOME/.phpenv/versions/$(phpenv global)/composer/vendor/bin:$PATH
+  phpenv global >/dev/null 2>&1
+  if [ $? -eq 0 ]; then
+    export -U PATH=$HOME/.phpenv/versions/$(phpenv global)/composer/vendor/bin:$PATH
+  fi
 fi
