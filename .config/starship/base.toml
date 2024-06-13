@@ -1,5 +1,5 @@
 add_newline = false
-command_timeout = 1000
+command_timeout=400
 
 format = """
 $time\
@@ -7,6 +7,7 @@ $username\
 $hostname\
 $directory\
 $git_branch\
+${custom.github_url}\
 ${custom.github_pr_number}\
 ${custom.githash}\
 $git_state\
@@ -74,6 +75,18 @@ when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
 shell = ["bash", "--noprofile", "--norc"]
 format = "$output "
 
+[custom.github_url]
+disabled = false
+description = "Display github url"
+command = """
+ORG=$(git project)
+REPOSITORY=$(git repository)
+echo "ghgo.jp/${ORG}/${REPOSITORY}"
+"""
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+shell = ["bash", "--noprofile", "--norc"]
+format = "$output"
+
 [custom.github_pr_number]
 disabled = false
 description = "Display github pr number"
@@ -81,8 +94,8 @@ command = """
 ORG=$(git project)
 REPOSITORY=$(git repository)
 GITHUB_PR_NUMBER=$(gh api --cache 1m \"/repos/$(git project)/$(git repository)/pulls?head=$(git project):$(git branch-name)\"|jq '.[].number')
-echo "ghgo.jp/${ORG}/${REPOSITORY}/${GITHUB_PR_NUMBER} "
+echo "${GITHUB_PR_NUMBER}"
 """
 when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
 shell = ["bash", "--noprofile", "--norc"]
-format = "$output "
+format = "/$output "

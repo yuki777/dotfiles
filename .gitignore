@@ -23,3 +23,4 @@ tmux-client-*.log
 .config/starship/custom.toml
 .prettierignore
 .php-version
+.DS_Store

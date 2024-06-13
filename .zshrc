@@ -40,6 +40,13 @@ if [ -f $HOME/.env ]; then
     export $(grep -v '^#' $HOME/.env | xargs)
 fi
 
+# phpenv
+export PHPENV_ROOT="$HOME/.phpenv"
+if [ -d "${PHPENV_ROOT}" ]; then
+  export PATH="${PHPENV_ROOT}/bin:${PATH}"
+  eval "$(phpenv init -)"
+fi
+
 # source
 [ -f ${HOME}/.zshrc.prompt ]    && source ${HOME}/.zshrc.prompt
 [ -f ${HOME}/.zshrc.alias  ]    && source ${HOME}/.zshrc.alias
@@ -64,13 +71,6 @@ if [ -f '/Users/yuki/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/yuki/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yuki/Applications/google-cloud-sdk/completion.zsh.inc'; fi
 
-# phpenv
-export PHPENV_ROOT="$HOME/.phpenv"
-if [ -d "${PHPENV_ROOT}" ]; then
-  export PATH="${PHPENV_ROOT}/bin:${PATH}"
-  eval "$(phpenv init -)"
-fi
-
 # bun completions
 [ -s "/Users/adachi/.bun/_bun" ] && source "/Users/adachi/.bun/_bun"
 
@@ -81,17 +81,21 @@ fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 [ -e "$HOME/.rbenv/bin/rbenv" ] && eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
-if type starship > /dev/null; then
-	config_files=(
-	  ~/.config/starship/base.toml
-	  ~/.config/starship/custom.toml
-	)
-	cat "${config_files[@]}" > ~/.config/starship.toml
-    eval "$(starship init zsh)"
-fi
+#if type starship > /dev/null; then
+#	config_files=(
+#	  ~/.config/starship/base.toml
+#	  ~/.config/starship/custom.toml
+#	)
+#	cat "${config_files[@]}" > ~/.config/starship.toml
+#    eval "$(starship init zsh)"
+#fi
+eval "$(starship init zsh)"
 
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# devbox
+eval "$(devbox global shellenv)"
