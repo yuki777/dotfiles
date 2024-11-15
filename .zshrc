@@ -1,3 +1,5 @@
+## Amazon Q pre block. Keep at the top of this file.
+#[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # autoload
 autoload -U history-search-end
 autoload -U zed
@@ -40,36 +42,20 @@ if [ -f $HOME/.env ]; then
     export $(grep -v '^#' $HOME/.env | xargs)
 fi
 
-# phpenv
-export PHPENV_ROOT="$HOME/.phpenv"
-if [ -d "${PHPENV_ROOT}" ]; then
-  export PATH="${PHPENV_ROOT}/bin:${PATH}"
-  eval "$(phpenv init -)"
-fi
-
 # source
 [ -f ${HOME}/.zshrc.prompt ]    && source ${HOME}/.zshrc.prompt
 [ -f ${HOME}/.zshrc.alias  ]    && source ${HOME}/.zshrc.alias
 [ -f ${HOME}/.zshrc.export ]    && source ${HOME}/.zshrc.export
 [ -f ${HOME}/.zshrc.function ]  && source ${HOME}/.zshrc.function
 [ -f ${HOME}/.zshrc.highlight ] && source ${HOME}/.zshrc.highlight
+[ -f ${HOME}/.zshrc.mysql ]     && source ${HOME}/.zshrc.mysql
 [ -f ${HOME}/.zshrc.local ]     && source ${HOME}/.zshrc.local
 [ -f ${HOME}/.zshrc.opt ]       && source ${HOME}/.zshrc.opt
 
-## debug
-#if (which zprof > /dev/null) ;then
-#    zprof | less
-#fi
 
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yuki/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yuki/Applications/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/yuki/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yuki/Applications/google-cloud-sdk/completion.zsh.inc'; fi
 
 # bun completions
 [ -s "/Users/adachi/.bun/_bun" ] && source "/Users/adachi/.bun/_bun"
@@ -97,5 +83,30 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# devbox
-eval "$(devbox global shellenv)"
+# Amazon Q post block. Keep at the bottom of this file.
+#[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+
+# debug
+if (which zprof > /dev/null) ;then
+    zprof
+fi
+
+## phpenv
+#export PHPENV_ROOT="$HOME/.phpenv"
+#if [ -d "${PHPENV_ROOT}" ]; then
+#  export PATH="${PHPENV_ROOT}/bin:${PATH}"
+#  eval "$(phpenv init -)"
+#fi
+
+# go
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/adachi/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/adachi/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/adachi/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/adachi/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

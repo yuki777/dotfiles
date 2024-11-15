@@ -24,3 +24,6 @@ tmux-client-*.log
 .prettierignore
 .php-version
 .DS_Store
+.vscode
+.venv
+azurite

@@ -1,18 +1,33 @@
 #zmodload zsh/zprof && zprof
 
-autoload -Uz compinit
-compinit
 
-[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+# compinit
+_compinit() {
+	local re_initialize=0
+	for match in ${ZDOTDIR}/.zcompdump*(.Nmh+24); do
+		re_initialize=1
+		break
+	done
+	autoload -Uz compinit
+	if [ "$re_initialize" -eq "1" ]; then
+		compinit
+		# update the timestamp on compdump file
+		compdump
+	else
+		# omit the check for new functions since we updated today
+		compinit -C
+	fi
+}
+_compinit
 
-# go
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-[ -f "$HOME/.goenv" ] && eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
+
+#[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # volta(node)
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
+# phpenv
+export PHPENV_ROOT="$HOME/.phpenv"
+export PATH="${PHPENV_ROOT}/bin:${PATH}"
+eval "$(phpenv init -)"

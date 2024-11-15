@@ -64,3 +64,6 @@
 	cmd = code --wait $MERGED
 [init]
 	defaultBranch = main
+[user]
+	name = Yuki Adachi
+	email = 177159+yuki777@users.noreply.github.com
