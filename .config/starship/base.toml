@@ -7,11 +7,6 @@ $username\
 $hostname\
 $directory\
 $git_branch\
-${custom.github_url}\
-${custom.github_pr_number}\
-${custom.githash}\
-$git_state\
-$git_status\
 $line_break\
 $character"""
 
@@ -47,55 +42,55 @@ style = ""
 symbol = ""
 format = "[$symbol$branch]($style) "
 
-[git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = "[🍒](bold red)"
+#[git_state]
+#format = '[\($state( $progress_current of $progress_total)\)]($style) '
+#cherry_pick = "[🍒](bold red)"
 
-[git_status]
-conflicted = 'Conflicted:$count '
-ahead = 'Ahead:$count '
-behind = 'Behind:$count '
-diverged = 'Ahead:$count Behind:$count '
-untracked = 'Untracked:$count '
-stashed = 'Stashed:$count '
-modified = 'Modified:$count '
-renamed = 'Renamed:$count '
-deleted = 'Deleted:$count '
-staged = 'Staged:$count '
-format = '[$all_status$ahead_behind]($style)'
+#[git_status]
+#conflicted = 'Conflicted:$count '
+#ahead = 'Ahead:$count '
+#behind = 'Behind:$count '
+#diverged = 'Ahead:$count Behind:$count '
+#untracked = 'Untracked:$count '
+#stashed = 'Stashed:$count '
+#modified = 'Modified:$count '
+#renamed = 'Renamed:$count '
+#deleted = 'Deleted:$count '
+#staged = 'Staged:$count '
+#format = '[$all_status$ahead_behind]($style)'
 
-[custom.githash]
-disabled = false
-description = "Display git hash"
-command = """
-GIT_HASH=$(git rev-parse --short HEAD)
-echo "${GIT_HASH:0:7} "
-"""
-when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
-shell = ["bash", "--noprofile", "--norc"]
-format = "$output "
-
-[custom.github_url]
-disabled = false
-description = "Display github url"
-command = """
-ORG=$(git project)
-REPOSITORY=$(git repository)
-echo "ghgo.jp/${ORG}/${REPOSITORY}"
-"""
-when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
-shell = ["bash", "--noprofile", "--norc"]
-format = "$output"
-
-[custom.github_pr_number]
-disabled = false
-description = "Display github pr number"
-command = """
-ORG=$(git project)
-REPOSITORY=$(git repository)
-GITHUB_PR_NUMBER=$(gh api --cache 1m \"/repos/$(git project)/$(git repository)/pulls?head=$(git project):$(git branch-name)\"|jq '.[].number')
-echo "${GITHUB_PR_NUMBER}"
-"""
-when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
-shell = ["bash", "--noprofile", "--norc"]
-format = "/$output "
+#[custom.githash]
+#disabled = false
+#description = "Display git hash"
+#command = """
+#GIT_HASH=$(git rev-parse --short HEAD)
+#echo "${GIT_HASH:0:7} "
+#"""
+#when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+#shell = ["bash", "--noprofile", "--norc"]
+#format = "$output "
+#
+#[custom.github_url]
+#disabled = false
+#description = "Display github url"
+#command = """
+#ORG=$(git project)
+#REPOSITORY=$(git repository)
+#echo "ghgo.jp/${ORG}/${REPOSITORY}"
+#"""
+#when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+#shell = ["bash", "--noprofile", "--norc"]
+#format = "$output"
+#
+#[custom.github_pr_number]
+#disabled = false
+#description = "Display github pr number"
+#command = """
+#ORG=$(git project)
+#REPOSITORY=$(git repository)
+#GITHUB_PR_NUMBER=$(gh api --cache 1m \"/repos/$(git project)/$(git repository)/pulls?head=$(git project):$(git branch-name)\"|jq '.[].number')
+#echo "${GITHUB_PR_NUMBER}"
+#"""
+#when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+#shell = ["bash", "--noprofile", "--norc"]
+#format = "/$output "

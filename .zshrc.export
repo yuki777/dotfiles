@@ -22,9 +22,12 @@ export -U PATH=$HOME/.local/share/dbdb/mysql/versions/8.0.30/basedir/bin:$PATH
 export -U PATH=/opt/homebrew/opt/m4/bin:$PATH
 
 #if [ -d "${HOME}/.phpenv" ]; then
-#  export -U PATH=$HOME/.phpenv/bin:$PATH
-#  phpenv global >/dev/null 2>&1
-#  if [ $? -eq 0 ]; then
-#    export -U PATH=$HOME/.phpenv/versions/$(phpenv global)/composer/vendor/bin:$PATH
-#  fi
+#  export PHPENV_ROOT="$HOME/.phpenv"
+#  export PATH="${PHPENV_ROOT}/bin:${PATH}"
+#  eval "$(phpenv init -)"
+#  #export -U PATH=$HOME/.phpenv/bin:$PATH
+#  #phpenv global >/dev/null 2>&1
+#  #if [ $? -eq 0 ]; then
+#  #  export -U PATH=$HOME/.phpenv/versions/$(phpenv global)/composer/vendor/bin:$PATH
+#  #fi
 #fi

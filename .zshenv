@@ -27,7 +27,7 @@ _compinit
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-# phpenv
-export PHPENV_ROOT="$HOME/.phpenv"
-export PATH="${PHPENV_ROOT}/bin:${PATH}"
-eval "$(phpenv init -)"
+## phpenv
+#export PHPENV_ROOT="$HOME/.phpenv"
+#export PATH="${PHPENV_ROOT}/bin:${PATH}"
+#eval "$(phpenv init -)"
