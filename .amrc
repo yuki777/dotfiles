@@ -23,21 +23,9 @@ export AM_PROMPT_START_TAG='#'
 
 ## ===> SYMBOLS
 export AM_VERSION_PROMPT_SEP='|'
-#  export AM_JAVA_SYM='JAVA:'
-#  export AM_PY_SYM='PY:'
-#  export AM_RB_SYM='RB:'
-#  export AM_GO_SYM='GO:'
-#  export AM_ELIXIR_SYM='EX:'
-#  export AM_CRYSTAL_SYM='CR:'
-#  export AM_NODE_SYM='⬡ '
-#  export AM_PHP_SYM='PHP:'
-#  export AM_HG_SYM='H'
-#  export AM_SVN_SYM='S'
-#  export AM_SSH_SYM='[S]'
-#  export AM_GIT_SYM='G'
 export AM_GIT_REBASING_SYMBOL='Rebase'
-export AM_GIT_PUSH_SYM='Push:'
-export AM_GIT_PULL_SYM='Pull:'
+#export AM_GIT_PUSH_SYM='Push:'
+#export AM_GIT_PULL_SYM='Pull:'
 export AM_GIT_STASH_SYM='Stash:'
 
 # https://github.com/eendroroy/alien-minimal/blob/master/modules/symbols.zsh
@@ -46,34 +34,6 @@ export AM_GIT_DEL_SYM="DEL"
 export AM_GIT_MOD_SYM="MOD"
 export AM_GIT_NEW_SYM="NEW"
 
-## ===> COLORS
-#  export AM_VCS_COLOR=248
-#  export AM_SSH_COLOR=143
-#  export AM_NORMAL_COLOR=39
-#  export AM_ERROR_COLOR=208
-#  export AM_REV_COLOR=248
-#  export AM_BRANCH_COLOR=78
-#  export AM_LEFT_RIGHT_COLOR=222
-#  export AM_STASH_COLOR=222
-#  export AM_BARE_COLOR=222
-#  export AM_COMMIT_SINCE_COLOR=244
-#  export AM_FADE_COLOR=242
-#  export AM_VENV_COLOR=245
-#  export AM_PYTHON_COLOR=40
-#  export AM_RUBY_COLOR=196
-#  export AM_JAVA_COLOR=178
-#  export AM_GO_COLOR=81
-#  export AM_ELIXIR_COLOR=81
-#  export AM_CRYSTAL_COLOR=8
-#  export AM_NODE_COLOR=2
-#  export AM_PHP_COLOR=5
-#  export AM_GRADLE_COLOR=5
-#  export AM_TIMER_COLOR=248
-#  export AM_PROMPT_START_TAG_COLOR=39
-#  export AM_PROMPT_END_TAG_COLOR=39
-#  export AM_GIT_TRACKED_COLOR=78
-#  export AM_GIT_UN_TRACKED_COLOR=208
-
 export AM_VERSIONS_PROMPT=()
 
 export AM_GIT_SECTION=(
@@ -81,6 +41,7 @@ export AM_GIT_SECTION=(
   am_git_rev
   am_git_stash
   am_git_dirty
+  am_git_left_right
 )
 
 export AM_LEFT_SECTION=(
