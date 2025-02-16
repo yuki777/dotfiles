@@ -75,13 +75,13 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 #	cat "${config_files[@]}" > ~/.config/starship.toml
 #    eval "$(starship init zsh)"
 #fi
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+## pyenv
+#export PYENV_ROOT="$HOME/.pyenv"
+#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"
 
 # Amazon Q post block. Keep at the bottom of this file.
 #[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
@@ -98,12 +98,12 @@ fi
 #  eval "$(phpenv init -)"
 #fi
 
-# go
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
+## go
+#export GOENV_ROOT="$HOME/.goenv"
+#export PATH="$GOENV_ROOT/bin:$PATH"
+#eval "$(goenv init -)"
+#export PATH="$GOROOT/bin:$PATH"
+#export PATH="$PATH:$GOPATH/bin"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/adachi/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/adachi/Downloads/google-cloud-sdk/path.zsh.inc'; fi

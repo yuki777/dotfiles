@@ -1,0 +1,67 @@
+#!/usr/bin/env zsh
+
+# https://github.com/eendroroy/alien-minimal
+
+## ===> THEME
+#  export AM_THEME=default
+
+## ===> SECTIONS
+#  export AM_VERSIONS_PROMPT=()
+#  export AM_GIT_SECTION=(am_git_symbol am_git_rebasing am_git_branch am_git_left_right_master am_git_commit_time am_git_rev am_git_stash am_git_left_right am_git_dirty)
+#  export AM_HG_SECTION=(am_hg_symbol am_hg_branch am_hg_rev)
+#  export AM_SVN_SECTION=(am_svn_symbol am_svn_rev)
+#  export AM_LEFT_SECTION=(am_space am_prompt_dir am_space)
+#  export AM_RIGHT_SECTION=(am_version_prompt am_vcs_prompt)
+
+## ===> CONFIGS
+export AM_ASYNC_L_PROMPT=1
+#export AM_INITIAL_LINE_FEED=1
+#export AM_USE_NERD_FONT=1
+export AM_DIR_EXPANSION_LEVEL=0
+export AM_PROMPT_START_TAG='#'
+#export AM_PROMPT_END_TAG=''
+
+## ===> SYMBOLS
+export AM_VERSION_PROMPT_SEP='|'
+export AM_GIT_REBASING_SYMBOL='Rebase'
+#export AM_GIT_PUSH_SYM='Push:'
+#export AM_GIT_PULL_SYM='Pull:'
+export AM_GIT_STASH_SYM='Stash:'
+
+# https://github.com/eendroroy/alien-minimal/blob/master/modules/symbols.zsh
+export AM_GIT_ADD_SYM="ADD"
+export AM_GIT_DEL_SYM="DEL"
+export AM_GIT_MOD_SYM="MOD"
+export AM_GIT_NEW_SYM="NEW"
+
+export AM_VERSIONS_PROMPT=()
+
+export AM_GIT_SECTION=(
+  am_git_branch
+  am_git_rev
+  am_git_stash
+  am_git_dirty
+  am_git_left_right
+)
+
+export AM_LEFT_SECTION=(
+  am_prompt_start_tag
+  am_prompt_datetime
+  am_prompt_dir
+  am_vcs_prompt
+  am_force_newline
+)
+
+export AM_RIGHT_SECTION=(
+  am_space
+)
+
+am_prompt_datetime() {
+  echo -n "$(date '+%Y-%m-%d %H:%M:%S')"
+}
+
+am_force_newline() {
+  echo ' '
+  echo ' '
+}
+
