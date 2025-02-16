@@ -21,4 +21,3 @@ export -U PATH=$HOME/.composer/vendor/bin:$PATH
 export -U PATH=$HOME/.local/share/dbdb/mysql/versions/8.0.30/basedir/bin:$PATH
 export -U PATH=/opt/homebrew/opt/m4/bin:$PATH
 export -U PATH="$HOME/.phpenv/bin:$PATH"
-
