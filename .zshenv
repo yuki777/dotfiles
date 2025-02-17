@@ -20,9 +20,6 @@ _compinit() {
 }
 _compinit
 
-
-#[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # volta(node)
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
