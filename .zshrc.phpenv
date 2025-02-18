@@ -1,0 +1,36 @@
+############
+# Original #
+############
+# export PATH="$HOME/.phpenv/bin:$PATH"
+# eval "$(phpenv init -)"
+
+#########
+# Async #
+#########
+
+# Oh My Zsh の async ライブラリを読み込む
+autoload -Uz async
+
+# 非同期タスクを実行する関数
+load_phpenv_async() {
+  async_start_worker phpenv_worker
+  async_register_callback phpenv_worker 'phpenv_init_callback'
+  async_job phpenv_worker phpenv_init_command
+}
+
+# コールバック関数（結果をメインシェルに適用）
+phpenv_init_callback() {
+  eval "$1" > /dev/null 2>&1
+}
+
+# phpenv の初期化コマンドを取得する関数（非同期で実行）
+phpenv_init_command() {
+  phpenv init - 2>/dev/null
+}
+
+# PATH だけは最初に適用（これがないと php が見つからない）
+export PATH="$HOME/.phpenv/bin:$HOME/.phpenv/shims:$PATH"
+
+# 非同期に phpenv を初期化
+load_phpenv_async > /dev/null 2>&1
+

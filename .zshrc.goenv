@@ -1,0 +1,40 @@
+############
+# Original #
+############
+#export GOENV_ROOT="$HOME/.goenv"
+#export PATH="$GOENV_ROOT/bin:$PATH"
+#eval "$(goenv init -)"
+#export PATH="$GOROOT/bin:$PATH"
+#export PATH="$PATH:$GOPATH/bin"
+
+#########
+# Async #
+#########
+
+# Oh My Zsh の async ライブラリを読み込む
+autoload -Uz async
+
+# 非同期タスクを実行する関数
+load_goenv_async() {
+  async_start_worker goenv_worker
+  async_register_callback goenv_worker 'goenv_init_callback'
+  async_job goenv_worker goenv_init_command
+}
+
+# コールバック関数（結果をメインシェルに適用）
+goenv_init_callback() {
+  eval "$1" > /dev/null 2>&1
+}
+
+# goenv の初期化コマンドを取得する関数（非同期で実行）
+goenv_init_command() {
+  goenv init - 2>/dev/null
+}
+
+# PATH だけは最初に適用（これがないと go が見つからない）
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$HOME/.goenv/bin:$HOME/.goenv/shims:$GOENV_ROOT/bin:$GOROOT/bin:$GOPATH/bin:$PATH"
+
+# 非同期に goenv を初期化
+load_goenv_async > /dev/null 2>&1
+

@@ -6,6 +6,7 @@ export SVN_EDITOR=vim
 export HGEDITOR=vim
 export TERM=screen-256color
 export HOMEBREW_NO_AUTO_UPDATE=1
+export DD_INSTRUMENTATION_TELEMETRY_ENABLED=0
 
 # PATH
 path=(
@@ -18,6 +19,7 @@ path=(
   $HOME/.composer/vendor/bin
   $HOME/.local/share/dbdb/mysql/versions/8.0.30/basedir/bin
   $HOME/.phpenv/bin
+  $HOME/.goenv/bin
   $path
 )
 typeset -U path
