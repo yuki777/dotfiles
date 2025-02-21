@@ -3,4 +3,6 @@
 # ssh raspi /home/pi/jsay/jsay.sh "$1"
 
 # 改行をエスケープして一行のコマンドとして送信
-ssh raspi "/home/pi/jsay/jsay.sh \"$(echo "$1" | sed 's/"/\\"/g')\""
+#ssh raspi "/home/pi/jsay/jsay.sh \"$(echo "$1" | sed 's/"/\\"/g')\""
+
+ssh raspi "/home/pi/git/tts/tts.sh \"$(echo "$1" | sed 's/"/\\"/g')\""
