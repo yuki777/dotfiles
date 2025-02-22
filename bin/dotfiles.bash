@@ -27,6 +27,8 @@ ln -sf dotfiles/.zshrc.highlight
 ln -sf dotfiles/.zshrc.mysql
 ln -sf dotfiles/.zshrc.opt
 ln -sf dotfiles/.zshrc.prompt
+ln -sf dotfiles/.zshrc.phpenv
+ln -sf dotfiles/.zshrc.goenv
 
 # others
 ln -fs dotfiles/.tmux.conf
