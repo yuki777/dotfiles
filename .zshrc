@@ -7,6 +7,7 @@
 [ -f ${HOME}/.zshrc.goenv ]     && source ${HOME}/.zshrc.goenv
 [ -f ${HOME}/.zshrc.volta ]     && source ${HOME}/.zshrc.volta
 [ -f ${HOME}/.zshrc.prompt ]    && source ${HOME}/.zshrc.prompt
+[ -f ${HOME}/.zshrc.starship ]  && source ${HOME}/.zshrc.starship
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Applications/google-cloud-sdk/path.zsh.inc'; fi
