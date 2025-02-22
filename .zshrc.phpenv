@@ -1,14 +1,14 @@
 ############
 # Original #
 ############
-# export PATH="$HOME/.phpenv/bin:$PATH"
-# eval "$(phpenv init -)"
+#export PATH="$HOME/.phpenv/bin:$PATH"
+#eval "$(phpenv init -)"
 
 #########
 # Async #
 #########
 
-# Oh My Zsh の async ライブラリを読み込む
+# async ライブラリを読み込む
 autoload -Uz async
 
 # 非同期タスクを実行する関数
