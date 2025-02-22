@@ -29,6 +29,7 @@ ln -sf dotfiles/.zshrc.opt
 ln -sf dotfiles/.zshrc.prompt
 ln -sf dotfiles/.zshrc.phpenv
 ln -sf dotfiles/.zshrc.goenv
+ln -sf dotfiles/.zshrc.volta
 
 # others
 ln -fs dotfiles/.tmux.conf

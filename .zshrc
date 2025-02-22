@@ -5,6 +5,7 @@
 [ -f ${HOME}/.zshrc.opt ]       && source ${HOME}/.zshrc.opt
 [ -f ${HOME}/.zshrc.phpenv ]    && source ${HOME}/.zshrc.phpenv
 [ -f ${HOME}/.zshrc.goenv ]     && source ${HOME}/.zshrc.goenv
+[ -f ${HOME}/.zshrc.volta ]     && source ${HOME}/.zshrc.volta
 [ -f ${HOME}/.zshrc.prompt ]    && source ${HOME}/.zshrc.prompt
 
 # The next line updates PATH for the Google Cloud SDK.

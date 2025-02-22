@@ -1,6 +1,5 @@
 #zmodload zsh/zprof && zprof
 
-
 # compinit
 _compinit() {
 	local re_initialize=0
@@ -19,8 +18,4 @@ _compinit() {
 	fi
 }
 _compinit
-
-# volta(node)
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 
