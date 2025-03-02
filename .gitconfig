@@ -9,8 +9,8 @@
 	st = status
   # ログを表示する
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
-  # 今日コミットした変更を表示する
-	today = log --since=midnight --author='Yuki Adachi' --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all --oneline --decorate
+  # history
+	day = "!f() { days=${1:-1}; repo_url=\"https://github.com/$(git org)/$(git repository)/commit/\"; git log --since=\"$days days ago\" --author='Yuki Adachi' --pretty=format:\"%ad | ${repo_url}%h | %s [%an]\" --date=iso --all; }; f"
   # fetch & rebase
 	f                 = "!git fetch --all --prune && git rebase origin/$(git branch-name)"
   # push & open github
@@ -18,13 +18,13 @@
   # 現在のリポジトリを表示する
 	repository        = "!git remote -v|grep origin|grep fetch|awk -F '.git ' '{print $1}'|awk -F '/' '{print $NF}'"
   # 現在のプロジェクト(org)を表示する
-	project           = "!git remote -v|grep origin|grep fetch|awk -F 'https://github.com/|@github.com:|@bitbucket.org:' '{print $2}'|awk -F '/' '{print $1}'"
+	org               = "!git remote -v|grep origin|grep fetch|awk -F 'https://github.com/|@github.com:|@bitbucket.org:' '{print $2}'|awk -F '/' '{print $1}'"
   # 現在のブランチ名を表示する
 	branch-name       = "!git rev-parse --abbrev-ref HEAD"
   # 現在のgit hashを表示する
 	short-hash        = "!git rev-parse --short HEAD"
-  # 現在の$project/$repository/$branchのURLを表示する
-	url-github        = "!echo https://github.com/$(git project)/$(git repository)/tree/$(git branch-name)"
+  # 現在の$org/$repository/$branchのURLを表示する
+	url-github        = "!echo https://github.com/$(git org)/$(git repository)/tree/$(git branch-name)"
   # master|mainをcheckoutする
 	master            = "!git checkout master 2>/dev/null || git checkout main"
   # main|masterをcheckoutする

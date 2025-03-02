@@ -1,3 +1,4 @@
+# 正しいコマンドは緑色、存在しないコマンドは赤色で表示するなど
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi

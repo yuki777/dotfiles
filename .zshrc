@@ -11,13 +11,3 @@
 [ -f ${HOME}/.zshrc.mysql    ]  && source ${HOME}/.zshrc.mysql
 [ -f ${HOME}/.zshrc.history  ]  && source ${HOME}/.zshrc.history
 
-# Bind keys
-bindkey '^A' beginning-of-line
-bindkey '^E' end-of-line
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Applications/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Applications/google-cloud-sdk/completion.zsh.inc'; fi
-

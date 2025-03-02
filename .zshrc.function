@@ -5,20 +5,11 @@ function vimo(){
 
 # http://qiita.com/jpshadowapps/items/3fbf817bdd14c48e2d54
 function vip {
-    vim $(grep -in ${1} **/*.php | grep -v "[0-9]:\s*//" | peco | awk -F ":" '{print "-c "$2" "$1}')
+    vim $(grep -rin ${1} --include="*.php" | grep -v "[0-9]:\s*//" | peco | awk -F ":" '{print "-c "$2" "$1}')
 }
 
 function vit {
-    vim $(grep -in ${1} **/*.twig | grep -v "[0-9]:\s*//" | peco | awk -F ":" '{print "-c "$2" "$1}')
-}
-
-# w3mでALC検索 ex : alc hoge
-function alc() {
-    if [ $# != 0 ]; then
-        w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa"
-    else
-        w3m "http://www.alc.co.jp/"
-    fi
+    vim $(grep -rin ${1} --include="*.twig" | grep -v "[0-9]:\s*//" | peco | awk -F ":" '{print "-c "$2" "$1}')
 }
 
 # ex : php-unserialize PhpSerialized.text
@@ -74,22 +65,8 @@ function peco-cdr () {
     zle clear-screen
 }
 zle -N peco-cdr
-bindkey '^@' peco-cdr
-
-# git add
-function peco-select-git-add() {
-    local SELECTED_FILE_TO_ADD="$(git status --porcelain | \
-                                  peco --query "$LBUFFER" | \
-                                  awk -F ' ' '{print $NF}')"
-    if [ -n "$SELECTED_FILE_TO_ADD" ]; then
-      BUFFER="git add $(echo "$SELECTED_FILE_TO_ADD" | tr '\n' ' ')"
-      CURSOR=$#BUFFER
-    fi
-    zle accept-line
-    # zle clear-screen
-}
-zle -N peco-select-git-add
-bindkey "^g" peco-select-git-add
+#bindkey '^@' peco-cdr
+bindkey '^u' peco-cdr
 
 # git branch
 function peco-git-recent-branches () {
@@ -122,13 +99,5 @@ function urlencode(){
 }
 function urldecode(){
     php -r "echo urldecode('$1');"
-}
-
-function git-myhist(){
-    if [ $# != 0 ];then
-        git log --date=iso --pretty=format:"[%ad] %h %an : %s" --author="yuki777"|grep $*                |awk '{$1="";$2="";$3="";$4="http://xxx/commits/"$4;$5="";$6="";$7="";print $0}'
-    else
-        git log --date=iso --pretty=format:"[%ad] %h %an : %s" --author="yuki777"|grep "`date +%Y-%m-%d`"|awk '{$1="";$2="";$3="";$4="http://xxx/commits/"$4;$5="";$6="";$7="";print $0}'
-    fi
 }
 
