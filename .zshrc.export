@@ -4,7 +4,8 @@ export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=vim
 export SVN_EDITOR=vim
 export HGEDITOR=vim
-export TERM=screen-256color
+#export TERM=screen-256color
+export TERM=xterm-256color
 export HOMEBREW_NO_AUTO_UPDATE=1
 export DD_INSTRUMENTATION_TELEMETRY_ENABLED=0
 

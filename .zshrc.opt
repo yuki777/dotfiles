@@ -3,7 +3,6 @@ setopt list_packed
 setopt noautoremoveslash
 setopt nolistbeep
 setopt complete_aliases     # aliased ls needs if file/dir completions work
-setopt APPEND_HISTORY         # .zsh-history を上書きではなく追加
 setopt AUTO_CD                # ディレクトリ名だけを入力した時にそこに cd する
 setopt AUTO_LIST              # 候補が複数ある時に自動的に一覧を出す
 setopt AUTO_MENU              # TAB で順に補完候補を切り替える
@@ -14,15 +13,8 @@ setopt AUTO_PARAM_KEYS        # カッコの対応などを自動的に補完
 setopt CORRECT                # コマンドのスペルチェック
 #setopt CORRECT_ALL            # 対象のファイルもスペルチェックをする
 setopt EXTENDED_GLOB          # 拡張補完。ファイル名で #, ~, ^ の 3 文字を正規表現として扱う
-setopt EXTENDED_HISTORY       # zsh の開始, 終了時刻をヒストリファイルに書き込む
 #setopt GLOB_DOTS              # . で開始するファイル名にマッチさせるとき、先頭に明示的に . を指定する必要がなくなる。
 #setopt HASH_CMDS              # 各コマンドが実行されるときにパスをハッシュに入れる
-#setopt HIST_EXPIRE_DUPS_FIRST # ヒストリリストに追加されるコマンド行が古いものと同じなら古いものを削除する
-#setopt HIST_NO_STORE          # history コマンドを history に保存しない
-#setopt HIST_IGNORE_DUPS       # 直前と同じコマンドをヒストリに追加しない
-setopt HIST_REDUCE_BLANKS     # 余分な空白は詰めて記録
-#setopt HIST_SAVE_NO_DUPS      # ヒストリファイルに書き出すときに、古いコマンドと同じものは無視する
-#setopt INC_APPEND_HISTORY     # 履歴をインクリメンタルに追加
 setopt LIST_TYPES             # 補完候補一覧でファイルの種別をマーク表示
 setopt MARK_DIRS              # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
 setopt NUMERIC_GLOB_SORT      # 数字を数値と解釈してソートする
@@ -30,9 +22,7 @@ setopt NOBEEP                 # ビープを鳴らさない
 #setopt NO_FLOW_CONTROL        # disable C-q, C-s
 #setopt PROMPT_SUBST           # PROMPT 変数に対して変数展開、コマンド置換、算術展開を施す
 #setopt RM_STAR_WAIT           # rm * を実行する前に確認
-setopt SHARE_HISTORY          # 履歴の共有
 #setopt EQUALS                 # =command を command のパス名に展開する
-#setopt HIST_VERIFY            # ヒストリを呼び出してから実行する間に一旦編集
 #setopt LIST_ROWS_FIRST        # 補完リストを水平にソートする
 #setopt LONG_LIST_JOBS         # 内部コマンド jobs の出力をデフォルトで jobs -l にする
 setopt PRINT_EIGHT_BIT        # 出力時8ビットを通す
@@ -42,4 +32,3 @@ setopt PUSHD_IGNORE_DUPS      # 同じディレクトリを pushd しない
 setopt AUTO_PUSHD              # cd 時に自動で push. cd -[TAB]
 setopt MAGIC_EQUAL_SUBST      # --prefix=/usr などの = 以降も補完
 setopt RM_STAR_SILENT         # http://zsh.sourceforge.net/Doc/Release/Options.html#index-NORMSTARSILENT
-setopt HIST_IGNORE_SPACE      # スペースで始まったコマンドはhistoryに記録しない

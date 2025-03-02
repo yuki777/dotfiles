@@ -8,6 +8,6 @@ local CYAN=$'%{\e[36m%}'
 local WHITE=$'%{\e[1;37m%}'
 local DEFAULT=$'%{\e[1;m%}'
 local RAINBOW=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
-PROMPT="# ${WHITE}%D{%Y-%m-%d %H:%M:%S} %n${BLUE}@%M${WHITE}:%/${reset_color}
+PROMPT="# ${GREEN}%D{%Y-%m-%d %H:%M:%S} %n${BLUE}@%M${WHITE}:%/${reset_color}
 "
 setopt prompt_subst
