@@ -19,8 +19,6 @@ GTAGS
 tmux-client-*.log
 .envrc
 .config/nvim/nvim
-.config/starship.toml
-.config/starship/custom.toml
 .prettierignore
 .php-version
 .DS_Store
