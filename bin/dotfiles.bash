@@ -31,6 +31,7 @@ ln -sf dotfiles/.zshrc.phpenv
 ln -sf dotfiles/.zshrc.goenv
 ln -sf dotfiles/.zshrc.volta
 ln -sf dotfiles/.zshrc.starship
+ln -sf dotfiles/.zshrc.history
 
 # others
 ln -fs dotfiles/.tmux.conf
