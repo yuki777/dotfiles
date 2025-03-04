@@ -2,14 +2,14 @@
 export HISTFILE=~/.zsh_history
 export HISTSIZE=100000
 export SAVEHIST=100000
-#setopt APPEND_HISTORY         # .zsh-history を上書きではなく追加
-#setopt EXTENDED_HISTORY       # zsh の開始, 終了時刻をヒストリファイルに書き込む
-##setopt HIST_EXPIRE_DUPS_FIRST # ヒストリリストに追加されるコマンド行が古いものと同じなら古いものを削除する
-##setopt HIST_NO_STORE          # history コマンドを history に保存しない
-##setopt HIST_IGNORE_DUPS       # 直前と同じコマンドをヒストリに追加しない
-#setopt HIST_REDUCE_BLANKS     # 余分な空白は詰めて記録
-##setopt HIST_SAVE_NO_DUPS      # ヒストリファイルに書き出すときに、古いコマンドと同じものは無視する
-##setopt INC_APPEND_HISTORY     # 履歴をインクリメンタルに追加
-#setopt SHARE_HISTORY          # 履歴の共有
-##setopt HIST_VERIFY            # ヒストリを呼び出してから実行する間に一旦編集
-#setopt HIST_IGNORE_SPACE      # スペースで始まったコマンドはhistoryに記録しない
+setopt APPEND_HISTORY         # .zsh-history を上書きではなく追加
+setopt EXTENDED_HISTORY       # zsh の開始, 終了時刻をヒストリファイルに書き込む
+#setopt HIST_EXPIRE_DUPS_FIRST # ヒストリリストに追加されるコマンド行が古いものと同じなら古いものを削除する
+#setopt HIST_NO_STORE          # history コマンドを history に保存しない
+#setopt HIST_IGNORE_DUPS       # 直前と同じコマンドをヒストリに追加しない
+setopt HIST_REDUCE_BLANKS     # 余分な空白は詰めて記録
+#setopt HIST_SAVE_NO_DUPS      # ヒストリファイルに書き出すときに、古いコマンドと同じものは無視する
+setopt INC_APPEND_HISTORY     # 履歴をインクリメンタルに追加
+setopt SHARE_HISTORY          # 履歴の共有
+#setopt HIST_VERIFY            # ヒストリを呼び出してから実行する間に一旦編集
+setopt HIST_IGNORE_SPACE      # スペースで始まったコマンドはhistoryに記録しない
