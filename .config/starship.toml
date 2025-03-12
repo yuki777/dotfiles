@@ -32,11 +32,11 @@ format = "[$user]($style)@"
 disabled = false
 show_always = true
 
-#[hostname]
-#ssh_only = false
-#format =  "[$hostname](yellow):"
-#disabled = false
-#trim_at = ""
+[hostname]
+ssh_only = false
+format =  "[$hostname](yellow):"
+disabled = false
+trim_at = ""
 
 [directory]
 truncation_length = 10
