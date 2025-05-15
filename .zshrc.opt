@@ -48,3 +48,7 @@ add-zsh-hook chpwd chpwd_recent_dirs
 
 # タブ補完で大文字小文字を区別しない（小文字→大文字、大文字→小文字の両方に対応）
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# cdrの表示候補数を100に増やす
+zstyle ':chpwd:*' recent-dirs-max 100
+
