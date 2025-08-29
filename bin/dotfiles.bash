@@ -36,6 +36,7 @@ ln -sf dotfiles/.zshrc.history
 # others
 ln -fs dotfiles/.tmux.conf
 ln -fs dotfiles/.tmux.conf.local
+ln -fs dotfiles/.gitmux.conf
 ln -fs dotfiles/.ctags
 ln -fs dotfiles/.gtags
 ln -fs dotfiles/.tigrc
