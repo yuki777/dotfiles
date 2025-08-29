@@ -32,6 +32,8 @@ setopt PUSHD_IGNORE_DUPS      # 同じディレクトリを pushd しない
 setopt AUTO_PUSHD              # cd 時に自動で push. cd -[TAB]
 setopt MAGIC_EQUAL_SUBST      # --prefix=/usr などの = 以降も補完
 setopt RM_STAR_SILENT         # http://zsh.sourceforge.net/Doc/Release/Options.html#index-NORMSTARSILENT
+setopt DOTGLOB  # 隠しファイルもグロブ対象にする
+setopt NO_NOMATCH # マッチしない場合のエラーをやめる
 
 # Bind keys
 bindkey '^A' beginning-of-line

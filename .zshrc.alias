@@ -5,6 +5,7 @@ alias vim.='vim "+NERDTree ."'
 alias vimrc='vim -p ~/.vimrc*'
 alias zshrc='vim -p ~/.zprofile ~/.zshrc* ~/.zshenv'
 alias gitst="git st -s|awk '{print \$2}'|tr '\n' ' '|xargs echo"
+alias awsume=". awsume"
 
 case "${OSTYPE}" in
 darwin*)

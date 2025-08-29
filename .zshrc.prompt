@@ -1,13 +1,13 @@
-#local BLACK=$'%{\e[30m%}'
-#local RED=$'%{\e[31m%}'
-#local GREEN=$'%{\e[32m%}'
-#local YELLOW=$'%{\e[33m%}'
-#local BLUE=$'%{\e[34m%}'
-#local PURPLE=$'%{\e[35m%}'
-#local CYAN=$'%{\e[36m%}'
-#local WHITE=$'%{\e[1;37m%}'
-#local DEFAULT=$'%{\e[1;m%}'
-#local RAINBOW=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
-#PROMPT="# ${GREEN}%D{%Y-%m-%d %H:%M:%S} %n${BLUE}@%M${WHITE}:%/${reset_color}
-#"
-#setopt prompt_subst
+local BLACK=$'%{\e[30m%}'
+local RED=$'%{\e[31m%}'
+local GREEN=$'%{\e[32m%}'
+local YELLOW=$'%{\e[33m%}'
+local BLUE=$'%{\e[34m%}'
+local PURPLE=$'%{\e[35m%}'
+local CYAN=$'%{\e[36m%}'
+local WHITE=$'%{\e[1;37m%}'
+local DEFAULT=$'%{\e[1;m%}'
+local RAINBOW=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
+PROMPT="# ${GREEN}%D{%Y-%m-%d %H:%M:%S} %n${BLUE}@%M${WHITE}:%/${reset_color}
+"
+setopt prompt_subst

@@ -36,28 +36,20 @@ function hi(){
     fi
 }
 
-# http://qiita.com/kp_ohnishi/items/3009e2083831af3a7c5c
-function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(\history -n 1 | \
-        eval $tac | \
-        peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
+function history-peco() {
+  local tac_cmd
+  if command -v tac >/dev/null 2>&1; then
+    tac_cmd="tac"
+  else
+    tac_cmd="tail -r"
+  fi
+  BUFFER=$(history -n 1 | $tac_cmd | peco --query "$LBUFFER")
 }
-zle -N peco-select-history
-bindkey '^r' peco-select-history
+zle -N history-peco
+bindkey '^r' history-peco
 
-# cdr
-# http://fromatom.hatenablog.com/entry/2014/11/12/195155
-# http://blog.shibayu36.org/entry/2014/06/27/223538
-function peco-cdr () {
-    local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
+function peco-cdr() {
+    local selected_dir=$(cdr -l | awk '{ print $2 }' | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
@@ -65,14 +57,12 @@ function peco-cdr () {
     zle clear-screen
 }
 zle -N peco-cdr
-#bindkey '^@' peco-cdr
 bindkey '^u' peco-cdr
 
-# git branch
-function peco-git-recent-branches () {
+function peco-git-recent-branches() {
     local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \
         perl -pne 's{^refs/heads/}{}' | \
-        peco)
+        peco --query "$LBUFFER")
     if [ -n "$selected_branch" ]; then
         BUFFER="git checkout ${selected_branch}"
         zle accept-line
@@ -101,3 +91,27 @@ function urldecode(){
     php -r "echo urldecode('$1');"
 }
 
+function bedrock-claude(){
+	CLAUDE_CODE_USE_BEDROCK=1 AWS_REGION='us-east-1' AWS_PROFILE='3rd-bedrock-session' ANTHROPIC_MODEL='us.anthropic.claude-opus-4-1-20250805-v1:0' claude
+	#CLAUDE_CODE_USE_BEDROCK=1 AWS_REGION='us-east-1' AWS_PROFILE='3rd-bedrock-session' ANTHROPIC_MODEL='us.anthropic.claude-opus-4-20250514-v1:0' claude
+	#CLAUDE_CODE_USE_BEDROCK=1 AWS_REGION='us-east-1' AWS_PROFILE='3rd-bedrock-session' ANTHROPIC_MODEL='us.anthropic.claude-sonnet-4-20250514-v1:0' claude
+}
+
+# https://developers.google.com/search/docs/crawling-indexing/verifying-googlebot?hl=ja#manual
+function is-googlebot-ip() {
+    if [ $# -eq 0 ]; then
+        echo "使用方法: is-googlebot-ip <IPアドレス> [IPアドレス2 ...]" >&2
+        return 2  # 引数エラー
+    fi
+    local overall_status=0
+    for target_ip in "$@"; do
+        local domain=$(host $target_ip 2>/dev/null | grep -oE '[^ ]+\.(googlebot|google|googleusercontent)\.com\.$' | sed 's/\.$//')
+        if [ -n "$domain" ] && host $domain 2>/dev/null | grep -q "has address $target_ip"; then
+            echo "✅ $target_ip は正規のGooglebot IPです (Domain: $domain)"
+        else
+            echo "❌ $target_ip はGooglebot IPではありません"
+            overall_status=1
+        fi
+    done
+    return $overall_status
+}
